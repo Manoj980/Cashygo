@@ -1967,7 +1967,7 @@ button {
 
 @media (max-width: 480px) {
     .hero h1 {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .products-grid {
@@ -1998,7 +1998,7 @@ button {
     }
 
     .features-row {
-        gap: 10px;
+        gap: 5px;
     }
 
     .value-stats {
@@ -2007,6 +2007,11 @@ button {
 
     .blog-grid {
         grid-template-columns: 1fr;
+    }
+    .device-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
     }
 }
 
