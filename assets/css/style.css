@@ -55,7 +55,7 @@ button {
 .nav-top {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 5px;
     height: 55px;
     display: flex;
     align-items: center;
@@ -293,8 +293,8 @@ button {
     gap: 10px;
     background: var(--gray-50);
     border-radius: 50px;
-    padding: 6px 14px;
-    margin-bottom: 18px;
+    /* padding: 6px 14px; */
+    /* margin-bottom: 18px; */
 }
 
 .avatars {
@@ -324,11 +324,11 @@ button {
 }
 
 .hero h1 {
-    font-family: 'DM Serif Display', serif;
+    /* font-family: 'DM Serif Display', serif; */
     font-size: 30px;
     line-height: 1.15;
     color: #0c2c1f;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 .hero h1 em {
@@ -347,7 +347,7 @@ button {
     display: flex;
     gap: 18px;
     flex-wrap: wrap;
-    margin-bottom: 24px;
+    margin-bottom: 4px;
 }
 
 .feature-chip {
@@ -484,7 +484,7 @@ button {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 14px;
-    margin-top: 20px;
+    /* margin-top: 20px; */
 }
 
 .stat-item {
@@ -537,7 +537,7 @@ button {
 .section {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 14px 24px;
+    padding: 5px 10px;
 }
 
 .section-head {
@@ -548,7 +548,7 @@ button {
     font-size: 26px;
     font-weight: 700;
     color: #1a3c2c;
-    margin-bottom: 6px;
+    /* margin-bottom: 6px; */
 }
 
 .section-head p {
@@ -568,7 +568,7 @@ button {
     gap: 16px;
     overflow-x: auto;
     scroll-behavior: smooth;
-    padding: 8px 4px 20px;
+    /* padding: 8px 4px 20px; */
     scrollbar-width: none;
 }
 
@@ -689,7 +689,7 @@ button {
 .product-storage {
     font-size: 12px;
     color: #7c6e5d;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
 }
 
 .product-label {
@@ -703,7 +703,7 @@ button {
     font-size: 20px;
     font-weight: 800;
     color: #22c55e;
-    margin: 4px 0 12px;
+    /* margin: 4px 0 12px; */
 }
 
 .product-btn {
@@ -864,10 +864,9 @@ button {
 }
 
 .how-header h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 32px;
+    font-size: 20px;
     color: var(--green-dark);
-    margin-bottom: 12px;
+    /* margin-bottom: 12px; */
 }
 
 .how-header h2 em {
@@ -943,7 +942,7 @@ button {
     background: var(--white);
     border: 1px solid var(--gray-100);
     border-radius: var(--radius);
-    padding: 24px 20px;
+    padding: 5px 10px;
     transition: box-shadow .3s, transform .3s;
 }
 
@@ -1410,7 +1409,7 @@ button {
 }
 
 .faq-header h2 {
-    font-size: 25px;
+    font-size: 22px;
     font-weight: 700;
     color: var(--text);
 }
@@ -1936,7 +1935,7 @@ button {
 @media (max-width: 576px) {
     .stats-bar {
         grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        gap: 5px;
     }
 
     .stat-item {
@@ -2024,6 +2023,9 @@ button {
             width: 100%;
             height: 100%;
             /* object-fit: contain; */
+        }
+        .hero-desc {
+            font-size: 14px;
         }
 
         .device-item--more .device-icon {

@@ -32,8 +32,6 @@
     }
 
     body {
-      margin: 0;
-      min-height: 100vh;
       background: linear-gradient(180deg, #ffffff 0, var(--bg) 260px, var(--bg) 100%);
       color: var(--ink);
       font-family: "DM Sans", Arial, sans-serif;
@@ -51,8 +49,9 @@
       --white: #fff;
     }
 
-    .page {
-      width: min(1240px, calc(100% - 48px));
+    /* ── cashygo-main-section: wraps entire page body ── */
+    .cashygo-main-section {
+      width: min(1280px, calc(100% - 48px));
       margin: 0 auto;
       padding: 24px 0 48px;
     }
@@ -62,9 +61,13 @@
       align-items: center;
       gap: 8px;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 10px;
       font-weight: 600;
-      margin-bottom: 18px;
+    }
+
+    .crumbs a {
+      color: inherit;
+      text-decoration: none;
     }
 
     .crumbs .active {
@@ -129,8 +132,7 @@
     }
 
     h1 {
-      margin: 0 0 10px;
-      font-size: clamp(28px, 4vw, 42px);
+      font-size: 20px;
       line-height: 1.08;
       font-weight: 800;
     }
@@ -140,7 +142,6 @@
     }
 
     .subtitle {
-      margin: 0 0 10px;
       color: #4d5562;
       max-width: 640px;
       font-size: 15px;
@@ -206,17 +207,11 @@
       gap: 15px;
       align-items: start;
       padding: 5px 10px;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: var(--white);
-      box-shadow: 0 8px 26px rgba(17, 24, 39, .07);
-      transition: border-color .2s ease, box-shadow .2s ease, opacity .2s ease;
     }
 
     .q-card.active,
     .q-card.done {
       border-color: #d7eae3;
-      box-shadow: 0 12px 32px rgba(17, 24, 39, .08);
     }
 
     .q-card.locked {
@@ -238,7 +233,6 @@
       display: flex;
       align-items: flex-start;
       gap: 10px;
-      /* margin-bottom: 14px; */
     }
 
     .q-badge {
@@ -256,8 +250,7 @@
     }
 
     .q-title {
-      margin: 3px 0 0;
-      font-size: 15px;
+      font-size: 14px;
       line-height: 1.25;
       font-weight: 700;
     }
@@ -500,6 +493,7 @@
       margin-bottom: 6px;
     }
 
+    /* ── Modals ── */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -657,7 +651,6 @@
       width: 82px;
       height: 116px;
       object-fit: contain;
-      /* filter: drop-shadow(0 10px 12px rgba(0, 0, 0, .13)); */
     }
 
     .screen-card-img i {
@@ -669,7 +662,6 @@
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      /* background: var(--green); */
       color: #fff;
       font-size: 18px;
     }
@@ -783,7 +775,15 @@
       font-weight: 700;
     }
 
+    /* ── Responsive ── */
+
+    /* iPad / small laptop: 768px – 1100px */
     @media (max-width: 1100px) {
+      .cashygo-main-section {
+        width: calc(100% - 40px);
+        padding: 20px 0 40px;
+      }
+
       .page-head {
         display: block;
       }
@@ -791,6 +791,7 @@
       .flow-steps {
         min-width: 0;
         margin-top: 18px;
+        grid-template-columns: repeat(3, 1fr);
       }
 
       .layout {
@@ -802,7 +803,7 @@
       }
 
       .screen-grid {
-        /* grid-template-columns: repeat(2, minmax(0, 1fr)); */
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .modal {
@@ -814,37 +815,33 @@
       }
     }
 
-    @media (max-width: 760px) {
-
-      .page {
+    /* Large tablet portrait: 600px – 767px */
+    @media (max-width: 767px) {
+      .cashygo-main-section {
         width: 100%;
-        padding: 16px;
+        padding: 16px 16px 40px;
       }
 
-      .crumbs {
-        flex-wrap: wrap;
-      }
-
-      .progress-row {
-        grid-template-columns: 1fr;
+      .page-head {
+        gap: 16px;
       }
 
       .flow-steps {
-        /* grid-template-columns: 1fr; */
+        display: none;
+        /* hidden on mobile as per original */
+      }
+
+      .layout {
+        gap: 16px;
       }
 
       .q-card,
       .q-card.active {
         grid-template-columns: 1fr;
         min-height: auto;
-        padding: 20px;
       }
 
       .q-icon-box {
-        width: 78px;
-        height: 78px;
-        border-radius: 18px;
-        font-size: 36px;
         display: none;
       }
 
@@ -854,22 +851,88 @@
       }
 
       .answers {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 12px;
       }
 
       .answer {
         width: 100%;
         min-width: 0;
+        font-size: 16px;
+      }
+
+      .device img {
+        height: 160px;
+      }
+
+      .device h2 {
+        font-size: 22px;
+      }
+
+      .device p {
+        font-size: 14px;
+      }
+
+      .price {
+        font-size: 32px;
+      }
+
+      .quote-label {
+        font-size: 13px;
+      }
+
+      .quote-price p {
+        font-size: 14px;
+      }
+
+      .stat strong {
+        font-size: 24px;
       }
 
       .trust {
         text-align: center;
+        gap: 14px;
+      }
+
+      .crumbs {
+        flex-wrap: wrap;
+      }
+
+      .progress-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .safe-line {
+        font-size: 14px;
+      }
+
+      .safe-line i {
+        font-size: 20px;
       }
 
       .screen-grid {
-        /* grid-template-columns: repeat(2, minmax(0, 1fr)); */
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px;
+      }
+
+      .screen-card {
+        min-height: 160px;
+        padding: 10px;
+        border-radius: 12px;
+      }
+
+      .screen-card-img {
+        min-height: 96px;
+      }
+
+      .screen-card-img img {
+        width: 58px;
+        height: 82px;
+      }
+
+      .screen-card-title {
+        font-size: 12px;
       }
 
       .modal-backdrop {
@@ -902,28 +965,49 @@
         max-height: calc(100vh - 92px);
       }
 
-      .screen-card {
-        min-height: 160px;
-        padding: 10px;
-        border-radius: 12px;
-      }
-
-      .screen-card-img {
-        min-height: 96px;
-      }
-
-      .screen-card-img img {
-        width: 58px;
-        height: 82px;
-      }
-
-      .screen-card-title {
-        font-size: 12px;
-      }
-
       .modal-submit {
         min-height: 48px;
         font-size: 15px;
+      }
+    }
+
+    /* Small mobile: up to 400px */
+    @media (max-width: 400px) {
+      .cashygo-main-section {
+        padding: 12px 12px 32px;
+      }
+
+      .answers {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-left: 10px;
+      }
+
+      .q-help {
+        margin-left: 10px;
+        font-size: 13px;
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .stat {
+        min-height: 72px;
+      }
+
+      .stat strong {
+        font-size: 20px;
+      }
+
+      .screen-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .finish {
+        font-size: 16px;
+        min-height: 48px;
       }
     }
   </style>
@@ -937,11 +1021,9 @@
       <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <i class="bi bi-list"></i>
       </button>
-
-      <a href="/" class="nav-logo" aria-label="Cashygo - Go to homepage">
+      <a href="/" class="nav-logo" aria-label="Cashygo – Go to homepage">
         <img src="assets/images/project-logo/logo-new.svg" alt="Cashygo logo" width="120" height="40">
       </a>
-
       <div class="nav-search" role="search">
         <div class="nav-city" id="cityPicker" tabindex="0" aria-haspopup="listbox" aria-label="Select city">
           <i class="bi bi-geo-alt-fill"></i>
@@ -956,10 +1038,9 @@
           </ul>
         </div>
         <label for="mainSearch" class="sr-only">Search devices</label>
-        <input type="search" id="mainSearch" name="search" placeholder="Search devices, brands..." autocomplete="off">
+        <input type="search" id="mainSearch" name="search" placeholder="Search devices, brands…" autocomplete="off">
         <div class="search-icon" aria-hidden="true"><i class="bi bi-search"></i></div>
       </div>
-
       <button class="nav-login" id="openLoginBtn" aria-label="Sign in to your account">
         <i class="bi bi-person-circle"></i>
         <span>Sign in</span>
@@ -979,7 +1060,6 @@
             <li><a href="vivo.html">Vivo</a></li>
           </ul>
         </div>
-
         <div class="dropdown" id="dropTablet">
           <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">Sell Tablet ⌵</button>
           <ul class="dropdown-menu">
@@ -990,7 +1070,6 @@
             <li><a href="realme-tab.html">Realme Tab</a></li>
           </ul>
         </div>
-
         <div class="dropdown" id="dropLaptop">
           <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">Sell Laptop ⌵</button>
           <ul class="dropdown-menu">
@@ -1001,7 +1080,6 @@
             <li><a href="acer.html">Acer</a></li>
           </ul>
         </div>
-
         <div class="dropdown" id="dropMac">
           <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">Sell Mac ⌵</button>
           <ul class="dropdown-menu">
@@ -1011,16 +1089,16 @@
             <li><a href="macbook-pro.html">MacBook Pro</a></li>
           </ul>
         </div>
-
         <button class="menu-link">Corporate Deals</button>
         <button class="menu-link">Price Calculator</button>
-        <button class="menu-link">Blog & Tips</button>
-        <button class="menu-link">Partner</button>
+        <a href="blogs.html" class="menu-link">Blog & Tips</a>
+        <a href="contact.html" class="menu-link">Contact</a>
       </div>
     </div>
   </nav>
 
-  <main class="page">
+  <!-- ── cashygo-main-section starts here ── -->
+  <main class="cashygo-main-section">
     <div class="crumbs" aria-label="Breadcrumb">
       <a href="brand.html">Sell phone</a><i class="bi bi-chevron-right"></i>
       <a href="Device_condation.html">Condition</a><i class="bi bi-chevron-right"></i>
@@ -1036,18 +1114,9 @@
       </div>
 
       <div class="flow-steps" aria-label="Steps">
-        <div class="flow-step">
-          <strong>1. Variant</strong>
-          <span>Storage and colour</span>
-        </div>
-        <div class="flow-step">
-          <strong>2. Condition</strong>
-          <span>Age and bill details</span>
-        </div>
-        <div class="flow-step">
-          <strong>3. Issues</strong>
-          <span>Functional checks</span>
-        </div>
+        <div class="flow-step"><strong>1. Variant</strong><span>Storage and colour</span></div>
+        <div class="flow-step"><strong>2. Condition</strong><span>Age and bill details</span></div>
+        <div class="flow-step"><strong>3. Issues</strong><span>Functional checks</span></div>
       </div>
     </section>
 
@@ -1057,26 +1126,26 @@
           <div class="pips" id="pips" aria-label="Question progress"></div>
           <div class="counter"><strong id="doneCount">0</strong> of <span id="totalCount">6</span> done</div>
         </div>
-        
-        <div class="questions" id="questions">
-          
-        </div>
-        <button class="finish" id="finishBtn" type="button" disabled>Complete Issue Check</button>
-        <div class="safe-line"><i class="bi bi-shield-lock"></i><strong>100% Safe & Secure</strong><span>Your data is
-            protected and will not be shared.</span></div>
 
-            
+        <div class="questions" id="questions"></div>
+
+        <button class="finish" id="finishBtn" type="button" disabled>Complete Issue Check</button>
+        <div class="safe-line">
+          <i class="bi bi-shield-lock"></i>
+          <strong>100% Safe &amp; Secure</strong>
+          <span>Your data is protected and will not be shared.</span>
+        </div>
       </section>
 
       <aside>
         <div class="quote">
           <div class="device">
-            <img id="deviceImage" src="assets/images/Mobile_brand/iPhone 17 Pro Max.avif" alt="iPhone 15" class="cashygo-phone">
+            <img id="deviceImage" src="assets/images/Mobile_brand/iPhone 17 Pro Max.avif" alt="iPhone 15"
+              class="cashygo-phone">
             <div>
               <h2 id="deviceName">Apple iPhone</h2>
               <p id="deviceMeta">Storage - Colour</p>
             </div>
-            
           </div>
           <div class="quote-price">
             <div class="quote-label">Estimated Quote</div>
@@ -1085,9 +1154,8 @@
           </div>
           <div class="stats">
             <div class="stat"><strong id="answeredStat">0</strong><span>Answered</span></div>
-          <div class="stat"><strong id="remainingStat">6</strong><span>Remaining</span></div>
+            <div class="stat"><strong id="remainingStat">6</strong><span>Remaining</span></div>
           </div>
-          <!-- <button class="finish" id="finishBtn" type="button" disabled>Complete Issue Check</button> -->
         </div>
         <div class="trust">
           <div><i class="bi bi-shield-check"></i><span>Secure</span>100% safe</div>
@@ -1097,7 +1165,9 @@
       </aside>
     </div>
   </main>
+  <!-- ── cashygo-main-section ends here ── -->
 
+  <!-- Modals (outside main, at body level) -->
   <div class="modal-backdrop" id="screenPopup" role="dialog" aria-modal="true" aria-labelledby="screenPopupTitle">
     <div class="modal screen-modal">
       <div class="modal-head">
@@ -1174,8 +1244,9 @@
     </div>
   </div>
 
+
   <!-- FAQ -->
-  <section class="section" style="max-width:800px" aria-label="Frequently asked questions">
+  <section class="section" aria-label="Frequently asked questions">
     <div class="faq-header">
       <h2>Frequently <span>Asked</span> Questions</h2>
       <p>Everything you need to know before selling your device</p>
@@ -1198,7 +1269,7 @@
       <div class="faq-answer">Payment is processed instantly after device verification during pickup.</div>
     </details>
   </section>
-   <!-- FOOTER -->
+  <!-- FOOTER -->
   <footer class="footer" role="contentinfo">
     <div class="footer-inner">
       <div class="footer-grid">
@@ -1397,20 +1468,14 @@
 
     function readSelection() {
       const fallback = { model: "iPhone 15", storage: "128 GB", color: "Black", price: 64000, image: "assets/images/brand-img/iphone-air.jpeg" };
-      try {
-        return { ...fallback, ...JSON.parse(sessionStorage.getItem("cashygoSelection") || "{}") };
-      } catch (error) {
-        return fallback;
-      }
+      try { return { ...fallback, ...JSON.parse(sessionStorage.getItem("cashygoSelection") || "{}") }; }
+      catch (error) { return fallback; }
     }
 
     function readCondition() {
       const fallback = { age: "0 to 3 months", billBox: "Not selected" };
-      try {
-        return { ...fallback, ...JSON.parse(sessionStorage.getItem("cashygoCondition") || "{}") };
-      } catch (error) {
-        return fallback;
-      }
+      try { return { ...fallback, ...JSON.parse(sessionStorage.getItem("cashygoCondition") || "{}") }; }
+      catch (error) { return fallback; }
     }
 
     function answeredCount() {
@@ -1428,19 +1493,11 @@
         const answer = state.answers[question.id];
         if (answer) price += question.score[answer] || 0;
       });
-      state.screenIssue.forEach((issue) => {
-        price -= issue.price;
-      });
-      state.bodyIssues.forEach((issue) => {
-        price -= issue.price;
-      });
-      state.touchIssue.forEach((issue) => {
-        price -= issue.price;
-      });
+      state.screenIssue.forEach((issue) => { price -= issue.price; });
+      state.bodyIssues.forEach((issue) => { price -= issue.price; });
+      state.touchIssue.forEach((issue) => { price -= issue.price; });
       if (state.warrantyDetail) price -= state.warrantyDetail.price;
-      state.batteryIssue.forEach((issue) => {
-        price -= issue.price;
-      });
+      state.batteryIssue.forEach((issue) => { price -= issue.price; });
       return Math.max(price, 0);
     }
 
@@ -1449,9 +1506,7 @@
       questions.forEach((question) => {
         const answer = state.answers[question.id];
         const amount = answer ? question.score[answer] || 0 : 0;
-        if (amount < 0) {
-          deductions.push({ label: question.label, amount: Math.abs(amount) });
-        }
+        if (amount < 0) deductions.push({ label: question.label, amount: Math.abs(amount) });
       });
       state.screenIssue.forEach((issue) => deductions.push({ label: issue.title, amount: issue.price }));
       state.bodyIssues.forEach((issue) => deductions.push({ label: issue.title, amount: issue.price }));
@@ -1503,18 +1558,10 @@
     }
 
     function resetDependentPopup(answerId, answerValue) {
-      if (answerId === "screen" && answerValue !== "Yes") {
-        state.screenIssue = [];
-      }
-      if (answerId === "touch" && answerValue !== "Yes") {
-        state.touchIssue = [];
-      }
-      if (answerId === "warranty" && answerValue !== "Yes") {
-        state.bodyIssues = [];
-      }
-      if (answerId === "battery" && answerValue !== "Yes") {
-        state.batteryIssue = [];
-      }
+      if (answerId === "screen" && answerValue !== "Yes") state.screenIssue = [];
+      if (answerId === "touch" && answerValue !== "Yes") state.touchIssue = [];
+      if (answerId === "warranty" && answerValue !== "Yes") state.bodyIssues = [];
+      if (answerId === "battery" && answerValue !== "Yes") state.batteryIssue = [];
     }
 
     function selectedSummary(items, label) {
@@ -1535,17 +1582,14 @@
             </span>
             <span class="screen-card-title">${issue.title}</span>
             <span class="screen-card-price">-${rupee.format(issue.price)}</span>
-          </button>
-        `;
+          </button>`;
       }).join("");
 
       screenIssueGrid.querySelectorAll("[data-screen-issue]").forEach((card) => {
         card.addEventListener("click", () => {
           const issue = screenIssues.find((item) => item.id === card.dataset.screenIssue);
           const selected = state.screenIssue.some((item) => item.id === issue.id);
-          state.screenIssue = selected
-            ? state.screenIssue.filter((item) => item.id !== issue.id)
-            : [...state.screenIssue, issue];
+          state.screenIssue = selected ? state.screenIssue.filter((item) => item.id !== issue.id) : [...state.screenIssue, issue];
           screenIssueSubmit.disabled = !state.screenIssue.length;
           renderScreenIssues();
           renderProgress();
@@ -1553,15 +1597,8 @@
       });
     }
 
-    function openScreenPopup() {
-      renderScreenIssues();
-      screenIssueSubmit.disabled = !state.screenIssue.length;
-      screenPopup.classList.add("show");
-    }
-
-    function closeScreenPopup() {
-      screenPopup.classList.remove("show");
-    }
+    function openScreenPopup() { renderScreenIssues(); screenIssueSubmit.disabled = !state.screenIssue.length; screenPopup.classList.add("show"); }
+    function closeScreenPopup() { screenPopup.classList.remove("show"); }
 
     function renderBodyIssues() {
       bodyIssueGrid.innerHTML = bodyIssues.map((issue) => {
@@ -1575,17 +1612,14 @@
             </span>
             <span class="screen-card-title">${issue.title}</span>
             <span class="screen-card-price">-${rupee.format(issue.price)}</span>
-          </button>
-        `;
+          </button>`;
       }).join("");
 
       bodyIssueGrid.querySelectorAll("[data-body-issue]").forEach((card) => {
         card.addEventListener("click", () => {
           const issue = bodyIssues.find((item) => item.id === card.dataset.bodyIssue);
           const selected = state.bodyIssues.some((item) => item.id === issue.id);
-          state.bodyIssues = selected
-            ? state.bodyIssues.filter((item) => item.id !== issue.id)
-            : [...state.bodyIssues, issue];
+          state.bodyIssues = selected ? state.bodyIssues.filter((item) => item.id !== issue.id) : [...state.bodyIssues, issue];
           bodyIssueText.textContent = selectedSummary(state.bodyIssues, "body issue");
           bodyIssueSubmit.disabled = !state.bodyIssues.length;
           renderBodyIssues();
@@ -1594,16 +1628,8 @@
       });
     }
 
-    function openBodyPopup() {
-      renderBodyIssues();
-      bodyIssueText.textContent = selectedSummary(state.bodyIssues, "body issue");
-      bodyIssueSubmit.disabled = !state.bodyIssues.length;
-      bodyPopup.classList.add("show");
-    }
-
-    function closeBodyPopup() {
-      bodyPopup.classList.remove("show");
-    }
+    function openBodyPopup() { renderBodyIssues(); bodyIssueText.textContent = selectedSummary(state.bodyIssues, "body issue"); bodyIssueSubmit.disabled = !state.bodyIssues.length; bodyPopup.classList.add("show"); }
+    function closeBodyPopup() { bodyPopup.classList.remove("show"); }
 
     function renderTouchIssues() {
       touchIssueGrid.innerHTML = touchIssues.map((issue) => {
@@ -1618,17 +1644,14 @@
             <span class="screen-card-title">${issue.title}</span>
             <span class="touch-card-desc">${issue.desc}</span>
             <span class="screen-card-price ${issue.price === 0 ? "free" : ""}">${issue.label}</span>
-          </button>
-        `;
+          </button>`;
       }).join("");
 
       touchIssueGrid.querySelectorAll("[data-touch-issue]").forEach((card) => {
         card.addEventListener("click", () => {
           const issue = touchIssues.find((item) => item.id === card.dataset.touchIssue);
           const selected = state.touchIssue.some((item) => item.id === issue.id);
-          state.touchIssue = selected
-            ? state.touchIssue.filter((item) => item.id !== issue.id)
-            : [...state.touchIssue, issue];
+          state.touchIssue = selected ? state.touchIssue.filter((item) => item.id !== issue.id) : [...state.touchIssue, issue];
           touchIssueText.textContent = selectedSummary(state.touchIssue, "touch issue");
           touchIssueSubmit.disabled = !state.touchIssue.length;
           renderTouchIssues();
@@ -1637,16 +1660,8 @@
       });
     }
 
-    function openTouchPopup() {
-      renderTouchIssues();
-      touchIssueText.textContent = selectedSummary(state.touchIssue, "touch issue");
-      touchIssueSubmit.disabled = !state.touchIssue.length;
-      touchPopup.classList.add("show");
-    }
-
-    function closeTouchPopup() {
-      touchPopup.classList.remove("show");
-    }
+    function openTouchPopup() { renderTouchIssues(); touchIssueText.textContent = selectedSummary(state.touchIssue, "touch issue"); touchIssueSubmit.disabled = !state.touchIssue.length; touchPopup.classList.add("show"); }
+    function closeTouchPopup() { touchPopup.classList.remove("show"); }
 
     function renderWarrantyDetails() {
       warrantyGrid.innerHTML = warrantyDetails.map((detail) => {
@@ -1661,8 +1676,7 @@
             <span class="screen-card-title">${detail.title}</span>
             <span class="touch-card-desc">${detail.desc}</span>
             <span class="screen-card-price ${detail.price === 0 ? "free" : ""}">${detail.label}</span>
-          </button>
-        `;
+          </button>`;
       }).join("");
 
       warrantyGrid.querySelectorAll("[data-warranty-detail]").forEach((card) => {
@@ -1678,18 +1692,8 @@
       });
     }
 
-    function openWarrantyPopup() {
-      renderWarrantyDetails();
-      warrantyText.textContent = state.warrantyDetail
-        ? `${state.warrantyDetail.title} selected.`
-        : "Pick the closest match.";
-      warrantySubmit.disabled = !state.warrantyDetail;
-      warrantyPopup.classList.add("show");
-    }
-
-    function closeWarrantyPopup() {
-      warrantyPopup.classList.remove("show");
-    }
+    function openWarrantyPopup() { renderWarrantyDetails(); warrantyText.textContent = state.warrantyDetail ? `${state.warrantyDetail.title} selected.` : "Pick the closest match."; warrantySubmit.disabled = !state.warrantyDetail; warrantyPopup.classList.add("show"); }
+    function closeWarrantyPopup() { warrantyPopup.classList.remove("show"); }
 
     function renderBatteryIssues() {
       batteryIssueGrid.innerHTML = batteryIssues.map((issue) => {
@@ -1704,17 +1708,14 @@
             <span class="screen-card-title">${issue.title}</span>
             <span class="touch-card-desc">${issue.desc}</span>
             <span class="screen-card-price">${issue.label}</span>
-          </button>
-        `;
+          </button>`;
       }).join("");
 
       batteryIssueGrid.querySelectorAll("[data-battery-issue]").forEach((card) => {
         card.addEventListener("click", () => {
           const issue = batteryIssues.find((item) => item.id === card.dataset.batteryIssue);
           const selected = state.batteryIssue.some((item) => item.id === issue.id);
-          state.batteryIssue = selected
-            ? state.batteryIssue.filter((item) => item.id !== issue.id)
-            : [...state.batteryIssue, issue];
+          state.batteryIssue = selected ? state.batteryIssue.filter((item) => item.id !== issue.id) : [...state.batteryIssue, issue];
           batteryIssueText.textContent = selectedSummary(state.batteryIssue, "battery issue");
           batteryIssueSubmit.disabled = !state.batteryIssue.length;
           renderBatteryIssues();
@@ -1723,16 +1724,8 @@
       });
     }
 
-    function openBatteryPopup() {
-      renderBatteryIssues();
-      batteryIssueText.textContent = selectedSummary(state.batteryIssue, "battery issue");
-      batteryIssueSubmit.disabled = !state.batteryIssue.length;
-      batteryPopup.classList.add("show");
-    }
-
-    function closeBatteryPopup() {
-      batteryPopup.classList.remove("show");
-    }
+    function openBatteryPopup() { renderBatteryIssues(); batteryIssueText.textContent = selectedSummary(state.batteryIssue, "battery issue"); batteryIssueSubmit.disabled = !state.batteryIssue.length; batteryPopup.classList.add("show"); }
+    function closeBatteryPopup() { batteryPopup.classList.remove("show"); }
 
     function renderQuestions() {
       questionWrap.innerHTML = questions.map((question, index) => {
@@ -1744,8 +1737,7 @@
           <button class="answer ${option === "No" ? "no" : ""} ${answer === option ? "selected" : ""}" type="button" data-answer="${option}" data-id="${question.id}">
             <span class="answer-radio"><i class="bi bi-check-lg"></i></span>
             <span>${option}</span>
-          </button>
-        `).join("");
+          </button>`).join("");
         return `
           <article class="q-card ${isActive ? "active" : ""} ${done ? "done" : ""} ${locked ? "locked" : ""}" data-index="${index}">
             <div class="q-icon-box"><i class="bi ${question.icon}"></i></div>
@@ -1755,9 +1747,7 @@
                 <h2 class="q-title">${question.title}</h2>
               </div>
               <p class="q-help">${question.hint}</p>
-              <div class="answers">
-                ${options}
-              </div>
+              <div class="answers">${options}</div>
             </div>
           </article>`;
       }).join("");
@@ -1766,10 +1756,7 @@
         card.addEventListener("click", (event) => {
           if (event.target.closest(".answer")) return;
           const index = Number(card.dataset.index);
-          if (index <= answeredCount()) {
-            state.active = index;
-            renderQuestions();
-          }
+          if (index <= answeredCount()) { state.active = index; renderQuestions(); }
         });
       });
 
@@ -1797,46 +1784,15 @@
     document.getElementById("closeWarrantyPopup").addEventListener("click", closeWarrantyPopup);
     document.getElementById("closeBatteryPopup").addEventListener("click", closeBatteryPopup);
 
-    screenIssueSubmit.addEventListener("click", () => {
-      if (!state.screenIssue.length) return;
-      closeScreenPopup();
-      renderProgress();
-      window.setTimeout(openNextRequiredPopup, 120);
-    });
-
-    bodyIssueSubmit.addEventListener("click", () => {
-      if (!state.bodyIssues.length) return;
-      closeBodyPopup();
-      renderProgress();
-    });
-
-    touchIssueSubmit.addEventListener("click", () => {
-      if (!state.touchIssue.length) return;
-      closeTouchPopup();
-      renderProgress();
-      window.setTimeout(openNextRequiredPopup, 120);
-    });
-
-    warrantySubmit.addEventListener("click", () => {
-      if (!state.warrantyDetail) return;
-      closeWarrantyPopup();
-      renderProgress();
-      window.setTimeout(openNextRequiredPopup, 120);
-    });
-
-    batteryIssueSubmit.addEventListener("click", () => {
-      if (!state.batteryIssue.length) return;
-      closeBatteryPopup();
-      renderProgress();
-      window.setTimeout(openNextRequiredPopup, 120);
-    });
+    screenIssueSubmit.addEventListener("click", () => { if (!state.screenIssue.length) return; closeScreenPopup(); renderProgress(); window.setTimeout(openNextRequiredPopup, 120); });
+    bodyIssueSubmit.addEventListener("click", () => { if (!state.bodyIssues.length) return; closeBodyPopup(); renderProgress(); });
+    touchIssueSubmit.addEventListener("click", () => { if (!state.touchIssue.length) return; closeTouchPopup(); renderProgress(); window.setTimeout(openNextRequiredPopup, 120); });
+    warrantySubmit.addEventListener("click", () => { if (!state.warrantyDetail) return; closeWarrantyPopup(); renderProgress(); window.setTimeout(openNextRequiredPopup, 120); });
+    batteryIssueSubmit.addEventListener("click", () => { if (!state.batteryIssue.length) return; closeBatteryPopup(); renderProgress(); window.setTimeout(openNextRequiredPopup, 120); });
 
     finishBtn.addEventListener("click", () => {
       if (finishBtn.disabled) return;
-      if (needsIssuePopup()) {
-        openNextRequiredPopup();
-        return;
-      }
+      if (needsIssuePopup()) { openNextRequiredPopup(); return; }
       saveOrderSummary();
       window.location.href = "device_issu.html";
     });

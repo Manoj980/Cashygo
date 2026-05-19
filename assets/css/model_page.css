@@ -47,7 +47,7 @@
   .cashygo-model-page__breadcrumb {
       max-width: var(--cg-max);
       margin: 0 auto;
-      padding: 12px 45px;
+      padding: 5px 10px;
       display: flex;
       gap: 6px;
       align-items: center;
@@ -129,14 +129,14 @@
       color: var(--cg-gray-500);
       max-width: 520px;
       display: flex;
-      margin-top: 10px;
+      /* margin-top: 10px; */
   }
 
   .cashygo-model-page__search {
       display: flex;
       gap: 8px;
       max-width: 420px;
-      margin-top: 15px;
+      /* margin-top: 15px; */
   }
 
   .cashygo-model-page__search-input {
@@ -181,14 +181,14 @@
 
   /* model css */
 .cashygo-models {
-      padding: 1rem 1.5rem;
+      padding: 5px 10px;
       background: radial-gradient(circle at 0% 0%, #effaf5, #ffffff);
     }
 
-    .container {
+    /* .container {
       max-width: 1440px;
       margin: 0 auto;
-    }
+    } */
 
     .cashygo-models__heading {
       text-align: center;
@@ -231,7 +231,7 @@
       display: flex;
       justify-content: flex-start;
       flex-wrap: wrap;
-      gap: .6rem;
+      gap: 5px;
       margin-bottom: 1.5rem;
     }
 
@@ -336,7 +336,7 @@
     }
     @media (max-width: 760px) {
         .cashygo-models__filters{
-            width: 390px;
+            /* width: 390px; */
         }
     }
 
@@ -348,12 +348,15 @@
         margin: 0;
       }
     }
+    .cashygo-models__tag{
+        display: none;
+    }
 
   /* ── TOP SELLING ── */
   .cashygo-model-page__top {
-      max-width: var(--cg-max);
+      /* max-width: var(--cg-max); */
       margin: 0 auto;
-      padding: 0 45px 32px
+      padding: 5px 10px;
   }
 
   .cashygo-model-page__top-grid {
@@ -491,12 +494,12 @@
   .cashygo-model-page__steps-inner {
       max-width: var(--cg-max);
       margin: 0 auto;
-      padding: 32px 45px
+      /* padding: 32px 45px */
   }
 
   .cashygo-model-page__steps-header {
       text-align: center;
-      margin-bottom: 24px
+      /* margin-bottom: 24px */
   }
 
   .cashygo-model-page__steps-grid {
@@ -553,7 +556,7 @@
   .cashygo-model-page__faq {
       max-width: var(--cg-max);
       margin: 0 auto;
-      padding: 32px 45px
+      /* padding: 32px 45px */
   }
 
   .cashygo-model-page__faq-list {
@@ -691,7 +694,7 @@
   /* ── RESPONSIVE ── */
   @media(max-width:768px) {
 
-      .cashygo-model-page__breadcrumb,
+      /* .cashygo-model-page__breadcrumb,
       .cashygo-model-page__hero-inner,
       .cashygo-model-page__models,
       .cashygo-model-page__top,
@@ -700,10 +703,10 @@
       .cashygo-model-page__app {
           padding-left: 10px;
           padding-right: 10px
-      }
+      } */
 
       .cashygo-model-page__hero h1 {
-          font-size: 17px;
+          font-size: 16px;
           margin-top: 0;
       }
 
@@ -721,10 +724,22 @@
           flex-wrap: wrap
       }
       .cashygo-models__sub{
-        font-size: 14px;
+        font-size: 12px;
         display: flex;
         justify-content: center;
       }
+       .cashygo-model-page__sell-btn {
+      background: var(--cg-green);
+      color: #fff;
+      border: none;
+      border-radius: var(--cg-radius-sm);
+      padding: 5px 7px;
+      font-size: 12px;
+      font-weight: 500;
+      font-family: var(--font-main);
+      cursor: pointer;
+      transition: .2s
+  }
   }
 
   @media(max-width:480px) {
@@ -734,6 +749,9 @@
 
       .cashygo-model-page__top-grid {
           grid-template-columns: 1fr 1fr
+      }
+      .cashygo-model-page__section-title {
+        font-size: 20px;
       }
   }
 

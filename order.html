@@ -17,7 +17,7 @@
     *::after {
       box-sizing: border-box;
     }
- 
+
     :root {
       --green: #078f61;
       --green-dark: #056d4b;
@@ -33,7 +33,7 @@
       --warning-border: #fde68a;
       --shadow: 0 18px 42px rgba(13, 72, 54, .12);
     }
- 
+
     body {
       margin: 0;
       min-height: 100vh;
@@ -41,34 +41,47 @@
       color: var(--ink);
       font-family: "DM Sans", Arial, sans-serif;
     }
- 
-    button, input, textarea, select { font-family: inherit; }
- 
-    .nav, .footer {
+
+    button,
+    input,
+    textarea,
+    select {
+      font-family: inherit;
+    }
+
+    .nav,
+    .footer {
       --text: #0f172a;
       --border: #e2e8f0;
       --white: #fff;
     }
- 
+
     .page {
       width: min(1240px, calc(100% - 48px));
       margin: 0 auto;
       padding: 24px 0 48px;
     }
- 
+
     .crumbs {
       display: flex;
       align-items: center;
       gap: 8px;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 10px;
       font-weight: 600;
       margin-bottom: 18px;
     }
- 
-    .crumbs a { color: inherit; text-decoration: none; }
-    .crumbs .active { color: var(--ink); font-weight: 800; }
- 
+
+    .crumbs a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .crumbs .active {
+      color: var(--ink);
+      font-weight: 800;
+    }
+
     .page-head {
       display: flex;
       justify-content: space-between;
@@ -76,7 +89,7 @@
       align-items: end;
       margin-bottom: 22px;
     }
- 
+
     .eyebrow {
       display: inline-flex;
       align-items: center;
@@ -90,16 +103,18 @@
       font-weight: 800;
       margin-bottom: 12px;
     }
- 
+
     h1 {
-      margin: 0 0 10px;
-      font-size: clamp(28px, 4vw, 42px);
+      /* margin: 0 0 10px; */
+      font-size: 20px;
       line-height: 1.08;
-      font-weight: 800;
+      font-weight: 700;
     }
- 
-    h1 span { color: var(--green); }
- 
+
+    h1 span {
+      color: var(--green);
+    }
+
     .subtitle {
       margin: 0;
       color: #4d5562;
@@ -108,14 +123,14 @@
       line-height: 1.65;
       font-weight: 500;
     }
- 
+
     .flow-steps {
       display: grid;
       grid-template-columns: repeat(5, minmax(96px, 1fr));
       gap: 10px;
       min-width: 560px;
     }
- 
+
     .flow-step {
       background: #fff;
       border: 1px solid var(--line);
@@ -123,37 +138,55 @@
       padding: 12px;
       box-shadow: 0 8px 24px rgba(15, 23, 42, .06);
     }
- 
-    .flow-step strong { display: block; font-size: 13px; margin-bottom: 4px; }
-    .flow-step span { display: block; color: var(--muted); font-size: 12px; }
- 
+
+    .flow-step strong {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .flow-step span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
     .layout {
       display: grid;
       grid-template-columns: minmax(0, 1fr) 360px;
       gap: 24px;
       align-items: start;
     }
- 
-    .panel, .quote {
+
+    .quote {
       border: 1px solid var(--line);
       border-radius: 16px;
       background: #fff;
       box-shadow: 0 8px 26px rgba(17, 24, 39, .07);
     }
- 
-    .panel { padding: 24px; }
-    .panel + .panel { margin-top: 18px; }
- 
+
+    .panel {
+      /* padding: 24px; */
+    }
+
+    .panel+.panel {
+      margin-top: 18px;
+    }
+
     .panel-head {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      /* gap: 16px; */
       margin-bottom: 18px;
     }
- 
-    .panel-head h2 { margin: 0; font-size: 22px; font-weight: 800; }
- 
+
+    .panel-head h2 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 800;
+    }
+
     .status-chip {
       display: inline-flex;
       align-items: center;
@@ -165,7 +198,7 @@
       font-size: 12px;
       font-weight: 800;
     }
- 
+
     /* ── Warning alert ── */
     .alert-price-warning {
       display: flex;
@@ -181,13 +214,13 @@
       font-weight: 600;
       line-height: 1.5;
     }
- 
+
     .alert-price-warning i {
       flex-shrink: 0;
       font-size: 15px;
       margin-top: 1px;
     }
- 
+
     /* ── Pickup type selector ── */
     .pickup-type-grid {
       display: grid;
@@ -195,7 +228,7 @@
       gap: 12px;
       margin-bottom: 20px;
     }
- 
+
     .delivery-card {
       position: relative;
       display: flex;
@@ -210,18 +243,18 @@
       transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
       overflow: hidden;
     }
- 
+
     .delivery-card:hover {
       border-color: var(--green);
       box-shadow: 0 8px 20px rgba(7, 143, 97, .08);
     }
- 
+
     .delivery-card.active {
       border-color: var(--green);
       background: var(--green-soft);
       box-shadow: 0 10px 22px rgba(7, 143, 97, .12);
     }
- 
+
     .delivery-card input[type="radio"] {
       position: absolute;
       opacity: 0;
@@ -229,7 +262,7 @@
       width: 0;
       height: 0;
     }
- 
+
     .delivery-card .check-mark {
       position: absolute;
       top: 12px;
@@ -239,11 +272,11 @@
       opacity: 0;
       transition: opacity .18s ease;
     }
- 
+
     .delivery-card.active .check-mark {
       opacity: 1;
     }
- 
+
     /* Fallback check icon when image isn't available */
     .delivery-card .check-icon {
       position: absolute;
@@ -261,16 +294,18 @@
       opacity: 0;
       transition: opacity .18s ease;
     }
- 
-    .delivery-card.active .check-icon { opacity: 1; }
- 
+
+    .delivery-card.active .check-icon {
+      opacity: 1;
+    }
+
     .delivery-card .pickup-icon {
       width: 38px;
       height: 38px;
       object-fit: contain;
       margin-bottom: 2px;
     }
- 
+
     /* Fallback icon when image isn't available */
     .delivery-card .pickup-icon-fallback {
       width: 38px;
@@ -285,7 +320,7 @@
       margin-bottom: 2px;
       flex-shrink: 0;
     }
- 
+
     .delivery-card h6 {
       margin: 0;
       font-size: 14px;
@@ -293,7 +328,7 @@
       color: var(--ink);
       padding-right: 28px;
     }
- 
+
     .delivery-card p {
       margin: 0;
       font-size: 12px;
@@ -301,7 +336,7 @@
       color: var(--muted);
       line-height: 1.4;
     }
- 
+
     .delivery-card .badge-fast {
       display: inline-flex;
       align-items: center;
@@ -314,19 +349,29 @@
       font-weight: 800;
       margin-top: 2px;
     }
- 
+
     /* ── Form ── */
     .form-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
     }
- 
-    .field { display: grid; gap: 7px; }
-    .field.full { grid-column: 1 / -1; }
- 
-    .field label { color: #344054; font-size: 13px; font-weight: 800; }
- 
+
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      color: #344054;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
     .field input,
     .field textarea,
     .field select {
@@ -340,22 +385,25 @@
       padding: 13px 14px;
       outline: none;
     }
- 
-    .field textarea { min-height: 94px; resize: vertical; }
- 
+
+    .field textarea {
+      min-height: 94px;
+      resize: vertical;
+    }
+
     .field input:focus,
     .field textarea:focus,
     .field select:focus {
       border-color: var(--green);
       box-shadow: 0 0 0 4px rgba(7, 143, 97, .09);
     }
- 
+
     .payment-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
     }
- 
+
     .option-card {
       display: grid;
       gap: 8px;
@@ -369,17 +417,31 @@
       cursor: pointer;
       transition: border-color .18s ease, box-shadow .18s ease;
     }
- 
+
     .option-card.selected,
     .option-card:hover {
       border-color: var(--green);
       box-shadow: 0 10px 22px rgba(7, 143, 97, .1);
     }
- 
-    .option-card i { color: var(--green); font-size: 24px; }
-    .option-card strong { display: block; font-size: 15px; font-weight: 800; }
-    .option-card span { color: var(--muted); font-size: 13px; font-weight: 600; line-height: 1.35; }
- 
+
+    .option-card i {
+      color: var(--green);
+      font-size: 24px;
+    }
+
+    .option-card strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .option-card span {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
     /* ── Quote sidebar ── */
     .quote {
       position: sticky;
@@ -387,7 +449,7 @@
       padding: 28px;
       box-shadow: var(--shadow);
     }
- 
+
     .device {
       display: grid;
       grid-template-columns: 82px 1fr;
@@ -396,23 +458,35 @@
       padding-bottom: 24px;
       border-bottom: 1px solid var(--line);
     }
- 
+
     .device img {
       width: 72px;
       height: 100px;
       object-fit: contain;
       filter: drop-shadow(0 12px 14px rgba(0, 0, 0, .12));
     }
- 
-    .device h2 { margin: 0 0 8px; font-size: 21px; line-height: 1.2; font-weight: 800; }
-    .device p { margin: 0; color: #535c68; font-size: 14px; line-height: 1.4; font-weight: 600; }
- 
+
+    .device h2 {
+      margin: 0 0 8px;
+      font-size: 21px;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .device p {
+      margin: 0;
+      color: #535c68;
+      font-size: 14px;
+      line-height: 1.4;
+      font-weight: 600;
+    }
+
     .price-box {
       padding: 26px 0;
       text-align: center;
       border-bottom: 1px solid var(--line);
     }
- 
+
     .quote-label {
       color: #5f6873;
       font-size: 13px;
@@ -420,7 +494,7 @@
       letter-spacing: .08em;
       text-transform: uppercase;
     }
- 
+
     .price {
       margin: 14px 0 0;
       color: var(--green);
@@ -428,7 +502,7 @@
       font-weight: 800;
       line-height: 1;
     }
- 
+
     /* Warning below quote price */
     .quote-price-warning {
       display: flex;
@@ -444,16 +518,20 @@
       font-weight: 600;
       line-height: 1.5;
     }
- 
-    .quote-price-warning i { flex-shrink: 0; font-size: 13px; margin-top: 1px; }
- 
+
+    .quote-price-warning i {
+      flex-shrink: 0;
+      font-size: 13px;
+      margin-top: 1px;
+    }
+
     .summary-list {
       display: grid;
       gap: 12px;
       padding: 22px 0;
       border-bottom: 1px solid var(--line);
     }
- 
+
     .summary-row {
       display: flex;
       justify-content: space-between;
@@ -462,9 +540,12 @@
       font-size: 14px;
       font-weight: 700;
     }
- 
-    .summary-row strong { color: var(--ink); text-align: right; }
- 
+
+    .summary-row strong {
+      color: var(--ink);
+      text-align: right;
+    }
+
     .issue-list {
       display: grid;
       gap: 8px;
@@ -473,9 +554,11 @@
       font-size: 14px;
       font-weight: 700;
     }
- 
-    .issue-list strong { color: var(--ink); }
- 
+
+    .issue-list strong {
+      color: var(--ink);
+    }
+
     .confirm {
       width: 100%;
       min-height: 54px;
@@ -488,9 +571,11 @@
       font-weight: 800;
       cursor: pointer;
     }
- 
-    .confirm:hover { background: var(--green-dark); }
- 
+
+    .confirm:hover {
+      background: var(--green-dark);
+    }
+
     .message {
       display: none;
       margin-top: 14px;
@@ -502,9 +587,11 @@
       font-weight: 800;
       text-align: center;
     }
- 
-    .message.show { display: block; }
- 
+
+    .message.show {
+      display: block;
+    }
+
     /* ── Divider label ── */
     .section-label {
       font-size: 12px;
@@ -514,18 +601,47 @@
       letter-spacing: .08em;
       margin: 0 0 10px;
     }
- 
+
     @media (max-width: 1100px) {
-      .page-head { display: block; }
-      .flow-steps { min-width: 0; margin-top: 18px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .layout { grid-template-columns: 1fr; }
-      .quote { position: static; }
+      .page-head {
+        display: block;
+      }
+
+      .flow-steps {
+        min-width: 0;
+        margin-top: 18px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .quote {
+        position: static;
+      }
     }
- 
+
     @media (max-width: 760px) {
-      .page { width: 100%; padding: 16px; }
-      .form-grid, .payment-grid, .flow-steps, .pickup-type-grid { grid-template-columns: 1fr; }
-      .panel-head { align-items: flex-start; flex-direction: column; }
+      .page {
+        width: 100%;
+        padding: 5px 10px;
+      }
+
+      .form-grid,
+      .payment-grid,
+      .flow-steps,
+      .pickup-type-grid {
+        grid-template-columns: 1fr;
+        /* display: none; */
+      }
+      .flow-steps{
+        display: none;
+      }
+      .panel-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
   </style>
 </head>
@@ -620,21 +736,21 @@
     </div>
   </nav>
 
- <main class="page">
+  <main class="page">
     <div class="crumbs" aria-label="Breadcrumb">
       <a href="brand.html">Sell phone</a><i class="bi bi-chevron-right"></i>
       <a href="device_question.html">Issue Check</a><i class="bi bi-chevron-right"></i>
       <a href="device_issu.html">Functional Issues</a><i class="bi bi-chevron-right"></i>
       <span class="active">Order</span>
     </div>
- 
+
     <section class="page-head" aria-label="Order workflow">
       <div>
         <div class="eyebrow"><i class="bi bi-calendar-check"></i> Pickup Order</div>
         <h1>Confirm your <span>sell order</span></h1>
         <p class="subtitle">Review the final quote, add pickup details, and choose how you want to receive payment.</p>
       </div>
- 
+
       <div class="flow-steps" aria-label="Steps">
         <div class="flow-step"><strong>1. Variant</strong><span>Storage and colour</span></div>
         <div class="flow-step"><strong>2. Condition</strong><span>Age and bill</span></div>
@@ -643,7 +759,7 @@
         <div class="flow-step"><strong>5. Pickup</strong><span>Address and payout</span></div>
       </div>
     </section>
- 
+
     <div class="layout">
       <section>
         <!-- Pickup Details panel -->
@@ -652,13 +768,14 @@
             <h2>Pickup Details</h2>
             <span class="status-chip"><i class="bi bi-truck"></i> Free doorstep pickup</span>
           </div>
- 
+
           <!-- Pickup type selector -->
           <p class="section-label">Choose pickup type</p>
           <div class="pickup-type-grid" id="pickupTypeGrid" role="radiogroup" aria-label="Pickup type">
- 
+
             <label class="delivery-card active" id="fastPickupCard" for="fastPickup">
-              <input type="radio" id="fastPickup" name="pickUpTypeVal" value="fastPickup" data-attr="fastPickup" checked>
+              <input type="radio" id="fastPickup" name="pickUpTypeVal" value="fastPickup" data-attr="fastPickup"
+                checked>
               <!-- Check indicator (icon fallback since /static/ images won't load here) -->
               <div class="check-icon" aria-hidden="true"><i class="bi bi-check"></i></div>
               <div class="pickup-icon-fallback" aria-hidden="true"><i class="bi bi-lightning-charge-fill"></i></div>
@@ -666,17 +783,18 @@
               <p>Pickup at your doorstep today</p>
               <span class="badge-fast"><i class="bi bi-clock"></i> 2 – 3 hours</span>
             </label>
- 
+
             <label class="delivery-card" id="scheduledPickupCard" for="scheduledPickup">
-              <input type="radio" id="scheduledPickup" name="pickUpTypeVal" value="scheduledPickup" data-attr="scheduledPickup">
+              <input type="radio" id="scheduledPickup" name="pickUpTypeVal" value="scheduledPickup"
+                data-attr="scheduledPickup">
               <div class="check-icon" aria-hidden="true"><i class="bi bi-check"></i></div>
               <div class="pickup-icon-fallback" aria-hidden="true"><i class="bi bi-calendar3"></i></div>
               <h6>Scheduled Pickup</h6>
               <p>Pick a date &amp; time slot that suits you</p>
             </label>
- 
+
           </div>
- 
+
           <form id="orderForm" class="form-grid">
             <div class="field">
               <label for="customerName">Full name</label>
@@ -684,7 +802,8 @@
             </div>
             <div class="field">
               <label for="customerPhone">Mobile number</label>
-              <input id="customerPhone" name="customerPhone" type="tel" placeholder="10 digit mobile" minlength="10" maxlength="10" required>
+              <input id="customerPhone" name="customerPhone" type="tel" placeholder="10 digit mobile" minlength="10"
+                maxlength="10" required>
             </div>
             <div class="field" id="pickupDateField">
               <label for="pickupDate">Pickup date</label>
@@ -702,7 +821,8 @@
             </div>
             <div class="field full">
               <label for="pickupAddress">Pickup address</label>
-              <textarea id="pickupAddress" name="pickupAddress" placeholder="House number, street, landmark" required></textarea>
+              <textarea id="pickupAddress" name="pickupAddress" placeholder="House number, street, landmark"
+                required></textarea>
             </div>
             <div class="field">
               <label for="city">City</label>
@@ -716,11 +836,12 @@
             </div>
             <div class="field">
               <label for="pincode">Pincode</label>
-              <input id="pincode" name="pincode" type="text" placeholder="6 digit pincode" minlength="6" maxlength="6" required>
+              <input id="pincode" name="pincode" type="text" placeholder="6 digit pincode" minlength="6" maxlength="6"
+                required>
             </div>
           </form>
         </div>
- 
+
         <!-- Payment method panel -->
         <div class="panel">
           <div class="panel-head">
@@ -746,7 +867,7 @@
           </div>
         </div>
       </section>
- 
+
       <!-- Quote sidebar -->
       <aside>
         <div class="quote">
@@ -757,30 +878,31 @@
               <p id="deviceMeta">Storage - Colour</p>
             </div>
           </div>
- 
+
           <div class="price-box">
             <div class="quote-label">Final Estimated Quote</div>
             <div class="price" id="finalQuote">₹0</div>
- 
+
             <!-- ── Price warning ── -->
             <div class="quote-price-warning" role="alert">
               <i class="bi bi-exclamation-triangle-fill"></i>
-              <span>The price shown is not final. The final price will be quoted after diagnosis and will depend entirely on the device's condition.</span>
+              <span>The price shown is not final. The final price will be quoted after diagnosis and will depend
+                entirely on the device's condition.</span>
             </div>
           </div>
- 
+
           <div class="summary-list">
             <div class="summary-row"><span>Variant quote</span><strong id="variantQuote">₹0</strong></div>
             <div class="summary-row"><span>After issue check</span><strong id="issueQuote">₹0</strong></div>
             <div class="summary-row"><span>Functional deduction</span><strong id="functionalDeduction">₹0</strong></div>
             <div class="summary-row"><span>Condition</span><strong id="conditionText">-</strong></div>
           </div>
- 
+
           <div class="issue-list">
             <strong>Functional issues</strong>
             <span id="functionalList">No functional issues selected.</span>
           </div>
- 
+
           <button class="confirm" id="confirmBtn" type="button">Confirm Pickup</button>
           <div class="message" id="successMessage">Order confirmed and saved.</div>
         </div>
@@ -870,15 +992,15 @@
   <script>
     /* ── City picker & nav ── */
     const cityPicker = document.getElementById("cityPicker");
-    const cityLabel  = document.getElementById("cityLabel");
-    const hamburger  = document.getElementById("hamburger");
-    const navMenu    = document.getElementById("navMenu");
- 
+    const cityLabel = document.getElementById("cityLabel");
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("navMenu");
+
     cityPicker.addEventListener("click", e => {
       e.stopPropagation();
       cityPicker.classList.toggle("open");
     });
- 
+
     cityPicker.querySelectorAll("li").forEach(item => {
       item.addEventListener("click", e => {
         e.stopPropagation();
@@ -887,12 +1009,12 @@
         cityPicker.classList.remove("open");
       });
     });
- 
+
     hamburger.addEventListener("click", () => {
       const open = navMenu.classList.toggle("open");
       hamburger.setAttribute("aria-expanded", open);
     });
- 
+
     document.querySelectorAll(".dropdown").forEach(dd => {
       dd.querySelector(".dropdown-btn").addEventListener("click", e => {
         e.stopPropagation();
@@ -901,12 +1023,12 @@
         if (!wasOpen) dd.classList.add("open");
       });
     });
- 
+
     document.addEventListener("click", e => {
       if (!cityPicker.contains(e.target)) cityPicker.classList.remove("open");
       document.querySelectorAll(".dropdown").forEach(d => d.classList.remove("open"));
     });
- 
+
     /* ── Pickup type toggle ── */
     document.querySelectorAll('.delivery-card').forEach(card => {
       card.addEventListener('click', () => {
@@ -914,7 +1036,7 @@
         card.classList.add('active');
         const radio = card.querySelector('input[type="radio"]');
         if (radio) radio.checked = true;
- 
+
         // For fast pickup hide the date field (today implied); show for scheduled
         const isFast = card.id === 'fastPickupCard';
         const dateField = document.getElementById('pickupDateField');
@@ -929,7 +1051,7 @@
         }
       });
     });
- 
+
     /* ── Payment method toggle ── */
     document.querySelectorAll("[data-payment]").forEach(btn => {
       btn.addEventListener("click", () => {
@@ -938,32 +1060,32 @@
         btn.classList.add("selected");
       });
     });
- 
+
     /* ── Quote helpers ── */
     const rupee = new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 });
     const state = { paymentMethod: "UPI" };
- 
+
     function readJSON(key, fallback) {
       try { return { ...fallback, ...JSON.parse(sessionStorage.getItem(key) || "{}") }; }
       catch { return fallback; }
     }
- 
+
     function readSelection() {
       return readJSON("cashygoSelection", { model: "iPhone 15", storage: "128 GB", color: "Black", price: 64000, image: "assets/images/brand-img/iphone-air.jpeg" });
     }
- 
+
     function readCondition() {
       return readJSON("cashygoCondition", { age: "0 to 3 months", billBox: "Not selected" });
     }
- 
+
     function readIssueSummary() {
       return readJSON("cashygoIssueSummary", { finalQuote: Number(readSelection().price) || 64000 });
     }
- 
+
     function readFunctionalSummary() {
       return readJSON("cashygoFunctionalIssues", { selectedIssues: [], functionalDeduction: 0, finalQuote: Number(readIssueSummary().finalQuote) || Number(readSelection().price) || 64000 });
     }
- 
+
     function setMinPickupDate() {
       const input = document.getElementById("pickupDate");
       const tomorrow = new Date();
@@ -971,48 +1093,48 @@
       input.min = tomorrow.toISOString().slice(0, 10);
       if (!input.value) input.value = input.min;
     }
- 
+
     function renderSummary() {
-      const selection  = readSelection();
-      const condition  = readCondition();
+      const selection = readSelection();
+      const condition = readCondition();
       const issueSummary = readIssueSummary();
       const functional = readFunctionalSummary();
-      const variantPrice        = Number(selection.price) || 64000;
-      const issueQuote          = Number(issueSummary.finalQuote) || variantPrice;
-      const finalQuote          = Number(functional.finalQuote) || issueQuote;
+      const variantPrice = Number(selection.price) || 64000;
+      const issueQuote = Number(issueSummary.finalQuote) || variantPrice;
+      const finalQuote = Number(functional.finalQuote) || issueQuote;
       const functionalDeduction = Number(functional.functionalDeduction) || 0;
-      const functionalIssues    = Array.isArray(functional.selectedIssues) ? functional.selectedIssues : [];
- 
-      document.getElementById("deviceName").textContent        = selection.model;
-      document.getElementById("deviceMeta").textContent        = `${selection.storage} - ${selection.color} - ${condition.age}`;
-      document.getElementById("deviceImage").src               = selection.image;
-      document.getElementById("deviceImage").alt               = selection.model;
-      document.getElementById("variantQuote").textContent      = rupee.format(variantPrice);
-      document.getElementById("issueQuote").textContent        = rupee.format(issueQuote);
+      const functionalIssues = Array.isArray(functional.selectedIssues) ? functional.selectedIssues : [];
+
+      document.getElementById("deviceName").textContent = selection.model;
+      document.getElementById("deviceMeta").textContent = `${selection.storage} - ${selection.color} - ${condition.age}`;
+      document.getElementById("deviceImage").src = selection.image;
+      document.getElementById("deviceImage").alt = selection.model;
+      document.getElementById("variantQuote").textContent = rupee.format(variantPrice);
+      document.getElementById("issueQuote").textContent = rupee.format(issueQuote);
       document.getElementById("functionalDeduction").textContent = functionalDeduction ? `-${rupee.format(functionalDeduction)}` : rupee.format(0);
-      document.getElementById("finalQuote").textContent        = rupee.format(finalQuote);
-      document.getElementById("conditionText").textContent     = `${condition.age}, ${condition.billBox}`;
-      document.getElementById("functionalList").textContent    = functionalIssues.length
+      document.getElementById("finalQuote").textContent = rupee.format(finalQuote);
+      document.getElementById("conditionText").textContent = `${condition.age}, ${condition.billBox}`;
+      document.getElementById("functionalList").textContent = functionalIssues.length
         ? functionalIssues.map(i => i.title).join(", ")
         : "No functional issues selected.";
- 
+
       document.getElementById("deviceImage").onerror = ev => {
         ev.currentTarget.src = "assets/images/home-page-img/brand-img/iphone-new.webp";
       };
     }
- 
+
     /* ── Confirm order ── */
     document.getElementById("confirmBtn").addEventListener("click", () => {
       const form = document.getElementById("orderForm");
       if (!form.reportValidity()) return;
- 
+
       const formData = new FormData(form);
-      const selection  = readSelection();
-      const condition  = readCondition();
+      const selection = readSelection();
+      const condition = readCondition();
       const issueSummary = readIssueSummary();
       const functional = readFunctionalSummary();
       const pickupType = document.querySelector('input[name="pickUpTypeVal"]:checked')?.value || "fastPickup";
- 
+
       const order = {
         orderId: `CG-${Date.now()}`,
         selection, condition, issueSummary, functional,
@@ -1023,15 +1145,15 @@
         status: "Pickup confirmed",
         createdAt: new Date().toISOString()
       };
- 
+
       sessionStorage.setItem("cashygoOrder", JSON.stringify(order));
       document.getElementById("successMessage").classList.add("show");
       document.getElementById("confirmBtn").textContent = "Pickup Confirmed ✓";
     });
- 
+
     setMinPickupDate();
     renderSummary();
- 
+
     // Fast pickup is default → dim date field initially
     (function initPickupType() {
       const dateField = document.getElementById('pickupDateField');

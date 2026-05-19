@@ -57,7 +57,7 @@
    .cashygo-hero__inner {
        max-width: var(--cg-max);
        margin: 0 auto;
-       padding: 14px 45px;
+       padding: 5px 10px;
        display: flex;
        align-items: center;
        justify-content: space-between;
@@ -65,7 +65,8 @@
    }
 
    .cashygo-hero__left {
-       flex: 1
+       flex: 1;
+       min-width: 0
    }
 
    .cashygo-hero__badge {
@@ -74,10 +75,10 @@
        gap: 6px;
        background: var(--cg-green);
        color: #fff;
-       padding: 6px 14px;
+       padding: 5px 10px;
        border-radius: 999px;
        font-size: 13px;
-       margin-bottom: 20px
+       /* margin-bottom: 20px */
    }
 
    .cashygo-hero__badge::before {
@@ -89,10 +90,10 @@
    }
 
    .cashygo-hero__title {
-       font-size: 26px;
-       line-height: 1.25;
+       font-size: 20px;
+       line-height: 1.12;
        color: var(--cg-gray-900);
-       margin-bottom: 14px
+       /* margin: 12px 0 12px */
    }
 
    .cashygo-hero__title em {
@@ -116,7 +117,8 @@
    .cashygo-hero__feature {
        text-align: center;
        font-size: 13px;
-       color: var(--cg-gray-700)
+       color: var(--cg-gray-700);
+       min-width: 82px
    }
 
    .cashygo-hero__feature-icon {
@@ -187,11 +189,14 @@
    .cashygo-hero__brands {
        display: flex;
        flex-wrap: wrap;
-       gap: 10px;
+       gap: 5px;
        list-style: none
    }
 
    .cashygo-hero__brand-btn {
+       display: inline-flex;
+       align-items: center;
+       justify-content: center;
        padding: 8px 14px;
        border: 1.5px solid var(--cg-gray-200);
        border-radius: var(--cg-radius-sm);
@@ -214,7 +219,8 @@
        min-height: 360px;
        display: flex;
        align-items: center;
-       justify-content: center
+       justify-content: center;
+       min-width: 320px
    }
 
    .cashygo-hero__ring {
@@ -232,7 +238,7 @@
    }
 
    .cashygo-hero__phone img {
-       width: 500px;
+       width: min(500px, 42vw);
        height: auto
    }
 
@@ -287,7 +293,7 @@
    .cashygo-devices {
        max-width: var(--cg-max);
        margin: 0 auto;
-       padding: var(--cg-pad)
+       padding: 5px 10px;
    }
 
    .cashygo-devices__heading {
@@ -304,7 +310,7 @@
 
    .cashygo-devices__grid {
        display: grid;
-       grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+       grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
        gap: 14px
    }
 
@@ -312,15 +318,15 @@
        text-decoration: none;
        color: var(--cg-gray-900);
        background: #fff;
-       border-radius: var(--cg-radius-lg);
+       border-radius: var(--cg-radius-md);
        padding: 18px 10px;
        text-align: center;
        transition: .25s;
-       border: 1px solid var(--cg-gray-200);
        display: flex;
        flex-direction: column;
        align-items: center;
        gap: 8px;
+       min-width: 0;
        border: 1px solid #22c55e;
    }
 
@@ -337,7 +343,8 @@
 
    .cashygo-devices__label {
        font-size: 13px;
-       font-weight: 500
+       font-weight: 600;
+       overflow-wrap: anywhere
    }
 
    .cashygo-devices__icon img {
@@ -711,6 +718,9 @@
     font-size: 12px;
     border-radius: 10px;
   }
+  .cashygo-hero__badge{
+    display: none;
+  }
 }
    /* ── WHY ── */
    .cashygo-why {
@@ -770,7 +780,7 @@
    .cashygo-faq__inner {
        max-width: var(--cg-max);
        margin: 0 auto;
-       padding: var(--cg-pad)
+       padding: 5px 10px;
    }
 
    .cashygo-faq__header {
@@ -854,69 +864,153 @@
    }
 
    /* ── RESPONSIVE ── */
-   @media(max-width:768px) {
+   @media (max-width: 1024px) {
        :root {
-           --cg-pad: 14px 20px
+           --cg-pad: 26px 28px
        }
 
        .cashygo-hero__inner {
+           gap: 28px
+       }
+
+       .cashygo-hero__right {
+           min-width: 280px
+       }
+
+       .cashygo-hero__tags {
+           right: -8px
+       }
+   }
+
+   @media(max-width:768px) {
+       /* :root {
+           --cg-pad: 24px 20px
+       } */
+
+       .cashygo-hero__inner {
            flex-direction: column;
+           align-items: stretch;
            text-align: center;
-           padding: 25px 20px
+           /* padding: 28px 20px 24px; */
+           gap: 22px
+       }
+
+       .cashygo-hero__left {
+           width: 100%
+       }
+
+       .cashygo-hero__title {
+           font-size: 20px;
+           line-height: 1.14
        }
 
        .cashygo-hero__features,
        .cashygo-hero__brands {
            justify-content: center;
-           width: 390px;
+           width: 100%;
+       }
+
+       .cashygo-hero__features {
+           gap: 12px;
+       }
+
+       .hero-search {
+           max-width: 560px;
+           margin-left: auto;
+           margin-right: auto;
        }
 
        .cashygo-hero__right {
-           min-height: 260px;
            display: none;
        }
 
-       .cashygo-hero__ring {
-           width: 240px;
-           height: 240px
-       }
-
-       .cashygo-hero__phone img {
-           width: 180px
+       .cashygo-devices__grid {
+           grid-template-columns: repeat(3, minmax(0, 1fr));
+           gap: 12px
        }
 
        .cashygo-stats__inner {
-           grid-template-columns: repeat(2, 1fr)
+           grid-template-columns: repeat(2, 1fr);
+           border-radius: 18px
+       }
+
+       .cashygo-process__grid,
+       .cashygo-why__grid {
+           grid-template-columns: 1fr
+       }
+
+       .cashygo-faq__header h2,
+       .cashygo-section-title {
+           font-size: 24px
        }
    }
-   /* MOBILE */
-@media (max-width: 768px) {
-  .cashygo-hero__title{
-    font-size: 32px;
-    line-height: 1.2;
-    text-align: center;
-  }
-}
-@media (max-width: 576px) {
-    .card{
-        width: 390px;
-    }
-}/* SMALL MOBILE */
-@media (max-width: 480px) {
-  .cashygo-hero__title {
-    font-size: 20px;
-    line-height: 1.25;
-  }
-}
 
    @media(max-width:480px) {
+       :root {
+           --cg-pad: 22px 14px
+       }
+
+       .cashygo-hero__inner {
+           /* padding: 24px 14px 22px */
+       }
+
+       .cashygo-hero__title {
+           font-size: 18px
+       }
+
+       .cashygo-hero__sub {
+           font-size: 14px
+       }
+
+       .cashygo-hero__features {
+           display: grid;
+           grid-template-columns: repeat(3, minmax(0, 1fr));
+           gap: 8px
+       }
+
+       .cashygo-hero__feature {
+           min-width: 0;
+           font-size: 12px
+       }
+
+       .hero-search {
+           border-radius: 12px
+       }
+
+       .hero-search input {
+           min-width: 0;
+           padding: 11px 12px
+       }
+
+       .hero-search button {
+           padding: 0 14px
+       }
+
+       .cashygo-hero__brand-btn {
+           padding: 8px 12px
+       }
+
+       .cashygo-devices__grid {
+           grid-template-columns: repeat(2, minmax(0, 1fr));
+           gap: 10px
+       }
+
+       .cashygo-devices__item {
+           padding: 14px 8px
+       }
+
        .cashygo-stats__inner {
            grid-template-columns: 1fr
        }
 
        .cashygo-trust {
            flex-direction: column;
-           align-items: center
+           align-items: flex-start
+       }
+
+       .cashygo-phones__card {
+           min-width: min(78vw, 240px);
+           max-width: min(78vw, 240px)
        }
    }
 
@@ -929,22 +1023,24 @@
 /* POPUP */
 .popup{
   position:fixed;
-  top:0;
-  left:0;
+  inset:0;
   width:100%;
-  height:100%;
+  min-height:100%;
   background:rgba(0,0,0,0.4);
   display:none;
   align-items:center;
   justify-content:center;
-  z-index: 10;
+  padding:16px;
+  z-index: 1000;
 }
 
 .card{
-  width:550px;
+  width:min(550px, 100%);
+  max-height:calc(100vh - 32px);
+  overflow:auto;
   background:#fff;
   border-radius:20px;
-  padding:15px;
+  padding:18px;
   box-shadow:0 20px 40px rgba(0,0,0,0.08);
   position:relative;
 }
@@ -967,6 +1063,7 @@
   display:flex;
   gap:20px;
   align-items:center;
+  padding-right:46px;
 }
 
 .icon{
@@ -1056,9 +1153,10 @@
   cursor:pointer;
 }
 
-.footer{
+.popup-footer{
   display:flex;
   justify-content:space-between;
+  gap:12px;
   margin-top:15px;
   margin-bottom: 15px;
   padding: 1px 10px;
@@ -1073,4 +1171,63 @@
 .footer-sub{
   font-size:12px;
   color:#6b7280;
+}
+
+@media (max-width: 576px) {
+  .card {
+    border-radius: 16px;
+    padding: 16px;
+  }
+
+  .close-btn {
+    top: 12px;
+    right: 12px;
+    width: 34px;
+    height: 34px;
+  }
+
+  .header {
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+  }
+
+  .title {
+    font-size: 17px;
+    line-height: 1.25;
+  }
+
+  .subtitle {
+    font-size: 13px;
+  }
+
+  .input-row {
+    flex-direction: column;
+  }
+
+  .check-btn {
+    min-height: 44px;
+    padding: 0 18px;
+  }
+
+  .divider {
+    margin: 18px 0;
+  }
+
+  .popup-footer {
+    padding: 0;
+    flex-wrap: wrap;
+  }
+
+  .footer-item {
+    flex: 1 1 30%;
+    justify-content: center;
+    gap: 6px;
+    font-size: 12px;
+  }
 }

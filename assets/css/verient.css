@@ -1343,6 +1343,10 @@
         display: flex;
         /* grid-template-columns: 1fr; */
         gap: 8px;
+        height: 40px;
+      }
+      .faq-header h2{
+        font-size: 20px;
       }
 
       .cashygo-eyebrow,
@@ -1352,7 +1356,7 @@
       }
 
       .cashygo-title {
-        font-size: 24px;
+        font-size: 20px;
         padding: 5px;
       }
 
