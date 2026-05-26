@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cashygo camera condition check. Share shutter count, body condition, lens condition and accessories to get a better camera resale estimate.">
+  <meta name="theme-color" content="#0d8c60">
+  <title>Cashygo Camera Condition Check</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/verient.css">
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --primary: #0d8c60;
+      --primary-dark: #0a6f4d;
+      --primary-light: #e8f7ef;
+      --white: #fff;
+      --black: #111827;
+      --text: #4b5563;
+      --muted: #64748b;
+      --border: #e5e7eb;
+      --bg: #f7faf8;
+      --shadow: 0 18px 45px rgba(15, 23, 42, .08);
+      --shadow-soft: 0 8px 24px rgba(15, 23, 42, .06);
+      --radius: 16px;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "DM Sans", sans-serif;
+      color: var(--black);
+      background: linear-gradient(180deg, #fff 0, var(--bg) 260px, var(--bg) 100%);
+    }
+
+    body, button, input {
+      font-family: "DM Sans", sans-serif;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .nav, .footer {
+      --text: #0f172a;
+      --border: #e2e8f0;
+      --white: #fff;
+    }
+
+    .cashygo-page {
+      padding: 18px 0 0;
+    }
+
+    .cashygo-wrapper {
+      max-width: 1240px;
+      margin: auto;
+      padding: 0 24px;
+    }
+
+    .cashygo-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .cashygo-breadcrumb a {
+      color: #0f172a;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .cashygo-page-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: flex-end;
+      margin-bottom: 22px;
+    }
+
+    .cashygo-google-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .cashygo-eyebrow,
+    .google-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #c7ead8;
+      border-radius: 999px;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 7px 12px;
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .google-box h4 {
+      margin: 0;
+      font-size: inherit;
+      font-weight: inherit;
+    }
+
+    .cashygo-title {
+      max-width: 720px;
+      margin-bottom: 10px;
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .cashygo-subtitle {
+      max-width: 650px;
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .cashygo-progress {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(120px, 1fr));
+      gap: 10px;
+      min-width: 390px;
+    }
+
+    .cashygo-progress__item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .cashygo-progress__item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 13px;
+    }
+
+    .cashygo-progress__item span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .cashygo-progress__item.active {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .cashygo-progress__item.done strong {
+      color: var(--primary);
+    }
+
+    .cashygo-layout {
+      display: grid;
+      grid-template-columns: minmax(240px, 290px) minmax(0, 1fr) minmax(280px, 330px);
+      gap: 24px;
+      align-items: start;
+    }
+
+    .cashygo-card,
+    .cashygo-main {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .cashygo-product {
+      position: sticky;
+      top: 120px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .camera-visual {
+      display: grid;
+      place-items: center;
+      min-height: 170px;
+      margin-bottom: 18px;
+      border-radius: 14px;
+      background: linear-gradient(145deg, #f8fafc, #e8f7ef);
+    }
+
+    .camera-visual i {
+      color: var(--primary);
+      font-size: 88px;
+      filter: drop-shadow(0 14px 18px rgba(13, 140, 96, .18));
+    }
+
+    .cashygo-brand {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 12px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: #f3f7ff;
+      color: #2b6fff;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .3px;
+    }
+
+    .cashygo-model {
+      margin-bottom: 7px;
+      color: #0f172a;
+      font-size: 25px;
+      line-height: 1.18;
+      font-weight: 800;
+    }
+
+    .cashygo-storage {
+      display: block;
+      margin-bottom: 14px;
+      color: #475569;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .cashygo-user {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 100%;
+      margin-bottom: 18px;
+      border-radius: 30px;
+      background: #e7f7eb;
+      color: #0a8f3d;
+      padding: 10px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .cashygo-trust {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      width: 100%;
+    }
+
+    .cashygo-trust-box {
+      border: 1px solid #dbe3ea;
+      border-radius: 14px;
+      background: #f8fafc;
+      padding: 12px 7px;
+    }
+
+    .cashygo-trust-box i {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--primary);
+      font-size: 20px;
+    }
+
+    .cashygo-trust-box span {
+      display: block;
+      margin-bottom: 2px;
+      color: #111827;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .cashygo-trust-box p {
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.4;
+    }
+
+    .cashygo-main {
+      padding: clamp(20px, 2.4vw, 30px);
+    }
+
+    .cashygo-section {
+      margin-bottom: 30px;
+    }
+
+    .cashygo-section.is-hidden {
+      display: none;
+    }
+
+    .cashygo-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .cashygo-step {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .question-help {
+      margin-bottom: 18px;
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .option-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .cashygo-option-card,
+    .cashygo-wide-option {
+      position: relative;
+      border: 1.5px solid #097832;
+      border-radius: 14px;
+      background: #fff;
+      cursor: pointer;
+      transition: border-color .2s, box-shadow .2s, transform .2s, background .2s;
+    }
+
+    .cashygo-option-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 110px;
+      padding: 20px;
+      gap: 10px;
+      text-align: center;
+    }
+
+    .cashygo-option-card:hover,
+    .cashygo-wide-option:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary);
+      box-shadow: 0 12px 26px rgba(13, 140, 96, .11);
+    }
+
+    .cashygo-option-card.active,
+    .cashygo-wide-option.active {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      box-shadow: 0 0 0 4px rgba(13, 140, 96, .1);
+    }
+
+    .cashygo-option-card.active::after {
+      content: "\F26E";
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: grid;
+      place-items: center;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      font-family: "bootstrap-icons";
+      font-size: 12px;
+    }
+
+    .cashygo-option-card i {
+      color: var(--primary);
+      font-size: 32px;
+    }
+
+    .cashygo-option-card strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .cashygo-option-card small {
+      display: inline-block;
+      border-radius: 999px;
+      background: #eefdf9;
+      color: #07856f;
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .wide-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .cashygo-wide-option {
+      display: flex;
+      align-items: center;
+      min-height: 78px;
+      padding: 18px 24px;
+      gap: 18px;
+      text-align: left;
+    }
+
+    .bill-check {
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      width: 22px;
+      height: 22px;
+      border: 1.5px solid #b8cbc4;
+      border-radius: 6px;
+      color: transparent;
+      transition: background .2s, border-color .2s, color .2s;
+    }
+
+    .cashygo-wide-option.active .bill-check {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .cashygo-wide-option > i {
+      flex: 0 0 auto;
+      color: var(--primary);
+      font-size: 28px;
+    }
+
+    .wo-text strong {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .wo-text span {
+      color: var(--text);
+      font-size: 12px;
+    }
+
+    .bill-continue {
+      width: 100%;
+      margin-top: 14px;
+      border: 0;
+      border-radius: 14px;
+      background: var(--primary);
+      color: #fff;
+      cursor: pointer;
+      padding: 15px 20px;
+      font-size: 15px;
+      font-weight: 800;
+      transition: background .2s, transform .2s, opacity .2s;
+    }
+
+    .bill-continue:hover:not(:disabled) {
+      transform: translateY(-1px);
+      background: var(--primary-dark);
+    }
+
+    .bill-continue:disabled {
+      cursor: not-allowed;
+      opacity: .55;
+    }
+
+    .cashygo-summary {
+      position: sticky;
+      top: 120px;
+      border-radius: 18px;
+    }
+
+    .cashygo-summary__head {
+      background: #097832;
+      color: #fff;
+      padding: 22px;
+    }
+
+    .cashygo-summary-title {
+      margin-bottom: 6px;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .cashygo-summary__hint {
+      color: #d7e3dd;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .summary-pill {
+      display: inline-block;
+      margin-top: 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .18);
+      color: #fff;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .cashygo-summary__body {
+      padding: 22px;
+    }
+
+    .cashygo-summary-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+      font-size: 15px;
+    }
+
+    .cashygo-summary-row span:first-child {
+      color: var(--text);
+    }
+
+    .cashygo-summary-row strong {
+      text-align: right;
+      font-weight: 800;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .check-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid #edf1f5;
+      border-radius: 14px;
+      background: #fff;
+      padding: 12px 14px;
+      font-size: 14px;
+    }
+
+    .check-row .tick {
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      color: #94a3b8;
+    }
+
+    .check-row.done .tick {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .check-label {
+      flex: 1;
+      font-weight: 700;
+    }
+
+    .check-val {
+      color: #94a3b8;
+      font-size: 13px;
+      text-align: right;
+    }
+
+    .check-row.done .check-val {
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .cashygo-total {
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+
+    .cashygo-total small {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text);
+      font-size: 13px;
+    }
+
+    .cashygo-price {
+      color: var(--primary);
+      font-size: 30px;
+      font-weight: 800;
+    }
+
+    .cashygo-price-sub {
+      margin-top: 4px;
+      color: var(--text);
+      font-size: 12px;
+    }
+
+    .cashygo-note {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+      border: 1px solid #f5e5bc;
+      border-radius: 12px;
+      background: #fffbf0;
+      color: var(--muted);
+      padding: 12px;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .cashygo-note i {
+      flex: 0 0 auto;
+      color: #dda014;
+      font-size: 16px;
+    }
+
+    .cashygo-features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .cashygo-feature {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #f1f5f3;
+      padding: 18px;
+    }
+
+    .cashygo-feature-icon {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 12px;
+      border-radius: 12px;
+      background: #fff;
+      color: var(--primary);
+      font-size: 18px;
+    }
+
+    .cashygo-feature h4 {
+      margin-bottom: 6px;
+      font-size: 16px;
+    }
+
+    .cashygo-feature p {
+      color: var(--text);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .section {
+      max-width: 800px;
+      margin: 60px auto 0;
+      padding: 0 24px 60px;
+    }
+
+    @media (max-width: 1180px) {
+      .cashygo-page-head {
+        display: block;
+      }
+
+      .cashygo-progress {
+        min-width: 0;
+        margin-top: 18px;
+      }
+
+      .cashygo-layout {
+        grid-template-columns: minmax(240px, 300px) minmax(0, 1fr);
+      }
+
+      .cashygo-summary {
+        grid-column: 1 / -1;
+        position: static;
+      }
+
+      .cashygo-summary__body {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px 22px;
+        align-items: start;
+      }
+
+      .cashygo-summary-row,
+      .cashygo-total,
+      .cashygo-note {
+        margin: 0;
+      }
+
+      .cashygo-total {
+        padding-top: 0;
+        border-top: 0;
+      }
+
+      .check-list,
+      .cashygo-note {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .cashygo-breadcrumb,
+      .cashygo-subtitle,
+      .cashygo-progress {
+        display: none;
+      }
+
+      .cashygo-title {
+        font-size: 19px;
+      }
+
+      .cashygo-layout {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .cashygo-product,
+      .cashygo-summary {
+        position: static;
+      }
+
+      .cashygo-main {
+        display: block;
+      }
+
+      .cashygo-summary__body {
+        display: block;
+      }
+
+      .cashygo-total {
+        margin-top: 20px;
+        padding-top: 18px;
+        border-top: 1px solid var(--border);
+      }
+
+      .cashygo-note {
+        margin-top: 14px;
+      }
+
+      .cashygo-features {
+        display: none;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .cashygo-wrapper {
+        padding: 0 12px;
+      }
+
+      .cashygo-google-box {
+        gap: 8px;
+        margin-bottom: 26px;
+      }
+
+      .cashygo-eyebrow,
+      .google-box {
+        width: fit-content;
+        padding: 7px 10px;
+        font-size: 11px;
+      }
+
+      .cashygo-product {
+        padding: 14px;
+        border-radius: 16px;
+      }
+
+      .camera-visual {
+        min-height: 130px;
+      }
+
+      .camera-visual i {
+        font-size: 64px;
+      }
+
+      .cashygo-model {
+        font-size: 20px;
+      }
+
+      .cashygo-storage {
+        font-size: 13px;
+      }
+
+      .cashygo-user {
+        padding: 7px 10px;
+        font-size: 11px;
+      }
+
+      .cashygo-trust {
+        gap: 6px;
+      }
+
+      .cashygo-trust-box {
+        border-radius: 12px;
+        padding: 10px 5px;
+      }
+
+      .cashygo-trust-box i {
+        font-size: 18px;
+      }
+
+      .cashygo-trust-box span {
+        font-size: 11px;
+      }
+
+      .cashygo-trust-box p {
+        font-size: 9px;
+      }
+
+      .cashygo-main {
+        padding: 16px;
+        border-radius: 16px;
+      }
+
+      .cashygo-label {
+        font-size: 16px;
+      }
+
+      .option-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cashygo-option-card {
+        min-height: 90px;
+        padding: 14px 10px;
+        border-radius: 12px;
+      }
+
+      .cashygo-option-card i {
+        font-size: 26px;
+      }
+
+      .cashygo-option-card strong {
+        font-size: 13px;
+      }
+
+      .cashygo-wide-option {
+        min-height: 66px;
+        padding: 14px 16px;
+        gap: 12px;
+      }
+
+      .cashygo-wide-option > i {
+        font-size: 22px;
+      }
+
+      .cashygo-summary__head,
+      .cashygo-summary__body {
+        padding: 16px;
+      }
+
+      .cashygo-price {
+        font-size: 26px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-top">
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <a href="/" class="nav-logo" aria-label="Cashygo - Go to homepage">
+        <img src="assets/images/project-logo/logo-new.svg" alt="Cashygo logo" width="120" height="40">
+      </a>
+
+      <div class="nav-search" role="search">
+        <div class="nav-city" id="cityPicker" tabindex="0" aria-haspopup="listbox" aria-label="Select city">
+          <i class="bi bi-geo-alt-fill"></i>
+          <span id="cityLabel">Bangalore</span>
+          <i class="bi bi-chevron-down"></i>
+          <ul class="city-drop" id="cityDrop" role="listbox" aria-label="Select your city">
+            <li role="option" data-city="Delhi">Delhi NCR</li>
+            <li role="option" data-city="Bangalore">Bangalore</li>
+            <li role="option" data-city="Mumbai">Mumbai</li>
+            <li role="option" data-city="Pune">Pune</li>
+            <li role="option" data-city="Hyderabad">Hyderabad</li>
+          </ul>
+        </div>
+        <label for="mainSearch" class="sr-only">Search cameras</label>
+        <input type="search" id="mainSearch" name="search" placeholder="Search camera, brand..." autocomplete="off">
+        <div class="search-icon" aria-hidden="true"><i class="bi bi-search"></i></div>
+      </div>
+
+      <button class="nav-login" id="openLoginBtn" aria-label="Sign in to your account">
+        <i class="bi bi-person-circle"></i>
+        <span>Sign in</span>
+      </button>
+    </div>
+
+    <div class="nav-menu" id="navMenu">
+      <div class="nav-menu-inner">
+        <div class="dropdown" id="dropMobile">
+          <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">Sell Mobile &#8964;</button>
+          <ul class="dropdown-menu">
+            <li><a href="Apple_model.html">Apple iPhone</a></li>
+            <li><a href="samsung.html">Samsung Galaxy</a></li>
+            <li><a href="oneplus.html">OnePlus</a></li>
+            <li><a href="google.html">Google Pixel</a></li>
+            <li><a href="xiaomi.html">Xiaomi</a></li>
+            <li><a href="vivo.html">Vivo</a></li>
+          </ul>
+        </div>
+
+        <div class="dropdown" id="dropTablet">
+          <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">Sell Tablet &#8964;</button>
+          <ul class="dropdown-menu">
+            <li><a href="apple-tab.html">Apple Tab</a></li>
+            <li><a href="samsung-tab.html">Samsung Tab</a></li>
+            <li><a href="oneplus-tab.html">OnePlus Tab</a></li>
+            <li><a href="xiaomi-tab.html">Xiaomi Tab</a></li>
+            <li><a href="realme-tab.html">Realme Tab</a></li>
+          </ul>
+        </div>
+
+        <div class="dropdown" id="dropLaptop">
+          <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">Sell Laptop &#8964;</button>
+          <ul class="dropdown-menu">
+            <li><a href="dell.html">Dell</a></li>
+            <li><a href="hp.html">HP</a></li>
+            <li><a href="lenovo.html">Lenovo</a></li>
+            <li><a href="asus.html">Asus</a></li>
+            <li><a href="acer.html">Acer</a></li>
+          </ul>
+        </div>
+
+        <div class="dropdown" id="dropMac">
+          <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">Sell Mac &#8964;</button>
+          <ul class="dropdown-menu">
+            <li><a href="macbook.html">MacBook</a></li>
+            <li><a href="imac.html">iMac</a></li>
+            <li><a href="mac-mini.html">Mac Mini</a></li>
+            <li><a href="macbook-pro.html">MacBook Pro</a></li>
+          </ul>
+        </div>
+
+        <a href="camera_brand.html" class="menu-link">Sell Camera</a>
+        <a href="blogs.html" class="menu-link">Blog & Tips</a>
+        <a href="contact.html" class="menu-link">Contact</a>
+        <a href="Faq.html" class="menu-link">FAQ's</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="cashygo-page">
+    <div class="cashygo-wrapper">
+      <nav class="cashygo-breadcrumb" aria-label="Breadcrumb">
+        <a href="camera_brand.html">Sell camera</a>
+        <i class="bi bi-chevron-right"></i>
+        <a href="camera_model.html">Camera model</a>
+        <i class="bi bi-chevron-right"></i>
+        <span>Condition</span>
+      </nav>
+
+      <section class="cashygo-page-head">
+        <div>
+          <div class="cashygo-google-box">
+            <div class="cashygo-eyebrow">
+              <i class="bi bi-shield-check"></i>
+              Secure camera evaluation
+            </div>
+            <div class="google-box">
+              <h4>Google Trusted</h4>
+              <span>4.8 rating</span>
+            </div>
+          </div>
+          <h1 class="cashygo-title">Tell us about your camera condition</h1>
+          <p class="cashygo-subtitle">
+            Answer these quick checks so Cashygo can estimate the right value before pickup verification.
+          </p>
+        </div>
+        <div class="cashygo-progress">
+          <div class="cashygo-progress__item done">
+            <strong>1. Model</strong>
+            <span>Brand and series</span>
+          </div>
+          <div class="cashygo-progress__item active">
+            <strong>2. Condition</strong>
+            <span>Shutter, body, lens</span>
+          </div>
+          <div class="cashygo-progress__item">
+            <strong>3. Pickup</strong>
+            <span>Schedule and payment</span>
+          </div>
+        </div>
+      </section>
+
+      <div class="cashygo-layout">
+        <aside class="cashygo-card cashygo-product">
+          <div class="camera-visual" aria-hidden="true">
+            <i class="bi bi-camera-fill"></i>
+          </div>
+          <span class="cashygo-brand" id="panelBrand">Sony</span>
+          <h2 class="cashygo-model" id="panelModel">Sony Alpha A7 III</h2>
+          <span class="cashygo-storage" id="panelSpec">Mirrorless Camera</span>
+          <div class="cashygo-user">
+            <strong>2100+</strong>
+            cameras sold on CashyGo
+          </div>
+          <div class="cashygo-trust">
+            <div class="cashygo-trust-box">
+              <i class="bi bi-shield-check"></i>
+              <span>Secure</span>
+              <p>Safe check</p>
+            </div>
+            <div class="cashygo-trust-box">
+              <i class="bi bi-camera"></i>
+              <span>Expert</span>
+              <p>Camera value</p>
+            </div>
+            <div class="cashygo-trust-box">
+              <i class="bi bi-wallet2"></i>
+              <span>Quick</span>
+              <p>Fast payout</p>
+            </div>
+          </div>
+        </aside>
+
+        <section class="cashygo-main" aria-label="Camera condition questions">
+          <section class="cashygo-section" id="shutterSection">
+            <div class="cashygo-label">
+              <div class="cashygo-step">1</div>
+              What is the shutter count?
+            </div>
+            <div class="question-card">
+              <p class="question-help">Select the approximate shutter count for your DSLR or mirrorless camera.</p>
+              <div class="option-grid">
+                <button class="cashygo-option-card" type="button" data-question="shutter" data-value="Below 10,000 clicks">
+                  <i class="bi bi-speedometer2"></i>
+                  <strong>Below 10,000 clicks</strong>
+                  <small>Best value</small>
+                </button>
+                <button class="cashygo-option-card" type="button" data-question="shutter" data-value="10,000 to 30,000 clicks">
+                  <i class="bi bi-speedometer"></i>
+                  <strong>10,000 to 30,000 clicks</strong>
+                  <small>High value</small>
+                </button>
+                <button class="cashygo-option-card" type="button" data-question="shutter" data-value="30,000 to 60,000 clicks">
+                  <i class="bi bi-activity"></i>
+                  <strong>30,000 to 60,000 clicks</strong>
+                  <small>Fair value</small>
+                </button>
+                <button class="cashygo-option-card" type="button" data-question="shutter" data-value="More than 60,000 clicks">
+                  <i class="bi bi-graph-up"></i>
+                  <strong>More than 60,000 clicks</strong>
+                  <small>Standard value</small>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <section class="cashygo-section is-hidden" id="bodySection">
+            <div class="cashygo-label">
+              <div class="cashygo-step">2</div>
+              What is the camera body condition?
+            </div>
+            <div class="question-card">
+              <p class="question-help">Choose the option that best matches body, buttons, display and ports.</p>
+              <div class="option-grid">
+                <button class="cashygo-option-card" type="button" data-question="body" data-value="Excellent body condition">
+                  <i class="bi bi-stars"></i>
+                  <strong>Excellent</strong>
+                  <small>No dents or scratches</small>
+                </button>
+                <button class="cashygo-option-card" type="button" data-question="body" data-value="Minor usage marks">
+                  <i class="bi bi-check2-circle"></i>
+                  <strong>Minor usage marks</strong>
+                  <small>Light scratches</small>
+                </button>
+                <button class="cashygo-option-card" type="button" data-question="body" data-value="Visible scratches or dents">
+                  <i class="bi bi-exclamation-circle"></i>
+                  <strong>Visible scratches or dents</strong>
+                  <small>Needs inspection</small>
+                </button>
+                <button class="cashygo-option-card" type="button" data-question="body" data-value="Faulty buttons, screen or ports">
+                  <i class="bi bi-tools"></i>
+                  <strong>Faulty buttons, screen or ports</strong>
+                  <small>Repair value</small>
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <section class="cashygo-section is-hidden" id="lensSection">
+            <div class="cashygo-label">
+              <div class="cashygo-step">3</div>
+              Lens and accessories available?
+            </div>
+            <div class="question-card">
+              <p class="question-help">Select all accessories you have. These can help improve the final resale value.</p>
+              <div class="wide-grid">
+                <button class="cashygo-wide-option" type="button" role="checkbox" aria-checked="false" data-question="accessories" data-value="Original lens available">
+                  <span class="bill-check"><i class="bi bi-check-lg"></i></span>
+                  <i class="bi bi-circle-square"></i>
+                  <div class="wo-text">
+                    <strong>Original lens available</strong>
+                    <span>Kit lens or bundled lens included</span>
+                  </div>
+                </button>
+                <button class="cashygo-wide-option" type="button" role="checkbox" aria-checked="false" data-question="accessories" data-value="Battery and charger available">
+                  <span class="bill-check"><i class="bi bi-check-lg"></i></span>
+                  <i class="bi bi-battery-charging"></i>
+                  <div class="wo-text">
+                    <strong>Battery and charger available</strong>
+                    <span>Important for verification</span>
+                  </div>
+                </button>
+                <button class="cashygo-wide-option" type="button" role="checkbox" aria-checked="false" data-question="accessories" data-value="Original bill or box available">
+                  <span class="bill-check"><i class="bi bi-check-lg"></i></span>
+                  <i class="bi bi-receipt-cutoff"></i>
+                  <div class="wo-text">
+                    <strong>Original bill or box available</strong>
+                    <span>Improves buyer trust</span>
+                  </div>
+                </button>
+                <button class="cashygo-wide-option" type="button" role="checkbox" aria-checked="false" data-question="accessories" data-value="Memory card, strap or bag available">
+                  <span class="bill-check"><i class="bi bi-check-lg"></i></span>
+                  <i class="bi bi-bag-check"></i>
+                  <div class="wo-text">
+                    <strong>Memory card, strap or bag available</strong>
+                    <span>Optional add-ons</span>
+                  </div>
+                </button>
+              </div>
+              <button class="bill-continue" id="conditionContinue" type="button" disabled>Continue</button>
+            </div>
+          </section>
+
+          <div class="cashygo-features">
+            <div class="cashygo-feature">
+              <div class="cashygo-feature-icon"><i class="bi bi-truck"></i></div>
+              <h4>Free Pickup</h4>
+              <p>Doorstep pickup across supported cities.</p>
+            </div>
+            <div class="cashygo-feature">
+              <div class="cashygo-feature-icon"><i class="bi bi-camera"></i></div>
+              <h4>Camera Check</h4>
+              <p>Body, shutter, lens and battery verified clearly.</p>
+            </div>
+            <div class="cashygo-feature">
+              <div class="cashygo-feature-icon"><i class="bi bi-lock"></i></div>
+              <h4>100% Secure</h4>
+              <p>Your sale details stay protected.</p>
+            </div>
+          </div>
+        </section>
+
+        <aside class="cashygo-card cashygo-summary">
+          <div class="cashygo-summary__head">
+            <h3 class="cashygo-summary-title">Evaluation Summary</h3>
+            <p class="cashygo-summary__hint">Complete all checks to get your best camera price.</p>
+            <span class="summary-pill" id="progressPill">0 / 3 Done</span>
+          </div>
+
+          <div class="cashygo-summary__body">
+            <div class="cashygo-summary-row">
+              <span>Brand</span>
+              <strong id="summaryBrand">-</strong>
+            </div>
+            <div class="cashygo-summary-row">
+              <span>Model</span>
+              <strong id="summaryModel">-</strong>
+            </div>
+            <div class="cashygo-summary-row">
+              <span>Type</span>
+              <strong id="summaryType">-</strong>
+            </div>
+
+            <div class="check-list">
+              <div class="check-row" id="shutterRow">
+                <div class="tick"><i class="bi bi-check-lg"></i></div>
+                <span class="check-label">Shutter Count</span>
+                <span class="check-val" id="shutterVal">Pending</span>
+              </div>
+              <div class="check-row" id="bodyRow">
+                <div class="tick"><i class="bi bi-check-lg"></i></div>
+                <span class="check-label">Body Condition</span>
+                <span class="check-val" id="bodyVal">Pending</span>
+              </div>
+              <div class="check-row" id="accessoriesRow">
+                <div class="tick"><i class="bi bi-check-lg"></i></div>
+                <span class="check-label">Accessories</span>
+                <span class="check-val" id="accessoriesVal">Pending</span>
+              </div>
+            </div>
+
+            <div class="cashygo-total">
+              <small>Estimated Value</small>
+              <div class="cashygo-price" id="estimatedPrice">&#8377;0</div>
+              <div class="cashygo-price-sub">Final value depends on physical condition and accessories.</div>
+            </div>
+
+            <div class="cashygo-note">
+              <i class="bi bi-info-circle"></i>
+              <span>Shutter count and lens condition are important for an accurate camera quote.</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <section class="section" aria-label="Frequently asked questions">
+    <div class="faq-header">
+      <h2>Frequently <span>Asked</span> Questions</h2>
+      <p>Everything you need to know before selling your camera</p>
+    </div>
+    <details class="faq-item">
+      <summary>Does shutter count affect price? <span class="faq-icon">+</span></summary>
+      <div class="faq-answer">Yes, lower shutter count usually improves resale value for DSLR and mirrorless cameras.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Can I sell only the camera body? <span class="faq-icon">+</span></summary>
+      <div class="faq-answer">Yes, you can sell only the body. Lens, battery, charger, bill and box may improve the quote.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Is pickup free? <span class="faq-icon">+</span></summary>
+      <div class="faq-answer">Yes, doorstep pickup is free in supported cities with no hidden charges.</div>
+    </details>
+    <details class="faq-item">
+      <summary>When will I get payment? <span class="faq-icon">+</span></summary>
+      <div class="faq-answer">Payment is processed after camera verification and final quote confirmation during pickup.</div>
+    </details>
+  </section>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">
+            <img src="assets/images/project-logo/logo-new.svg" alt="Cashygo" loading="lazy">
+          </div>
+          <p class="footer-desc">India's most trusted device buyback platform. Instant pricing, free doorstep pickup, and instant payment.</p>
+          <div class="social-links" aria-label="Follow us on social media">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61582722784700" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>SELL</h4>
+          <ul>
+            <li><a href="#">Sell Mobile</a></li>
+            <li><a href="#">Sell Laptop</a></li>
+            <li><a href="#">Sell Tablet</a></li>
+            <li><a href="#">Sell MacBook</a></li>
+            <li><a href="camera_brand.html">Sell Camera</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>COMPANY</h4>
+          <ul>
+            <li><a href="#">About Cashygo</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Partner With Us</a></li>
+            <li><a href="#">Press & Media</a></li>
+            <li><a href="blogs.html">Blog & Tips</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>SUPPORT</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="contact.html">Contact Support</a></li>
+            <li><a href="#">Return Policy</a></li>
+            <li><a href="#">Privacy & Security</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-contact">
+          <h4>CONTACT</h4>
+          <address>
+            <p><i class="bi bi-envelope"></i><a href="mailto:hr@cashygo.com">hr@cashygo.com</a></p>
+            <p><i class="bi bi-telephone"></i><a href="tel:+917766071191">+91 7766071191</a></p>
+            <p><i class="bi bi-geo-alt"></i>Bangalore, Karnataka, India</p>
+          </address>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-links-row">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Refund Policy</a>
+          <a href="#">Sitemap</a>
+        </div>
+        <div class="payment-row" aria-label="Secure payment methods">
+          <span>Secure payments:</span>
+          <i class="bi bi-credit-card" title="Credit/Debit Card"></i>
+          <i class="bi bi-bank" title="Bank Transfer"></i>
+          <i class="bi bi-wallet2" title="Digital Wallet"></i>
+        </div>
+        <p>&copy; 2026 Cashygo - Resale Redefined</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const cityPicker = document.getElementById("cityPicker");
+    const cityLabel = document.getElementById("cityLabel");
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("navMenu");
+
+    if (cityPicker && cityLabel) {
+      cityPicker.addEventListener("click", event => {
+        event.stopPropagation();
+        cityPicker.classList.toggle("open");
+      });
+
+      cityPicker.querySelectorAll("li").forEach(item => {
+        item.addEventListener("click", event => {
+          event.stopPropagation();
+          cityLabel.textContent = item.dataset.city;
+          cityPicker.classList.remove("open");
+        });
+      });
+    }
+
+    if (hamburger && navMenu) {
+      hamburger.addEventListener("click", () => {
+        const open = navMenu.classList.toggle("open");
+        hamburger.setAttribute("aria-expanded", open);
+      });
+    }
+
+    document.querySelectorAll(".dropdown").forEach(dropdown => {
+      const button = dropdown.querySelector(".dropdown-btn");
+      if (!button) return;
+
+      button.addEventListener("click", event => {
+        event.stopPropagation();
+        const wasOpen = dropdown.classList.contains("open");
+        document.querySelectorAll(".dropdown").forEach(item => item.classList.remove("open"));
+        if (!wasOpen) dropdown.classList.add("open");
+        button.setAttribute("aria-expanded", String(!wasOpen));
+      });
+    });
+
+    document.addEventListener("click", event => {
+      if (cityPicker && !cityPicker.contains(event.target)) cityPicker.classList.remove("open");
+      document.querySelectorAll(".dropdown").forEach(dropdown => {
+        dropdown.classList.remove("open");
+        const button = dropdown.querySelector(".dropdown-btn");
+        if (button) button.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    const storedSelection = JSON.parse(sessionStorage.getItem("cashygoCameraSelection") || "{}");
+    const selection = {
+      brand: storedSelection.brand || params.get("brand") || "Sony",
+      model: storedSelection.model || params.get("model") || "Sony Alpha A7 III",
+      type: storedSelection.type || params.get("type") || "Mirrorless Camera",
+      price: Number(storedSelection.price || params.get("price") || 76000)
+    };
+
+    const condition = {
+      shutter: "",
+      body: "",
+      accessories: []
+    };
+
+    function fmt(amount) {
+      return "\u20B9" + Number(amount || 0).toLocaleString("en-IN");
+    }
+
+    function hydratePanel() {
+      document.getElementById("panelBrand").textContent = selection.brand;
+      document.getElementById("panelModel").textContent = selection.model;
+      document.getElementById("panelSpec").textContent = selection.type;
+      document.getElementById("summaryBrand").textContent = selection.brand;
+      document.getElementById("summaryModel").textContent = selection.model;
+      document.getElementById("summaryType").textContent = selection.type;
+
+      const low = Math.round(selection.price * 0.82);
+      document.getElementById("estimatedPrice").textContent = selection.price ? fmt(low) + " - " + fmt(selection.price) : "\u20B90";
+    }
+
+    function setRow(rowId, valueId, done, value) {
+      document.getElementById(rowId).classList.toggle("done", done);
+      document.getElementById(valueId).textContent = done ? value : "Pending";
+    }
+
+    function updateSummary() {
+      const shutterDone = Boolean(condition.shutter);
+      const bodyDone = Boolean(condition.body);
+      const accessoriesDone = condition.accessories.length > 0;
+
+      setRow("shutterRow", "shutterVal", shutterDone, condition.shutter);
+      setRow("bodyRow", "bodyVal", bodyDone, condition.body);
+      setRow("accessoriesRow", "accessoriesVal", accessoriesDone, condition.accessories.join(", "));
+
+      const count = (shutterDone ? 1 : 0) + (bodyDone ? 1 : 0) + (accessoriesDone ? 1 : 0);
+      document.getElementById("progressPill").textContent = count + " / 3 Done";
+      document.getElementById("conditionContinue").disabled = count < 3;
+    }
+
+    document.querySelectorAll("[data-question]").forEach(button => {
+      button.addEventListener("click", () => {
+        const question = button.dataset.question;
+
+        if (question === "accessories") {
+          const value = button.dataset.value;
+          const selected = condition.accessories.includes(value);
+          condition.accessories = selected
+            ? condition.accessories.filter(item => item !== value)
+            : [...condition.accessories, value];
+          button.classList.toggle("active", !selected);
+          button.setAttribute("aria-checked", String(!selected));
+          updateSummary();
+          return;
+        }
+
+        condition[question] = button.dataset.value;
+        document.querySelectorAll('[data-question="' + question + '"]').forEach(item => item.classList.remove("active"));
+        button.classList.add("active");
+        updateSummary();
+
+        if (question === "shutter") {
+          document.getElementById("shutterSection").classList.add("is-hidden");
+          document.getElementById("bodySection").classList.remove("is-hidden");
+        }
+
+        if (question === "body") {
+          document.getElementById("bodySection").classList.add("is-hidden");
+          document.getElementById("lensSection").classList.remove("is-hidden");
+        }
+      });
+    });
+
+    document.getElementById("conditionContinue").addEventListener("click", () => {
+      if (!condition.shutter || !condition.body || !condition.accessories.length) {
+        alert("Please complete all camera condition checks");
+        return;
+      }
+
+      sessionStorage.setItem("cashygoCameraCondition", JSON.stringify({
+        ...condition,
+        accessories: condition.accessories.join(", ")
+      }));
+
+      window.location.href = "camera_question.html";
+    });
+
+    hydratePanel();
+    updateSummary();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Cashygo - Sell your old DSLR, mirrorless, action camera, mobile, laptop, tablet, or smartwatch instantly. Best resale price, free doorstep pickup, instant payment.">
+  <meta name="theme-color" content="#0d8c60">
+  <meta property="og:title" content="Cashygo - Sell Old Cameras. Get Instant Price & Free Pickup">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://cashygo.com/camera_brand.html">
+  <title>CashyGo - Sell Old DSLR Camera</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Barlow:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="blogs_sec.css">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    :root {
+      --cashygo-green: #079455;
+      --cashygo-green-dark: #063c2b;
+      --cashygo-green-soft: #eaf8f2;
+      --cashygo-ink: #111827;
+      --cashygo-text: #344054;
+      --cashygo-muted: #667085;
+      --cashygo-line: #e5e9ed;
+      --cashygo-bg: #f7faf8;
+      --cashygo-white: #fff;
+      --cashygo-shadow: 0 18px 45px rgba(15, 23, 42, .09);
+    }
+
+    html,
+    body {
+      min-height: 100%
+    }
+
+    body {
+      font-family: "Barlow", Arial, sans-serif;
+      color: var(--cashygo-text);
+      background: var(--cashygo-bg);
+      line-height: 1.45;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    button,
+    input {
+      font: inherit
+    }
+
+    .cashygo {
+      width: min(1280px, calc(100% - 28px));
+      margin: 0 auto;
+    }
+
+    .cashygo_nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px 0 12px;
+    }
+
+    .cashygo_logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--cashygo-ink);
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -.4px;
+    }
+
+    .cashygo_logo_mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      color: #fff;
+      background: var(--cashygo-green);
+      box-shadow: 0 10px 22px rgba(7, 148, 85, .22);
+    }
+
+    .cashygo_nav_btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 15px;
+      border: 1px solid var(--cashygo-line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--cashygo-green);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .cashygo_banner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 410px;
+      gap: 40px;
+      align-items: center;
+      margin-top: 12px;
+      padding: 42px 44px;
+      overflow: hidden;
+      border: 1px solid var(--cashygo-line);
+      border-radius: 8px;
+      background:
+        radial-gradient(circle at 87% 18%, rgba(7, 148, 85, .16), transparent 28%),
+        linear-gradient(115deg, #fff 0%, #fff 54%, #eefaf4 54%, #dff4eb 100%);
+      box-shadow: 0 22px 60px rgba(15, 23, 42, .1);
+      position: relative;
+    }
+
+    .cashygo_banner::before {
+      content: "";
+      position: absolute;
+      inset: auto auto 24px -70px;
+      width: 180px;
+      height: 180px;
+      border: 28px solid rgba(7, 148, 85, .07);
+      border-radius: 50%;
+    }
+
+    .cashygo_kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 15px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      color: var(--cashygo-green);
+      background: var(--cashygo-green-soft);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .cashygo_kicker i {
+      font-size: 15px
+    }
+
+    .cashygo_title {
+      max-width: 560px;
+      color: var(--cashygo-ink);
+      font-size: 25px;
+      line-height: 1.08;
+      letter-spacing: -1px;
+      font-weight: 800;
+    }
+
+    .cashygo_title span {
+      color: var(--cashygo-green)
+    }
+
+    .cashygo_banner_actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .cashygo_primary_btn,
+    .cashygo_secondary_btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 11px 17px;
+      border-radius: 7px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .cashygo_primary_btn {
+      color: #fff;
+      background: var(--cashygo-green);
+      box-shadow: 0 12px 24px rgba(7, 148, 85, .2);
+    }
+
+    .cashygo_secondary_btn {
+      color: var(--cashygo-green);
+      border: 1px solid rgba(7, 148, 85, .24);
+      background: #fff;
+    }
+
+    .cashygo_copy {
+      max-width: 570px;
+      margin-top: 14px;
+      color: var(--cashygo-muted);
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .cashygo_points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 22px;
+      margin: 22px 0;
+      list-style: none;
+    }
+
+    .cashygo_points li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #1f2937;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .cashygo_points i {
+      color: var(--cashygo-green);
+      font-size: 16px
+    }
+
+    .cashygo_search {
+      display: grid;
+      grid-template-columns: 48px 1fr 132px;
+      align-items: center;
+      max-width: 620px;
+      height: 45px;
+      margin-top: 16px;
+      overflow: hidden;
+      border: 1px solid #dce4df;
+      border-radius: 7px;
+      background: #fff;
+      box-shadow: 0 14px 26px rgba(15, 23, 42, .06);
+    }
+
+    .cashygo_search i {
+      color: #98a2b3;
+      text-align: center;
+      font-size: 19px;
+    }
+
+    .cashygo_search input {
+      width: 100%;
+      border: 0;
+      outline: 0;
+      color: var(--cashygo-ink);
+      font-size: 15px;
+      background: transparent;
+    }
+
+    .cashygo_search input::placeholder {
+      color: #8a95a4
+    }
+
+    .cashygo_search button {
+      height: 54px;
+      border: 0;
+      color: #fff;
+      background: var(--cashygo-green);
+      font-size: 14px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .cashygo_banner_stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      max-width: 570px;
+      margin-top: 18px;
+    }
+
+    .cashygo_banner_stat {
+      padding: 12px 10px;
+      border: 1px solid #e4ebe7;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .76);
+    }
+
+    .cashygo_banner_stat strong {
+      display: block;
+      color: var(--cashygo-ink);
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 800;
+    }
+
+    .cashygo_banner_stat span {
+      display: block;
+      margin-top: 5px;
+      color: var(--cashygo-muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .cashygo_visual {
+      min-height: 350px;
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .cashygo_visual::before {
+      content: "";
+      position: absolute;
+      width: 330px;
+      height: 330px;
+      border-radius: 50%;
+      background: #d7f2e6;
+    }
+
+    .cashygo_visual::after {
+      content: "";
+      position: absolute;
+      right: 12px;
+      bottom: 26px;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 22px solid rgba(7, 148, 85, .12);
+    }
+
+    .cashygo_camera_img {
+      position: relative;
+      z-index: 1;
+      width: min(330px, 100%);
+      filter: drop-shadow(0 26px 24px rgba(15, 23, 42, .24));
+    }
+
+    .cashygo_price_chip {
+      position: absolute;
+      z-index: 2;
+      left: 0;
+      bottom: 42px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border: 1px solid rgba(7, 148, 85, .16);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 18px 36px rgba(15, 23, 42, .12);
+    }
+
+    .cashygo_pickup_chip {
+      position: absolute;
+      z-index: 2;
+      top: 36px;
+      right: 0;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 12px;
+      border: 1px solid rgba(7, 148, 85, .14);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 16px 34px rgba(15, 23, 42, .1);
+    }
+
+    .cashygo_pickup_chip i {
+      color: var(--cashygo-green);
+      font-size: 20px
+    }
+
+    .cashygo_pickup_chip span {
+      color: var(--cashygo-ink);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .cashygo_price_chip i {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--cashygo-green);
+    }
+
+    .cashygo_price_chip strong {
+      display: block;
+      color: var(--cashygo-ink);
+      font-size: 15px;
+      line-height: 1;
+    }
+
+    .cashygo_price_chip span {
+      color: var(--cashygo-muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .cashygo_divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 26px 0 18px;
+      color: var(--cashygo-muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .cashygo_divider::before,
+    .cashygo_divider::after {
+      content: "";
+      width: 72px;
+      height: 1px;
+      background: var(--cashygo-line);
+    }
+
+    .cashygo_section_head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .cashygo_section_head h2 {
+      color: var(--cashygo-ink);
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .cashygo_section_head a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--cashygo-green);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .cashygo_brand_picker {
+      margin-top: 28px;
+      padding: 24px;
+      border: 1px solid var(--cashygo-line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 14px 34px rgba(15, 23, 42, .05);
+    }
+
+    .cashygo_brand_picker_top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .cashygo_brand_picker_top h2 {
+      color: var(--cashygo-ink);
+      font-size: 25px;
+      font-weight: 800;
+    }
+
+    .cashygo_brand_picker_top p {
+      max-width: 520px;
+      margin-top: 5px;
+      color: var(--cashygo-muted);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .cashygo_brand_hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      flex: 0 0 auto;
+      padding: 9px 12px;
+      border-radius: 999px;
+      color: var(--cashygo-green);
+      background: var(--cashygo-green-soft);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .cashygo_brands {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+    }
+
+    .cashygo_brand_card {
+      min-height: 132px;
+      display: grid;
+      place-items: center;
+      gap: 10px;
+      padding: 16px 10px;
+      border: 1px solid var(--cashygo-line);
+      border-radius: 8px;
+      background: #fff;
+      text-align: center;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, .04);
+      transition: transform .2s, border-color .2s, box-shadow .2s;
+    }
+
+    .cashygo_brand_card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(7, 148, 85, .35);
+      box-shadow: 0 16px 30px rgba(15, 23, 42, .08);
+    }
+
+    .cashygo_brand_logo {
+      width: 64px;
+      height: 64px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #eef1f4;
+      border-radius: 8px;
+      background: #fbfcfd;
+      color: var(--cashygo-ink);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .cashygo_brand_logo img {
+      display: block;
+      width: 100%;
+      max-width: 54px;
+      max-height: 36px;
+      object-fit: contain;
+    }
+
+    .cashygo_brand_card strong {
+      color: #172033;
+      font-size: 15px;
+    }
+
+    .cashygo_brand_card span {
+      display: block;
+      margin-top: 2px;
+      color: var(--cashygo-muted);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .cashygo_info_grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin: 34px 0 46px;
+    }
+
+    .cashygo_top_selling {
+      margin-top: 34px;
+    }
+
+    .cashygo_selling_grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .cashygo_selling_card {
+      position: relative;
+      min-height: 170px;
+      padding: 18px;
+      overflow: hidden;
+      border: 1px solid var(--cashygo-line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, .05);
+    }
+
+    .cashygo_selling_card::after {
+      content: "";
+      position: absolute;
+      right: -38px;
+      bottom: -42px;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: var(--cashygo-green-soft);
+    }
+
+    .cashygo_rank {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: #fff;
+      background: var(--cashygo-green);
+      font-weight: 800;
+    }
+
+    .cashygo_selling_card h3 {
+      margin-top: 18px;
+      color: var(--cashygo-ink);
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .cashygo_selling_card p {
+      margin-top: 6px;
+      color: var(--cashygo-muted);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .cashygo_selling_card a {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 16px;
+      color: var(--cashygo-green);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .cashygo_panel {
+      padding: 28px;
+      border: 1px solid var(--cashygo-line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, .05);
+    }
+
+    .cashygo_panel h2 {
+      color: var(--cashygo-ink);
+      font-size: 24px;
+      line-height: 1.15;
+      font-weight: 800;
+    }
+
+    .cashygo_panel_intro {
+      margin-top: 8px;
+      color: var(--cashygo-muted);
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .cashygo_faq_section {
+      margin: 0 0 34px;
+    }
+
+    .cashygo_faq_list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .cashygo_faq_item {
+      border: 1px solid var(--cashygo-line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, .04);
+      overflow: hidden;
+    }
+
+    .cashygo_faq_item summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px;
+      color: var(--cashygo-ink);
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .cashygo_faq_item summary::-webkit-details-marker {
+      display: none
+    }
+
+    .cashygo_faq_item summary::after {
+      content: "+";
+      width: 24px;
+      height: 24px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      color: var(--cashygo-green);
+      background: var(--cashygo-green-soft);
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .cashygo_faq_item[open] summary::after {
+      content: "-"
+    }
+
+    .cashygo_faq_item p {
+      padding: 0 18px 18px;
+      color: var(--cashygo-muted);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .cashygo_steps,
+    .cashygo_why {
+      display: grid;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .cashygo_step,
+    .cashygo_reason {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+
+    .cashygo_step_num,
+    .cashygo_reason_icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      color: var(--cashygo-green);
+      background: var(--cashygo-green-soft);
+      font-weight: 800;
+    }
+
+    .cashygo_step h3,
+    .cashygo_reason h3 {
+      color: #172033;
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .cashygo_step p,
+    .cashygo_reason p {
+      margin-top: 3px;
+      color: var(--cashygo-muted);
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .cashygo_cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 32px;
+      padding: 22px 26px;
+      border-radius: 8px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--cashygo-green), var(--cashygo-green-dark));
+    }
+
+    .cashygo_cta h2 {
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .cashygo_cta p {
+      margin-top: 4px;
+      color: rgba(255, 255, 255, .78);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .cashygo_cta a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex: 0 0 auto;
+      padding: 12px 18px;
+      border-radius: 7px;
+      background: #fff;
+      color: var(--cashygo-green);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    @media (max-width:940px) {
+      .cashygo_banner {
+        grid-template-columns: 1fr;
+        padding: 28px
+      }
+
+      .cashygo_visual {
+        min-height: 280px;
+        order: -1
+      }
+
+      .cashygo_brands {
+        grid-template-columns: repeat(3, 1fr)
+      }
+
+      .cashygo_selling_grid {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .cashygo_info_grid {
+        grid-template-columns: 1fr
+      }
+
+      .cashygo_faq_list {
+        grid-template-columns: 1fr
+      }
+    }
+
+    @media (max-width:620px) {
+      .cashygo {
+        width: min(100% - 24px, 460px)
+      }
+
+      .cashygo_nav_btn span {
+        display: none
+      }
+
+      .cashygo_banner {
+        gap: 18px;
+        padding: 22px 16px;
+        background: #fff;
+      }
+
+      .cashygo_title {
+        font-size: 31px
+      }
+
+      .cashygo_banner_actions {
+        display: grid
+      }
+
+      .cashygo_copy {
+        font-size: 14px
+      }
+
+      .cashygo_points {
+        display: grid;
+        gap: 10px;
+        margin: 18px 0
+      }
+
+      .cashygo_search {
+        grid-template-columns: 44px 1fr;
+        height: 50px
+      }
+
+      .cashygo_search button {
+        display: none
+      }
+
+      .cashygo_banner_stats {
+        grid-template-columns: 1fr
+      }
+
+      .cashygo_visual {
+        min-height: 230px
+      }
+
+      .cashygo_visual::before {
+        width: 220px;
+        height: 220px
+      }
+
+      .cashygo_visual::after {
+        display: none
+      }
+
+      .cashygo_camera_img {
+        width: 230px
+      }
+
+      .cashygo_price_chip {
+        left: 10px;
+        bottom: 18px
+      }
+
+      .cashygo_pickup_chip {
+        top: 14px;
+        right: 8px
+      }
+
+      .cashygo_brand_picker {
+        padding: 18px 14px
+      }
+
+      .cashygo_brand_picker_top {
+        display: grid
+      }
+
+      .cashygo_brands {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px
+      }
+
+      .cashygo_brand_card {
+        min-height: 118px
+      }
+
+      .cashygo_selling_grid {
+        grid-template-columns: 1fr
+      }
+
+      .cashygo_info_grid {
+        margin-top: 26px
+      }
+
+      .cashygo_panel {
+        padding: 22px 16px
+      }
+
+      .cashygo_cta {
+        display: grid;
+        padding: 22px 18px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-top">
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <i class="bi bi-list"></i>
+      </button>
+      <a href="/" class="nav-logo" aria-label="Cashygo - Go to homepage">
+        <img src="assets/images/project-logo/logo-new.svg" alt="Cashygo logo" width="120" height="40">
+      </a>
+      <div class="nav-search" role="search">
+        <div class="nav-city" id="cityPicker" tabindex="0" aria-haspopup="listbox" aria-label="Select city">
+          <i class="bi bi-geo-alt-fill"></i>
+          <span id="cityLabel">Bangalore</span>
+          <i class="bi bi-chevron-down"></i>
+          <ul class="city-drop" id="cityDrop" role="listbox" aria-label="Select your city">
+            <li role="option" data-city="Delhi">Delhi NCR</li>
+            <li role="option" data-city="Bangalore">Bangalore</li>
+            <li role="option" data-city="Mumbai">Mumbai</li>
+            <li role="option" data-city="Pune">Pune</li>
+            <li role="option" data-city="Hyderabad">Hyderabad</li>
+          </ul>
+        </div>
+        <label for="mainSearch" class="sr-only">Search devices</label>
+        <input type="search" id="mainSearch" name="search" placeholder="Search devices, brands..." autocomplete="off">
+        <div class="search-icon" aria-hidden="true"><i class="bi bi-search"></i></div>
+      </div>
+      <button class="nav-login" id="openLoginBtn" aria-label="Sign in to your account">
+        <i class="bi bi-person-circle"></i>
+        <span>Sign in</span>
+      </button>
+    </div>
+
+    <div class="nav-menu" id="navMenu">
+      <div class="nav-menu-inner">
+        <div class="dropdown" id="dropMobile">
+          <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">Sell Mobile ⌵</button>
+          <ul class="dropdown-menu">
+            <li><a href="Apple_model.html">Apple iPhone</a></li>
+            <li><a href="samsung.html">Samsung Galaxy</a></li>
+            <li><a href="oneplus.html">OnePlus</a></li>
+            <li><a href="google.html">Google Pixel</a></li>
+            <li><a href="xiaomi.html">Xiaomi</a></li>
+            <li><a href="vivo.html">Vivo</a></li>
+          </ul>
+        </div>
+        <div class="dropdown" id="dropTablet">
+          <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">Sell Tablet ⌵</button>
+          <ul class="dropdown-menu">
+            <li><a href="apple-tab.html">Apple Tab</a></li>
+            <li><a href="samsung-tab.html">Samsung Tab</a></li>
+            <li><a href="oneplus-tab.html">OnePlus Tab</a></li>
+            <li><a href="xiaomi-tab.html">Xiaomi Tab</a></li>
+            <li><a href="realme-tab.html">Realme Tab</a></li>
+          </ul>
+        </div>
+        <div class="dropdown" id="dropLaptop">
+          <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">Sell Laptop ⌵</button>
+          <ul class="dropdown-menu">
+            <li><a href="dell.html">Dell</a></li>
+            <li><a href="hp.html">HP</a></li>
+            <li><a href="lenovo.html">Lenovo</a></li>
+            <li><a href="asus.html">Asus</a></li>
+            <li><a href="acer.html">Acer</a></li>
+          </ul>
+        </div>
+        <div class="dropdown" id="dropMac">
+          <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">Sell Mac ⌵</button>
+          <ul class="dropdown-menu">
+            <li><a href="macbook.html">MacBook</a></li>
+            <li><a href="imac.html">iMac</a></li>
+            <li><a href="mac-mini.html">Mac Mini</a></li>
+            <li><a href="macbook-pro.html">MacBook Pro</a></li>
+          </ul>
+        </div>
+        <button class="menu-link">Corporate Deals</button>
+        <button class="menu-link">Price Calculator</button>
+        <a href="blogs.html" class="menu-link">Blog & Tips</a>
+        <a href="contact.html" class="menu-link">Contact</a>
+        <a href="Faq.html" class="menu-link">FAQ's</a>
+        <a href="costumer.html" class="menu-link">Customer Reviews</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="cashygo">
+    <section class="cashygo_banner" aria-labelledby="cashygo_camera_title">
+      <div>
+        <div class="cashygo_kicker"><i class="bi bi-lightning-charge-fill"></i> Instant camera buyback</div>
+        <h1 class="cashygo_title" id="cashygo_camera_title">Sell Old DSLR Camera for <span>Instant Cash</span></h1>
+        <p class="cashygo_copy">Choose your camera brand, get the best resale price, schedule free doorstep pickup and
+          receive payment after quick verification.</p>
+
+        <ul class="cashygo_points" aria-label="CashyGo benefits">
+          <li><i class="bi bi-check-circle-fill"></i> Maximum Value</li>
+          <li><i class="bi bi-check-circle-fill"></i> Safe & Hassle-free</li>
+          <li><i class="bi bi-check-circle-fill"></i> Free Doorstep Pickup</li>
+        </ul>
+
+        <div class="cashygo_banner_actions">
+          <a class="cashygo_primary_btn" href="#cashygo_brand_title">Choose Brand <i class="bi bi-arrow-right"></i></a>
+          <a class="cashygo_secondary_btn" href="#cashygo_faq_title">View FAQs</a>
+        </div>
+
+        <form class="cashygo_search" action="camera_model.html">
+          <i class="bi bi-search"></i>
+          <input type="search" name="camera" placeholder="Search your DSLR Camera to sell"
+            aria-label="Search your DSLR Camera to sell">
+          <button type="submit">Search</button>
+        </form>
+
+        <div class="cashygo_banner_stats" aria-label="CashyGo camera selling highlights">
+          <div class="cashygo_banner_stat"><strong>24 hrs</strong><span>fast pickup slots</span></div>
+          <div class="cashygo_banner_stat"><strong>100%</strong><span>transparent quote</span></div>
+          <div class="cashygo_banner_stat"><strong>0 fees</strong><span>doorstep service</span></div>
+        </div>
+      </div>
+
+      <div class="cashygo_visual" aria-hidden="true">
+        <img class="cashygo_camera_img" src="#" alt="">
+        <div class="cashygo_pickup_chip">
+          <i class="bi bi-truck"></i>
+          <span>Free pickup</span>
+        </div>
+        <!-- <div class="cashygo_price_chip">
+          <i class="bi bi-cash-coin"></i>
+          <div>
+            <strong>Best price lock</strong>
+            <span>Quote valid for today</span>
+          </div>
+        </div> -->
+      </div>
+    </section>
+
+    <div class="cashygo_divider">Or choose a brand</div>
+
+    <section class="cashygo_brand_picker" aria-labelledby="cashygo_brand_title">
+      <div class="cashygo_brand_picker_top">
+        <div>
+          <h2 id="cashygo_brand_title">Choose Your Camera Brand</h2>
+          <p>Select the brand first, then pick your exact camera model to get the best available CashyGo price.</p>
+        </div>
+        <div class="cashygo_brand_hint"><i class="bi bi-stars"></i> Top brands listed first</div>
+      </div>
+
+      <div class="cashygo_brands">
+        <a class="cashygo_brand_card" href="camera_model.html?brand=canon" title="Sell Old Canon">
+          <div class="cashygo_brand_logo"><img src="assets/images/camera-brand/canon.svg" alt="Canon logo"
+              loading="lazy"></div>
+          <div><strong>Canon</strong><span>80+ models</span></div>
+        </a>
+        <a class="cashygo_brand_card" href="camera_model.html?brand=nikon" title="Sell Old Nikon">
+          <div class="cashygo_brand_logo"><img src="assets/images/camera-brand/nikon.svg" alt="Nikon logo"
+              loading="lazy"></div>
+          <div><strong>Nikon</strong><span>70+ models</span></div>
+        </a>
+        <a class="cashygo_brand_card" href="camera_model.html?brand=sony" title="Sell Old Sony">
+          <div class="cashygo_brand_logo"><img src="assets/images/camera-brand/sony.svg" alt="Sony logo" loading="lazy">
+          </div>
+          <div><strong>Sony</strong><span>60+ models</span></div>
+        </a>
+        <a class="cashygo_brand_card" href="camera_model.html?brand=fujifilm" title="Sell Old Fujifilm">
+          <div class="cashygo_brand_logo"><img src="assets/images/camera-brand/fujifilm.svg" alt="Fujifilm logo"
+              loading="lazy"></div>
+          <div><strong>Fujifilm</strong><span>40+ models</span></div>
+        </a>
+        <a class="cashygo_brand_card" href="camera_model.html?brand=gopro" title="Sell Old GoPro">
+          <div class="cashygo_brand_logo"><img src="assets/images/camera-brand/gopro.svg" alt="GoPro logo"
+              loading="lazy"></div>
+          <div><strong>GoPro</strong><span>25+ models</span></div>
+        </a>
+        <a class="cashygo_brand_card" href="camera_model.html?brand=dji" title="Sell Old DJI">
+          <div class="cashygo_brand_logo"><img src="assets/images/camera-brand/dji.svg" alt="DJI logo" loading="lazy">
+          </div>
+          <div><strong>DJI</strong><span>30+ models</span></div>
+        </a>
+      </div>
+    </section>
+
+    <section class="cashygo_top_selling" aria-labelledby="cashygo_top_selling_title">
+      <div class="cashygo_section_head">
+        <h2 id="cashygo_top_selling_title">Top Selling Brands</h2>
+        <a href="camera_brand.html">Explore all <i class="bi bi-chevron-right"></i></a>
+      </div>
+
+      <div class="cashygo_selling_grid">
+        <article class="cashygo_selling_card">
+          <div class="cashygo_rank">1</div>
+          <h3>Canon DSLR Cameras</h3>
+          <p>High demand for EOS series, lenses and creator kits.</p>
+          <a href="camera_model.html?brand=canon">Sell Canon <i class="bi bi-arrow-right"></i></a>
+        </article>
+        <article class="cashygo_selling_card">
+          <div class="cashygo_rank">2</div>
+          <h3>Nikon DSLR Cameras</h3>
+          <p>Popular for D-series bodies, lenses and photography bundles.</p>
+          <a href="camera_model.html?brand=nikon">Sell Nikon <i class="bi bi-arrow-right"></i></a>
+        </article>
+        <article class="cashygo_selling_card">
+          <div class="cashygo_rank">3</div>
+          <h3>Sony Mirrorless</h3>
+          <p>Strong resale value for Alpha, vlogging and full-frame models.</p>
+          <a href="camera_model.html?brand=sony">Sell Sony <i class="bi bi-arrow-right"></i></a>
+        </article>
+        <article class="cashygo_selling_card">
+          <div class="cashygo_rank">4</div>
+          <h3>GoPro Action Cameras</h3>
+          <p>Quick quotes for Hero models, mounts and travel accessories.</p>
+          <a href="camera_model.html?brand=gopro">Sell GoPro <i class="bi bi-arrow-right"></i></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="cashygo_info_grid" id="how-cashygo-works">
+      <div class="cashygo_panel">
+        <h2>How CashyGo Works</h2>
+        <p class="cashygo_panel_intro">A fast selling flow made for cameras, lenses and creators who want a fair price
+          without store visits.</p>
+        <div class="cashygo_steps">
+          <div class="cashygo_step">
+            <div class="cashygo_step_num">1</div>
+            <div>
+              <h3>Select brand and model</h3>
+              <p>Pick your camera brand, model and storage or kit details.</p>
+            </div>
+          </div>
+          <div class="cashygo_step">
+            <div class="cashygo_step_num">2</div>
+            <div>
+              <h3>Answer condition questions</h3>
+              <p>Tell us about shutter count, body condition, lens and accessories.</p>
+            </div>
+          </div>
+          <div class="cashygo_step">
+            <div class="cashygo_step_num">3</div>
+            <div>
+              <h3>Get doorstep pickup</h3>
+              <p>Choose a time slot and our pickup partner verifies the camera at your location.</p>
+            </div>
+          </div>
+          <div class="cashygo_step">
+            <div class="cashygo_step_num">4</div>
+            <div>
+              <h3>Receive instant payment</h3>
+              <p>Once verified, your payment is transferred safely to your account.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cashygo_panel">
+        <h2>Why Us</h2>
+        <p class="cashygo_panel_intro">CashyGo keeps the process transparent from quote to pickup, so you know exactly
+          what happens next.</p>
+        <div class="cashygo_why">
+          <div class="cashygo_reason">
+            <div class="cashygo_reason_icon"><i class="bi bi-trophy-fill"></i></div>
+            <div>
+              <h3>Best resale value</h3>
+              <p>Smart pricing compares brand, demand, condition and accessories.</p>
+            </div>
+          </div>
+          <div class="cashygo_reason">
+            <div class="cashygo_reason_icon"><i class="bi bi-shield-check"></i></div>
+            <div>
+              <h3>Secure verification</h3>
+              <p>Device checks are done in front of you with clear final pricing.</p>
+            </div>
+          </div>
+          <div class="cashygo_reason">
+            <div class="cashygo_reason_icon"><i class="bi bi-truck"></i></div>
+            <div>
+              <h3>Free pickup</h3>
+              <p>No packing stress, courier charges or extra doorstep fees.</p>
+            </div>
+          </div>
+          <div class="cashygo_reason">
+            <div class="cashygo_reason_icon"><i class="bi bi-wallet2"></i></div>
+            <div>
+              <h3>Quick payment</h3>
+              <p>Get paid directly after successful inspection and confirmation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cashygo_faq_section" aria-labelledby="cashygo_faq_title">
+      <div class="cashygo_section_head">
+        <h2 id="cashygo_faq_title">FAQs</h2>
+        <a href="Faq.html">More help <i class="bi bi-chevron-right"></i></a>
+      </div>
+
+      <div class="cashygo_faq_list">
+        <details class="cashygo_faq_item" open>
+          <summary>How do I sell my old camera on CashyGo?</summary>
+          <p>Choose your brand, select the model, answer a few condition questions and book a doorstep pickup slot.</p>
+        </details>
+        <details class="cashygo_faq_item">
+          <summary>Which camera brands can I sell?</summary>
+          <p>You can sell popular brands like Canon, Nikon, Sony, Fujifilm, GoPro, DJI and more through the brand
+            selection section.</p>
+        </details>
+        <details class="cashygo_faq_item">
+          <summary>Is pickup free?</summary>
+          <p>Yes, CashyGo doorstep pickup is free. There are no extra pickup or inspection charges shown on this page.
+          </p>
+        </details>
+        <details class="cashygo_faq_item">
+          <summary>When will I receive payment?</summary>
+          <p>Payment is processed after the camera is verified and the final price is confirmed during pickup.</p>
+        </details>
+        <details class="cashygo_faq_item">
+          <summary>Do accessories increase my camera price?</summary>
+          <p>Original lens, charger, battery, box, strap and bill can help improve the final resale value depending on
+            condition.</p>
+        </details>
+        <details class="cashygo_faq_item">
+          <summary>Can I sell a damaged camera?</summary>
+          <p>Yes, you can share the actual condition during the questions step and CashyGo will calculate the quote
+            accordingly.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="cashygo_cta" aria-label="Get instant camera price">
+      <div>
+        <h2>Ready to sell your camera?</h2>
+        <p>Start with your brand and get a quick estimate for your old DSLR, mirrorless or action camera.</p>
+      </div>
+      <a href="#cashygo_brand_title">Choose Brand <i class="bi bi-arrow-up-right"></i></a>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">
+            <img src="assets/images/project-logo/logo-new.svg" alt="Cashygo" loading="lazy">
+          </div>
+          <p class="footer-desc">India's most trusted device buyback platform. Instant pricing, free doorstep pickup,
+            and instant payment.</p>
+          <div class="social-links" aria-label="Follow us on social media">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61582722784700" aria-label="Facebook"><i
+                class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>SELL</h4>
+          <ul>
+            <li><a href="#">Sell Mobile</a></li>
+            <li><a href="#">Sell Laptop</a></li>
+            <li><a href="#">Sell Tablet</a></li>
+            <li><a href="#">Sell MacBook</a></li>
+            <li><a href="#">Sell Smartwatch</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>COMPANY</h4>
+          <ul>
+            <li><a href="#">About Cashygo</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Partner With Us</a></li>
+            <li><a href="#">Press & Media</a></li>
+            <li><a href="#">Blog & Tips</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>SUPPORT</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact Support</a></li>
+            <li><a href="#">Return Policy</a></li>
+            <li><a href="#">Privacy & Security</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-contact">
+          <h4>CONTACT</h4>
+          <address>
+            <p><i class="bi bi-envelope"></i><a href="mailto:hr@cashygo.com">hr@cashygo.com</a></p>
+            <p><i class="bi bi-telephone"></i><a href="tel:+917766071191">+91 7766071191</a></p>
+            <p><i class="bi bi-geo-alt"></i>Bangalore, Karnataka, India</p>
+          </address>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-links-row">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Refund Policy</a>
+          <a href="#">Sitemap</a>
+        </div>
+        <div class="payment-row" aria-label="Secure payment methods">
+          <span>Secure payments:</span>
+          <i class="bi bi-credit-card" title="Credit/Debit Card"></i>
+          <i class="bi bi-bank" title="Bank Transfer"></i>
+          <i class="bi bi-wallet2" title="Digital Wallet"></i>
+        </div>
+        <p>© 2026 Cashygo — Resale Redefined</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const cityPicker = document.getElementById('cityPicker');
+    const cityLabel = document.getElementById('cityLabel');
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('navMenu');
+
+    if (cityPicker && cityLabel) {
+      cityPicker.addEventListener('click', event => {
+        event.stopPropagation();
+        cityPicker.classList.toggle('open');
+      });
+
+      cityPicker.querySelectorAll('li').forEach(item => {
+        item.addEventListener('click', event => {
+          event.stopPropagation();
+          cityLabel.textContent = item.dataset.city;
+          cityPicker.classList.remove('open');
+        });
+      });
+    }
+
+    if (hamburger && navMenu) {
+      hamburger.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', isOpen);
+      });
+    }
+
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+      const button = dropdown.querySelector('.dropdown-btn');
+      if (!button) return;
+
+      button.addEventListener('click', event => {
+        event.stopPropagation();
+        const wasOpen = dropdown.classList.contains('open');
+        document.querySelectorAll('.dropdown').forEach(item => item.classList.remove('open'));
+        if (!wasOpen) dropdown.classList.add('open');
+        button.setAttribute('aria-expanded', String(!wasOpen));
+      });
+    });
+
+    document.addEventListener('click', event => {
+      if (cityPicker && !cityPicker.contains(event.target)) cityPicker.classList.remove('open');
+      document.querySelectorAll('.dropdown').forEach(dropdown => {
+        dropdown.classList.remove('open');
+        const button = dropdown.querySelector('.dropdown-btn');
+        if (button) button.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+</body>
+
+</html>

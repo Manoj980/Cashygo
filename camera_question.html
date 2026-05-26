@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cashygo camera issue check for DSLR, mirrorless and action cameras. Answer quick functional questions to update your camera resale quote.">
+  <meta name="theme-color" content="#0d8c60">
+  <title>Cashygo - Camera Issue Check</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --green: #078f61;
+      --green-dark: #056d4b;
+      --green-soft: #eaf8f2;
+      --ink: #121722;
+      --muted: #667085;
+      --line: #e3ebe7;
+      --bg: #f8faf9;
+      --white: #fff;
+      --danger: #d94343;
+      --shadow: 0 18px 42px rgba(13, 72, 54, .12);
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background: linear-gradient(180deg, #ffffff 0, var(--bg) 260px, var(--bg) 100%);
+      color: var(--ink);
+      font-family: "DM Sans", Arial, sans-serif;
+    }
+
+    button, input {
+      font-family: inherit;
+    }
+
+    .nav, .footer {
+      --text: #0f172a;
+      --border: #e2e8f0;
+      --white: #fff;
+    }
+
+    .cashygo-main-section {
+      width: min(1280px, calc(100% - 48px));
+      margin: 0 auto;
+      padding: 24px 0 48px;
+    }
+
+    .crumbs {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .crumbs a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .crumbs .active {
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .page-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      margin: 18px 0 22px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      border: 1px solid #c7ead8;
+      border-radius: 999px;
+      background: #e8f7ef;
+      color: var(--green);
+      padding: 7px 12px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.15;
+      font-weight: 800;
+    }
+
+    h1 span {
+      color: var(--green);
+    }
+
+    .subtitle {
+      max-width: 650px;
+      margin: 10px 0 0;
+      color: #4d5562;
+      font-size: 14px;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(120px, 1fr));
+      gap: 10px;
+      min-width: 390px;
+    }
+
+    .flow-step {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 12px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, .06);
+    }
+
+    .flow-step strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 13px;
+    }
+
+    .flow-step span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .flow-step.active {
+      border-color: var(--green);
+      background: var(--green-soft);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .progress-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 22px;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .pips {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+    }
+
+    .pip {
+      position: relative;
+      height: 10px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #dceae4;
+    }
+
+    .pip::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      background: var(--green);
+      transition: transform .25s ease;
+    }
+
+    .pip.done::after {
+      transform: scaleX(1);
+    }
+
+    .counter {
+      color: #37564b;
+      font-size: 18px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .counter strong {
+      color: var(--green);
+    }
+
+    .questions {
+      display: grid;
+      gap: 15px;
+    }
+
+    .q-card {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 15px;
+      align-items: start;
+      border: 1px solid transparent;
+      border-radius: 16px;
+      padding: 12px 10px;
+      transition: border-color .18s ease, background .18s ease, opacity .18s ease;
+    }
+
+    .q-card.active, .q-card.done {
+      border-color: #d7eae3;
+      background: rgba(255, 255, 255, .58);
+    }
+
+    .q-card.locked {
+      opacity: .58;
+    }
+
+    .q-icon-box {
+      display: grid;
+      place-items: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #e9fbf5, #f4fffb);
+      color: var(--green);
+      font-size: 30px;
+    }
+
+    .q-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .q-badge {
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      background: var(--green);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 800;
+      box-shadow: 0 6px 14px rgba(7, 143, 97, .2);
+    }
+
+    .q-title {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.25;
+      font-weight: 800;
+    }
+
+    .q-help {
+      margin: 8px 0 18px 35px;
+      color: #5d6673;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .answers {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(180px, 1fr));
+      gap: 18px;
+      margin-left: 35px;
+    }
+
+    .answer {
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 14px;
+      min-height: 48px;
+      border: 1.5px solid #dfe5e3;
+      border-radius: 8px;
+      background: #fff;
+      color: #4b5563;
+      padding: 0 15px;
+      font-size: 17px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: border-color .18s ease, box-shadow .18s ease, color .18s ease;
+    }
+
+    .answer:hover, .answer.selected {
+      border-color: rgba(7, 143, 97, .42);
+      box-shadow: 0 8px 18px rgba(7, 143, 97, .08);
+      color: var(--green);
+    }
+
+    .answer.no.selected {
+      border-color: rgba(217, 67, 67, .42);
+      color: var(--danger);
+    }
+
+    .answer-radio {
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border: 2px solid #cfd8d5;
+      border-radius: 50%;
+      color: transparent;
+      font-size: 16px;
+      transition: .18s ease;
+    }
+
+    .answer.selected .answer-radio {
+      border-color: var(--green);
+      background: var(--green);
+      color: #fff;
+    }
+
+    .answer.no.selected .answer-radio {
+      border-color: var(--danger);
+      background: var(--danger);
+    }
+
+    .finish {
+      width: 100%;
+      min-height: 54px;
+      margin-top: 22px;
+      border: 0;
+      border-radius: 12px;
+      background: var(--green);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .finish:disabled {
+      cursor: not-allowed;
+      opacity: .48;
+    }
+
+    .safe-line {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 28px 4px 0;
+      color: #5e6875;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .safe-line strong {
+      color: var(--ink);
+      font-weight: 800;
+    }
+
+    .safe-line i {
+      color: var(--green);
+      font-size: 24px;
+    }
+
+    .quote {
+      position: sticky;
+      top: 118px;
+      border: 1px solid #cfe8dd;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .96);
+      box-shadow: var(--shadow);
+      padding: 30px;
+    }
+
+    .device {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
+      text-align: center;
+      padding-bottom: 30px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .camera-icon {
+      display: grid;
+      place-items: center;
+      width: 172px;
+      height: 150px;
+      border-radius: 20px;
+      background: linear-gradient(145deg, #f8fafc, #e8f7ef);
+      color: var(--green);
+      font-size: 82px;
+      filter: drop-shadow(0 18px 22px rgba(0, 0, 0, .08));
+    }
+
+    .device h2 {
+      margin: 0 0 8px;
+      font-size: 26px;
+      line-height: 1.15;
+      font-weight: 800;
+    }
+
+    .device p {
+      margin: 0;
+      color: #535c68;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .quote-price {
+      padding: 32px 0;
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .quote-label {
+      color: #5f6873;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .price {
+      margin: 16px 0 20px;
+      color: var(--green);
+      font-size: 38px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .quote-price p {
+      max-width: 240px;
+      margin: 0 auto;
+      color: #535c68;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      padding-top: 28px;
+    }
+
+    .stat {
+      display: grid;
+      place-items: center;
+      min-height: 94px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #f7faf9;
+      text-align: center;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 30px;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 10px;
+      color: #6c7682;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .trust {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 28px;
+      color: #5e6875;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .trust span {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .trust i {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--green);
+      font-size: 24px;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(15, 23, 42, .46);
+      z-index: 50;
+    }
+
+    .modal-backdrop.show {
+      display: flex;
+    }
+
+    .modal {
+      display: block;
+      width: min(860px, 100%);
+      max-height: calc(100vh - 48px);
+      overflow: hidden;
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, .2);
+    }
+
+    .modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border-bottom: 1px solid var(--line);
+      padding: 14px 18px;
+    }
+
+    .modal-head h2 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .close {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: #fff;
+      cursor: pointer;
+      font-size: 22px;
+    }
+
+    .modal-body {
+      display: grid;
+      gap: 16px;
+      max-height: calc(100vh - 140px);
+      overflow-y: auto;
+      background: #f8faf9;
+      padding: 18px;
+    }
+
+    .issue-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .issue-card {
+      position: relative;
+      display: grid;
+      gap: 10px;
+      min-height: 168px;
+      border: 1px solid #dcebe5;
+      border-radius: 14px;
+      background: #fff;
+      color: var(--ink);
+      padding: 14px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+    }
+
+    .issue-card:hover, .issue-card.selected {
+      transform: translateY(-1px);
+      border-color: var(--green);
+      box-shadow: 0 12px 26px rgba(7, 143, 97, .14);
+    }
+
+    .issue-card-icon {
+      display: grid;
+      place-items: center;
+      min-height: 76px;
+      border-radius: 12px;
+      background: #f5fffb;
+      color: var(--green);
+      font-size: 42px;
+    }
+
+    .issue-card-title {
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .issue-card-desc {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .issue-card-price {
+      color: var(--danger);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .card-check {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      display: grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      border: 2px solid #cfd8d5;
+      border-radius: 8px;
+      background: #fff;
+      color: transparent;
+      font-size: 14px;
+      transition: .18s ease;
+    }
+
+    .issue-card.selected .card-check {
+      border-color: var(--green);
+      background: var(--green);
+      color: #fff;
+    }
+
+    .screen-selected-text {
+      min-height: 22px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .modal-submit {
+      min-height: 52px;
+      border: 0;
+      border-radius: 12px;
+      background: var(--green);
+      color: #fff;
+      font-size: 17px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .modal-submit:disabled {
+      cursor: not-allowed;
+      opacity: .45;
+    }
+
+    .lens-select-wrap {
+      display: grid;
+      gap: 18px;
+      width: 100%;
+      max-width: 560px;
+      margin: 0 auto;
+      border-radius: 8px;
+      background: #fff;
+      padding: 28px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, .08);
+    }
+
+    .lens-select-head {
+      text-align: center;
+    }
+
+    .lens-select-head h3 {
+      margin: 0 0 8px;
+      color: var(--ink);
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .lens-select-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .lens-select-field label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .lens-select-box {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 8px 22px rgba(15, 23, 42, .08);
+    }
+
+    .lens-select-box input {
+      width: 100%;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      padding: 13px 14px;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .lens-select-toggle {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border: 0;
+      background: transparent;
+      color: var(--green);
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .lens-options {
+      display: none;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 14px 28px rgba(15, 23, 42, .08);
+    }
+
+    .lens-options.show {
+      display: grid;
+    }
+
+    .lens-option {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      border: 0;
+      border-bottom: 1px solid #eef3f1;
+      background: #fff;
+      color: var(--ink);
+      padding: 12px 14px;
+      text-align: left;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .lens-option:last-child {
+      border-bottom: 0;
+    }
+
+    .lens-option:hover,
+    .lens-option.selected {
+      background: var(--green-soft);
+      color: var(--green);
+    }
+
+    .lens-option span:last-child {
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .section {
+      max-width: 800px;
+      margin: 50px auto 0;
+      padding: 0 24px 60px;
+    }
+
+    @media (max-width: 1100px) {
+      .cashygo-main-section {
+        width: calc(100% - 40px);
+      }
+
+      .page-head {
+        display: block;
+      }
+
+      .flow-steps {
+        min-width: 0;
+        margin-top: 18px;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .quote {
+        position: static;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .cashygo-main-section {
+        width: 100%;
+        padding: 16px 16px 40px;
+      }
+
+      .flow-steps {
+        display: none;
+      }
+
+      .progress-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .q-card {
+        grid-template-columns: 1fr;
+      }
+
+      .q-icon-box {
+        display: none;
+      }
+
+      .q-help, .answers {
+        margin-left: 30px;
+      }
+
+      .answers {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .answer {
+        min-width: 0;
+        width: 100%;
+        font-size: 15px;
+      }
+
+      .camera-icon {
+        width: 138px;
+        height: 118px;
+        font-size: 62px;
+      }
+
+      .price {
+        font-size: 32px;
+      }
+
+      .trust {
+        gap: 14px;
+        text-align: center;
+      }
+
+      .safe-line {
+        align-items: flex-start;
+        font-size: 14px;
+      }
+
+      .modal-backdrop {
+        align-items: flex-end;
+        padding: 10px;
+      }
+
+      .modal {
+        max-height: calc(100vh - 20px);
+        border-radius: 18px 18px 12px 12px;
+      }
+
+      .modal-body {
+        max-height: calc(74vh - 80px);
+        padding: 14px;
+      }
+
+      .issue-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .cashygo-main-section {
+        padding: 12px 12px 32px;
+      }
+
+      .answers {
+        margin-left: 10px;
+        gap: 10px;
+      }
+
+      .q-help {
+        margin-left: 10px;
+        font-size: 13px;
+      }
+
+      .answer {
+        padding: 0 10px;
+        font-size: 14px;
+      }
+
+      .issue-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-top">
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <i class="bi bi-list"></i>
+      </button>
+      <a href="/" class="nav-logo" aria-label="Cashygo - Go to homepage">
+        <img src="assets/images/project-logo/logo-new.svg" alt="Cashygo logo" width="120" height="40">
+      </a>
+      <div class="nav-search" role="search">
+        <div class="nav-city" id="cityPicker" tabindex="0" aria-haspopup="listbox" aria-label="Select city">
+          <i class="bi bi-geo-alt-fill"></i>
+          <span id="cityLabel">Bangalore</span>
+          <i class="bi bi-chevron-down"></i>
+          <ul class="city-drop" id="cityDrop" role="listbox" aria-label="Select your city">
+            <li role="option" data-city="Delhi">Delhi NCR</li>
+            <li role="option" data-city="Bangalore">Bangalore</li>
+            <li role="option" data-city="Mumbai">Mumbai</li>
+            <li role="option" data-city="Pune">Pune</li>
+            <li role="option" data-city="Hyderabad">Hyderabad</li>
+          </ul>
+        </div>
+        <label for="mainSearch" class="sr-only">Search cameras</label>
+        <input type="search" id="mainSearch" name="search" placeholder="Search cameras, brands..." autocomplete="off">
+        <div class="search-icon" aria-hidden="true"><i class="bi bi-search"></i></div>
+      </div>
+      <button class="nav-login" id="openLoginBtn" aria-label="Sign in to your account">
+        <i class="bi bi-person-circle"></i>
+        <span>Sign in</span>
+      </button>
+    </div>
+
+    <div class="nav-menu" id="navMenu">
+      <div class="nav-menu-inner">
+        <div class="dropdown" id="dropMobile">
+          <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">Sell Mobile &#8964;</button>
+          <ul class="dropdown-menu">
+            <li><a href="Apple_model.html">Apple iPhone</a></li>
+            <li><a href="samsung.html">Samsung Galaxy</a></li>
+            <li><a href="oneplus.html">OnePlus</a></li>
+            <li><a href="google.html">Google Pixel</a></li>
+            <li><a href="xiaomi.html">Xiaomi</a></li>
+            <li><a href="vivo.html">Vivo</a></li>
+          </ul>
+        </div>
+        <div class="dropdown" id="dropTablet">
+          <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">Sell Tablet &#8964;</button>
+          <ul class="dropdown-menu">
+            <li><a href="apple-tab.html">Apple Tab</a></li>
+            <li><a href="samsung-tab.html">Samsung Tab</a></li>
+            <li><a href="oneplus-tab.html">OnePlus Tab</a></li>
+            <li><a href="xiaomi-tab.html">Xiaomi Tab</a></li>
+            <li><a href="realme-tab.html">Realme Tab</a></li>
+          </ul>
+        </div>
+        <div class="dropdown" id="dropLaptop">
+          <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">Sell Laptop &#8964;</button>
+          <ul class="dropdown-menu">
+            <li><a href="dell.html">Dell</a></li>
+            <li><a href="hp.html">HP</a></li>
+            <li><a href="lenovo.html">Lenovo</a></li>
+            <li><a href="asus.html">Asus</a></li>
+            <li><a href="acer.html">Acer</a></li>
+          </ul>
+        </div>
+        <div class="dropdown" id="dropMac">
+          <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">Sell Mac &#8964;</button>
+          <ul class="dropdown-menu">
+            <li><a href="macbook.html">MacBook</a></li>
+            <li><a href="imac.html">iMac</a></li>
+            <li><a href="mac-mini.html">Mac Mini</a></li>
+            <li><a href="macbook-pro.html">MacBook Pro</a></li>
+          </ul>
+        </div>
+        <a href="camera_brand.html" class="menu-link">Sell Camera</a>
+        <a href="blogs.html" class="menu-link">Blog & Tips</a>
+        <a href="contact.html" class="menu-link">Contact</a>
+        <a href="Faq.html" class="menu-link">FAQ's</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="cashygo-main-section">
+    <div class="crumbs" aria-label="Breadcrumb">
+      <a href="camera_brand.html">Sell camera</a><i class="bi bi-chevron-right"></i>
+      <a href="camera_conation.html">Condition</a><i class="bi bi-chevron-right"></i>
+      <span id="crumbModel">Camera</span><i class="bi bi-chevron-right"></i>
+      <span class="active">Issue Check</span>
+    </div>
+
+    <section class="page-head" aria-label="Camera issue check workflow">
+      <div>
+        <div class="eyebrow"><i class="bi bi-shield-check"></i> Camera Evaluation</div>
+        <h1>How is your <span>camera</span> working?</h1>
+        <p class="subtitle">Answer 5 quick camera checks. Cashygo will update your quote based on lens, sensor, controls and additional lens details.</p>
+      </div>
+
+      <div class="flow-steps" aria-label="Steps">
+        <div class="flow-step"><strong>1. Model</strong><span>Brand and series</span></div>
+        <div class="flow-step"><strong>2. Condition</strong><span>Shutter and body</span></div>
+        <div class="flow-step active"><strong>3. Issues</strong><span>Functional checks</span></div>
+      </div>
+    </section>
+
+    <div class="layout">
+      <section>
+        <div class="progress-row">
+          <div class="pips" id="pips" aria-label="Question progress"></div>
+          <div class="counter"><strong id="doneCount">0</strong> of <span id="totalCount">5</span> done</div>
+        </div>
+
+        <div class="questions" id="questions"></div>
+
+        <button class="finish" id="finishBtn" type="button" disabled>Continue</button>
+        <div class="safe-line">
+          <i class="bi bi-shield-lock"></i>
+          <strong>100% Safe &amp; Secure</strong>
+          <span>Your camera details are used only for quote verification.</span>
+        </div>
+      </section>
+
+      <aside>
+        <div class="quote">
+          <div class="device">
+            <div class="camera-icon" aria-hidden="true"><i class="bi bi-camera-fill"></i></div>
+            <div>
+              <h2 id="deviceName">Camera</h2>
+              <p id="deviceMeta">Brand - Type</p>
+            </div>
+          </div>
+          <div class="quote-price">
+            <div class="quote-label">Estimated Quote</div>
+            <div class="price" id="quotePrice">&#8377;0</div>
+            <p>This is an estimated price. Final price may vary after pickup verification.</p>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong id="answeredStat">0</strong><span>Answered</span></div>
+            <div class="stat"><strong id="remainingStat">5</strong><span>Remaining</span></div>
+          </div>
+        </div>
+        <div class="trust">
+          <div><i class="bi bi-camera"></i><span>Expert</span>Camera checks</div>
+          <div><i class="bi bi-rocket-takeoff"></i><span>Quick</span>Instant quote</div>
+          <div><i class="bi bi-award"></i><span>Trusted</span>50k+ users</div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <div class="modal-backdrop" id="lensPopup" role="dialog" aria-modal="true" aria-labelledby="lensPopupTitle">
+    <div class="modal">
+      <div class="modal-head">
+        <h2 id="lensPopupTitle">Select lens issue</h2>
+        <button class="close" id="closeLensPopup" type="button" aria-label="Close lens issue popup"><i class="bi bi-x"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="issue-grid" id="lensIssueGrid"></div>
+        <p class="screen-selected-text" id="lensIssueText">Select all lens issues that apply.</p>
+        <button class="modal-submit" id="lensIssueSubmit" type="button" disabled>Save lens issues</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="sensorPopup" role="dialog" aria-modal="true" aria-labelledby="sensorPopupTitle">
+    <div class="modal">
+      <div class="modal-head">
+        <h2 id="sensorPopupTitle">Select sensor or display issue</h2>
+        <button class="close" id="closeSensorPopup" type="button" aria-label="Close sensor issue popup"><i class="bi bi-x"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="issue-grid" id="sensorIssueGrid"></div>
+        <p class="screen-selected-text" id="sensorIssueText">Select all sensor/display issues that apply.</p>
+        <button class="modal-submit" id="sensorIssueSubmit" type="button" disabled>Save sensor issues</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="bodyPopup" role="dialog" aria-modal="true" aria-labelledby="bodyPopupTitle">
+    <div class="modal">
+      <div class="modal-head">
+        <h2 id="bodyPopupTitle">Select body issue</h2>
+        <button class="close" id="closeBodyPopup" type="button" aria-label="Close body issue popup"><i class="bi bi-x"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="issue-grid" id="bodyIssueGrid"></div>
+        <p class="screen-selected-text" id="bodyIssueText">Select all body issues that apply.</p>
+        <button class="modal-submit" id="bodyIssueSubmit" type="button" disabled>Save body issues</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="additionalLensPopup" role="dialog" aria-modal="true" aria-labelledby="additionalLensPopupTitle">
+    <div class="modal">
+      <div class="modal-head">
+        <h2 id="additionalLensPopupTitle">Additional Lens</h2>
+        <button class="close" id="closeAdditionalLensPopup" type="button" aria-label="Close additional lens popup"><i class="bi bi-x"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="lens-select-wrap">
+          <div class="lens-select-head">
+            <h3>Additional Lens</h3>
+            <p>Select your device additional lens</p>
+          </div>
+          <div class="lens-select-field">
+            <label for="additionalLensInput">DSLR Camera Lens</label>
+            <div class="lens-select-box">
+              <input id="additionalLensInput" type="text" value="Sony 55-210mm f/4.5-6.3" placeholder="Search lens" autocomplete="off">
+              <button class="lens-select-toggle" id="toggleAdditionalLens" type="button" aria-label="Show lens options"><i class="bi bi-chevron-down"></i></button>
+            </div>
+            <div class="lens-options" id="additionalLensOptions"></div>
+          </div>
+          <p class="screen-selected-text" id="additionalLensText">Sony 55-210mm f/4.5-6.3 selected.</p>
+          <button class="modal-submit" id="additionalLensSubmit" type="button">Continue <i class="bi bi-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" aria-label="Frequently asked questions">
+    <div class="faq-header">
+      <h2>Frequently <span>Asked</span> Questions</h2>
+      <p>Everything you need to know before selling your camera</p>
+    </div>
+    <details class="faq-item">
+      <summary>Do lens issues affect camera price? <span class="faq-icon">+</span></summary>
+      <div class="faq-answer">Yes, autofocus, fungus, scratches and zoom issues can reduce the resale value.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Can I sell a camera without accessories? <span class="faq-icon">+</span></summary>
+      <div class="faq-answer">Yes, but original battery, charger, lens, bill or box can improve the final quote.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Is pickup free? <span class="faq-icon">+</span></summary>
+      <div class="faq-answer">Yes, doorstep pickup is free in supported cities.</div>
+    </details>
+    <details class="faq-item">
+      <summary>When will I get payment? <span class="faq-icon">+</span></summary>
+      <div class="faq-answer">Payment is processed after camera verification and final quote confirmation.</div>
+    </details>
+  </section>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">
+            <img src="assets/images/project-logo/logo-new.svg" alt="Cashygo" loading="lazy">
+          </div>
+          <p class="footer-desc">India's most trusted device buyback platform. Instant pricing, free doorstep pickup, and instant payment.</p>
+          <div class="social-links" aria-label="Follow us on social media">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61582722784700" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>SELL</h4>
+          <ul>
+            <li><a href="#">Sell Mobile</a></li>
+            <li><a href="#">Sell Laptop</a></li>
+            <li><a href="#">Sell Tablet</a></li>
+            <li><a href="#">Sell MacBook</a></li>
+            <li><a href="camera_brand.html">Sell Camera</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>COMPANY</h4>
+          <ul>
+            <li><a href="#">About Cashygo</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Partner With Us</a></li>
+            <li><a href="#">Press & Media</a></li>
+            <li><a href="blogs.html">Blog & Tips</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>SUPPORT</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="contact.html">Contact Support</a></li>
+            <li><a href="#">Return Policy</a></li>
+            <li><a href="#">Privacy & Security</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-contact">
+          <h4>CONTACT</h4>
+          <address>
+            <p><i class="bi bi-envelope"></i><a href="mailto:hr@cashygo.com">hr@cashygo.com</a></p>
+            <p><i class="bi bi-telephone"></i><a href="tel:+917766071191">+91 7766071191</a></p>
+            <p><i class="bi bi-geo-alt"></i>Bangalore, Karnataka, India</p>
+          </address>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-links-row">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Refund Policy</a>
+          <a href="#">Sitemap</a>
+        </div>
+        <div class="payment-row" aria-label="Secure payment methods">
+          <span>Secure payments:</span>
+          <i class="bi bi-credit-card" title="Credit/Debit Card"></i>
+          <i class="bi bi-bank" title="Bank Transfer"></i>
+          <i class="bi bi-wallet2" title="Digital Wallet"></i>
+        </div>
+        <p>&copy; 2026 Cashygo - Resale Redefined</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const cityPicker = document.getElementById("cityPicker");
+    const cityLabel = document.getElementById("cityLabel");
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("navMenu");
+
+    if (cityPicker && cityLabel) {
+      cityPicker.addEventListener("click", event => {
+        event.stopPropagation();
+        cityPicker.classList.toggle("open");
+      });
+
+      cityPicker.querySelectorAll("li").forEach(item => {
+        item.addEventListener("click", event => {
+          event.stopPropagation();
+          cityLabel.textContent = item.dataset.city;
+          cityPicker.classList.remove("open");
+        });
+      });
+    }
+
+    if (hamburger && navMenu) {
+      hamburger.addEventListener("click", () => {
+        const open = navMenu.classList.toggle("open");
+        hamburger.setAttribute("aria-expanded", open);
+      });
+    }
+
+    document.querySelectorAll(".dropdown").forEach(dropdown => {
+      const button = dropdown.querySelector(".dropdown-btn");
+      if (!button) return;
+
+      button.addEventListener("click", event => {
+        event.stopPropagation();
+        const wasOpen = dropdown.classList.contains("open");
+        document.querySelectorAll(".dropdown").forEach(item => item.classList.remove("open"));
+        if (!wasOpen) dropdown.classList.add("open");
+        button.setAttribute("aria-expanded", String(!wasOpen));
+      });
+    });
+
+    document.addEventListener("click", event => {
+      if (cityPicker && !cityPicker.contains(event.target)) cityPicker.classList.remove("open");
+      document.querySelectorAll(".dropdown").forEach(dropdown => {
+        dropdown.classList.remove("open");
+        const button = dropdown.querySelector(".dropdown-btn");
+        if (button) button.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    const questions = [
+      { id: "power", title: "Does your camera power on and capture photos?", hint: "Check if the camera starts normally and can take a photo or video.", opts: ["Yes", "No"], score: { Yes: 0, No: -18000 }, label: "Power and capture", icon: "bi-power" },
+      { id: "lens", title: "Is the lens working properly?", hint: "Check autofocus, zoom ring, focus ring, fungus, scratches and aperture movement.", opts: ["Yes", "No"], score: { Yes: 0, No: 0 }, label: "Lens issue", icon: "bi-circle-square" },
+      { id: "sensor", title: "Any sensor, viewfinder or LCD issue?", hint: "Check spots in photos, dead pixels, viewfinder problem or LCD damage.", opts: ["No", "Yes"], score: { No: 0, Yes: 0 }, label: "Sensor/display issue", icon: "bi-view-list" },
+      { id: "body", title: "Any body, button or port damage?", hint: "Check dents, cracks, missing rubber grip, loose ports, dial or button issues.", opts: ["No", "Yes"], score: { No: 0, Yes: 0 }, label: "Body issue", icon: "bi-camera" },
+      { id: "additionalLens", title: "Do you have an additional lens?", hint: "Select Yes if you want to add another DSLR or mirrorless lens with this camera.", opts: ["Yes", "No"], score: { Yes: 0, No: 0 }, label: "Additional lens", icon: "bi-bag-check" }
+    ];
+
+    const lensIssues = [
+      { id: "autofocus", title: "Autofocus not working", desc: "AF hunts or fails to lock", icon: "bi-crosshair", price: 4500 },
+      { id: "fungus", title: "Fungus or haze inside lens", desc: "Visible marks inside lens glass", icon: "bi-cloud-fog2", price: 5200 },
+      { id: "scratch", title: "Lens glass scratched", desc: "Front or rear glass has scratches", icon: "bi-slash-lg", price: 4200 },
+      { id: "zoom", title: "Zoom or focus ring issue", desc: "Ring is stuck, loose or noisy", icon: "bi-arrow-left-right", price: 3500 },
+      { id: "aperture", title: "Aperture issue", desc: "Aperture blades are stuck", icon: "bi-record-circle", price: 4800 },
+      { id: "no-lens", title: "Lens not available", desc: "Camera body only", icon: "bi-camera", price: 6500 }
+    ];
+
+    const sensorIssues = [
+      { id: "sensor-spots", title: "Sensor spots in photos", desc: "Dust or marks visible in images", icon: "bi-circle-half", price: 5000 },
+      { id: "dead-pixel", title: "Dead pixels or lines", desc: "Output has stuck pixels or lines", icon: "bi-grid-3x3-gap", price: 7000 },
+      { id: "lcd-crack", title: "LCD cracked or faulty", desc: "Screen is cracked, dim or flickers", icon: "bi-display", price: 4200 },
+      { id: "viewfinder", title: "Viewfinder issue", desc: "EVF/OVF has visibility problem", icon: "bi-eye", price: 3800 },
+      { id: "card-slot", title: "Memory card slot issue", desc: "Card is not detected reliably", icon: "bi-sd-card", price: 3600 }
+    ];
+
+    const bodyIssues = [
+      { id: "dents", title: "Visible dents or scratches", desc: "Body has clear wear marks", icon: "bi-exclamation-circle", price: 2200 },
+      { id: "crack", title: "Cracked body panel", desc: "Body shell is cracked or broken", icon: "bi-tools", price: 4200 },
+      { id: "buttons", title: "Button or dial faulty", desc: "Controls are stuck or not working", icon: "bi-toggle2-off", price: 3500 },
+      { id: "ports", title: "USB/HDMI port issue", desc: "Port is loose or damaged", icon: "bi-usb-plug", price: 3000 },
+      { id: "hotshoe", title: "Hot shoe damaged", desc: "Flash mount is bent or faulty", icon: "bi-lightning", price: 1800 },
+      { id: "grip", title: "Rubber grip missing", desc: "Grip or covers are loose/missing", icon: "bi-grip-horizontal", price: 1600 }
+    ];
+
+    const additionalLensOptions = [
+      { id: "sony-55-210", title: "Sony 55-210mm f/4.5-6.3", value: 2500 },
+      { id: "canon-18-55", title: "Canon EF-S 18-55mm", value: 1800 },
+      { id: "nikon-18-55", title: "Nikon AF-P 18-55mm", value: 1800 },
+      { id: "sony-50", title: "Sony 50mm f/1.8", value: 2200 },
+      { id: "canon-50", title: "Canon EF 50mm f/1.8", value: 2000 },
+      { id: "nikon-70-300", title: "Nikon 70-300mm", value: 2800 }
+    ];
+
+    const state = {
+      active: 0,
+      answers: {},
+      lensIssues: [],
+      sensorIssues: [],
+      bodyIssues: [],
+      additionalLens: null,
+      basePrice: 76000
+    };
+
+    const rupee = new Intl.NumberFormat("en-IN", { style: "currency", currency: "INR", maximumFractionDigits: 0 });
+    const pips = document.getElementById("pips");
+    const questionWrap = document.getElementById("questions");
+    const doneCount = document.getElementById("doneCount");
+    const totalCount = document.getElementById("totalCount");
+    const answeredStat = document.getElementById("answeredStat");
+    const remainingStat = document.getElementById("remainingStat");
+    const quotePrice = document.getElementById("quotePrice");
+    const finishBtn = document.getElementById("finishBtn");
+    const additionalLensPopup = document.getElementById("additionalLensPopup");
+    const additionalLensInput = document.getElementById("additionalLensInput");
+    const additionalLensOptionsWrap = document.getElementById("additionalLensOptions");
+    const additionalLensText = document.getElementById("additionalLensText");
+    const additionalLensSubmit = document.getElementById("additionalLensSubmit");
+    const toggleAdditionalLens = document.getElementById("toggleAdditionalLens");
+
+    const popups = {
+      lens: {
+        backdrop: document.getElementById("lensPopup"),
+        grid: document.getElementById("lensIssueGrid"),
+        text: document.getElementById("lensIssueText"),
+        submit: document.getElementById("lensIssueSubmit"),
+        close: document.getElementById("closeLensPopup"),
+        items: lensIssues,
+        key: "lensIssues",
+        label: "lens issue"
+      },
+      sensor: {
+        backdrop: document.getElementById("sensorPopup"),
+        grid: document.getElementById("sensorIssueGrid"),
+        text: document.getElementById("sensorIssueText"),
+        submit: document.getElementById("sensorIssueSubmit"),
+        close: document.getElementById("closeSensorPopup"),
+        items: sensorIssues,
+        key: "sensorIssues",
+        label: "sensor issue"
+      },
+      body: {
+        backdrop: document.getElementById("bodyPopup"),
+        grid: document.getElementById("bodyIssueGrid"),
+        text: document.getElementById("bodyIssueText"),
+        submit: document.getElementById("bodyIssueSubmit"),
+        close: document.getElementById("closeBodyPopup"),
+        items: bodyIssues,
+        key: "bodyIssues",
+        label: "body issue"
+      }
+    };
+
+    function readJSON(key, fallback) {
+      try {
+        return { ...fallback, ...JSON.parse(sessionStorage.getItem(key) || "{}") };
+      } catch (error) {
+        return fallback;
+      }
+    }
+
+    function readSelection() {
+      return readJSON("cashygoCameraSelection", {
+        brand: "Sony",
+        model: "Sony Alpha A7 III",
+        type: "Mirrorless Camera",
+        price: 76000
+      });
+    }
+
+    function readCondition() {
+      return readJSON("cashygoCameraCondition", {
+        shutter: "Below 10,000 clicks",
+        body: "Excellent body condition",
+        accessories: "Original lens available"
+      });
+    }
+
+    function isQuestionComplete(id) {
+      return Boolean(state.answers[id]);
+    }
+
+    function answeredCount() {
+      return questions.filter(question => isQuestionComplete(question.id)).length;
+    }
+
+    function currentQuote() {
+      let price = state.basePrice;
+      questions.forEach(question => {
+        const answer = state.answers[question.id];
+        if (answer) price += question.score[answer] || 0;
+      });
+      state.lensIssues.forEach(issue => { price -= issue.price; });
+      state.sensorIssues.forEach(issue => { price -= issue.price; });
+      state.bodyIssues.forEach(issue => { price -= issue.price; });
+      if (state.answers.additionalLens === "Yes" && state.additionalLens) price += state.additionalLens.value;
+      return Math.max(price, 0);
+    }
+
+    function selectedSummary(items, label) {
+      return items.length
+        ? items.length + " " + label + (items.length > 1 ? "s" : "") + " selected."
+        : "Select all " + label + "s that apply.";
+    }
+
+    function renderProgress() {
+      const done = answeredCount();
+      pips.innerHTML = questions.map((_, index) => '<span class="pip ' + (index < done ? "done" : "") + '"></span>').join("");
+      doneCount.textContent = done;
+      totalCount.textContent = questions.length;
+      answeredStat.textContent = done;
+      remainingStat.textContent = Math.max(questions.length - done, 0);
+      quotePrice.textContent = rupee.format(currentQuote());
+      finishBtn.disabled = done !== questions.length;
+    }
+
+    function needsIssuePopup() {
+      if (state.answers.lens === "No" && !state.lensIssues.length) return "lens";
+      if (state.answers.sensor === "Yes" && !state.sensorIssues.length) return "sensor";
+      if (state.answers.body === "Yes" && !state.bodyIssues.length) return "body";
+      if (state.answers.additionalLens === "Yes" && !state.additionalLens) return "additionalLens";
+      return "";
+    }
+
+    function openNextRequiredPopup() {
+      const next = needsIssuePopup();
+      if (next === "additionalLens") {
+        openAdditionalLensPopup();
+        return;
+      }
+      if (next) openPopup(next);
+    }
+
+    function resetDependentPopup(answerId, answerValue) {
+      if (answerId === "lens" && answerValue !== "No") state.lensIssues = [];
+      if (answerId === "sensor" && answerValue !== "Yes") state.sensorIssues = [];
+      if (answerId === "body" && answerValue !== "Yes") state.bodyIssues = [];
+      if (answerId === "additionalLens" && answerValue !== "Yes") state.additionalLens = null;
+    }
+
+    function renderPopup(type) {
+      const popup = popups[type];
+      popup.grid.innerHTML = popup.items.map(issue => {
+        const selected = state[popup.key].some(item => item.id === issue.id);
+        return `
+          <button class="issue-card ${selected ? "selected" : ""}" type="button" data-popup-type="${type}" data-issue-id="${issue.id}">
+            <span class="card-check"><i class="bi bi-check-lg"></i></span>
+            <span class="issue-card-icon"><i class="bi ${issue.icon}"></i></span>
+            <span class="issue-card-title">${issue.title}</span>
+            <span class="issue-card-desc">${issue.desc}</span>
+            <span class="issue-card-price">-${rupee.format(issue.price)}</span>
+          </button>`;
+      }).join("");
+
+      popup.grid.querySelectorAll("[data-issue-id]").forEach(card => {
+        card.addEventListener("click", () => {
+          const issue = popup.items.find(item => item.id === card.dataset.issueId);
+          const selected = state[popup.key].some(item => item.id === issue.id);
+          state[popup.key] = selected
+            ? state[popup.key].filter(item => item.id !== issue.id)
+            : [...state[popup.key], issue];
+          popup.text.textContent = selectedSummary(state[popup.key], popup.label);
+          popup.submit.disabled = !state[popup.key].length;
+          renderPopup(type);
+          renderProgress();
+        });
+      });
+    }
+
+    function openPopup(type) {
+      const popup = popups[type];
+      renderPopup(type);
+      popup.text.textContent = selectedSummary(state[popup.key], popup.label);
+      popup.submit.disabled = !state[popup.key].length;
+      popup.backdrop.classList.add("show");
+    }
+
+    function closePopup(type) {
+      popups[type].backdrop.classList.remove("show");
+    }
+
+    function filteredAdditionalLensOptions() {
+      const search = additionalLensInput.value.trim().toLowerCase();
+      return additionalLensOptions.filter(option => option.title.toLowerCase().includes(search));
+    }
+
+    function renderAdditionalLensOptions() {
+      const options = filteredAdditionalLensOptions();
+      additionalLensOptionsWrap.innerHTML = options.length
+        ? options.map(option => `
+          <button class="lens-option ${state.additionalLens?.id === option.id ? "selected" : ""}" type="button" data-lens-id="${option.id}">
+            <span>${option.title}</span>
+            <span>+${rupee.format(option.value)}</span>
+          </button>`).join("")
+        : '<button class="lens-option" type="button" disabled><span>No matching lens found</span><span></span></button>';
+
+      additionalLensOptionsWrap.querySelectorAll("[data-lens-id]").forEach(button => {
+        button.addEventListener("click", () => {
+          const selected = additionalLensOptions.find(option => option.id === button.dataset.lensId);
+          state.additionalLens = selected;
+          additionalLensInput.value = selected.title;
+          additionalLensText.textContent = selected.title + " selected. Quote increased by " + rupee.format(selected.value) + ".";
+          additionalLensOptionsWrap.classList.remove("show");
+          renderAdditionalLensOptions();
+          renderProgress();
+        });
+      });
+    }
+
+    function openAdditionalLensPopup() {
+      if (!state.additionalLens) {
+        state.additionalLens = additionalLensOptions[0];
+        additionalLensInput.value = state.additionalLens.title;
+      }
+      additionalLensText.textContent = state.additionalLens.title + " selected. Quote increased by " + rupee.format(state.additionalLens.value) + ".";
+      renderAdditionalLensOptions();
+      additionalLensOptionsWrap.classList.remove("show");
+      additionalLensPopup.classList.add("show");
+      renderProgress();
+    }
+
+    function closeAdditionalLensPopup() {
+      additionalLensPopup.classList.remove("show");
+    }
+
+    function renderQuestions() {
+      questionWrap.innerHTML = questions.map((question, index) => {
+        const answer = state.answers[question.id];
+        const isActive = state.active === index;
+        const done = isQuestionComplete(question.id);
+        const locked = index > answeredCount();
+        const options = question.opts.map(option => `
+          <button class="answer ${option === "No" ? "no" : ""} ${answer === option ? "selected" : ""}" type="button" data-answer="${option}" data-id="${question.id}">
+            <span class="answer-radio"><i class="bi bi-check-lg"></i></span>
+            <span>${option}</span>
+          </button>`).join("");
+        return `
+          <article class="q-card ${isActive ? "active" : ""} ${done ? "done" : ""} ${locked ? "locked" : ""}" data-index="${index}">
+            <div class="q-icon-box"><i class="bi ${question.icon}"></i></div>
+            <div>
+              <div class="q-head">
+                <div class="q-badge">${index + 1}</div>
+                <h2 class="q-title">${question.title}</h2>
+              </div>
+              <p class="q-help">${question.hint}</p>
+              <div class="answers">${options}</div>
+            </div>
+          </article>`;
+      }).join("");
+
+      questionWrap.querySelectorAll(".q-card").forEach(card => {
+        card.addEventListener("click", event => {
+          if (event.target.closest(".answer")) return;
+          const index = Number(card.dataset.index);
+          if (index <= answeredCount()) {
+            state.active = index;
+            renderQuestions();
+          }
+        });
+      });
+
+      questionWrap.querySelectorAll("[data-answer]").forEach(button => {
+        button.addEventListener("click", () => {
+          const answerId = button.dataset.id;
+          const answerValue = button.dataset.answer;
+          state.answers[answerId] = answerValue;
+          resetDependentPopup(answerId, answerValue);
+          state.active = Math.min(answeredCount(), questions.length - 1);
+          renderQuestions();
+          renderProgress();
+
+          const shouldOpenPopup =
+            (answerId === "lens" && answerValue === "No") ||
+            (answerId === "sensor" && answerValue === "Yes") ||
+            (answerId === "body" && answerValue === "Yes") ||
+            (answerId === "additionalLens" && answerValue === "Yes");
+
+          if (shouldOpenPopup) {
+            window.setTimeout(openNextRequiredPopup, 120);
+          }
+        });
+      });
+    }
+
+    function buildOrderSummary() {
+      const deductions = [];
+      questions.forEach(question => {
+        const answer = state.answers[question.id];
+        const amount = answer ? question.score[answer] || 0 : 0;
+        if (amount < 0) deductions.push({ label: question.label, amount: Math.abs(amount) });
+      });
+      state.lensIssues.forEach(issue => deductions.push({ label: issue.title, amount: issue.price }));
+      state.sensorIssues.forEach(issue => deductions.push({ label: issue.title, amount: issue.price }));
+      state.bodyIssues.forEach(issue => deductions.push({ label: issue.title, amount: issue.price }));
+
+      return {
+        selection: readSelection(),
+        condition: readCondition(),
+        basePrice: state.basePrice,
+        finalQuote: currentQuote(),
+        answers: { ...state.answers },
+        additionalLens: state.additionalLens,
+        issues: {
+          lens: state.lensIssues,
+          sensor: state.sensorIssues,
+          body: state.bodyIssues
+        },
+        deductions,
+        completedAt: new Date().toISOString()
+      };
+    }
+
+    function saveOrderSummary() {
+      const selection = readSelection();
+      const condition = readCondition();
+      const summary = buildOrderSummary();
+      sessionStorage.setItem("cashygoCameraIssueSummary", JSON.stringify(summary));
+
+      sessionStorage.setItem("cashygoSelection", JSON.stringify({
+        model: selection.model,
+        storage: selection.type,
+        color: selection.brand,
+        price: selection.price,
+        image: "assets/images/project-logo/logo-new.svg"
+      }));
+      sessionStorage.setItem("cashygoCondition", JSON.stringify({
+        age: condition.shutter,
+        billBox: [condition.body, condition.accessories].filter(Boolean).join(", ")
+      }));
+      sessionStorage.setItem("cashygoIssueSummary", JSON.stringify(summary));
+    }
+
+    Object.keys(popups).forEach(type => {
+      popups[type].close.addEventListener("click", () => closePopup(type));
+      popups[type].submit.addEventListener("click", () => {
+        if (!state[popups[type].key].length) return;
+        closePopup(type);
+        renderProgress();
+        window.setTimeout(openNextRequiredPopup, 120);
+      });
+      popups[type].backdrop.addEventListener("click", event => {
+        if (event.target === popups[type].backdrop) closePopup(type);
+      });
+    });
+
+    toggleAdditionalLens.addEventListener("click", () => {
+      additionalLensOptionsWrap.classList.toggle("show");
+      renderAdditionalLensOptions();
+    });
+
+    additionalLensInput.addEventListener("input", () => {
+      additionalLensOptionsWrap.classList.add("show");
+      renderAdditionalLensOptions();
+    });
+
+    additionalLensSubmit.addEventListener("click", () => {
+      if (!state.additionalLens) state.additionalLens = additionalLensOptions[0];
+      closeAdditionalLensPopup();
+      renderProgress();
+      window.setTimeout(openNextRequiredPopup, 120);
+    });
+
+    document.getElementById("closeAdditionalLensPopup").addEventListener("click", closeAdditionalLensPopup);
+    additionalLensPopup.addEventListener("click", event => {
+      if (event.target === additionalLensPopup) closeAdditionalLensPopup();
+    });
+
+    finishBtn.addEventListener("click", () => {
+      if (finishBtn.disabled) return;
+      if (needsIssuePopup()) {
+        openNextRequiredPopup();
+        return;
+      }
+      saveOrderSummary();
+      window.location.href = "camera_issu.html";
+    });
+
+    const selection = readSelection();
+    const conditionSelection = readCondition();
+    state.basePrice = Number(selection.price) || 76000;
+    document.getElementById("deviceName").textContent = selection.model;
+    document.getElementById("deviceMeta").textContent = selection.brand + " - " + selection.type + " - " + conditionSelection.shutter;
+    document.getElementById("crumbModel").textContent = selection.model;
+
+    renderQuestions();
+    renderProgress();
+  </script>
+</body>
+
+</html>

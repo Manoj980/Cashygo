@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="blogs.css">
+  <link rel="stylesheet" href="assets/css/contact.css">
   <style>
     *,
     *::before,
@@ -552,19 +553,28 @@
 
 <body>
 
-  <!-- ── Navigation ── -->
-  <nav class="blog-nav" role="navigation" aria-label="Main navigation">
-    <div class="blog-nav-top">
-      <a href="index.html" class="blog-logo" aria-label="Cashygo home">
-        <img src="assets/images/project-logo/logo-new.svg" alt="Cashygo logo">
+  <nav class="top-nav" aria-label="Main navigation">
+    <div class="nav-row">
+      <a class="logo" href="index.html" aria-label="CashyGo home">
+        <img src="assets/images/project-logo/logo-new.svg" alt="CashyGo">
       </a>
-      <div class="blog-nav-actions">
-        <button type="button" class="location-btn"><i class="bi bi-geo-alt"></i>Bangalore <i class="bi bi-chevron-down"></i></button>
-        <button type="button" class="account-btn" id="openLoginBtn"><i class="bi bi-person"></i>Rahul <i class="bi bi-chevron-down"></i></button>
-        <button type="button" class="mobile-menu-btn" id="blogMenuBtn" aria-label="Toggle menu" aria-expanded="false"><i class="bi bi-list"></i></button>
+
+      <form class="site-search" role="search">
+        <label class="sr-only" for="siteSearch">Search devices</label>
+        <i class="bi bi-search"></i>
+        <input id="siteSearch" type="search" placeholder="Search for mobiles, accessories &amp; more">
+        <button type="submit" aria-label="Search"><i class="bi bi-search"></i></button>
+      </form>
+
+      <div class="nav-actions">
+        <button type="button"><i class="bi bi-geo-alt"></i>Bangalore <i class="bi bi-chevron-down"></i></button>
+        <button type="button"><i class="bi bi-person"></i>Rahul <i class="bi bi-chevron-down"></i></button>
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false"><i
+            class="bi bi-list"></i></button>
       </div>
     </div>
-    <div class="blog-nav-menu" id="blogNavMenu">
+
+    <div class="nav-menu" id="navMenu">
       <a href="brand.html">Sell Phone <i class="bi bi-chevron-down"></i></a>
       <a href="#">Sell Gadgets <i class="bi bi-chevron-down"></i></a>
       <a href="#">Buy Refurbished Devices <i class="bi bi-chevron-down"></i></a>

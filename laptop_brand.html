@@ -693,19 +693,40 @@
 
         /* ── ANIMATIONS ── */
         @keyframes cg-pulse {
-            0%, 100% { transform: scale(1); opacity: .7; }
-            50% { transform: scale(1.08); opacity: 1; }
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: .7;
+            }
+
+            50% {
+                transform: scale(1.08);
+                opacity: 1;
+            }
         }
 
         @keyframes cg-float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
         }
 
         /* ── RESPONSIVE ── */
         @media (max-width: 1024px) {
-            .cashygo_laptop__hero-inner { gap: 28px; }
-            .cashygo_laptop__hero-right { min-width: 280px; }
+            .cashygo_laptop__hero-inner {
+                gap: 28px;
+            }
+
+            .cashygo_laptop__hero-right {
+                min-width: 280px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -715,31 +736,84 @@
                 text-align: center;
                 gap: 22px;
             }
-            .cashygo_laptop__hero-left { width: 100%; margin-left: 0; }
+
+            .cashygo_laptop__hero-left {
+                width: 100%;
+                margin-left: 0;
+            }
+
             .cashygo_laptop__hero-features,
-            .cashygo_laptop__hero-brands { justify-content: center; width: 100%; }
-            .cashygo_laptop__hero-features { gap: 12px; }
-            .cashygo_laptop__hero-right { display: none; }
-            .cashygo_laptop__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
-            .cashygo_laptop__stats-inner { grid-template-columns: repeat(2, 1fr); border-radius: 18px; }
+            .cashygo_laptop__hero-brands {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .cashygo_laptop__hero-features {
+                gap: 12px;
+            }
+
+            .cashygo_laptop__hero-right {
+                display: none;
+            }
+
+            .cashygo_laptop__grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 12px;
+            }
+
+            .cashygo_laptop__stats-inner {
+                grid-template-columns: repeat(2, 1fr);
+                border-radius: 18px;
+            }
+
             .cashygo_laptop__process-grid,
-            .cashygo_laptop__why-grid { grid-template-columns: 1fr; }
+            .cashygo_laptop__why-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 480px) {
-            .cashygo_laptop__hero-title { font-size: 18px; }
-            .cashygo_laptop__hero-sub { font-size: 14px; }
+            .cashygo_laptop__hero-title {
+                font-size: 18px;
+            }
+
+            .cashygo_laptop__hero-sub {
+                font-size: 14px;
+            }
+
             .cashygo_laptop__hero-features {
                 display: grid;
                 grid-template-columns: repeat(3, minmax(0, 1fr));
                 gap: 8px;
             }
-            .cashygo_laptop__hero-feature { min-width: 0; font-size: 12px; }
-            .cashygo_laptop__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-            .cashygo_laptop__stats-inner { grid-template-columns: 1fr; }
-            .cashygo_laptop__trust { flex-direction: column; align-items: flex-start; }
-            .cashygo_laptop__popular-card { min-width: min(50vw, 200px); max-width: min(50vw, 200px); }
-            .cashygo_laptop__hero-badge { display: none; }
+
+            .cashygo_laptop__hero-feature {
+                min-width: 0;
+                font-size: 12px;
+            }
+
+            .cashygo_laptop__grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+            }
+
+            .cashygo_laptop__stats-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .cashygo_laptop__trust {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cashygo_laptop__popular-card {
+                min-width: min(50vw, 200px);
+                max-width: min(50vw, 200px);
+            }
+
+            .cashygo_laptop__hero-badge {
+                display: none;
+            }
         }
 
         /* ══════════════════════════════════
@@ -764,8 +838,13 @@
         }
 
         @keyframes popup-bg-in {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         .popup .card {
@@ -780,8 +859,15 @@
         }
 
         @keyframes card-in {
-            from { transform: translateY(32px) scale(0.96); opacity: 0; }
-            to { transform: translateY(0) scale(1); opacity: 1; }
+            from {
+                transform: translateY(32px) scale(0.96);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
         }
 
         .popup .close-btn {
@@ -1014,7 +1100,10 @@
                 padding: 22px 18px 18px;
                 border-radius: 16px;
             }
-            .popup .title { font-size: 15px; }
+
+            .popup .title {
+                font-size: 15px;
+            }
         }
     </style>
 </head>
@@ -1044,7 +1133,8 @@
                     </ul>
                 </div>
                 <label for="mainSearch" class="sr-only">Search devices</label>
-                <input type="search" id="mainSearch" name="search" placeholder="Search devices, brands…" autocomplete="off">
+                <input type="search" id="mainSearch" name="search" placeholder="Search devices, brands…"
+                    autocomplete="off">
                 <div class="search-icon" aria-hidden="true"><i class="bi bi-search"></i></div>
             </div>
             <button class="nav-login" id="openLoginBtn" aria-label="Sign in to your account">
@@ -1123,7 +1213,8 @@
                     <li class="cashygo_laptop__hero-feature">
                         <span class="cashygo_laptop__hero-feature-icon">
                             <svg viewBox="0 0 24 24">
-                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                                <path
+                                    d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
                             </svg>
                         </span>
                         <p>Maximum Value</p>
@@ -1153,10 +1244,14 @@
 
                 <nav>
                     <ul class="cashygo_laptop__hero-brands">
-                        <li><a href="#" class="cashygo_laptop__hero-brand-btn" onclick="handleBrandClick(event,'Dell')">Dell</a></li>
-                        <li><a href="#" class="cashygo_laptop__hero-brand-btn" onclick="handleBrandClick(event,'HP')">HP</a></li>
-                        <li><a href="#" class="cashygo_laptop__hero-brand-btn" onclick="handleBrandClick(event,'Lenovo')">Lenovo</a></li>
-                        <li><a href="#" class="cashygo_laptop__hero-brand-btn" onclick="handleBrandClick(event,'Apple')">Apple</a></li>
+                        <li><a href="#" class="cashygo_laptop__hero-brand-btn"
+                                onclick="handleBrandClick(event,'Dell')">Dell</a></li>
+                        <li><a href="#" class="cashygo_laptop__hero-brand-btn"
+                                onclick="handleBrandClick(event,'HP')">HP</a></li>
+                        <li><a href="#" class="cashygo_laptop__hero-brand-btn"
+                                onclick="handleBrandClick(event,'Lenovo')">Lenovo</a></li>
+                        <li><a href="#" class="cashygo_laptop__hero-brand-btn"
+                                onclick="handleBrandClick(event,'Apple')">Apple</a></li>
                         <li><a href="laptop-brands.html" class="cashygo_laptop__hero-brand-btn">More →</a></li>
                     </ul>
                 </nav>
@@ -1331,8 +1426,10 @@
                 <div class="cashygo_laptop__process-card">
                     <span class="cashygo_laptop__process-num">01</span>
                     <div class="cashygo_laptop__process-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#0d8c60">
-                            <path d="M266.67-361.67V-405H160v-66.67h213.33v-96.66H194q-13.67 0-23.83-9.84Q160-588 160-602.33V-765q0-14.33 9.83-23.83 9.84-9.5 23.5-9.5h73.34v-43.34h66.66v43.34H440v66.66H226.67V-635H406q14.33 0 24.17 9.5Q440-616 440-601v162.67q0 13.66-9.5 23.5Q421-405 406.67-405h-73.34v43.33h-66.66Zm291.33 240-170-170 46.67-46.66L558-215l235.33-235.33L840-403.67l-282 282Z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px"
+                            fill="#0d8c60">
+                            <path
+                                d="M266.67-361.67V-405H160v-66.67h213.33v-96.66H194q-13.67 0-23.83-9.84Q160-588 160-602.33V-765q0-14.33 9.83-23.83 9.84-9.5 23.5-9.5h73.34v-43.34h66.66v43.34H440v66.66H226.67V-635H406q14.33 0 24.17 9.5Q440-616 440-601v162.67q0 13.66-9.5 23.5Q421-405 406.67-405h-73.34v43.33h-66.66Zm291.33 240-170-170 46.67-46.66L558-215l235.33-235.33L840-403.67l-282 282Z" />
                         </svg>
                     </div>
                     <h3 class="cashygo_laptop__process-title">Check your price</h3>
@@ -1342,8 +1439,10 @@
                 <div class="cashygo_laptop__process-card">
                     <span class="cashygo_laptop__process-num">02</span>
                     <div class="cashygo_laptop__process-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#0d8c60">
-                            <path d="M147.33-146.67v-666.66V-496v-16.67 366Zm53.34-362.66V-240q0 11.67 7.5 19.17 7.5 7.5 19.16 7.5h13.34q11.66 0 19.16-7.5t7.5-19.17v-58.67h198.34q3.66-18 9.16-34.5T488-365.33H267.33V-492h354q32.67-14 68.34-18.33 35.66-4.34 71 .66l-66-191.62q-5-14.04-16.5-23.04t-25.5-9h-344q-14 0-25.5 9t-16.5 23l-66 192Zm86.66-49.34 36-108H638l36.67 108H287.33Z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px"
+                            fill="#0d8c60">
+                            <path
+                                d="M147.33-146.67v-666.66V-496v-16.67 366Zm53.34-362.66V-240q0 11.67 7.5 19.17 7.5 7.5 19.16 7.5h13.34q11.66 0 19.16-7.5t7.5-19.17v-58.67h198.34q3.66-18 9.16-34.5T488-365.33H267.33V-492h354q32.67-14 68.34-18.33 35.66-4.34 71 .66l-66-191.62q-5-14.04-16.5-23.04t-25.5-9h-344q-14 0-25.5 9t-16.5 23l-66 192Zm86.66-49.34 36-108H638l36.67 108H287.33Z" />
                         </svg>
                     </div>
                     <h3 class="cashygo_laptop__process-title">Book free pickup</h3>
@@ -1353,8 +1452,10 @@
                 <div class="cashygo_laptop__process-card">
                     <span class="cashygo_laptop__process-num">03</span>
                     <div class="cashygo_laptop__process-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#0d8c60">
-                            <path d="M448.67-195.33h60v-51.34q57.33-7.66 92-38 34.66-30.33 34.66-84 0-48-27.33-81t-97.33-61Q452-533.33 427-551q-25-17.67-25-47.67Q402-628 423.17-645q21.16-17 58.83-17 30.67 0 51.33 14.5Q554-633 566.67-606.67l53.33-24q-15-35-43.5-57t-65.83-25.66V-764h-60v50.67Q400-705 371-673.67q-29 31.34-29 75 0 48.34 29.17 77.34 29.16 29 88.83 52.66 65.67 26.34 90.5 47.34 24.83 21 24.83 52.66 0 32.34-25.5 50.5Q524.33-300 486.67-300q-37 0-65.84-21.5Q392-343 380-382l-56 20q18.67 46.67 48.83 74.17 30.17 27.5 75.84 39.16v53.34Z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px"
+                            fill="#0d8c60">
+                            <path
+                                d="M448.67-195.33h60v-51.34q57.33-7.66 92-38 34.66-30.33 34.66-84 0-48-27.33-81t-97.33-61Q452-533.33 427-551q-25-17.67-25-47.67Q402-628 423.17-645q21.16-17 58.83-17 30.67 0 51.33 14.5Q554-633 566.67-606.67l53.33-24q-15-35-43.5-57t-65.83-25.66V-764h-60v50.67Q400-705 371-673.67q-29 31.34-29 75 0 48.34 29.17 77.34 29.16 29 88.83 52.66 65.67 26.34 90.5 47.34 24.83 21 24.83 52.66 0 32.34-25.5 50.5Q524.33-300 486.67-300q-37 0-65.84-21.5Q392-343 380-382l-56 20q18.67 46.67 48.83 74.17 30.17 27.5 75.84 39.16v53.34Z" />
                         </svg>
                     </div>
                     <h3 class="cashygo_laptop__process-title">Get paid</h3>
@@ -1451,8 +1552,10 @@
 
                 <div class="cashygo_laptop__why-card">
                     <span class="cashygo_laptop__why-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0d8c60">
-                            <path d="M760-320q-72 0-127-45t-69-115H445l-48-80h167q5-22 13.5-42t22.5-38H348l-48-80h342l-44-120H440v-80h158q26 0 46 14.5t29 38.5l54 147h33q83 0 141.5 58.5T960-520q0 83-58.5 141.5T760-320Z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                            fill="#0d8c60">
+                            <path
+                                d="M760-320q-72 0-127-45t-69-115H445l-48-80h167q5-22 13.5-42t22.5-38H348l-48-80h342l-44-120H440v-80h158q26 0 46 14.5t29 38.5l54 147h33q83 0 141.5 58.5T960-520q0 83-58.5 141.5T760-320Z" />
                         </svg>
                     </span>
                     <div>
@@ -1463,8 +1566,10 @@
 
                 <div class="cashygo_laptop__why-card">
                     <span class="cashygo_laptop__why-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0d8c60">
-                            <path d="M200-280v-280h80v280h-80Zm240 0v-280h80v280h-80ZM80-640v-80l400-200 400 200v80H80Zm179-80h442L480-830 259-720ZM80-120v-80h482q2 21 5 40.5t9 39.5H80Z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                            fill="#0d8c60">
+                            <path
+                                d="M200-280v-280h80v280h-80Zm240 0v-280h80v280h-80ZM80-640v-80l400-200 400 200v80H80Zm179-80h442L480-830 259-720ZM80-120v-80h482q2 21 5 40.5t9 39.5H80Z" />
                         </svg>
                     </span>
                     <div>
@@ -1475,8 +1580,10 @@
 
                 <div class="cashygo_laptop__why-card">
                     <span class="cashygo_laptop__why-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0d8c60">
-                            <path d="M260-361v-40H160v-80h200v-80H200q-17 0-28.5-11.5T160-601v-160q0-17 11.5-28.5T200-801h60v-40h80v40h100v80H240v80h160q17 0 28.5 11.5T440-601v160q0 17-11.5 28.5T400-401h-60v40h-80Zm298 240L388-291l56-56 114 114 226-226 56 56-282 282Z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                            fill="#0d8c60">
+                            <path
+                                d="M260-361v-40H160v-80h200v-80H200q-17 0-28.5-11.5T160-601v-160q0-17 11.5-28.5T200-801h60v-40h80v40h100v80H240v80h160q17 0 28.5 11.5T440-601v160q0 17-11.5 28.5T400-401h-60v40h-80Zm298 240L388-291l56-56 114 114 226-226 56 56-282 282Z" />
                         </svg>
                     </span>
                     <div>
@@ -1506,7 +1613,8 @@
                         How do I sell my laptop?
                         <span class="cashygo_laptop__faq-icon">+</span>
                     </button>
-                    <div class="cashygo_laptop__faq-answer">Select your laptop brand and model, check the price, schedule a free pickup, and get paid instantly after verification.</div>
+                    <div class="cashygo_laptop__faq-answer">Select your laptop brand and model, check the price,
+                        schedule a free pickup, and get paid instantly after verification.</div>
                 </div>
 
                 <div class="cashygo_laptop__faq-item">
@@ -1514,7 +1622,8 @@
                         How is the laptop price calculated?
                         <span class="cashygo_laptop__faq-icon">+</span>
                     </button>
-                    <div class="cashygo_laptop__faq-answer">Price depends on brand, model, specs, age, physical condition, and current resale market demand.</div>
+                    <div class="cashygo_laptop__faq-answer">Price depends on brand, model, specs, age, physical
+                        condition, and current resale market demand.</div>
                 </div>
 
                 <div class="cashygo_laptop__faq-item">
@@ -1522,7 +1631,8 @@
                         Is pickup free?
                         <span class="cashygo_laptop__faq-icon">+</span>
                     </button>
-                    <div class="cashygo_laptop__faq-answer">Yes, doorstep pickup is completely free with no hidden charges.</div>
+                    <div class="cashygo_laptop__faq-answer">Yes, doorstep pickup is completely free with no hidden
+                        charges.</div>
                 </div>
 
                 <div class="cashygo_laptop__faq-item">
@@ -1530,7 +1640,8 @@
                         When will I get payment?
                         <span class="cashygo_laptop__faq-icon">+</span>
                     </button>
-                    <div class="cashygo_laptop__faq-answer">Payment is processed instantly after device verification during pickup.</div>
+                    <div class="cashygo_laptop__faq-answer">Payment is processed instantly after device verification
+                        during pickup.</div>
                 </div>
 
                 <div class="cashygo_laptop__faq-item">
@@ -1538,7 +1649,8 @@
                         Do I need to wipe my data before pickup?
                         <span class="cashygo_laptop__faq-icon">+</span>
                     </button>
-                    <div class="cashygo_laptop__faq-answer">We recommend backing up and factory resetting your laptop before pickup. Our team also performs a secure data wipe as part of the process.</div>
+                    <div class="cashygo_laptop__faq-answer">We recommend backing up and factory resetting your laptop
+                        before pickup. Our team also performs a secure data wipe as part of the process.</div>
                 </div>
 
             </div>
@@ -1553,10 +1665,12 @@
                     <div class="footer-logo">
                         <img src="assets/images/project-logo/logo-new.svg" alt="Cashygo" loading="lazy">
                     </div>
-                    <p class="footer-desc">India's most trusted device buyback platform. Instant pricing, free doorstep pickup, and instant payment.</p>
+                    <p class="footer-desc">India's most trusted device buyback platform. Instant pricing, free doorstep
+                        pickup, and instant payment.</p>
                     <div class="social-links" aria-label="Follow us on social media">
                         <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-                        <a href="https://www.facebook.com/profile.php?id=61582722784700" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61582722784700" aria-label="Facebook"><i
+                                class="bi bi-facebook"></i></a>
                         <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
                         <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
                     </div>
@@ -1630,8 +1744,10 @@
 
             <div class="header">
                 <div class="icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0d8c60">
-                        <path d="M536.5-503.5Q560-527 560-560t-23.5-56.5Q513-640 480-640t-56.5 23.5Q400-593 400-560t23.5 56.5Q447-480 480-480t56.5-23.5ZM480-186q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#0d8c60">
+                        <path
+                            d="M536.5-503.5Q560-527 560-560t-23.5-56.5Q513-640 480-640t-56.5 23.5Q400-593 400-560t23.5 56.5Q447-480 480-480t56.5-23.5ZM480-186q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z" />
                     </svg>
                 </div>
                 <div>
@@ -1643,10 +1759,13 @@
 
             <div class="input-row">
                 <div class="input-box">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0d8c60">
-                        <path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#0d8c60">
+                        <path
+                            d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z" />
                     </svg>
-                    <input type="text" id="userLocation" placeholder="Enter 6-digit pincode" maxlength="6" inputmode="numeric" pattern="[0-9]*">
+                    <input type="text" id="userLocation" placeholder="Enter 6-digit pincode" maxlength="6"
+                        inputmode="numeric" pattern="[0-9]*">
                 </div>
                 <button class="check-btn" id="checkBtn" onclick="submitLocation()">Check</button>
             </div>
@@ -1657,8 +1776,10 @@
 
             <button type="button" class="location-box" onclick="useCurrentLocation()">
                 <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#0d8c60">
-                        <path d="M440-40v-80q-125-14-214.5-103.5T122-438H42v-80h80q14-125 103.5-214.5T440-836v-80h80v80q125 14 214.5 103.5T838-518h80v80h-80q-14 125-103.5 214.5T520-120v80h-80Zm238-240q82-82 82-198t-82-198q-82-82-198-82t-198 82q-82 82-82 198t82 198q82 82 198 82t198-82Z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px"
+                        fill="#0d8c60">
+                        <path
+                            d="M440-40v-80q-125-14-214.5-103.5T122-438H42v-80h80q14-125 103.5-214.5T440-836v-80h80v80q125 14 214.5 103.5T838-518h80v80h-80q-14 125-103.5 214.5T520-120v80h-80Zm238-240q82-82 82-198t-82-198q-82-82-198-82t-198 82q-82 82-82 198t82 198q82 82 198 82t198-82Z" />
                     </svg>
                     Use Current Location
                 </div>
@@ -1667,20 +1788,26 @@
 
             <div class="popup-footer">
                 <div class="footer-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0d8c60">
-                        <path d="M480-80q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Zm0-84q104-33 172-132t68-220v-189l-240-90-240 90v189q0 121 68 220t172 132Zm0-316Z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#0d8c60">
+                        <path
+                            d="M480-80q-139-35-229.5-159.5T160-516v-244l320-120 320 120v244q0 152-90.5 276.5T480-80Zm0-84q104-33 172-132t68-220v-189l-240-90-240 90v189q0 121 68 220t172 132Zm0-316Z" />
                     </svg>
                     Secure
                 </div>
                 <div class="footer-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0d8c60">
-                        <path d="m422-232 207-248H469l29-227-185 267h139l-30 208ZM320-80l40-280H160l360-520h80l-40 320h240L400-80h-80Zm151-390Z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#0d8c60">
+                        <path
+                            d="m422-232 207-248H469l29-227-185 267h139l-30 208ZM320-80l40-280H160l360-520h80l-40 320h240L400-80h-80Zm151-390Z" />
                     </svg>
                     Fast
                 </div>
                 <div class="footer-item">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#0d8c60">
-                        <path d="M160-120q-33 0-56.5-23.5T80-200v-560q0-33 23.5-56.5T160-840h640q33 0 56.5 23.5T880-760v560q0 33-23.5 56.5T800-120H160Zm0-80h640v-560H160v560Zm40-80h200v-80H200v80Zm382-80 198-198-57-57-141 142-57-57-56 57 113 113Zm-382-80h200v-80H200v80Zm0-160h200v-80H200v80Zm-40 400v-560 560Z" />
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+                        fill="#0d8c60">
+                        <path
+                            d="M160-120q-33 0-56.5-23.5T80-200v-560q0-33 23.5-56.5T160-840h640q33 0 56.5 23.5T880-760v560q0 33-23.5 56.5T800-120H160Zm0-80h640v-560H160v560Zm40-80h200v-80H200v80Zm382-80 198-198-57-57-141 142-57-57-56 57 113 113Zm-382-80h200v-80H200v80Zm0-160h200v-80H200v80Zm-40 400v-560 560Z" />
                     </svg>
                     Reliable
                 </div>
@@ -1831,6 +1958,23 @@
         document.getElementById('userLocation').addEventListener('keydown', function (e) {
             if (e.key === 'Enter') submitLocation();
         });
+
+        // Redirect to others page
+        const brandPages = {
+            'Dell': 'dell.html',
+            'HP': 'hp.html',
+            'Lenovo': 'lenovo.html',
+            'Asus': 'asus.html',
+            'Acer': 'acer.html',
+            'Apple': 'macbook.html',
+            'MSI': 'msi.html',
+            'Samsung': 'samsung-laptop.html',
+            'MI': 'mi-laptop.html',
+            'Razer': 'razer.html',
+            'LG': 'lg-laptop.html',
+            'Toshiba': 'toshiba.html',
+        };
+        _pendingHref = brandPages[brand] || 'laptop-model.html';
     </script>
 
 </body>
