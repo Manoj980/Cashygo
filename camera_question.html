@@ -13,7 +13,9 @@
   <link rel="stylesheet" href="assets/css/style.css">
 
   <style>
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
     }
 
@@ -31,23 +33,24 @@
     }
 
     body {
-      min-height: 100vh;
-      margin: 0;
       background: linear-gradient(180deg, #ffffff 0, var(--bg) 260px, var(--bg) 100%);
       color: var(--ink);
       font-family: "DM Sans", Arial, sans-serif;
     }
 
-    button, input {
+    button,
+    input {
       font-family: inherit;
     }
 
-    .nav, .footer {
+    .nav,
+    .footer {
       --text: #0f172a;
       --border: #e2e8f0;
       --white: #fff;
     }
 
+    /* ── cashygo-main-section: wraps entire page body ── */
     .cashygo-main-section {
       width: min(1280px, calc(100% - 48px));
       margin: 0 auto;
@@ -57,11 +60,10 @@
     .crumbs {
       display: flex;
       align-items: center;
-      flex-wrap: wrap;
       gap: 8px;
       color: var(--muted);
-      font-size: 11px;
-      font-weight: 700;
+      font-size: 10px;
+      font-weight: 600;
     }
 
     .crumbs a {
@@ -79,41 +81,7 @@
       justify-content: space-between;
       gap: 24px;
       align-items: end;
-      margin: 18px 0 22px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 12px;
-      border: 1px solid #c7ead8;
-      border-radius: 999px;
-      background: #e8f7ef;
-      color: var(--green);
-      padding: 7px 12px;
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 22px;
-      line-height: 1.15;
-      font-weight: 800;
-    }
-
-    h1 span {
-      color: var(--green);
-    }
-
-    .subtitle {
-      max-width: 650px;
-      margin: 10px 0 0;
-      color: #4d5562;
-      font-size: 14px;
-      line-height: 1.6;
-      font-weight: 500;
+      margin-bottom: 22px;
     }
 
     .flow-steps {
@@ -153,6 +121,38 @@
       grid-template-columns: minmax(0, 1fr) 340px;
       gap: 24px;
       align-items: start;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--green);
+      background: #e8f7ef;
+      border: 1px solid #c7ead8;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: 20px;
+      line-height: 1.08;
+      font-weight: 800;
+    }
+
+    h1 span {
+      color: var(--green);
+    }
+
+    .subtitle {
+      color: #4d5562;
+      max-width: 640px;
+      font-size: 15px;
+      line-height: 1.65;
+      font-weight: 500;
     }
 
     .progress-row {
@@ -209,18 +209,15 @@
 
     .q-card {
       display: grid;
-      grid-template-columns: 92px 1fr;
+      grid-template-columns: 116px 1fr;
       gap: 15px;
       align-items: start;
-      border: 1px solid transparent;
-      border-radius: 16px;
-      padding: 12px 10px;
-      transition: border-color .18s ease, background .18s ease, opacity .18s ease;
+      padding: 5px 10px;
     }
 
-    .q-card.active, .q-card.done {
+    .q-card.active,
+    .q-card.done {
       border-color: #d7eae3;
-      background: rgba(255, 255, 255, .58);
     }
 
     .q-card.locked {
@@ -232,7 +229,7 @@
       place-items: center;
       width: 60px;
       height: 60px;
-      border-radius: 20px;
+      border-radius: 24px;
       background: linear-gradient(135deg, #e9fbf5, #f4fffb);
       color: var(--green);
       font-size: 30px;
@@ -253,50 +250,50 @@
       border-radius: 50%;
       background: var(--green);
       color: #fff;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 800;
       box-shadow: 0 6px 14px rgba(7, 143, 97, .2);
     }
 
     .q-title {
-      margin: 0;
-      font-size: 15px;
+      font-size: 14px;
       line-height: 1.25;
-      font-weight: 800;
+      font-weight: 700;
     }
 
     .q-help {
-      margin: 8px 0 18px 35px;
+      margin: 0 0 20px 35px;
       color: #5d6673;
-      font-size: 14px;
+      font-size: 15px;
       line-height: 1.45;
     }
 
     .answers {
       display: grid;
       grid-template-columns: repeat(2, minmax(180px, 1fr));
-      gap: 18px;
-      margin-left: 35px;
+      gap: 26px;
+      margin-left: 56px;
     }
 
     .answer {
       display: inline-flex;
       align-items: center;
       justify-content: flex-start;
-      gap: 14px;
-      min-height: 48px;
+      gap: 18px;
+      min-height: 45px;
+      padding: 0 15px;
       border: 1.5px solid #dfe5e3;
       border-radius: 8px;
       background: #fff;
       color: #4b5563;
-      padding: 0 15px;
-      font-size: 17px;
-      font-weight: 800;
+      font-size: 21px;
+      font-weight: 700;
       cursor: pointer;
       transition: border-color .18s ease, box-shadow .18s ease, color .18s ease;
     }
 
-    .answer:hover, .answer.selected {
+    .answer:hover,
+    .answer.selected {
       border-color: rgba(7, 143, 97, .42);
       box-shadow: 0 8px 18px rgba(7, 143, 97, .08);
       color: var(--green);
@@ -310,12 +307,12 @@
     .answer-radio {
       display: grid;
       place-items: center;
-      width: 28px;
-      height: 28px;
+      width: 32px;
+      height: 32px;
       border: 2px solid #cfd8d5;
       border-radius: 50%;
       color: transparent;
-      font-size: 16px;
+      font-size: 18px;
       transition: .18s ease;
     }
 
@@ -344,17 +341,17 @@
     }
 
     .finish:disabled {
-      cursor: not-allowed;
       opacity: .48;
+      cursor: not-allowed;
     }
 
     .safe-line {
       display: flex;
       align-items: center;
       gap: 14px;
-      margin: 28px 4px 0;
+      margin: 32px 4px 0;
       color: #5e6875;
-      font-size: 15px;
+      font-size: 17px;
       font-weight: 500;
     }
 
@@ -365,7 +362,7 @@
 
     .safe-line i {
       color: var(--green);
-      font-size: 24px;
+      font-size: 26px;
     }
 
     .quote {
@@ -391,18 +388,23 @@
     .camera-icon {
       display: grid;
       place-items: center;
-      width: 172px;
-      height: 150px;
-      border-radius: 20px;
+      width: min(170px, 70%);
+      height: 210px;
+      border-radius: 24px;
       background: linear-gradient(145deg, #f8fafc, #e8f7ef);
       color: var(--green);
       font-size: 82px;
-      filter: drop-shadow(0 18px 22px rgba(0, 0, 0, .08));
+      filter: drop-shadow(0 18px 22px rgba(0, 0, 0, .14));
+      transition: transform .2s ease;
+    }
+
+    .camera-icon:hover {
+      transform: scale(1.03);
     }
 
     .device h2 {
       margin: 0 0 8px;
-      font-size: 26px;
+      font-size: 30px;
       line-height: 1.15;
       font-weight: 800;
     }
@@ -410,7 +412,7 @@
     .device p {
       margin: 0;
       color: #535c68;
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 700;
     }
 
@@ -422,7 +424,7 @@
 
     .quote-label {
       color: #5f6873;
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 800;
       letter-spacing: .08em;
       text-transform: uppercase;
@@ -431,16 +433,16 @@
     .price {
       margin: 16px 0 20px;
       color: var(--green);
-      font-size: 38px;
+      font-size: 40px;
       font-weight: 800;
       line-height: 1;
     }
 
     .quote-price p {
-      max-width: 240px;
       margin: 0 auto;
+      max-width: 240px;
       color: #535c68;
-      font-size: 15px;
+      font-size: 17px;
       line-height: 1.55;
     }
 
@@ -452,18 +454,18 @@
     }
 
     .stat {
-      display: grid;
-      place-items: center;
       min-height: 94px;
       border: 1px solid var(--line);
       border-radius: 12px;
       background: #f7faf9;
+      display: grid;
+      place-items: center;
       text-align: center;
     }
 
     .stat strong {
       display: block;
-      font-size: 30px;
+      font-size: 31px;
       line-height: 1;
     }
 
@@ -471,7 +473,7 @@
       display: block;
       margin-top: 10px;
       color: #6c7682;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 800;
       letter-spacing: .06em;
       text-transform: uppercase;
@@ -480,26 +482,26 @@
     .trust {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      gap: 22px;
       margin-top: 28px;
       color: #5e6875;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 600;
     }
 
     .trust span {
       display: block;
-      margin-bottom: 2px;
       color: var(--ink);
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 800;
+      margin-bottom: 2px;
     }
 
     .trust i {
-      display: block;
-      margin-bottom: 6px;
       color: var(--green);
       font-size: 24px;
+      display: block;
+      margin-bottom: 6px;
     }
 
     .modal-backdrop {
@@ -518,33 +520,34 @@
     }
 
     .modal {
+      position: static;
+      inset: auto;
       display: block;
-      width: min(860px, 100%);
+      width: min(720px, 100%);
       max-height: calc(100vh - 48px);
-      overflow: hidden;
       border-radius: 18px;
       background: #fff;
       box-shadow: 0 30px 70px rgba(0, 0, 0, .2);
+      overflow: hidden;
+      z-index: auto;
     }
 
     .modal-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
       gap: 20px;
+      padding: 5px 10px;
       border-bottom: 1px solid var(--line);
-      padding: 14px 18px;
     }
 
     .modal-head h2 {
       margin: 0;
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .close {
-      display: grid;
-      place-items: center;
       width: 40px;
       height: 40px;
       border: 1px solid var(--line);
@@ -552,52 +555,61 @@
       background: #fff;
       cursor: pointer;
       font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .modal-body {
       display: grid;
-      gap: 16px;
+      gap: 18px;
+      padding: 22px;
+      grid-template-columns: 1fr;
       max-height: calc(100vh - 140px);
       overflow-y: auto;
       background: #f8faf9;
-      padding: 18px;
     }
 
     .issue-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      display: flex;
       gap: 14px;
     }
 
     .issue-card {
       position: relative;
       display: grid;
-      gap: 10px;
-      min-height: 168px;
+      width: 150px;
       border: 1px solid #dcebe5;
       border-radius: 14px;
       background: #fff;
       color: var(--ink);
-      padding: 14px;
       text-align: center;
       cursor: pointer;
       transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
     }
 
-    .issue-card:hover, .issue-card.selected {
-      transform: translateY(-1px);
+    .issue-card:hover,
+    .issue-card.selected {
       border-color: var(--green);
       box-shadow: 0 12px 26px rgba(7, 143, 97, .14);
+      transform: translateY(-1px);
     }
 
     .issue-card-icon {
       display: grid;
       place-items: center;
-      min-height: 76px;
+      min-height: 134px;
       border-radius: 12px;
-      background: #f5fffb;
       color: var(--green);
       font-size: 42px;
+      overflow: hidden;
+    }
+
+    .issue-card-icon img {
+      width: 100%;
+      height: 134px;
+      object-fit: contain;
+      display: block;
     }
 
     .issue-card-title {
@@ -607,12 +619,14 @@
     }
 
     .issue-card-desc {
+      display: none;
       color: var(--muted);
       font-size: 12px;
       line-height: 1.35;
     }
 
     .issue-card-price {
+      display: none;
       color: var(--danger);
       font-size: 13px;
       font-weight: 800;
@@ -642,9 +656,9 @@
 
     .screen-selected-text {
       min-height: 22px;
-      margin: 0;
+      margin: 2px 0 0;
       color: var(--muted);
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 700;
       text-align: center;
     }
@@ -655,14 +669,14 @@
       border-radius: 12px;
       background: var(--green);
       color: #fff;
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 800;
       cursor: pointer;
     }
 
     .modal-submit:disabled {
-      cursor: not-allowed;
       opacity: .45;
+      cursor: not-allowed;
     }
 
     .lens-select-wrap {
@@ -790,6 +804,7 @@
     @media (max-width: 1100px) {
       .cashygo-main-section {
         width: calc(100% - 40px);
+        padding: 20px 0 40px;
       }
 
       .page-head {
@@ -799,6 +814,7 @@
       .flow-steps {
         min-width: 0;
         margin-top: 18px;
+        grid-template-columns: repeat(3, 1fr);
       }
 
       .layout {
@@ -808,6 +824,19 @@
       .quote {
         position: static;
       }
+
+      .issue-grid {
+        grid-template-columns: repeat(2, 1fr);
+        display: ruby;
+      }
+
+      .modal {
+        max-height: calc(100vh - 32px);
+      }
+
+      .modal-body {
+        max-height: calc(100vh - 120px);
+      }
     }
 
     @media (max-width: 767px) {
@@ -816,8 +845,17 @@
         padding: 16px 16px 40px;
       }
 
+      .page-head {
+        gap: 16px;
+      }
+
       .flow-steps {
         display: none;
+        /* hidden on mobile as per original */
+      }
+
+      .layout {
+        gap: 16px;
       }
 
       .progress-row {
@@ -825,8 +863,10 @@
         gap: 10px;
       }
 
-      .q-card {
+      .q-card,
+      .q-card.active {
         grid-template-columns: 1fr;
+        min-height: auto;
       }
 
       .q-icon-box {
@@ -843,19 +883,38 @@
       }
 
       .answer {
-        min-width: 0;
         width: 100%;
-        font-size: 15px;
+        min-width: 0;
+        font-size: 16px;
       }
 
       .camera-icon {
-        width: 138px;
-        height: 118px;
+        height: 160px;
         font-size: 62px;
+      }
+
+      .device h2 {
+        font-size: 22px;
+      }
+
+      .device p {
+        font-size: 14px;
       }
 
       .price {
         font-size: 32px;
+      }
+
+      .quote-label {
+        font-size: 13px;
+      }
+
+      .quote-price p {
+        font-size: 14px;
+      }
+
+      .stat strong {
+        font-size: 24px;
       }
 
       .trust {
@@ -863,9 +922,35 @@
         text-align: center;
       }
 
+      .crumbs {
+        flex-wrap: wrap;
+      }
+
       .safe-line {
-        align-items: flex-start;
         font-size: 14px;
+      }
+
+      .safe-line i {
+        font-size: 20px;
+      }
+
+      .issue-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .issue-card {
+        min-height: 160px;
+        padding: 10px;
+        border-radius: 12px;
+      }
+
+      .issue-card-icon {
+        min-height: 96px;
+      }
+
+      .issue-card-icon img {
+        height: 96px;
       }
 
       .modal-backdrop {
@@ -874,27 +959,43 @@
       }
 
       .modal {
+        width: 100%;
         max-height: calc(100vh - 20px);
         border-radius: 18px 18px 12px 12px;
       }
 
-      .modal-body {
-        max-height: calc(74vh - 80px);
-        padding: 14px;
+      .modal-head {
+        padding: 14px 16px;
       }
 
-      .issue-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
+      .modal-head h2 {
+        font-size: 17px;
+      }
+
+      .close {
+        width: 36px;
+        height: 36px;
+      }
+
+      .modal-body {
+        gap: 14px;
+        padding: 14px;
+        max-height: calc(70vh - 80px);
+      }
+
+      .modal-submit {
+        min-height: 48px;
+        font-size: 15px;
       }
     }
 
-    @media (max-width: 420px) {
+    @media (max-width: 400px) {
       .cashygo-main-section {
         padding: 12px 12px 32px;
       }
 
       .answers {
+        grid-template-columns: repeat(2, 1fr);
         margin-left: 10px;
         gap: 10px;
       }
@@ -904,13 +1005,27 @@
         font-size: 13px;
       }
 
-      .answer {
-        padding: 0 10px;
-        font-size: 14px;
+      .stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .stat {
+        min-height: 72px;
+      }
+
+      .stat strong {
+        font-size: 20px;
       }
 
       .issue-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        display: grid;
+      }
+
+      .finish {
+        font-size: 16px;
+        min-height: 48px;
       }
     }
   </style>
@@ -1293,29 +1408,29 @@
     ];
 
     const lensIssues = [
-      { id: "autofocus", title: "Autofocus not working", desc: "AF hunts or fails to lock", icon: "bi-crosshair", price: 4500 },
-      { id: "fungus", title: "Fungus or haze inside lens", desc: "Visible marks inside lens glass", icon: "bi-cloud-fog2", price: 5200 },
-      { id: "scratch", title: "Lens glass scratched", desc: "Front or rear glass has scratches", icon: "bi-slash-lg", price: 4200 },
-      { id: "zoom", title: "Zoom or focus ring issue", desc: "Ring is stuck, loose or noisy", icon: "bi-arrow-left-right", price: 3500 },
-      { id: "aperture", title: "Aperture issue", desc: "Aperture blades are stuck", icon: "bi-record-circle", price: 4800 },
-      { id: "no-lens", title: "Lens not available", desc: "Camera body only", icon: "bi-camera", price: 6500 }
+      { id: "autofocus", title: "Autofocus not working", desc: "AF hunts or fails to lock", icon: "bi-crosshair", image: "assets/images/DSLR Lens Issue/crack on lens body.png", price: 4500 },
+      { id: "fungus", title: "Fungus or haze inside lens", desc: "Visible marks inside lens glass", icon: "bi-cloud-fog2", image: "assets/images/DSLR Lens Issue/fungus lens.png", price: 5200 },
+      { id: "scratch", title: "Lens glass scratched", desc: "Front or rear glass has scratches", icon: "bi-slash-lg", image: "assets/images/DSLR Lens Issue/lens scratches.png", price: 4200 },
+      { id: "zoom", title: "Zoom or focus ring issue", desc: "Ring is stuck, loose or noisy", icon: "bi-arrow-left-right", image: "assets/images/DSLR Lens Issue/Dent on lens body.png", price: 3500 },
+      { id: "aperture", title: "Aperture issue", desc: "Aperture blades are stuck", icon: "bi-record-circle", image: "assets/images/DSLR Lens Issue/lens glass broken.png", price: 4800 },
+      { id: "no-lens", title: "Lens not available", desc: "Camera body only", icon: "bi-camera", image: "assets/images/DSLR Lens Issue/lens glass broken.png", price: 6500 }
     ];
 
     const sensorIssues = [
-      { id: "sensor-spots", title: "Sensor spots in photos", desc: "Dust or marks visible in images", icon: "bi-circle-half", price: 5000 },
-      { id: "dead-pixel", title: "Dead pixels or lines", desc: "Output has stuck pixels or lines", icon: "bi-grid-3x3-gap", price: 7000 },
-      { id: "lcd-crack", title: "LCD cracked or faulty", desc: "Screen is cracked, dim or flickers", icon: "bi-display", price: 4200 },
-      { id: "viewfinder", title: "Viewfinder issue", desc: "EVF/OVF has visibility problem", icon: "bi-eye", price: 3800 },
-      { id: "card-slot", title: "Memory card slot issue", desc: "Card is not detected reliably", icon: "bi-sd-card", price: 3600 }
+      { id: "sensor-spots", title: "Sensor spots in photos", desc: "Dust or marks visible in images", icon: "bi-circle-half", image: "assets/images/DSLR display issue/3.png", price: 5000 },
+      { id: "dead-pixel", title: "Dead pixels or lines", desc: "Output has stuck pixels or lines", icon: "bi-grid-3x3-gap", image: "assets/images/DSLR display issue/3.png", price: 7000 },
+      { id: "lcd-crack", title: "LCD cracked or faulty", desc: "Screen is cracked, dim or flickers", icon: "bi-display", image: "assets/images/DSLR display issue/DSLR display glass broken.png", price: 4200 },
+      { id: "viewfinder", title: "Viewfinder issue", desc: "EVF/OVF has visibility problem", icon: "bi-eye", image: "assets/images/DSLR display issue/glass scratch.png", price: 3800 },
+      { id: "card-slot", title: "Memory card slot issue", desc: "Card is not detected reliably", icon: "bi-sd-card", image: "assets/images/DSLR display issue/glass scratch.png", price: 3600 }
     ];
 
     const bodyIssues = [
-      { id: "dents", title: "Visible dents or scratches", desc: "Body has clear wear marks", icon: "bi-exclamation-circle", price: 2200 },
-      { id: "crack", title: "Cracked body panel", desc: "Body shell is cracked or broken", icon: "bi-tools", price: 4200 },
-      { id: "buttons", title: "Button or dial faulty", desc: "Controls are stuck or not working", icon: "bi-toggle2-off", price: 3500 },
-      { id: "ports", title: "USB/HDMI port issue", desc: "Port is loose or damaged", icon: "bi-usb-plug", price: 3000 },
-      { id: "hotshoe", title: "Hot shoe damaged", desc: "Flash mount is bent or faulty", icon: "bi-lightning", price: 1800 },
-      { id: "grip", title: "Rubber grip missing", desc: "Grip or covers are loose/missing", icon: "bi-grip-horizontal", price: 1600 }
+      { id: "dents", title: "Visible dents or scratches", desc: "Body has clear wear marks", icon: "bi-exclamation-circle", image: "assets/images/DSLR Body Condition/body dent.png", price: 2200 },
+      { id: "crack", title: "Cracked body panel", desc: "Body shell is cracked or broken", icon: "bi-tools", image: "assets/images/DSLR Body Condition/more than2 dent.png", price: 4200 },
+      { id: "buttons", title: "Button or dial faulty", desc: "Controls are stuck or not working", icon: "bi-toggle2-off", image: "assets/images/DSLR Body Condition/body dent.png", price: 3500 },
+      { id: "ports", title: "USB/HDMI port issue", desc: "Port is loose or damaged", icon: "bi-usb-plug", image: "assets/images/DSLR Body Condition/more than2 dent.png", price: 3000 },
+      { id: "hotshoe", title: "Hot shoe damaged", desc: "Flash mount is bent or faulty", icon: "bi-lightning", image: "assets/images/DSLR Body Condition/more than2 dent.png", price: 1800 },
+      { id: "grip", title: "Rubber grip missing", desc: "Grip or covers are loose/missing", icon: "bi-grip-horizontal", image: "assets/images/DSLR Body Condition/important body rubber missing.png", price: 1600 }
     ];
 
     const additionalLensOptions = [
@@ -1477,10 +1592,13 @@
       const popup = popups[type];
       popup.grid.innerHTML = popup.items.map(issue => {
         const selected = state[popup.key].some(item => item.id === issue.id);
+        const media = issue.image
+          ? `<img src="${issue.image}" alt="${issue.title}" loading="lazy">`
+          : `<i class="bi ${issue.icon}"></i>`;
         return `
           <button class="issue-card ${selected ? "selected" : ""}" type="button" data-popup-type="${type}" data-issue-id="${issue.id}">
             <span class="card-check"><i class="bi bi-check-lg"></i></span>
-            <span class="issue-card-icon"><i class="bi ${issue.icon}"></i></span>
+            <span class="issue-card-icon">${media}</span>
             <span class="issue-card-title">${issue.title}</span>
             <span class="issue-card-desc">${issue.desc}</span>
             <span class="issue-card-price">-${rupee.format(issue.price)}</span>
