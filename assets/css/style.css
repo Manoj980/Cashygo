@@ -7,6 +7,11 @@
 }
 
 :root {
+    --font-family: 'Barlow', sans-serif;
+    --font-size: 16px;
+    --font-weight: 400;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
     --green: #097832;
     --green-dark: #0a3d28;
     --green-mid: #0e9f6e;
@@ -22,10 +27,21 @@
     --radius: 20px;
 }
 
-body {
-    font-family: 'Barlow', sans-serif;
-    background: #fff;
+html {
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
     color: var(--text);
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: var(--font-weight);
+    background: #fff;
+    color: inherit;
     line-height: 1.5;
 }
 
@@ -38,12 +54,19 @@ ul {
     list-style: none;
 }
 
-button {
+button,
+input,
+textarea,
+select {
     font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+button {
     cursor: pointer;
 }
 
-/* ── NAVBAR ── */
 .nav {
     position: sticky;
     top: 0;
@@ -273,7 +296,6 @@ button {
     color: var(--green);
 }
 
-/* ── HERO ── */
 .hero {
     max-width: 1280px;
     margin: 0 auto;
@@ -293,8 +315,7 @@ button {
     gap: 10px;
     background: var(--gray-50);
     border-radius: 50px;
-    /* padding: 6px 14px; */
-    /* margin-bottom: 18px; */
+
 }
 
 .avatars {
@@ -324,11 +345,11 @@ button {
 }
 
 .hero h1 {
-    /* font-family: 'DM Serif Display', serif; */
+
     font-size: 30px;
     line-height: 1.15;
     color: #0c2c1f;
-    /* margin-bottom: 10px; */
+
 }
 
 .hero h1 em {
@@ -479,7 +500,6 @@ button {
     display: block;
 }
 
-/* ── STATS BAR ── */
 .stats-bar {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -537,7 +557,6 @@ button {
     line-height: 1.2;
 }
 
-/* ── SECTION WRAPPER ── */
 .section {
     max-width: 1280px;
     margin: 0 auto;
@@ -552,7 +571,7 @@ button {
     font-size: 26px;
     font-weight: 700;
     color: #1a3c2c;
-    /* margin-bottom: 6px; */
+
 }
 
 .section-head p {
@@ -560,7 +579,6 @@ button {
     color: var(--muted);
 }
 
-/* ── BRANDS ── */
 .brands-wrap {
     position: relative;
     display: flex;
@@ -572,7 +590,7 @@ button {
     gap: 16px;
     overflow-x: auto;
     scroll-behavior: smooth;
-    /* padding: 8px 4px 20px; */
+
     scrollbar-width: none;
 }
 
@@ -643,7 +661,6 @@ button {
     right: -12px;
 }
 
-/* ── PRODUCTS ── */
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -693,7 +710,7 @@ button {
 .product-storage {
     font-size: 12px;
     color: #7c6e5d;
-    /* margin-bottom: 10px; */
+
 }
 
 .product-label {
@@ -707,7 +724,7 @@ button {
     font-size: 20px;
     font-weight: 800;
     color: #22c55e;
-    /* margin: 4px 0 12px; */
+
 }
 
 .product-btn {
@@ -727,7 +744,6 @@ button {
     box-shadow: 0 6px 16px rgba(13, 108, 74, .25);
 }
 
-/* ── UPCOMING ── */
 .upcoming-scroll {
     display: flex;
     gap: 16px;
@@ -848,7 +864,6 @@ button {
     margin-top: 8px;
 }
 
-/* ── HOW IT WORKS ── */
 .how-header {
     text-align: center;
     margin-bottom: 48px;
@@ -870,7 +885,7 @@ button {
 .how-header h2 {
     font-size: 20px;
     color: var(--green-dark);
-    /* margin-bottom: 12px; */
+
 }
 
 .how-header h2 em {
@@ -1057,7 +1072,6 @@ button {
     box-shadow: 0 14px 32px rgba(13, 107, 74, .45);
 }
 
-/* ── VALUE SECTION ── */
 .value-header {
     display: flex;
     justify-content: space-between;
@@ -1170,7 +1184,6 @@ button {
     border-color: var(--green);
 }
 
-/* ── TESTIMONIALS ── */
 .reviews-head {
     text-align: center;
     margin-bottom: 28px;
@@ -1313,7 +1326,6 @@ button {
     color: #0f5e46;
 }
 
-/* ── BLOG ── */
 .blog-header {
     text-align: center;
     margin-bottom: 36px;
@@ -1406,7 +1418,6 @@ button {
     text-decoration: underline;
 }
 
-/* ── FAQ ── */
 .faq-header {
     text-align: center;
     margin-bottom: 30px;
@@ -1472,7 +1483,6 @@ button {
     line-height: 1.6;
 }
 
-/* ── FOOTER ── */
 .footer {
     border-top: 1px solid var(--border);
     margin-top: 60px;
@@ -1626,7 +1636,6 @@ button {
     opacity: .6;
 }
 
-/* ── MODAL ── */
 .modal {
     position: fixed;
     inset: 0;
@@ -1747,7 +1756,6 @@ button {
     margin-top: 12px;
 }
 
-/* ── POPUP ── */
 .popup-overlay {
     display: none;
     position: fixed;
@@ -1800,7 +1808,6 @@ button {
     color: #888;
 }
 
-/* ── TOAST ── */
 .toast {
     position: fixed;
     bottom: 24px;
@@ -1824,7 +1831,6 @@ button {
     transform: translateX(-50%) translateY(0);
 }
 
-/* ── UTILITIES ── */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -1837,7 +1843,6 @@ button {
     border: 0;
 }
 
-/* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
     .footer-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -1975,9 +1980,6 @@ button {
         font-size: 18px;
     }
 
-    /* .device-grid{
-        
-    } */
     @media (max-width: 480px) {
 
         .device-grid {
@@ -2005,7 +2007,7 @@ button {
             height: 52px;
             margin: 0 auto 8px;
             border-radius: 12px;
-            /* background: #f4f7f6; */
+
             display: flex;
             align-items: center;
             justify-content: center;
@@ -2017,18 +2019,17 @@ button {
             height: 52px;
             margin: 0 auto 8px;
             border-radius: 12px;
-            /* background: #f4f7f6; */
+
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
         }
 
-
         .device-icon img {
             width: 100%;
             height: 100%;
-            /* object-fit: contain; */
+
         }
         .hero-desc {
             font-size: 14px;
@@ -2097,14 +2098,109 @@ button {
     .blog-grid {
         grid-template-columns: 1fr;
     }
+
+    /* End small-screen overrides */
 }
 
-/* =========================
-   CASHYGO INFO SECTION
-========================= */
+/* ── MOBILE / RESPONSIVE TWEAKS (global overrides) ── */
+@media (max-width: 992px) {
+    .nav-hamburger {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+    }
+
+    .nav-menu.open {
+        display: block;
+    }
+
+    .nav-top {
+        padding: 8px 12px;
+        height: auto;
+        align-items: center;
+    }
+
+    .nav-menu-inner {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+        padding: 12px 0;
+    }
+
+    .hero {
+        padding: 12px 16px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+    }
+
+    .device-grid, .issue-grid, .upcoming-scroll {
+        gap: 10px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    html {
+        font-size: 15px;
+    }
+
+    .nav-search {
+        max-width: none;
+        flex: 1 1 auto;
+    }
+
+    .hero h1 {
+        font-size: 22px;
+    }
+
+    .device-item, .product-card, .brand-card {
+        font-size: 12px;
+    }
+
+    .product-card {
+        padding: 12px;
+    }
+
+    .issue-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .brand-card {
+        min-width: 100px;
+        padding: 10px;
+    }
+
+    .reviews-row {
+        gap: 12px;
+    }
+
+    .footer-inner {
+        padding: 16px;
+    }
+
+    .modal-card {
+        width: 92%;
+        padding: 20px;
+        border-radius: 18px;
+    }
+}
 
 .cashygo-info {
-    /* padding: 90px 0; */
+
     background: linear-gradient(to bottom, #f8fafc, #ffffff);
 }
 
@@ -2112,8 +2208,6 @@ button {
     width: min(1280px, calc(100% - 32px));
     margin: auto;
 }
-
-/* TOP */
 
 .cashygo-info__top {
     text-align: center;
@@ -2153,16 +2247,12 @@ button {
     color: #64748b;
 }
 
-/* GRID */
-
 .cashygo-info__grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 28px;
     margin-bottom: 55px;
 }
-
-/* CARD */
 
 .cashygo-info__card {
     position: relative;
@@ -2231,8 +2321,6 @@ button {
     margin-bottom: 24px;
 }
 
-/* LIST */
-
 .cashygo-info__list {
     list-style: none;
     padding: 0;
@@ -2267,8 +2355,6 @@ button {
     font-weight: 800;
 }
 
-/* STATS */
-
 .cashygo-info__stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -2302,8 +2388,6 @@ button {
     color: #64748b;
 }
 
-/* TABLET */
-
 @media (max-width: 991px) {
 
     .cashygo-info__title {
@@ -2320,12 +2404,10 @@ button {
 
 }
 
-/* MOBILE */
-
 @media (max-width: 768px) {
 
     .cashygo-info {
-        /* padding: 70px 0; */
+
     }
 
     .cashygo-info__title {
@@ -2355,13 +2437,9 @@ button {
 
 }
 
-/* SEE MORE ONLY MOBILE */
-
 .device-item--more {
     display: none;
 }
-
-/* MOBILE */
 
 @media (max-width: 768px) {
 
@@ -2391,13 +2469,5 @@ button {
     .device-item--more .device-icon img {
         display: none;
     }
-
-    /* .device-item--more .device-icon::before {
-    content: "+";
-    color: #fff;
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 1;
-  } */
 
 }

@@ -647,7 +647,7 @@
 </head>
 
 <body>
-  <!-- NAVBAR -->
+
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-top">
       <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -757,21 +757,20 @@
 
     <div class="layout">
       <section>
-        <!-- Pickup Details panel -->
+
         <div class="panel">
           <div class="panel-head">
             <h2>Pickup Details</h2>
             <span class="status-chip"><i class="bi bi-truck"></i> Free doorstep pickup</span>
           </div>
 
-          <!-- Pickup type selector -->
           <p class="section-label">Choose pickup type</p>
           <div class="pickup-type-grid" id="pickupTypeGrid" role="radiogroup" aria-label="Pickup type">
 
             <label class="delivery-card active" id="fastPickupCard" for="fastPickup">
               <input type="radio" id="fastPickup" name="pickUpTypeVal" value="fastPickup" data-attr="fastPickup"
                 checked>
-              <!-- Check indicator (icon fallback since /static/ images won't load here) -->
+
               <div class="check-icon" aria-hidden="true"><i class="bi bi-check"></i></div>
               <div class="pickup-icon-fallback" aria-hidden="true"><i class="bi bi-lightning-charge-fill"></i></div>
               <h6>Super Fast Pickup</h6>
@@ -837,7 +836,6 @@
           </form>
         </div>
 
-        <!-- Payment method panel -->
         <div class="panel">
           <div class="panel-head">
             <h2>Payment Method</h2>
@@ -863,7 +861,6 @@
         </div>
       </section>
 
-      <!-- Quote sidebar -->
       <aside>
         <div class="quote">
           <div class="device">
@@ -878,7 +875,6 @@
             <div class="quote-label">Final Estimated Quote</div>
             <div class="price" id="finalQuote">₹0</div>
 
-            <!-- ── Price warning ── -->
             <div class="quote-price-warning" role="alert">
               <i class="bi bi-exclamation-triangle-fill"></i>
               <span>The price shown is not final. The final price will be quoted after diagnosis and will depend
@@ -905,7 +901,6 @@
     </div>
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer" role="contentinfo">
     <div class="footer-inner">
       <div class="footer-grid">

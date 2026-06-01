@@ -6,12 +6,6 @@
       padding: 0
   }
 
-  /* img {
-      max-width: 95%;
-      display: block;
-      border-radius: 20px;
-  } */
-
   :root {
       --cg-green: #16a34a;
       --cg-green-light: #22c55e;
@@ -43,7 +37,6 @@
       line-height: 1.6
   }
 
-  /* ── BREADCRUMB ── */
   .cashygo-model-page__breadcrumb {
       max-width: var(--cg-max);
       margin: 0 auto;
@@ -74,9 +67,8 @@
       font-weight: 500
   }
 
-  /* ── HERO ── */
   .cashygo-model-page__hero {
-      /* background: linear-gradient(135deg, #f0fdf4 0%, #fff 70%); */
+
       border-bottom: 1px solid var(--cg-gray-200);
       display: flex;
       align-items: center;
@@ -123,7 +115,6 @@
       height: 6px;
       background: var(--cg-green);
       border-radius: 50%
-        /* border: 1px solid #097832; */
 
   }
 
@@ -191,7 +182,6 @@
       background: #15803d
   }
 
-  /* model css */
 .cashygo-models {
       padding: 24px clamp(12px, 3vw, 24px);
       background: radial-gradient(circle at 0% 0%, #effaf5, #ffffff);
@@ -298,7 +288,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      /* padding: 1rem .75rem .5rem; */
+
       min-height: 120px;
       background: linear-gradient(145deg, #fefefe, #fafdfb);
     }
@@ -355,7 +345,6 @@
         display: none;
     }
 
-  /* ── TOP SELLING ── */
   .cashygo-model-page__top {
       max-width: var(--cg-max);
       margin: 0 auto;
@@ -459,8 +448,6 @@
       background: #15803d
   }
 
-  /* ── TOP IMAGE FIX ── */
-
 .cashygo-model-page__top-img {
     height: 180px;
     background: var(--cg-gray-100);
@@ -470,8 +457,6 @@
     padding: 18px;
     overflow: hidden;
 }
-
-/* FIX ALL IMAGES SAME SIZE */
 
 .cashygo-model-page__top-img img,
 .cashygo-model-page__phone-icon {
@@ -483,13 +468,11 @@
     transition: .3s ease;
 }
 
-/* HOVER EFFECT */
-
 .cashygo-model-page__top-card:hover .cashygo-model-page__phone-icon,
 .cashygo-model-page__top-card:hover .cashygo-model-page__top-img img {
     transform: scale(1.05);
 }
-  /* ── STEPS ── */
+
   .cashygo-model-page__steps {
       background: var(--cg-gray-50)
   }
@@ -502,7 +485,7 @@
 
   .cashygo-model-page__steps-header {
       text-align: center;
-      /* margin-bottom: 24px */
+
   }
 
   .cashygo-model-page__steps-grid {
@@ -555,7 +538,6 @@
       line-height: 1.5
   }
 
-  /* ── FAQ ── */
   .cashygo-model-page__faq {
       max-width: var(--cg-max);
       margin: 0 auto;
@@ -626,7 +608,6 @@
       padding: 12px 16px 16px
   }
 
-  /* ── APP BANNER ── */
   .cashygo-model-page__app {
       max-width: var(--cg-max);
       margin: 0 auto;
@@ -694,7 +675,6 @@
       font-weight: 600
   }
 
-  /* ── RESPONSIVE ── */
   @media(max-width:768px) {
       .cashygo-model-page__hero {
           flex-direction: column;
@@ -802,19 +782,6 @@
           padding: 20px 16px;
       }
   }
-
-
-
-  /* Container */
-
-  /* Image */
-  /* .cashygo-hero__phone img {
-  width: 100%;
-  height: 260px; 
-  object-fit: cover;
-  border-radius: 16px;
- 
-} */
 
 @media (max-width: 768px) {
     .cashygo-hero__phone{

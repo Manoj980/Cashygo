@@ -25,7 +25,7 @@
     }
 
     body {
-      font-family: "Barlow", Arial, sans-serif;
+      font-family: inherit;
       color: var(--cg-dark);
       background:
         linear-gradient(135deg, rgba(7, 133, 31, .09) 0 15%, transparent 15%),
@@ -883,6 +883,108 @@
         transform: none;
       }
     }
+    }
+
+    /* Additional breakpoints for tablet and laptop to improve layout */
+    @media (max-width: 1366px) {
+      .calc_panel {
+        grid-template-columns: minmax(420px, 480px) 1fr;
+      }
+
+      .laptop_mock {
+        min-height: 340px;
+        padding: 14px;
+      }
+
+      .mock_screen.visual_mock img {
+        max-height: 320px;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .calc_panel {
+        grid-template-columns: 1fr;
+      }
+
+      .mock_body {
+        grid-template-columns: 1fr;
+      }
+
+      .phone_aside {
+        position: static;
+        order: -1;
+        width: 100%;
+        margin-bottom: 18px;
+      }
+
+      .mock_screen.visual_mock img {
+        max-height: 220px;
+      }
+
+      .device_strip {
+        display: flex;
+        overflow-x: auto;
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .calc_title { font-size: 28px; }
+      .calc_pill { font-size: 13px; padding: 8px 12px; }
+      .quote_value strong { font-size: 30px; }
+      .mock_price { font-size: 28px; }
+      .mock_screen { min-height: 220px; }
+    }
+
+    /* Mobile UI polish: full-width form, larger controls, tidy visuals */
+    @media (max-width: 480px) {
+      html, body { -webkit-text-size-adjust: 100%; }
+      .calc_page { padding: 12px 12px 96px; width: 100%; }
+      .calc_hero { padding: 12px; gap: 12px; }
+      .calc_title { font-size: 20px; line-height: 1.05; text-transform: none; }
+      .calc_pill { display: none; }
+
+      .device_strip { display: flex; gap: 8px; padding: 8px; overflow-x: auto; }
+      .device_strip button { flex: 0 0 auto; min-width: 84px; padding: 8px; font-size: 12px; border-radius: 8px; }
+
+      .calc_panel { grid-template-columns: 1fr; gap: 12px; }
+      .quick_card { padding: 14px; }
+      .quick_field { gap: 8px; }
+      .quick_field select { min-height: 48px; font-size: 15px; padding: 0 10px; }
+      .calc_btn { min-height: 48px; font-size: 16px; border-radius: 10px; }
+
+      /* Keep price visible as a compact sticky bar */
+      .quote_value {
+        position: fixed;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 12px;
+        width: calc(100% - 28px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 16px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(6,31,39,.12);
+        background: #fff;
+        z-index: 1400;
+      }
+
+      /* Make room for sticky bar */
+      .calc_page { padding-bottom: 110px; }
+
+      /* Reduce heavy visuals on mobile */
+      .laptop_mock { display: none; }
+      .desktop_preview { display: none; }
+      .phone_aside { display: block; text-align: center; }
+      .phone_aside img { width: 220px; max-width: 60%; }
+
+      .steps_grid, .feature_bar, .trust_bar { grid-template-columns: 1fr; gap: 12px; }
+      .step_icon { width: 78px; height: 78px; font-size: 28px; }
+
+      .toast { left: 12px; right: 12px; width: auto; max-width: none; }
+    }
+
   </style>
 </head>
 <body>

@@ -105,7 +105,7 @@
     .cashygo-subtitle {
       color: var(--text);
       font-size: 12px;
-      /* line-height: 1.65; */
+
       max-width: 620px;
     }
 
@@ -158,7 +158,7 @@
     }
 
     .cashygo-product__media {
-      /* background: radial-gradient(circle at 50% 28%, #e8f7ef 0, #f8fafc 58%, #fff 100%); */
+
       padding: 28px 20px 18px;
       min-height: 260px;
       display: table-row;
@@ -167,7 +167,7 @@
 
     .cashygo-phone {
       width: min(170px, 70%);
-      /* filter: drop-shadow(0 20px 26px rgba(15, 23, 42, .18)); */
+
     }
 
     .cashygo-product__body {
@@ -506,7 +506,7 @@
       }
 
       .cashygo-features {
-        /* grid-template-columns: 1fr 1fr; */
+
         display: none;
       }
     }
@@ -546,9 +546,6 @@
         font-size: 30px;
       }
 
-      /* .cashygo-product__media{
-        width: 20px;
-      } */
       .cashygo-phone {
         width: min(120px, 70%);
       }
@@ -568,11 +565,6 @@
 
     @media(max-width:480px) {
 
-      /* .cashygo-storage-grid,
-      .cashygo-color-grid {
-        grid-template-columns: 1fr;
-      } */
-
       .cashygo-model {
         font-size: 22px;
       }
@@ -583,24 +575,21 @@
       }
     }
 
-    /* MOBILE FIX */
     @media (max-width: 768px) {
 
       .cashygo-main {
         display: grid;
         grid-template-columns: 1fr;
         gap: 18px;
-        /* padding: 16px; */
+
       }
 
-      /* STORAGE + INFO SECTION */
       .receipt-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
       }
 
-      /* STORAGE CARD */
       .storage-card,
       .cashygo-storage-card {
         width: 100%;
@@ -620,7 +609,6 @@
         font-size: 13px;
       }
 
-      /* RIGHT INFO BOX */
       .receipt-box,
       .cashygo-info-box {
         padding: 16px;
@@ -644,10 +632,6 @@
 
     }
 
-    /* =========================
-   CASHYGO MOBILE PRODUCT CARD
-========================= */
-
     .cashygo-product {
       width: 100%;
       background: #ffffff;
@@ -665,14 +649,12 @@
       overflow: hidden;
     }
 
-    /* IMAGE */
     .cashygo-product__media {
       width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
 
-      /* background: linear-gradient(135deg, #f7f7f7, #efefef); */
       border-radius: 20px;
       padding: 22px;
       margin-bottom: 18px;
@@ -690,7 +672,6 @@
       transform: scale(1.03);
     }
 
-    /* CONTENT */
     .cashygo-product__body {
       width: 100%;
     }
@@ -735,7 +716,6 @@
       margin-bottom: 20px;
     }
 
-    /* META */
     .cashygo-product__meta {
       display: flex;
       flex-direction: column;
@@ -765,7 +745,6 @@
       color: #16a34a;
     }
 
-    /* SMALL MOBILE */
     @media (max-width: 480px) {
 
       .cashygo-product {
@@ -807,7 +786,7 @@
 
       .cashygo-user {
         font-size: 12px;
-        /* margin-top: 20px; */
+
         color: green;
       }
     }
@@ -845,8 +824,6 @@
       object-fit: contain;
     }
 
-    /* MODEL */
-
     .cashygo-model {
       font-size: 28px;
       font-weight: 800;
@@ -864,8 +841,6 @@
       color: #0f172a;
     }
 
-    /* SOLD TAG */
-
     .cashygo-user {
       background: #eaf8ee;
       color: #0a8f3d !important;
@@ -879,8 +854,6 @@
       gap: 4px;
       line-height: 1.4;
     }
-
-    /* TRUST BOX */
 
     .cashygo-trust {
       width: 100%;
@@ -919,13 +892,9 @@
       line-height: 1.4;
     }
 
-    /* REMOVE OLD HIDE */
-
     .cashygo-product__media .cashygo-model {
       display: flex;
     }
-
-    /* MOBILE */
 
     @media(max-width:600px) {
 
@@ -938,7 +907,7 @@
       }
 
       .cashygo-trust {
-        /* grid-template-columns:1fr; */
+
       }
 
       .cashygo-trust-box {
@@ -946,28 +915,20 @@
       }
     }
 
-    /* TOP */
-
     .cashygo-product__media {
       display: flex;
       align-items: center;
       gap: 18px;
     }
 
-    /* IMAGE */
-
     .cashygo-phone {
       width: 120px;
       object-fit: contain;
     }
 
-    /* RIGHT CONTENT */
-
     .cashygo-product__content {
       flex: 1;
     }
-
-    /* TITLE */
 
     .cashygo-model {
       font-size: 32px;
@@ -985,8 +946,6 @@
       display: block;
     }
 
-    /* SOLD TAG */
-
     .cashygo-user {
       display: inline-flex;
       align-items: center;
@@ -1000,8 +959,6 @@
       margin-bottom: 18px;
       flex-wrap: wrap;
     }
-
-    /* TRUST SECTION */
 
     .cashygo-trust {
       display: grid;
@@ -1038,8 +995,6 @@
       line-height: 1.4;
     }
 
-    /* MOBILE */
-
     @media(max-width:600px) {
 
       .cashygo-product__media {
@@ -1060,11 +1015,10 @@
       }
 
       .cashygo-trust {
-        /* grid-template-columns:1fr; */
+
       }
     }
 
-    /* FINAL RESPONSIVE ALIGNMENT */
     .cashygo-wrapper {
       width: 100%;
       max-width: 1280px;
@@ -1075,8 +1029,6 @@
     .cashygo-page-head {
       align-items: flex-end;
     }
-
-
 
     .cashygo-layout {
       grid-template-columns: minmax(240px, 290px) minmax(420px, 1fr) minmax(280px, 330px);
@@ -1341,7 +1293,7 @@
 
       .cashygo-google-box {
         display: flex;
-        /* grid-template-columns: 1fr; */
+
         gap: 8px;
         height: 40px;
       }
@@ -1461,4 +1413,3 @@
         font-size: 28px;
       }
     }
-  

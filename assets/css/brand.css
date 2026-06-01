@@ -48,7 +48,6 @@
        border: 0
    }
 
-   /* ── HERO ── */
    .cashygo-hero {
        background: linear-gradient(135deg, #f0fdf4 0%, #fff 60%);
        overflow: hidden;
@@ -79,7 +78,7 @@
        padding: 5px 10px;
        border-radius: 999px;
        font-size: 13px;
-       /* margin-bottom: 20px */
+
    }
 
    .cashygo-hero__badge::before {
@@ -95,7 +94,7 @@
        line-height: 1.12;
        color: var(--cg-gray-900);
        overflow-wrap: anywhere;
-       /* margin: 12px 0 12px */
+
    }
 
    .cashygo-hero__title em {
@@ -106,7 +105,7 @@
    .cashygo-hero__sub {
        color: var(--cg-gray-600);
        font-size: 1rem;
-       /* margin-bottom: 15px */
+
    }
 
    .cashygo-hero__features {
@@ -291,7 +290,6 @@
        }
    }
 
-   /* ── DEVICES ── */
    .cashygo-devices {
        max-width: var(--cg-max);
        margin: 0 auto;
@@ -355,7 +353,6 @@
        object-fit: contain;
    }
 
-   /* ── STATS ── */
    .cashygo-stats {
        max-width: var(--cg-max);
        margin: 0 auto;
@@ -386,7 +383,6 @@
        margin-top: 2px
    }
 
-   /* ── TRUST ── */
    .cashygo-trust {
        max-width: var(--cg-max);
        margin: 0 auto;
@@ -414,7 +410,6 @@
        flex-shrink: 0
    }
 
-   /* ── PROCESS ── */
    .cashygo-process {
        background: var(--cg-gray-50)
    }
@@ -469,7 +464,6 @@
        color: var(--cg-gray-600)
    }
 
-   /* ── SHARED SECTION LABELS ── */
    .cashygo-section-label {
        font-size: 12px;
        font-weight: 600;
@@ -490,8 +484,6 @@
        margin-bottom: 28px;
        font-size: 14px
    }
-
-   /* ───────── POPULAR PHONES ───────── */
 
    .cashygo-phones {
        background: #ffffff;
@@ -521,7 +513,6 @@
        margin-bottom: 24px;
    }
 
-   /* Scroll Row */
    .cashygo-phones__scroll {
        display: flex;
        gap: 18px;
@@ -535,7 +526,6 @@
        display: none;
    }
 
-   /* Card */
    .cashygo-phones__card {
        min-width: 200px;
        max-width: 200px;
@@ -553,14 +543,13 @@
        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
    }
 
-   /* Image */
    .cashygo-phones__img {
        height: 150px;
        background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
        display: flex;
        align-items: center;
        justify-content: center;
-       /* padding: 18px; */
+
    }
 
    .cashygo-phones__img img {
@@ -575,7 +564,6 @@
        transform: scale(1.06);
    }
 
-   /* Content */
    .cashygo-phones__body {
        padding: 5px;
    }
@@ -591,7 +579,6 @@
        padding: 1px 2px;
        border-radius: 999px;
 
-        /* margin-bottom: 12px; */
 }
 
 .cashygo-phones__badge::before {
@@ -612,10 +599,9 @@
 .cashygo-phones__sold {
   font-size: 13px;
     color: #6b7280;
-  /* margin-bottom: 16px; */
+
 }
 
-/* Bottom Row */
        .cashygo-phones__row {
            display: flex;
            align-items: center;
@@ -629,7 +615,6 @@
            color: #111827;
        }
 
-       /* Button */
        .cashygo-phones__sell-btn {
            border: none;
            background: #16a34a;
@@ -648,7 +633,6 @@
            transform: translateY(-1px);
        }
 
-       /* Tablet */
        @media (max-width: 992px) {
            .cashygo-section-title {
                font-size: 26px;
@@ -664,7 +648,6 @@
            }
        }
 
-       /* Mobile */
        @media (max-width: 576px) {
            .cashygo-phones {
                padding: 28px 0;
@@ -695,17 +678,17 @@
            }
 
            .cashygo-phones__img img {
-               /* max-width: 110px; */
+
            }
 
            .cashygo-phones__body {
-               /* padding: 14px; */
+
            }
 
            .cashygo-phones__badge {
                font-size: 10px;
                padding: 4px 8px;
-               /* margin-bottom: 10px; */
+
            }
 
            .cashygo-phones__name {
@@ -714,7 +697,7 @@
 
            .cashygo-phones__sold {
                font-size: 11px;
-               /* margin-bottom: 12px; */
+
            }
 
            .cashygo-phones__price {
@@ -732,7 +715,6 @@
            }
        }
 
-       /* ── WHY ── */
        .cashygo-why {
            background: var(--cg-gray-50);
            padding: 10px 20px;
@@ -783,7 +765,6 @@
            color: var(--cg-gray-600)
        }
 
-       /* ── FAQ ── */
        .cashygo-faq {
            background: #fff
        }
@@ -874,7 +855,6 @@
            color: var(--cg-green-dark)
        }
 
-       /* ── RESPONSIVE ── */
        @media (max-width: 1024px) {
            :root {
                --cg-pad: 26px 28px
@@ -895,12 +875,9 @@
        }
 
        @media(max-width:768px) {
-           /* :root {
-           --cg-pad: 24px 20px
-       } */
 
            .cashygo-hero__inner {
-               /* flex-direction: column; */
+
                align-items: stretch;
                text-align: center;
                width: min(100% - 32px, 680px);
@@ -1039,12 +1016,9 @@
 
        .popup-overlay {
            display: none;
-           /* VERY IMPORTANT */
+
        }
 
-
-
-       /* POPUP */
        .popup {
            position: fixed;
            inset: 0;
@@ -1106,7 +1080,7 @@
        }
 
        .subtitle {
-           /* margin-top:5px; */
+
            color: #6b7280;
            font-size: 14px;
        }
