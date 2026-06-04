@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cashygo - Select Gaming Variant</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/laptop_flow.css">
+</head>
+
+<body data-page="gaming-variant">
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-top">
+      <a href="index.html" class="nav-logo" aria-label="Cashygo homepage">
+        <img src="assets/images/project-logo/logo-new.svg" alt="Cashygo logo" width="120" height="40">
+      </a>
+      <div class="nav-search" role="search">
+        <label for="mainSearch" class="sr-only">Search gaming consoles</label>
+        <input type="search" id="mainSearch" placeholder="Search gaming console series..." autocomplete="off">
+        <div class="search-icon" aria-hidden="true"><i class="bi bi-search"></i></div>
+      </div>
+      <a class="nav-login" href="contact.html"><i class="bi bi-person-circle"></i><span>Sign in</span></a>
+    </div>
+  </nav>
+
+  <main class="laptop-flow">
+    <nav class="laptop-flow__crumbs" aria-label="Breadcrumb">
+      <a href="Gaming_brand.html">Sell gaming</a>
+      <i class="bi bi-chevron-right"></i>
+      <a href="Gaming_model.html">Series</a>
+      <i class="bi bi-chevron-right"></i>
+      <span>Variant</span>
+    </nav>
+
+    <section class="laptop-flow__head">
+      <div>
+        <div class="laptop-flow__eyebrow"><i class="bi bi-controller"></i> Instant gaming price check</div>
+        <h1>Select your <span data-model-name>Gaming Console</span> variant</h1>
+        <p>Choose edition, storage, controller count, and age so Cashygo can estimate your console value accurately.</p>
+      </div>
+      <div class="laptop-flow__steps" aria-label="Sell gaming steps">
+        <div class="laptop-flow__step is-active"><strong>1. Variant</strong><span>Edition and age</span></div>
+        <div class="laptop-flow__step"><strong>2. Condition</strong><span>Body and power</span></div>
+        <div class="laptop-flow__step"><strong>3. Questions</strong><span>Account checks</span></div>
+        <div class="laptop-flow__step"><strong>4. Issues</strong><span>Fault selection</span></div>
+      </div>
+    </section>
+
+    <div class="laptop-flow__layout">
+      <aside class="laptop-flow__card laptop-product">
+        <div class="laptop-product__media">
+          <img data-gaming-image src="assets/images/home-page-img/brand-img/game.webp" alt="Gaming Console">
+        </div>
+        <div class="laptop-product__body">
+          <div class="laptop-product__brand" data-brand-name>Gaming Console</div>
+          <h2 class="laptop-product__name" data-model-name>Gaming Console</h2>
+          <span class="laptop-chip"><i class="bi bi-shield-check"></i> Account reset support</span>
+          <div class="laptop-product__meta">
+            <span><i class="bi bi-truck"></i> Free doorstep pickup</span>
+            <span><i class="bi bi-cash-stack"></i> Fast payment after check</span>
+            <span><i class="bi bi-stars"></i> Best console resale value</span>
+          </div>
+        </div>
+      </aside>
+
+      <section class="laptop-flow__card laptop-panel" aria-label="Choose gaming variant">
+        <h2 class="laptop-panel__title"><span class="laptop-panel__num">1</span> Console Edition</h2>
+        <div class="laptop-option-grid is-three">
+          <button class="laptop-option" data-group="console" data-value="Disc edition"><i class="bi bi-disc"></i><strong>Disc edition</strong><span>Supports physical game discs.</span></button>
+          <button class="laptop-option" data-group="console" data-value="Digital edition"><i class="bi bi-cloud-download"></i><strong>Digital edition</strong><span>Digital games only.</span></button>
+          <button class="laptop-option" data-group="console" data-value="Handheld edition"><i class="bi bi-controller"></i><strong>Handheld edition</strong><span>Portable or hybrid console.</span></button>
+        </div>
+
+        <h2 class="laptop-panel__title"><span class="laptop-panel__num">2</span> Storage</h2>
+        <div class="laptop-option-grid is-three">
+          <button class="laptop-option" data-group="storage" data-value="500 GB"><strong>500 GB</strong><span>Base console storage.</span></button>
+          <button class="laptop-option" data-group="storage" data-value="825 GB"><strong>825 GB</strong><span>Common current-gen storage.</span></button>
+          <button class="laptop-option" data-group="storage" data-value="1 TB+"><strong>1 TB+</strong><span>Higher value storage setup.</span></button>
+        </div>
+
+        <h2 class="laptop-panel__title"><span class="laptop-panel__num">3</span> Controllers</h2>
+        <div class="laptop-option-grid is-three">
+          <button class="laptop-option" data-group="controllers" data-value="No controller"><i class="bi bi-x-circle"></i><strong>No controller</strong><span>Console only.</span></button>
+          <button class="laptop-option" data-group="controllers" data-value="1 controller"><i class="bi bi-controller"></i><strong>1 controller</strong><span>Standard bundle.</span></button>
+          <button class="laptop-option" data-group="controllers" data-value="2 controllers"><i class="bi bi-controller"></i><strong>2 controllers</strong><span>Higher resale demand.</span></button>
+        </div>
+
+        <h2 class="laptop-panel__title"><span class="laptop-panel__num">4</span> Purchase Age</h2>
+        <div class="laptop-option-grid is-three">
+          <button class="laptop-option" data-group="age" data-value="Under 1 year"><strong>Under 1 year</strong><span>Newest device bracket.</span></button>
+          <button class="laptop-option" data-group="age" data-value="1 to 3 years"><strong>1 to 3 years</strong><span>Common resale window.</span></button>
+          <button class="laptop-option" data-group="age" data-value="3 years+"><strong>3 years+</strong><span>Older but still accepted.</span></button>
+        </div>
+      </section>
+
+      <aside class="laptop-flow__card laptop-summary">
+        <div class="laptop-summary__head">
+          <h2>Your Selection</h2>
+          <p>Review your console variant before condition checks.</p>
+        </div>
+        <div class="laptop-summary__body">
+          <div class="laptop-summary__row"><span>Model</span><strong data-model-name>Gaming Console</strong></div>
+          <div class="laptop-summary__row"><span>Edition</span><strong data-summary="console">-</strong></div>
+          <div class="laptop-summary__row"><span>Storage</span><strong data-summary="storage">-</strong></div>
+          <div class="laptop-summary__row"><span>Controllers</span><strong data-summary="controllers">-</strong></div>
+          <div class="laptop-summary__row"><span>Age</span><strong data-summary="age">-</strong></div>
+          <div class="laptop-total"><small>Expected Price</small><strong data-summary-price>₹0</strong></div>
+          <button class="laptop-action" id="continueBtn" disabled>Continue <i class="bi bi-arrow-right"></i></button>
+          <div class="laptop-note"><i class="bi bi-info-circle"></i><span>Final value may change after pickup verification.</span></div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="assets/js/gaming_flow.js"></script>
+</body>
+
+</html>

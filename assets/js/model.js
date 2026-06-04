@@ -2,38 +2,42 @@
 const pageParams = new URLSearchParams(window.location.search);
 const selectedBrand = pageParams.get("brand") || localStorage.getItem("selectedBrand") || "Apple";
 const selectedLocation = pageParams.get("location") || localStorage.getItem("userLocation") || "";
+const isLaptopModelPage = window.location.pathname.toLowerCase().includes("laptop_model");
+const deviceLabel = isLaptopModelPage ? "Laptop" : "Phone";
 
-document.querySelectorAll(
-  ".cashygo-model-page__crumb-current, .cashygo-model-page__hero-label"
-).forEach(el => {
-  el.textContent = selectedBrand;
-});
+if (!isLaptopModelPage) {
+  document.querySelectorAll(
+    ".cashygo-model-page__crumb-current, .cashygo-model-page__hero-label"
+  ).forEach(el => {
+    el.textContent = selectedBrand;
+  });
+}
 
 const modelTitle = document.querySelector(".cashygo-model-page__hero h1");
-if (modelTitle) {
-  modelTitle.textContent = "Sell Old " + selectedBrand + " Phone Online for Instant Cash";
+if (modelTitle && !isLaptopModelPage) {
+  modelTitle.textContent = "Sell Old " + selectedBrand + " " + deviceLabel + " Online for Instant Cash";
 }
 
 const modelsTitle = document.querySelector(".cashygo-models__title");
-if (modelsTitle) {
-  modelsTitle.textContent = "Sell Your Old " + selectedBrand + " Phone";
+if (modelsTitle && !isLaptopModelPage) {
+  modelsTitle.textContent = "Sell Your Old " + selectedBrand + " " + deviceLabel;
 }
 
 const modelsTag = document.querySelector(".cashygo-models__tag");
-if (modelsTag) {
+if (modelsTag && !isLaptopModelPage) {
   modelsTag.childNodes.forEach(node => {
     if (node.nodeType === Node.TEXT_NODE) node.textContent = selectedBrand + " Trade-In";
   });
 }
 
 const modelsSub = document.querySelector(".cashygo-models__sub");
-if (modelsSub) {
+if (modelsSub && !isLaptopModelPage) {
   modelsSub.textContent = "Choose your " + selectedBrand + " model and get instant resale value";
 }
 
 const modelSearch = document.getElementById("modelSearch");
 if (modelSearch) {
-  modelSearch.placeholder = "Search " + selectedBrand + " model...";
+  modelSearch.placeholder = isLaptopModelPage ? "Search laptop series..." : "Search " + selectedBrand + " model...";
 }
 
 if (selectedLocation) {

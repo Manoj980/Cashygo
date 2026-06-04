@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cashygo - Sell Tablet</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/tab_pages.css">
+</head>
+
+<body class="tab-page">
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-top">
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <i class="bi bi-list"></i>
+      </button>
+      <a href="index.html" class="nav-logo" aria-label="Cashygo homepage">
+        <img src="assets/images/project-logo/logo-new.svg" alt="Cashygo logo" width="120" height="40">
+      </a>
+      <div class="nav-search" role="search">
+        <label for="mainSearch" class="sr-only">Search tablets</label>
+        <input type="search" id="mainSearch" name="search" placeholder="Search tablet brands..." autocomplete="off">
+        <div class="search-icon" aria-hidden="true"><i class="bi bi-search"></i></div>
+      </div>
+      <button class="nav-login" id="openLoginBtn" aria-label="Sign in">
+        <i class="bi bi-person-circle"></i>
+        <span>Sign in</span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="tab-hero" aria-label="Sell tablet hero">
+      <div>
+        <div class="tab-hero__badge"><i class="bi bi-tablet-landscape"></i> Tablet buyback</div>
+        <h1>Sell Your Old Tablet for Instant Cash</h1>
+        <p>Choose your tablet brand, select the exact series, answer a few checks, and get an instant resale estimate with free doorstep pickup.</p>
+        <div class="tab-hero__actions">
+          <a href="tab_model.html" class="tab-btn"><i class="bi bi-lightning-charge"></i> Start price check</a>
+          <a href="calculator.html" class="tab-btn is-soft"><i class="bi bi-calculator"></i> Price calculator</a>
+        </div>
+      </div>
+      <div class="tab-hero__media" aria-hidden="true">
+        <img src="assets/images/home-page-img/brand-img/iPad.webp" alt="">
+      </div>
+    </section>
+
+    <section class="tab-stats" aria-label="Tablet buyback stats">
+      <div class="tab-stat"><strong>5 min</strong><span>Instant quote</span></div>
+      <div class="tab-stat"><strong>₹50k+</strong><span>Top tablet value</span></div>
+      <div class="tab-stat"><strong>Free</strong><span>Doorstep pickup</span></div>
+      <div class="tab-stat"><strong>100%</strong><span>Secure data process</span></div>
+    </section>
+
+    <section class="tab-section" aria-label="Tablet brands">
+      <div class="tab-section__head">
+        <div>
+          <h2>Select Tablet Brand</h2>
+          <p>Pick a brand to view tablet series and get the best resale value.</p>
+        </div>
+        <div class="tab-search">
+          <input type="search" id="tabBrandSearch" placeholder="Search brand...">
+          <i class="bi bi-search"></i>
+        </div>
+      </div>
+
+      <div class="tab-grid" id="tabBrandGrid">
+        <a href="tab_model.html?brand=Apple" class="tab-card" data-name="Apple">
+          <div class="tab-card__image"><img src="assets/images/Brand_img/Apple.avif" alt="Apple"></div>
+          <h3>Apple iPad</h3>
+          <p>iPad, iPad Air, iPad mini, and iPad Pro.</p>
+          <div class="tab-card__price">Up to ₹65,000</div>
+        </a>
+        <a href="tab_model.html?brand=Samsung" class="tab-card" data-name="Samsung">
+          <div class="tab-card__image"><img src="assets/images/Brand_img/sumsung.avif" alt="Samsung"></div>
+          <h3>Samsung Tab</h3>
+          <p>Galaxy Tab A, S, FE, and Ultra series.</p>
+          <div class="tab-card__price">Up to ₹48,000</div>
+        </a>
+        <a href="tab_model.html?brand=OnePlus" class="tab-card" data-name="OnePlus">
+          <div class="tab-card__image"><img src="assets/images/Brand_img/oneplus.avif" alt="OnePlus"></div>
+          <h3>OnePlus Pad</h3>
+          <p>OnePlus Pad and Pad Go models.</p>
+          <div class="tab-card__price">Up to ₹32,000</div>
+        </a>
+        <a href="tab_model.html?brand=Xiaomi" class="tab-card" data-name="Xiaomi">
+          <div class="tab-card__image"><img src="assets/images/Brand_img/Mi.avif" alt="Xiaomi"></div>
+          <h3>Xiaomi Pad</h3>
+          <p>Mi Pad and Xiaomi Pad series.</p>
+          <div class="tab-card__price">Up to ₹28,000</div>
+        </a>
+        <a href="tab_model.html?brand=Realme" class="tab-card" data-name="Realme">
+          <div class="tab-card__image"><img src="assets/images/Brand_img/Realme.avif" alt="Realme"></div>
+          <h3>Realme Pad</h3>
+          <p>Realme Pad, Mini, and LTE variants.</p>
+          <div class="tab-card__price">Up to ₹18,000</div>
+        </a>
+        <a href="tab_model.html?brand=Lenovo" class="tab-card" data-name="Lenovo">
+          <div class="tab-card__image"><img src="assets/images/Brand_img/Lenavo.avif" alt="Lenovo"></div>
+          <h3>Lenovo Tab</h3>
+          <p>Lenovo Tab M, P, and Yoga Tab series.</p>
+          <div class="tab-card__price">Up to ₹22,000</div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const tabBrandSearch = document.getElementById("tabBrandSearch");
+    const tabBrandCards = document.querySelectorAll("#tabBrandGrid .tab-card");
+
+    tabBrandSearch.addEventListener("input", event => {
+      const value = event.target.value.trim().toLowerCase();
+      tabBrandCards.forEach(card => {
+        card.style.display = card.textContent.toLowerCase().includes(value) ? "grid" : "none";
+      });
+    });
+  </script>
+</body>
+
+</html>

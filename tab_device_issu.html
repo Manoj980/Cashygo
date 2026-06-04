@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cashygo - Tablet Issues</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/laptop_flow.css">
+</head>
+
+<body data-page="tab-issue">
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-top">
+      <a href="index.html" class="nav-logo" aria-label="Cashygo homepage">
+        <img src="assets/images/project-logo/logo-new.svg" alt="Cashygo logo" width="120" height="40">
+      </a>
+      <div class="nav-search" role="search">
+        <label for="mainSearch" class="sr-only">Search tablets</label>
+        <input type="search" id="mainSearch" placeholder="Search tablet series..." autocomplete="off">
+        <div class="search-icon" aria-hidden="true"><i class="bi bi-search"></i></div>
+      </div>
+      <a class="nav-login" href="contact.html"><i class="bi bi-person-circle"></i><span>Sign in</span></a>
+    </div>
+  </nav>
+
+  <main class="laptop-flow">
+    <nav class="laptop-flow__crumbs" aria-label="Breadcrumb">
+      <a href="tab_brand.html">Sell tablet</a>
+      <i class="bi bi-chevron-right"></i>
+      <a href="tab_device_question.html">Questions</a>
+      <i class="bi bi-chevron-right"></i>
+      <span>Issues</span>
+    </nav>
+
+    <section class="laptop-flow__head">
+      <div>
+        <div class="laptop-flow__eyebrow"><i class="bi bi-tools"></i> Functional issue check</div>
+        <h1>Select any issues in your <span data-model-name>tablet</span></h1>
+        <p>Choose every issue that applies. If your tablet has no functional issue, leave all cards unselected and finish the quote.</p>
+      </div>
+      <div class="laptop-flow__steps" aria-label="Sell tablet steps">
+        <div class="laptop-flow__step"><strong>1. Variant</strong><span>Specs and age</span></div>
+        <div class="laptop-flow__step"><strong>2. Condition</strong><span>Body and battery</span></div>
+        <div class="laptop-flow__step"><strong>3. Questions</strong><span>Account checks</span></div>
+        <div class="laptop-flow__step is-active"><strong>4. Issues</strong><span>Fault selection</span></div>
+      </div>
+    </section>
+
+    <div class="laptop-flow__layout">
+      <aside class="laptop-flow__card laptop-product">
+        <div class="laptop-product__media">
+          <img data-tab-image src="assets/images/home-page-img/brand-img/iPad.webp" alt="Tablet">
+        </div>
+        <div class="laptop-product__body">
+          <div class="laptop-product__brand" data-brand-name>Tablet</div>
+          <h2 class="laptop-product__name" data-model-name>Tablet</h2>
+          <span class="laptop-chip"><i class="bi bi-check2-circle"></i> Final quote step</span>
+          <div class="laptop-product__meta">
+            <span><i class="bi bi-hand-index"></i> Select only active faults</span>
+            <span><i class="bi bi-display"></i> Display and touch affect value</span>
+            <span><i class="bi bi-calendar-check"></i> Pickup after final check</span>
+          </div>
+        </div>
+      </aside>
+
+      <section class="laptop-flow__card laptop-panel" aria-label="Tablet issue selection">
+        <h2 class="laptop-panel__title"><span class="laptop-panel__num">4</span> Functional Issues</h2>
+        <div class="laptop-issue-grid">
+          <button class="laptop-option laptop-issue" data-issue="Display issue"><i class="bi bi-display"></i><strong>Display issue</strong><span>Lines, spots, flicker, broken glass, or black screen.</span></button>
+          <button class="laptop-option laptop-issue" data-issue="Touch not working"><i class="bi bi-hand-index-thumb"></i><strong>Touch not working</strong><span>Touch response is slow, dead, or patchy.</span></button>
+          <button class="laptop-option laptop-issue" data-issue="Speaker or mic issue"><i class="bi bi-volume-mute"></i><strong>Speaker / mic issue</strong><span>Audio output or microphone is faulty.</span></button>
+          <button class="laptop-option laptop-issue" data-issue="WiFi or cellular issue"><i class="bi bi-wifi-off"></i><strong>WiFi / cellular</strong><span>Network, SIM, or mobile data does not work.</span></button>
+          <button class="laptop-option laptop-issue" data-issue="Charging issue"><i class="bi bi-plug-fill"></i><strong>Charging issue</strong><span>Charging port, cable detection, or power problem.</span></button>
+          <button class="laptop-option laptop-issue" data-issue="Camera issue"><i class="bi bi-camera-video"></i><strong>Camera issue</strong><span>Front or rear camera has a fault.</span></button>
+          <button class="laptop-option laptop-issue" data-issue="Button issue"><i class="bi bi-toggle2-off"></i><strong>Button issue</strong><span>Power, volume, or home button is not working.</span></button>
+          <button class="laptop-option laptop-issue" data-issue="Battery swollen"><i class="bi bi-battery"></i><strong>Battery swollen</strong><span>Back panel lifts or battery is unsafe.</span></button>
+          <button class="laptop-option laptop-issue" data-issue="Bent frame"><i class="bi bi-bounding-box"></i><strong>Bent frame</strong><span>Tablet frame or body is visibly bent.</span></button>
+        </div>
+      </section>
+
+      <aside class="laptop-flow__card laptop-summary">
+        <div class="laptop-summary__head">
+          <h2>Final Estimate</h2>
+          <p>Includes selected specs, condition, and issues.</p>
+        </div>
+        <div class="laptop-summary__body">
+          <div class="laptop-summary__row"><span>Model</span><strong data-model-name>Tablet</strong></div>
+          <div class="laptop-summary__row"><span>Condition</span><strong data-summary="condition">-</strong></div>
+          <div class="laptop-summary__row"><span>Battery</span><strong data-summary="battery">-</strong></div>
+          <div class="laptop-summary__row"><span>Issues</span><strong data-summary="issues">None selected</strong></div>
+          <div class="laptop-total"><small>Expected Price</small><strong data-summary-price>₹0</strong></div>
+          <button class="laptop-action" id="finishBtn">Finish quote <i class="bi bi-check2-circle"></i></button>
+          <div class="laptop-note"><i class="bi bi-info-circle"></i><span>This is an estimated price. Final payout is confirmed after pickup verification.</span></div>
+          <div class="laptop-finish" id="finishMsg">Quote saved. Cashygo pickup can be scheduled after customer details are collected.</div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="assets/js/tab_flow.js"></script>
+</body>
+
+</html>

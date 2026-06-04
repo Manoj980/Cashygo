@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cashygo - Gaming Console Issues</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/laptop_flow.css">
+</head>
+
+<body data-page="gaming-issue">
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-top">
+      <a href="index.html" class="nav-logo" aria-label="Cashygo homepage">
+        <img src="assets/images/project-logo/logo-new.svg" alt="Cashygo logo" width="120" height="40">
+      </a>
+      <div class="nav-search" role="search">
+        <label for="mainSearch" class="sr-only">Search gaming consoles</label>
+        <input type="search" id="mainSearch" placeholder="Search gaming console series..." autocomplete="off">
+        <div class="search-icon" aria-hidden="true"><i class="bi bi-search"></i></div>
+      </div>
+      <a class="nav-login" href="contact.html"><i class="bi bi-person-circle"></i><span>Sign in</span></a>
+    </div>
+  </nav>
+
+  <main class="laptop-flow">
+    <nav class="laptop-flow__crumbs" aria-label="Breadcrumb">
+      <a href="Gaming_brand.html">Sell gaming</a>
+      <i class="bi bi-chevron-right"></i>
+      <a href="Gaming_device_question.html">Questions</a>
+      <i class="bi bi-chevron-right"></i>
+      <span>Issues</span>
+    </nav>
+
+    <section class="laptop-flow__head">
+      <div>
+        <div class="laptop-flow__eyebrow"><i class="bi bi-tools"></i> Functional issue check</div>
+        <h1>Select any issues in your <span data-model-name>console</span></h1>
+        <p>Choose every issue that applies. If your console has no functional issue, leave all cards unselected and finish the quote.</p>
+      </div>
+      <div class="laptop-flow__steps" aria-label="Sell gaming steps">
+        <div class="laptop-flow__step"><strong>1. Variant</strong><span>Edition and age</span></div>
+        <div class="laptop-flow__step"><strong>2. Condition</strong><span>Body and power</span></div>
+        <div class="laptop-flow__step"><strong>3. Questions</strong><span>Account checks</span></div>
+        <div class="laptop-flow__step is-active"><strong>4. Issues</strong><span>Fault selection</span></div>
+      </div>
+    </section>
+
+    <div class="laptop-flow__layout">
+      <aside class="laptop-flow__card laptop-product">
+        <div class="laptop-product__media">
+          <img data-gaming-image src="assets/images/home-page-img/brand-img/game.webp" alt="Gaming Console">
+        </div>
+        <div class="laptop-product__body">
+          <div class="laptop-product__brand" data-brand-name>Gaming Console</div>
+          <h2 class="laptop-product__name" data-model-name>Gaming Console</h2>
+          <span class="laptop-chip"><i class="bi bi-check2-circle"></i> Final quote step</span>
+          <div class="laptop-product__meta">
+            <span><i class="bi bi-hdmi"></i> Select only active faults</span>
+            <span><i class="bi bi-power"></i> Power and port issues affect value</span>
+            <span><i class="bi bi-calendar-check"></i> Pickup after final check</span>
+          </div>
+        </div>
+      </aside>
+
+      <section class="laptop-flow__card laptop-panel" aria-label="Gaming issue selection">
+        <h2 class="laptop-panel__title"><span class="laptop-panel__num">4</span> Functional Issues</h2>
+        <div class="laptop-issue-grid">
+          <button class="laptop-option laptop-issue" data-issue="HDMI port issue"><i class="bi bi-hdmi"></i><strong>HDMI port issue</strong><span>No display output, loose HDMI, or broken port.</span></button>
+          <button class="laptop-option laptop-issue" data-issue="Disc drive issue"><i class="bi bi-disc"></i><strong>Disc drive issue</strong><span>Disc not reading, eject fault, or drive noise.</span></button>
+          <button class="laptop-option laptop-issue" data-issue="Controller issue"><i class="bi bi-controller"></i><strong>Controller issue</strong><span>Drift, buttons, charging, or connection fault.</span></button>
+          <button class="laptop-option laptop-issue" data-issue="WiFi issue"><i class="bi bi-wifi-off"></i><strong>WiFi issue</strong><span>Network connection is unstable or not working.</span></button>
+          <button class="laptop-option laptop-issue" data-issue="Overheating"><i class="bi bi-thermometer-high"></i><strong>Overheating</strong><span>Fan noise, heat, shutdown, or performance drop.</span></button>
+          <button class="laptop-option laptop-issue" data-issue="Power issue"><i class="bi bi-lightning-slash"></i><strong>Power issue</strong><span>No power, random shutdowns, or restart loop.</span></button>
+          <button class="laptop-option laptop-issue" data-issue="Storage issue"><i class="bi bi-device-hdd"></i><strong>Storage issue</strong><span>Slow loading, corrupted drive, or storage errors.</span></button>
+          <button class="laptop-option laptop-issue" data-issue="Audio issue"><i class="bi bi-volume-mute"></i><strong>Audio issue</strong><span>No sound, headset port issue, or audio distortion.</span></button>
+          <button class="laptop-option laptop-issue" data-issue="Body damage"><i class="bi bi-bounding-box"></i><strong>Body damage</strong><span>Broken casing, dents, or missing panels.</span></button>
+        </div>
+      </section>
+
+      <aside class="laptop-flow__card laptop-summary">
+        <div class="laptop-summary__head">
+          <h2>Final Estimate</h2>
+          <p>Includes selected variant, condition, and issues.</p>
+        </div>
+        <div class="laptop-summary__body">
+          <div class="laptop-summary__row"><span>Model</span><strong data-model-name>Gaming Console</strong></div>
+          <div class="laptop-summary__row"><span>Condition</span><strong data-summary="condition">-</strong></div>
+          <div class="laptop-summary__row"><span>Power</span><strong data-summary="power">-</strong></div>
+          <div class="laptop-summary__row"><span>Issues</span><strong data-summary="issues">None selected</strong></div>
+          <div class="laptop-total"><small>Expected Price</small><strong data-summary-price>₹0</strong></div>
+          <button class="laptop-action" id="finishBtn">Finish quote <i class="bi bi-check2-circle"></i></button>
+          <div class="laptop-note"><i class="bi bi-info-circle"></i><span>This is an estimated price. Final payout is confirmed after pickup verification.</span></div>
+          <div class="laptop-finish" id="finishMsg">Quote saved. Cashygo pickup can be scheduled after customer details are collected.</div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="assets/js/gaming_flow.js"></script>
+</body>
+
+</html>

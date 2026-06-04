@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cashygo - Select Tablet Series</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/tab_pages.css">
+</head>
+
+<body class="tab-page">
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-top">
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <i class="bi bi-list"></i>
+      </button>
+      <a href="index.html" class="nav-logo" aria-label="Cashygo homepage">
+        <img src="assets/images/project-logo/logo-new.svg" alt="Cashygo logo" width="120" height="40">
+      </a>
+      <div class="nav-search" role="search">
+        <label for="mainSearch" class="sr-only">Search tablets</label>
+        <input type="search" id="mainSearch" name="search" placeholder="Search tablet series..." autocomplete="off">
+        <div class="search-icon" aria-hidden="true"><i class="bi bi-search"></i></div>
+      </div>
+      <button class="nav-login" id="openLoginBtn" aria-label="Sign in">
+        <i class="bi bi-person-circle"></i>
+        <span>Sign in</span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="tab-hero" aria-label="Tablet series hero">
+      <div>
+        <div class="tab-hero__badge"><i class="bi bi-grid-3x3-gap-fill"></i> Tablet series</div>
+        <h1>Select Your Tablet Series</h1>
+        <p>Choose the closest tablet series, then continue through variant, condition, questions, and issue checks for an instant estimate.</p>
+        <div class="tab-hero__actions">
+          <a href="tab_brand.html" class="tab-btn is-soft"><i class="bi bi-arrow-left"></i> Change brand</a>
+        </div>
+      </div>
+      <div class="tab-hero__media" aria-hidden="true">
+        <img src="assets/images/home-page-img/brand-img/iPad.webp" alt="">
+      </div>
+    </section>
+
+    <section class="tab-section" aria-label="Tablet series">
+      <div class="tab-section__head">
+        <div>
+          <h2>Popular Tablet Series</h2>
+          <p>Filter by brand or search your tablet series.</p>
+        </div>
+        <div class="tab-search">
+          <input type="search" id="tabModelSearch" placeholder="Search series...">
+          <i class="bi bi-search"></i>
+        </div>
+      </div>
+
+      <div class="tab-filter-row" aria-label="Filter tablet series">
+        <button class="tab-filter is-active" data-filter="all">All</button>
+        <button class="tab-filter" data-filter="apple">Apple</button>
+        <button class="tab-filter" data-filter="samsung">Samsung</button>
+        <button class="tab-filter" data-filter="oneplus">OnePlus</button>
+        <button class="tab-filter" data-filter="xiaomi">Xiaomi</button>
+        <button class="tab-filter" data-filter="realme">Realme</button>
+        <button class="tab-filter" data-filter="lenovo">Lenovo</button>
+      </div>
+
+      <div class="tab-grid" id="tabModelGrid">
+        <a href="tab_verient.html?model=Apple%20iPad%20Series" class="tab-card" data-brand="apple">
+          <div class="tab-card__image"><img src="assets/images/home-page-img/brand-img/iPad.webp" alt="Apple iPad Series"></div>
+          <h3>Apple iPad Series</h3>
+          <p>iPad, Air, mini, and Pro models.</p>
+          <div class="tab-card__price">Up to ₹65,000</div>
+        </a>
+        <a href="tab_verient.html?model=Samsung%20Galaxy%20Tab%20Series" class="tab-card" data-brand="samsung">
+          <div class="tab-card__image"><img src="assets/images/Brand_img/sumsung.avif" alt="Samsung Galaxy Tab Series"></div>
+          <h3>Samsung Galaxy Tab Series</h3>
+          <p>Galaxy Tab A, S, FE, and Ultra.</p>
+          <div class="tab-card__price">Up to ₹48,000</div>
+        </a>
+        <a href="tab_verient.html?model=OnePlus%20Pad%20Series" class="tab-card" data-brand="oneplus">
+          <div class="tab-card__image"><img src="assets/images/Brand_img/oneplus.avif" alt="OnePlus Pad Series"></div>
+          <h3>OnePlus Pad Series</h3>
+          <p>OnePlus Pad and Pad Go.</p>
+          <div class="tab-card__price">Up to ₹32,000</div>
+        </a>
+        <a href="tab_verient.html?model=Xiaomi%20Pad%20Series" class="tab-card" data-brand="xiaomi">
+          <div class="tab-card__image"><img src="assets/images/Brand_img/Mi.avif" alt="Xiaomi Pad Series"></div>
+          <h3>Xiaomi Pad Series</h3>
+          <p>Xiaomi Pad and Mi Pad models.</p>
+          <div class="tab-card__price">Up to ₹28,000</div>
+        </a>
+        <a href="tab_verient.html?model=Realme%20Pad%20Series" class="tab-card" data-brand="realme">
+          <div class="tab-card__image"><img src="assets/images/Brand_img/Realme.avif" alt="Realme Pad Series"></div>
+          <h3>Realme Pad Series</h3>
+          <p>Realme Pad, Mini, and LTE.</p>
+          <div class="tab-card__price">Up to ₹18,000</div>
+        </a>
+        <a href="tab_verient.html?model=Lenovo%20Tab%20Series" class="tab-card" data-brand="lenovo">
+          <div class="tab-card__image"><img src="assets/images/Brand_img/Lenavo.avif" alt="Lenovo Tab Series"></div>
+          <h3>Lenovo Tab Series</h3>
+          <p>Lenovo Tab M, P, and Yoga Tab.</p>
+          <div class="tab-card__price">Up to ₹22,000</div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const modelSearch = document.getElementById("tabModelSearch");
+    const modelCards = document.querySelectorAll("#tabModelGrid .tab-card");
+    const filterBtns = document.querySelectorAll(".tab-filter");
+    const selectedBrand = new URLSearchParams(window.location.search).get("brand");
+    let activeFilter = selectedBrand ? selectedBrand.toLowerCase() : "all";
+
+    function applyTabFilters() {
+      const value = modelSearch.value.trim().toLowerCase();
+      modelCards.forEach(card => {
+        const matchesFilter = activeFilter === "all" || card.dataset.brand === activeFilter;
+        const matchesSearch = card.textContent.toLowerCase().includes(value);
+        card.style.display = matchesFilter && matchesSearch ? "grid" : "none";
+      });
+    }
+
+    modelSearch.addEventListener("input", applyTabFilters);
+    filterBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        filterBtns.forEach(item => item.classList.remove("is-active"));
+        btn.classList.add("is-active");
+        activeFilter = btn.dataset.filter;
+        applyTabFilters();
+      });
+    });
+
+    filterBtns.forEach(btn => {
+      btn.classList.toggle("is-active", btn.dataset.filter === activeFilter);
+    });
+    if (!document.querySelector(".tab-filter.is-active")) {
+      document.querySelector('[data-filter="all"]').classList.add("is-active");
+      activeFilter = "all";
+    }
+    applyTabFilters();
+  </script>
+</body>
+
+</html>

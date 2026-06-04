@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cashygo - Gaming Console Condition</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/laptop_flow.css">
+</head>
+
+<body data-page="gaming-condition">
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-top">
+      <a href="index.html" class="nav-logo" aria-label="Cashygo homepage">
+        <img src="assets/images/project-logo/logo-new.svg" alt="Cashygo logo" width="120" height="40">
+      </a>
+      <div class="nav-search" role="search">
+        <label for="mainSearch" class="sr-only">Search gaming consoles</label>
+        <input type="search" id="mainSearch" placeholder="Search gaming console series..." autocomplete="off">
+        <div class="search-icon" aria-hidden="true"><i class="bi bi-search"></i></div>
+      </div>
+      <a class="nav-login" href="contact.html"><i class="bi bi-person-circle"></i><span>Sign in</span></a>
+    </div>
+  </nav>
+
+  <main class="laptop-flow">
+    <nav class="laptop-flow__crumbs" aria-label="Breadcrumb">
+      <a href="Gaming_brand.html">Sell gaming</a>
+      <i class="bi bi-chevron-right"></i>
+      <a href="Gaming_verient.html">Variant</a>
+      <i class="bi bi-chevron-right"></i>
+      <span>Condition</span>
+    </nav>
+
+    <section class="laptop-flow__head">
+      <div>
+        <div class="laptop-flow__eyebrow"><i class="bi bi-clipboard-check-fill"></i> Console condition check</div>
+        <h1>Tell us the condition of your <span data-model-name>console</span></h1>
+        <p>Select the closest body, power, and accessory status for a realistic gaming console resale estimate.</p>
+      </div>
+      <div class="laptop-flow__steps" aria-label="Sell gaming steps">
+        <div class="laptop-flow__step"><strong>1. Variant</strong><span>Edition and age</span></div>
+        <div class="laptop-flow__step is-active"><strong>2. Condition</strong><span>Body and power</span></div>
+        <div class="laptop-flow__step"><strong>3. Questions</strong><span>Account checks</span></div>
+        <div class="laptop-flow__step"><strong>4. Issues</strong><span>Fault selection</span></div>
+      </div>
+    </section>
+
+    <div class="laptop-flow__layout">
+      <aside class="laptop-flow__card laptop-product">
+        <div class="laptop-product__media">
+          <img data-gaming-image src="assets/images/home-page-img/brand-img/game.webp" alt="Gaming Console">
+        </div>
+        <div class="laptop-product__body">
+          <div class="laptop-product__brand" data-brand-name>Gaming Console</div>
+          <h2 class="laptop-product__name" data-model-name>Gaming Console</h2>
+          <span class="laptop-chip"><i class="bi bi-tools"></i> Condition based price</span>
+          <div class="laptop-product__meta">
+            <span><i class="bi bi-controller"></i> Controller count matters</span>
+            <span><i class="bi bi-power"></i> Power status affects value</span>
+            <span><i class="bi bi-hdmi"></i> Cables improve pickup readiness</span>
+          </div>
+        </div>
+      </aside>
+
+      <section class="laptop-flow__card laptop-panel" aria-label="Choose gaming condition">
+        <h2 class="laptop-panel__title"><span class="laptop-panel__num">1</span> Physical Condition</h2>
+        <div class="laptop-option-grid is-three">
+          <button class="laptop-option" data-group="condition" data-value="Excellent"><i class="bi bi-stars"></i><strong>Excellent</strong><span>No dents, cracks, or heavy scratches.</span></button>
+          <button class="laptop-option" data-group="condition" data-value="Average"><i class="bi bi-circle-half"></i><strong>Average</strong><span>Minor usage marks, console works normally.</span></button>
+          <button class="laptop-option" data-group="condition" data-value="Damaged"><i class="bi bi-exclamation-triangle"></i><strong>Damaged</strong><span>Cracks, broken ports, heavy scratches, or casing damage.</span></button>
+        </div>
+
+        <h2 class="laptop-panel__title"><span class="laptop-panel__num">2</span> Power Status</h2>
+        <div class="laptop-option-grid is-three">
+          <button class="laptop-option" data-group="power" data-value="Works normally"><i class="bi bi-power"></i><strong>Works normally</strong><span>Turns on and runs games without issue.</span></button>
+          <button class="laptop-option" data-group="power" data-value="Overheating"><i class="bi bi-thermometer-high"></i><strong>Overheating</strong><span>Fan noise, heat, or shutdown during play.</span></button>
+          <button class="laptop-option" data-group="power" data-value="Power issue"><i class="bi bi-lightning-slash"></i><strong>Power issue</strong><span>No power, random shutdowns, or restart loop.</span></button>
+        </div>
+
+        <h2 class="laptop-panel__title"><span class="laptop-panel__num">3</span> Box and Cables</h2>
+        <div class="laptop-option-grid is-three">
+          <button class="laptop-option" data-group="accessories" data-value="Box and cables available"><i class="bi bi-box-seam"></i><strong>Box + cables</strong><span>Original box, power cable, and HDMI cable available.</span></button>
+          <button class="laptop-option" data-group="accessories" data-value="Cables missing"><i class="bi bi-hdmi"></i><strong>Cables missing</strong><span>Some original cables are not available.</span></button>
+          <button class="laptop-option" data-group="accessories" data-value="No box or cables"><i class="bi bi-x-circle"></i><strong>No box/cables</strong><span>Console only, without box or cables.</span></button>
+        </div>
+      </section>
+
+      <aside class="laptop-flow__card laptop-summary">
+        <div class="laptop-summary__head">
+          <h2>Price Summary</h2>
+          <p>Based on variant and condition.</p>
+        </div>
+        <div class="laptop-summary__body">
+          <div class="laptop-summary__row"><span>Model</span><strong data-model-name>Gaming Console</strong></div>
+          <div class="laptop-summary__row"><span>Condition</span><strong data-summary="condition">-</strong></div>
+          <div class="laptop-summary__row"><span>Power</span><strong data-summary="power">-</strong></div>
+          <div class="laptop-summary__row"><span>Accessories</span><strong data-summary="accessories">-</strong></div>
+          <div class="laptop-total"><small>Expected Price</small><strong data-summary-price>₹0</strong></div>
+          <button class="laptop-action" id="continueBtn" disabled>Continue <i class="bi bi-arrow-right"></i></button>
+          <div class="laptop-note"><i class="bi bi-info-circle"></i><span>Pickup verification confirms the final payout.</span></div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="assets/js/gaming_flow.js"></script>
+</body>
+
+</html>

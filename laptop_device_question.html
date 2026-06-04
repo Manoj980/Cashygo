@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cashygo - Laptop Questions</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/laptop_flow.css">
+</head>
+
+<body data-page="question">
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-top">
+      <a href="index.html" class="nav-logo" aria-label="Cashygo homepage">
+        <img src="assets/images/project-logo/logo-new.svg" alt="Cashygo logo" width="120" height="40">
+      </a>
+      <div class="nav-search" role="search">
+        <label for="mainSearch" class="sr-only">Search devices</label>
+        <input type="search" id="mainSearch" placeholder="Search laptop series..." autocomplete="off">
+        <div class="search-icon" aria-hidden="true"><i class="bi bi-search"></i></div>
+      </div>
+      <a class="nav-login" href="contact.html"><i class="bi bi-person-circle"></i><span>Sign in</span></a>
+    </div>
+  </nav>
+
+  <main class="laptop-flow">
+    <nav class="laptop-flow__crumbs" aria-label="Breadcrumb">
+      <a href="laptop_brand.html">Sell laptop</a>
+      <i class="bi bi-chevron-right"></i>
+      <a href="laptop_Device_condation.html">Condition</a>
+      <i class="bi bi-chevron-right"></i>
+      <span>Questions</span>
+    </nav>
+
+    <section class="laptop-flow__head">
+      <div>
+        <div class="laptop-flow__eyebrow"><i class="bi bi-question-circle-fill"></i> Ownership and data checks</div>
+        <h1>Answer quick questions for your <span data-model-name>laptop</span></h1>
+        <p>These checks help make pickup smoother and keep your personal data protected before you sell the laptop.</p>
+      </div>
+      <div class="laptop-flow__steps" aria-label="Sell laptop steps">
+        <div class="laptop-flow__step"><strong>1. Variant</strong><span>Specs and age</span></div>
+        <div class="laptop-flow__step"><strong>2. Condition</strong><span>Body and battery</span></div>
+        <div class="laptop-flow__step is-active"><strong>3. Questions</strong><span>Ownership checks</span></div>
+        <div class="laptop-flow__step"><strong>4. Issues</strong><span>Fault selection</span></div>
+      </div>
+    </section>
+
+    <div class="laptop-flow__layout">
+      <aside class="laptop-flow__card laptop-product">
+        <div class="laptop-product__media">
+          <img data-laptop-image src="assets/images/laptop_img/laptop_model_img/Dell%20Inspiron%20Series.avif" alt="Laptop">
+        </div>
+        <div class="laptop-product__body">
+          <div class="laptop-product__brand" data-brand-name>Laptop</div>
+          <h2 class="laptop-product__name" data-model-name>Laptop</h2>
+          <span class="laptop-chip"><i class="bi bi-lock"></i> Safe handover</span>
+          <div class="laptop-product__meta">
+            <span><i class="bi bi-receipt"></i> Bill improves verification</span>
+            <span><i class="bi bi-unlock"></i> Device should be unlocked</span>
+            <span><i class="bi bi-database-check"></i> Back up data before pickup</span>
+          </div>
+        </div>
+      </aside>
+
+      <section class="laptop-flow__card laptop-panel" aria-label="Laptop questions">
+        <h2 class="laptop-panel__title"><span class="laptop-panel__num">1</span> Do you have the purchase bill?</h2>
+        <div class="laptop-option-grid">
+          <button class="laptop-option" data-group="bill" data-value="Bill available"><i class="bi bi-receipt-cutoff"></i><strong>Yes, bill available</strong><span>Helps us verify purchase details faster.</span></button>
+          <button class="laptop-option" data-group="bill" data-value="Bill not available"><i class="bi bi-file-earmark-x"></i><strong>No bill</strong><span>You can still continue without a bill.</span></button>
+        </div>
+
+        <h2 class="laptop-panel__title"><span class="laptop-panel__num">2</span> Can you unlock the laptop?</h2>
+        <div class="laptop-option-grid">
+          <button class="laptop-option" data-group="password" data-value="Can unlock laptop"><i class="bi bi-unlock-fill"></i><strong>Yes, I can unlock</strong><span>Our pickup partner can verify working status.</span></button>
+          <button class="laptop-option" data-group="password" data-value="Cannot unlock laptop"><i class="bi bi-lock-fill"></i><strong>No, locked</strong><span>Locked devices may need extra verification.</span></button>
+        </div>
+
+        <h2 class="laptop-panel__title"><span class="laptop-panel__num">3</span> Is your data backed up?</h2>
+        <div class="laptop-option-grid">
+          <button class="laptop-option" data-group="data" data-value="Data backed up"><i class="bi bi-cloud-check"></i><strong>Yes, backed up</strong><span>Ready for reset and secure handover.</span></button>
+          <button class="laptop-option" data-group="data" data-value="Data not backed up"><i class="bi bi-cloud-arrow-up"></i><strong>Not yet</strong><span>Please back up before pickup.</span></button>
+        </div>
+      </section>
+
+      <aside class="laptop-flow__card laptop-summary">
+        <div class="laptop-summary__head">
+          <h2>Pickup Readiness</h2>
+          <p>Your answers help avoid pickup delays.</p>
+        </div>
+        <div class="laptop-summary__body">
+          <div class="laptop-summary__row"><span>Model</span><strong data-model-name>Laptop</strong></div>
+          <div class="laptop-summary__row"><span>Bill</span><strong data-summary="bill">-</strong></div>
+          <div class="laptop-summary__row"><span>Password</span><strong data-summary="password">-</strong></div>
+          <div class="laptop-summary__row"><span>Data</span><strong data-summary="data">-</strong></div>
+          <div class="laptop-total"><small>Expected Price</small><strong data-summary-price>₹0</strong></div>
+          <button class="laptop-action" id="continueBtn" disabled>Continue <i class="bi bi-arrow-right"></i></button>
+          <div class="laptop-note"><i class="bi bi-info-circle"></i><span>Remove personal files and accounts before handing over your laptop.</span></div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="assets/js/laptop_flow.js"></script>
+</body>
+
+</html>
