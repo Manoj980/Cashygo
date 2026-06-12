@@ -67,18 +67,44 @@
       </aside>
 
       <section class="laptop-flow__card laptop-panel" aria-label="Choose gaming variant">
-        <h2 class="laptop-panel__title"><span class="laptop-panel__num">1</span> Storage</h2>
+        <!-- <h2 class="laptop-panel__title"><span class="laptop-panel__num">1</span> Storage</h2>
         <div class="laptop-option-grid is-three">
           <button class="laptop-option" data-group="storage" data-value="500 GB"><strong>500 GB</strong><span>Base console storage.</span></button>
           <button class="laptop-option" data-group="storage" data-value="825 GB"><strong>825 GB</strong><span>Common current-gen storage.</span></button>
           <button class="laptop-option" data-group="storage" data-value="1 TB+"><strong>1 TB+</strong><span>Higher value storage setup.</span></button>
-        </div>
+        </div> -->
 
         <h2 class="laptop-panel__title"><span class="laptop-panel__num">2</span> Controllers</h2>
         <div class="laptop-option-grid is-three">
           <button class="laptop-option" data-group="controllers" data-value="No controller"><i class="bi bi-x-circle"></i><strong>No controller</strong><span>Console only.</span></button>
           <button class="laptop-option" data-group="controllers" data-value="1 controller"><i class="bi bi-controller"></i><strong>1 controller</strong><span>Standard bundle.</span></button>
           <button class="laptop-option" data-group="controllers" data-value="2 controllers"><i class="bi bi-controller"></i><strong>2 controllers</strong><span>Higher resale demand.</span></button>
+        </div>
+        <h2 class="laptop-panel__title"><span class="laptop-panel__num">4</span> How many game CDs do you have?</h2>
+        <div class="laptop-option-grid is-one">
+          <div class="laptop-select-card">
+            <div class="laptop-select-card__media">
+              <!-- <img src="assets/images/home-page-img/brand-img/game.webp" alt="Game CDs"> -->
+               <svg xmlns="http://www.w3.org/2000/svg" height="40px" viewBox="0 -960 960 960" width="40px" fill="#078f61"><path d="M480-310.67q71.67 0 122.5-49.16Q653.33-409 653.33-480q0-72.33-50.5-122.83T480-653.33q-71 0-120.17 50.83-49.16 50.83-49.16 122.5 0 71 49.16 120.17Q409-310.67 480-310.67ZM451.5-451.5Q440-463 440-480t11.5-28.5Q463-520 480-520t28.5 11.5Q520-497 520-480t-11.5 28.5Q497-440 480-440t-28.5-11.5ZM480-80q-82.33 0-155.33-31.5-73-31.5-127.34-85.83Q143-251.67 111.5-324.67T80-480q0-83 31.5-156t85.83-127q54.34-54 127.34-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 82.33-31.5 155.33-31.5 73-85.5 127.34Q709-143 636-111.5T480-80Zm0-66.67q139.33 0 236.33-97.33t97-236q0-139.33-97-236.33t-236.33-97q-138.67 0-236 97-97.33 97-97.33 236.33 0 138.67 97.33 236 97.33 97.33 236 97.33ZM480-480Z"/></svg>
+            </div>
+            <div>
+              <label for="cdCountSelect" class="sr-only">Select number of game CDs</label>
+              <select id="cdCountSelect" class="laptop-select" data-group="cds">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="3">2</option>
+                <option value="6">3</option>
+                <option value="6+">4</option>
+                <option value="6+">5</option>
+                <option value="6+">6</option>
+                <option value="6+">7</option>
+                <option value="6+">8</option>
+                <option value="6+">9</option>
+                <option value="6+">10</option>
+              </select>
+              <p class="laptop-select-description">The games should be compatible with the console.</p>
+            </div>
+          </div>
         </div>
 
         <h2 class="laptop-panel__title"><span class="laptop-panel__num">3</span> Purchase Age</h2>
