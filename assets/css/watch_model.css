@@ -1,0 +1,103 @@
+/* ============================================
+   watch_model.css — Select Watch Series page
+   Loads AFTER style.css + tab_pages.css.
+   Only additions: breadcrumb, no-result text,
+   load more, image consistency. All layout
+   comes from tab_pages.css.
+   ============================================ */
+
+/* ---------- Breadcrumb (Cashify-style) ---------- */
+.wm-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: min(1240px, calc(100% - 48px));
+  margin: 14px auto 0;
+  overflow-x: auto;
+  white-space: nowrap;
+  font-size: 13px;
+  color: #667085;
+  scrollbar-width: none;
+}
+
+.wm-breadcrumb::-webkit-scrollbar {
+  display: none;
+}
+
+.wm-breadcrumb a {
+  color: #667085;
+  text-decoration: none;
+}
+
+.wm-breadcrumb a:hover {
+  color: #078f61;
+}
+
+.wm-breadcrumb i {
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.wm-breadcrumb span {
+  color: #111827;
+  font-weight: 600;
+}
+
+/* pull hero up a little since breadcrumb sits above it */
+.wm-breadcrumb + .tab-hero {
+  padding-top: 18px;
+}
+
+/* ---------- No-result message ---------- */
+.tab-noresult {
+  display: none;
+  margin-top: 14px;
+  color: #667085;
+  font-size: 14px;
+}
+
+.tab-noresult.is-visible {
+  display: block;
+}
+
+/* ---------- Load more ---------- */
+.wm-loadmore-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.wm-loadmore {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  border: 1px solid #d7e5df;
+  border-radius: 12px;
+  background: #fff;
+  color: #111827;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, .08);
+  cursor: pointer;
+  transition: border-color .15s, color .15s;
+}
+
+.wm-loadmore:hover {
+  border-color: #078f61;
+  color: #078f61;
+}
+
+/* ---------- Consistent card image height ---------- */
+#watchModelGrid .tab-card__image img {
+  height: 110px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 560px) {
+  .wm-breadcrumb {
+    width: min(100% - 28px, 1240px);
+  }
+}

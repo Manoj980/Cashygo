@@ -4,40 +4,118 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Cashygo – Select your smartwatch series. Apple Watch, Galaxy Watch, Noise, boAt, Fire-Boltt, Amazfit. Instant resale price with free doorstep pickup.">
   <title>Cashygo - Select Watch Series</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/tab_pages.css">
   <link rel="stylesheet" href="assets/css/watch_model.css">
 </head>
 
 <body class="tab-page">
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-top">
-      <button class="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <i class="bi bi-list"></i>
       </button>
-      <a href="index.html" class="nav-logo" aria-label="Cashygo homepage">
+      <a href="/" class="nav-logo" aria-label="Cashygo – Go to homepage">
         <img src="assets/images/project-logo/logo-new.svg" alt="Cashygo logo" width="120" height="40">
       </a>
       <div class="nav-search" role="search">
-        <label for="mainSearch" class="sr-only">Search watch series</label>
-        <input type="search" id="mainSearch" name="search" placeholder="Search watch series..." autocomplete="off">
+        <div class="nav-city" id="cityPicker" tabindex="0" aria-haspopup="listbox" aria-label="Select city">
+          <i class="bi bi-geo-alt-fill"></i>
+          <span id="cityLabel">Bangalore</span>
+          <i class="bi bi-chevron-down"></i>
+          <ul class="city-drop" id="cityDrop" role="listbox" aria-label="Select your city">
+            <li role="option" data-city="Delhi">Delhi NCR</li>
+            <li role="option" data-city="Bangalore">Bangalore</li>
+            <li role="option" data-city="Mumbai">Mumbai</li>
+            <li role="option" data-city="Pune">Pune</li>
+            <li role="option" data-city="Hyderabad">Hyderabad</li>
+          </ul>
+        </div>
+        <label for="mainSearch" class="sr-only">Search devices</label>
+        <input type="search" id="mainSearch" name="search" placeholder="Search devices, brands…" autocomplete="off">
         <div class="search-icon" aria-hidden="true"><i class="bi bi-search"></i></div>
       </div>
-      <button class="nav-login" aria-label="Sign in">
+      <button class="nav-login" id="openLoginBtn" aria-label="Sign in to your account">
         <i class="bi bi-person-circle"></i>
         <span>Sign in</span>
       </button>
     </div>
+
+    <div class="nav-menu" id="navMenu">
+      <div class="nav-menu-inner">
+        <div class="dropdown" id="dropMobile">
+          <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">Sell Mobile ⌵</button>
+          <ul class="dropdown-menu">
+            <li><a href="Apple_model.html">Apple iPhone</a></li>
+            <li><a href="samsung.html">Samsung Galaxy</a></li>
+            <li><a href="oneplus.html">OnePlus</a></li>
+            <li><a href="google.html">Google Pixel</a></li>
+            <li><a href="xiaomi.html">Xiaomi</a></li>
+            <li><a href="vivo.html">Vivo</a></li>
+          </ul>
+        </div>
+        <div class="dropdown" id="dropTablet">
+          <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">Sell Tablet ⌵</button>
+          <ul class="dropdown-menu">
+            <li><a href="tab_model.html?brand=Apple">Apple Tab</a></li>
+            <li><a href="tab_model.html?brand=Samsung">Samsung Tab</a></li>
+            <li><a href="tab_model.html?brand=OnePlus">OnePlus Tab</a></li>
+            <li><a href="tab_model.html?brand=Xiaomi">Xiaomi Tab</a></li>
+            <li><a href="tab_model.html?brand=Realme">Realme Tab</a></li>
+          </ul>
+        </div>
+        <div class="dropdown" id="dropLaptop">
+          <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">Sell Laptop ⌵</button>
+          <ul class="dropdown-menu">
+            <li><a href="dell.html">Dell</a></li>
+            <li><a href="hp.html">HP</a></li>
+            <li><a href="lenovo.html">Lenovo</a></li>
+            <li><a href="asus.html">Asus</a></li>
+            <li><a href="acer.html">Acer</a></li>
+          </ul>
+        </div>
+        <div class="dropdown" id="dropMac">
+          <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">Sell Mac ⌵</button>
+          <ul class="dropdown-menu">
+            <li><a href="macbook.html">MacBook</a></li>
+            <li><a href="imac.html">iMac</a></li>
+            <li><a href="mac-mini.html">Mac Mini</a></li>
+            <li><a href="macbook-pro.html">MacBook Pro</a></li>
+          </ul>
+        </div>
+        <a href="#" class="menu-link">Corporate Deals</a>
+        <a href="calculator.html" class="menu-link">Price Calculator</a>
+        <a href="blogs.html" class="menu-link">Blog & Tips</a>
+        <a href="contact.html" class="menu-link">Contact</a>
+        <a href="Faq.html" class="menu-link">FAQ's</a>
+        <a href="costumer.html" class="menu-link">Customer Reviews</a>
+      </div>
+    </div>
   </nav>
 
   <main>
+
+    <!-- BREADCRUMB (Cashify-style) -->
+    <nav class="wm-breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <i class="bi bi-chevron-right" aria-hidden="true"></i>
+      <a href="watch_brand.html">Sell Old Smartwatch</a>
+      <i class="bi bi-chevron-right" aria-hidden="true"></i>
+      <span id="wmCrumb">Select Series</span>
+    </nav>
+
+    <!-- HERO -->
     <section class="tab-hero" aria-label="Watch series hero">
       <div>
         <div class="tab-hero__badge"><i class="bi bi-grid-3x3-gap-fill"></i> Watch series</div>
-        <h1>Select Your Watch Series</h1>
-        <p>Choose the closest smartwatch series, then continue through variant, condition, questions, and issue checks for an instant estimate.</p>
+        <h1 id="wmTitle">Select Your Watch Series</h1>
+        <p>Choose the closest smartwatch series, then continue through variant, condition, questions, and issue
+          checks for an instant estimate.</p>
         <div class="tab-hero__actions">
           <a href="watch_brand.html" class="tab-btn is-soft"><i class="bi bi-arrow-left"></i> Change brand</a>
         </div>
@@ -47,11 +125,12 @@
       </div>
     </section>
 
+    <!-- SERIES -->
     <section class="tab-section" aria-label="Watch series">
       <div class="tab-section__head">
         <div>
           <h2>Popular Watch Series</h2>
-          <p>Filter by brand or search your watch series.</p>
+          <p id="wmSubtitle">Filter by brand or search your watch series.</p>
         </div>
         <div class="tab-search">
           <input type="search" id="watchModelSearch" placeholder="Search series...">
@@ -59,89 +138,265 @@
         </div>
       </div>
 
-      <div class="tab-filter-row" aria-label="Filter watch series">
-        <button class="tab-filter is-active" data-filter="all">All</button>
-        <button class="tab-filter" data-filter="apple">Apple</button>
-        <button class="tab-filter" data-filter="samsung">Samsung</button>
-        <button class="tab-filter" data-filter="noise">Noise</button>
-        <button class="tab-filter" data-filter="boat">boAt</button>
-        <button class="tab-filter" data-filter="fire-boltt">Fire-Boltt</button>
-        <button class="tab-filter" data-filter="amazfit">Amazfit</button>
+      <div class="tab-filter-row" id="watchFilterRow" aria-label="Filter watch series">
+        <!-- pills rendered by JS -->
       </div>
 
       <div class="tab-grid" id="watchModelGrid">
-        <a href="watch_verient.html?model=Apple%20Watch%20Series" class="tab-card" data-brand="apple">
-          <div class="tab-card__image"><img src="assets/images/home-page-img/brand-img/whatch.webp" alt="Apple Watch Series"></div>
-          <h3>Apple Watch Series</h3>
-          <p>Series, SE, Ultra, GPS, and Cellular models.</p>
-          <div class="tab-card__price">Up to ₹35,000</div>
-        </a>
-        <a href="watch_verient.html?model=Samsung%20Galaxy%20Watch%20Series" class="tab-card" data-brand="samsung">
-          <div class="tab-card__image"><img src="assets/images/home-page-img/brand-img/whatch.webp" alt="Samsung Galaxy Watch Series"></div>
-          <h3>Samsung Galaxy Watch Series</h3>
-          <p>Galaxy Watch, Classic, Active, and LTE.</p>
-          <div class="tab-card__price">Up to ₹28,000</div>
-        </a>
-        <a href="watch_verient.html?model=Noise%20Watch%20Series" class="tab-card" data-brand="noise">
-          <div class="tab-card__image"><img src="assets/images/home-page-img/brand-img/whatch.webp" alt="Noise Watch Series"></div>
-          <h3>Noise Watch Series</h3>
-          <p>ColorFit, Halo, Pro, and calling watches.</p>
-          <div class="tab-card__price">Up to ₹8,000</div>
-        </a>
-        <a href="watch_verient.html?model=boAt%20Watch%20Series" class="tab-card" data-brand="boat">
-          <div class="tab-card__image"><img src="assets/images/home-page-img/brand-img/whatch.webp" alt="boAt Watch Series"></div>
-          <h3>boAt Watch Series</h3>
-          <p>Xtend, Storm, Wave, and calling watches.</p>
-          <div class="tab-card__price">Up to ₹7,000</div>
-        </a>
-        <a href="watch_verient.html?model=Fire-Boltt%20Watch%20Series" class="tab-card" data-brand="fire-boltt">
-          <div class="tab-card__image"><img src="assets/images/home-page-img/brand-img/whatch.webp" alt="Fire-Boltt Watch Series"></div>
-          <h3>Fire-Boltt Watch Series</h3>
-          <p>Ninja, Phoenix, Ring, and AMOLED models.</p>
-          <div class="tab-card__price">Up to ₹7,000</div>
-        </a>
-        <a href="watch_verient.html?model=Amazfit%20Watch%20Series" class="tab-card" data-brand="amazfit">
-          <div class="tab-card__image"><img src="assets/images/home-page-img/brand-img/whatch.webp" alt="Amazfit Watch Series"></div>
-          <h3>Amazfit Watch Series</h3>
-          <p>GTS, GTR, Bip, T-Rex, and Active models.</p>
-          <div class="tab-card__price">Up to ₹12,000</div>
-        </a>
+        <!-- series cards rendered by JS -->
+      </div>
+
+      <p class="tab-noresult" id="wmNoResult">
+        No series matches your search. Try a brand name like “Apple” or “Noise”.
+      </p>
+
+      <div class="wm-loadmore-wrap">
+        <button class="wm-loadmore" id="wmLoadMore" type="button">Load More</button>
       </div>
     </section>
   </main>
 
+  <!-- FAQ -->
+  <section class="section" style="max-width:800px" aria-label="Frequently asked questions">
+    <div class="faq-header">
+      <h2>Frequently <span>Asked</span> Questions</h2>
+      <p>Everything you need to know before selling your smartwatch</p>
+    </div>
+    <details class="faq-item">
+      <summary>How do I sell my smartwatch? <span class="faq-icon">+</span></summary>
+      <div class="faq-answer">Select your watch series and exact model, check the price, schedule pickup, and get
+        paid instantly after verification.</div>
+    </details>
+    <details class="faq-item">
+      <summary>What if my exact series isn't listed? <span class="faq-icon">+</span></summary>
+      <div class="faq-answer">Pick the closest series and continue — you can confirm the exact model on the next
+        step, or contact support for unlisted watches.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Is pickup free? <span class="faq-icon">+</span></summary>
+      <div class="faq-answer">Yes, doorstep pickup is completely free with no hidden charges.</div>
+    </details>
+    <details class="faq-item">
+      <summary>When will I get payment? <span class="faq-icon">+</span></summary>
+      <div class="faq-answer">Payment is processed instantly after device verification during pickup.</div>
+    </details>
+  </section>
+
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">
+            <img src="assets/images/project-logo/logo-new.svg" alt="Cashygo" loading="lazy">
+          </div>
+          <p class="footer-desc">India's most trusted device buyback platform. Instant pricing, free doorstep pickup,
+            and instant payment.</p>
+          <div class="social-links" aria-label="Follow us on social media">
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61582722784700" aria-label="Facebook"><i
+                class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>SELL</h4>
+          <ul>
+            <li><a href="#">Sell Mobile</a></li>
+            <li><a href="#">Sell Laptop</a></li>
+            <li><a href="#">Sell Tablet</a></li>
+            <li><a href="#">Sell MacBook</a></li>
+            <li><a href="#">Sell Smartwatch</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>COMPANY</h4>
+          <ul>
+            <li><a href="#">About Cashygo</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Partner With Us</a></li>
+            <li><a href="#">Press & Media</a></li>
+            <li><a href="#">Blog & Tips</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>SUPPORT</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact Support</a></li>
+            <li><a href="#">Return Policy</a></li>
+            <li><a href="#">Privacy & Security</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-col footer-contact">
+          <h4>CONTACT</h4>
+          <address>
+            <p><i class="bi bi-envelope"></i><a href="mailto:hr@cashygo.com">hr@cashygo.com</a></p>
+            <p><i class="bi bi-telephone"></i><a href="tel:+917766071191">+91 7766071191</a></p>
+            <p><i class="bi bi-geo-alt"></i>Bangalore, Karnataka, India</p>
+          </address>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-links-row">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Refund Policy</a>
+          <a href="#">Sitemap</a>
+        </div>
+        <div class="payment-row" aria-label="Secure payment methods">
+          <span>Secure payments:</span>
+          <i class="bi bi-credit-card" title="Credit/Debit Card"></i>
+          <i class="bi bi-bank" title="Bank Transfer"></i>
+          <i class="bi bi-wallet2" title="Digital Wallet"></i>
+        </div>
+        <p>© 2026 Cashygo — Resale Redefined</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
   <script>
-    const watchModelSearch = document.getElementById("watchModelSearch");
-    const watchModelCards = document.querySelectorAll("#watchModelGrid .tab-card");
-    const watchFilterBtns = document.querySelectorAll(".tab-filter");
-    const selectedBrand = new URLSearchParams(window.location.search).get("brand");
-    const brandMap = { Apple: "apple", Samsung: "samsung", Noise: "noise", boAt: "boat", "Fire-Boltt": "fire-boltt", Amazfit: "amazfit" };
-    let activeFilter = brandMap[selectedBrand] || "all";
+    /* =========================================================
+       Series catalogue — one entry per series card.
+       brand  : filter pill key
+       series : passed to watch_verient.html to pre-select chip
+       ========================================================= */
+    const SERIES = [
+      // Apple
+      { brand: "Apple", series: "Series 10", name: "Apple Watch Series 10", desc: "42mm & 46mm · GPS and Cellular", price: "Up to ₹30,000", img: "assets/images/watch_img/apple-watch-10.avif" },
+      { brand: "Apple", series: "Series 9", name: "Apple Watch Series 9", desc: "41mm & 45mm · GPS and Cellular", price: "Up to ₹22,000", img: "assets/images/watch_img/apple-watch-9.avif" },
+      { brand: "Apple", series: "Series Ultra", name: "Apple Watch Ultra", desc: "Ultra & Ultra 2 · 49mm", price: "Up to ₹35,000", img: "assets/images/watch_img/apple-watch-ultra.avif" },
+      { brand: "Apple", series: "Series 8", name: "Apple Watch Series 8", desc: "41mm & 45mm · GPS and Cellular", price: "Up to ₹17,000", img: "assets/images/watch_img/apple-watch-8.avif" },
+      { brand: "Apple", series: "Series 7", name: "Apple Watch Series 7", desc: "41mm & 45mm · Aluminium, Steel, Titanium", price: "Up to ₹13,000", img: "assets/images/watch_img/apple-watch-7.avif" },
+      { brand: "Apple", series: "Series SE", name: "Apple Watch SE", desc: "SE 1st & 2nd Gen · 40mm & 44mm", price: "Up to ₹10,000", img: "assets/images/watch_img/apple-watch-se.avif" },
+      { brand: "Apple", series: "Series 6", name: "Apple Watch Series 6", desc: "40mm & 44mm · Aluminium & Steel", price: "Up to ₹9,000", img: "assets/images/watch_img/apple-watch-6.avif" },
+      { brand: "Apple", series: "Series 5", name: "Apple Watch Series 5", desc: "40mm & 44mm · GPS and Cellular", price: "Up to ₹6,000", img: "assets/images/watch_img/apple-watch-5.avif" },
+      { brand: "Apple", series: "Series 4", name: "Apple Watch Series 4", desc: "40mm & 44mm · GPS and Cellular", price: "Up to ₹4,500", img: "assets/images/watch_img/apple-watch-4.avif" },
 
-    function applyWatchFilters() {
-      const value = watchModelSearch.value.trim().toLowerCase();
-      watchModelCards.forEach(card => {
-        const matchesFilter = activeFilter === "all" || card.dataset.brand === activeFilter;
-        const matchesSearch = card.textContent.toLowerCase().includes(value);
-        card.style.display = matchesFilter && matchesSearch ? "grid" : "none";
-      });
+      // Samsung
+      { brand: "Samsung", series: "Watch Ultra", name: "Galaxy Watch Ultra", desc: "47mm · LTE", price: "Up to ₹28,000", img: "assets/images/watch_img/galaxy-watch-ultra.avif" },
+      { brand: "Samsung", series: "Watch 7", name: "Galaxy Watch 7", desc: "40mm & 44mm · BT and LTE", price: "Up to ₹18,000", img: "assets/images/watch_img/galaxy-watch-7.avif" },
+      { brand: "Samsung", series: "Watch 6", name: "Galaxy Watch 6", desc: "Watch 6 & Classic · BT and LTE", price: "Up to ₹15,000", img: "assets/images/watch_img/galaxy-watch-6.avif" },
+      { brand: "Samsung", series: "Watch 5", name: "Galaxy Watch 5", desc: "Watch 5 & Pro · BT and LTE", price: "Up to ₹10,000", img: "assets/images/watch_img/galaxy-watch-5.avif" },
+      { brand: "Samsung", series: "Watch 4", name: "Galaxy Watch 4", desc: "Watch 4 & Classic · BT and LTE", price: "Up to ₹6,500", img: "assets/images/watch_img/galaxy-watch-4.avif" },
+
+      // Noise
+      { brand: "Noise", series: "ColorFit", name: "Noise ColorFit Series", desc: "Pulse, Pro 4, Pro 5 & Pro 5 Max", price: "Up to ₹4,500", img: "assets/images/watch_img/noise-colorfit.avif" },
+      { brand: "Noise", series: "Halo", name: "Noise Halo Series", desc: "Halo, Halo Plus & Halo 2", price: "Up to ₹8,000", img: "assets/images/watch_img/noise-halo.avif" },
+      { brand: "Noise", series: "Calling", name: "Noise Calling Watches", desc: "Pulse Go Buzz, Twist Go & Crew Pro", price: "Up to ₹3,000", img: "assets/images/watch_img/noise-calling.avif" },
+
+      // boAt
+      { brand: "boAt", series: "Lunar", name: "boAt Lunar Series", desc: "Lunar Connect, Pro & Discovery", price: "Up to ₹7,000", img: "assets/images/watch_img/boat-lunar.avif" },
+      { brand: "boAt", series: "Xtend / Enigma", name: "boAt Xtend & Enigma", desc: "Xtend, Xtend Pro, Enigma X600 & Z40", price: "Up to ₹5,000", img: "assets/images/watch_img/boat-xtend.avif" },
+      { brand: "boAt", series: "Storm", name: "boAt Storm Series", desc: "Storm, Storm Call 2 & Pro Call", price: "Up to ₹2,500", img: "assets/images/watch_img/boat-storm.avif" },
+      { brand: "boAt", series: "Wave", name: "boAt Wave Series", desc: "Wave Neo, Call 2, Sigma & Flex", price: "Up to ₹2,000", img: "assets/images/watch_img/boat-wave.avif" },
+
+      // Fire-Boltt
+      { brand: "Fire-Boltt", series: "Visionary", name: "Fire-Boltt Visionary", desc: "Visionary, Ring 3 & Talk 2", price: "Up to ₹7,000", img: "assets/images/watch_img/fireboltt-visionary.avif" },
+      { brand: "Fire-Boltt", series: "Invincible", name: "Fire-Boltt Invincible", desc: "Invincible & Invincible Plus", price: "Up to ₹5,000", img: "assets/images/watch_img/fireboltt-invincible.avif" },
+      { brand: "Fire-Boltt", series: "Phoenix", name: "Fire-Boltt Phoenix", desc: "Phoenix, Pro & Ultra", price: "Up to ₹3,000", img: "assets/images/watch_img/fireboltt-phoenix.avif" },
+      { brand: "Fire-Boltt", series: "Ninja", name: "Fire-Boltt Ninja", desc: "Ninja Call Pro, Plus & Fit", price: "Up to ₹2,000", img: "assets/images/watch_img/fireboltt-ninja.avif" },
+
+      // Amazfit
+      { brand: "Amazfit", series: "GTR", name: "Amazfit GTR Series", desc: "GTR 2, 3, 3 Pro & 4", price: "Up to ₹12,000", img: "assets/images/watch_img/amazfit-gtr.avif" },
+      { brand: "Amazfit", series: "T-Rex", name: "Amazfit T-Rex Series", desc: "T-Rex Pro & T-Rex 2", price: "Up to ₹10,000", img: "assets/images/watch_img/amazfit-trex.avif" },
+      { brand: "Amazfit", series: "GTS", name: "Amazfit GTS Series", desc: "GTS 2, 3, 4 & 4 Mini", price: "Up to ₹9,000", img: "assets/images/watch_img/amazfit-gts.avif" },
+      { brand: "Amazfit", series: "Bip", name: "Amazfit Bip Series", desc: "Bip 3, 3 Pro & 5", price: "Up to ₹3,500", img: "assets/images/watch_img/amazfit-bip.avif" }
+    ];
+
+    const BRANDS = ["Apple", "Samsung", "Noise", "boAt", "Fire-Boltt", "Amazfit"];
+    const PAGE_SIZE = 12;
+    const FALLBACK_IMG = "assets/images/home-page-img/brand-img/whatch.webp";
+
+    /* ---------- State ---------- */
+    const params = new URLSearchParams(window.location.search);
+    const brandParam = params.get("brand");
+    let activeBrand = BRANDS.includes(brandParam) ? brandParam : "all";
+    let searchValue = "";
+    let shown = PAGE_SIZE;
+
+    const filterRow = document.getElementById("watchFilterRow");
+    const grid = document.getElementById("watchModelGrid");
+    const searchInput = document.getElementById("watchModelSearch");
+    const noResult = document.getElementById("wmNoResult");
+    const loadMoreBtn = document.getElementById("wmLoadMore");
+    const subtitle = document.getElementById("wmSubtitle");
+    const crumb = document.getElementById("wmCrumb");
+    const title = document.getElementById("wmTitle");
+
+    if (activeBrand !== "all") {
+      title.textContent = `Select Your ${activeBrand} Watch Series`;
+      crumb.textContent = `Sell Old ${activeBrand}`;
+      document.title = `Cashygo - Sell Old ${activeBrand} Smartwatch`;
     }
 
-    watchFilterBtns.forEach(btn => {
-      btn.classList.toggle("is-active", btn.dataset.filter === activeFilter);
-      btn.addEventListener("click", () => {
-        watchFilterBtns.forEach(item => item.classList.remove("is-active"));
-        btn.classList.add("is-active");
-        activeFilter = btn.dataset.filter;
-        applyWatchFilters();
-      });
+    /* ---------- Filter pills ---------- */
+    filterRow.innerHTML =
+      `<button class="tab-filter" data-filter="all">All</button>` +
+      BRANDS.map(b => `<button class="tab-filter" data-filter="${b}">${b}</button>`).join("");
+
+    filterRow.addEventListener("click", e => {
+      const btn = e.target.closest(".tab-filter");
+      if (!btn) return;
+      filterRow.querySelectorAll(".tab-filter").forEach(b => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      activeBrand = btn.dataset.filter;
+      shown = PAGE_SIZE;
+      render();
     });
-    if (!document.querySelector(".tab-filter.is-active")) {
-      document.querySelector('[data-filter="all"]').classList.add("is-active");
-      activeFilter = "all";
+
+    /* ---------- Search ---------- */
+    searchInput.addEventListener("input", () => {
+      searchValue = searchInput.value.trim().toLowerCase();
+      shown = PAGE_SIZE;
+      render();
+    });
+
+    /* ---------- Load more ---------- */
+    loadMoreBtn.addEventListener("click", () => {
+      shown += PAGE_SIZE;
+      render();
+    });
+
+    /* ---------- Render ---------- */
+    function filtered() {
+      return SERIES.filter(s =>
+        (activeBrand === "all" || s.brand === activeBrand) &&
+        (!searchValue || (s.name + " " + s.desc + " " + s.brand).toLowerCase().includes(searchValue))
+      );
     }
-    watchModelSearch.addEventListener("input", applyWatchFilters);
-    applyWatchFilters();
+
+    function render() {
+      // sync pill state
+      filterRow.querySelectorAll(".tab-filter").forEach(b =>
+        b.classList.toggle("is-active", b.dataset.filter === activeBrand));
+
+      const list = filtered();
+      const slice = list.slice(0, shown);
+
+      grid.innerHTML = slice.map(s => `
+        <a href="watch_verient.html?brand=${encodeURIComponent(s.brand)}&series=${encodeURIComponent(s.series)}"
+           class="tab-card" title="Sell Old ${s.name}">
+          <div class="tab-card__image">
+            <img src="${s.img}" alt="${s.name}" loading="lazy"
+                 onerror="this.onerror=null;this.src='${FALLBACK_IMG}'">
+          </div>
+          <h3>${s.name}</h3>
+          <p>${s.desc}</p>
+          <div class="tab-card__price">${s.price}</div>
+        </a>`).join("");
+
+      subtitle.textContent = activeBrand === "all"
+        ? `${list.length} series across ${BRANDS.length} brands — filter or search yours.`
+        : `${list.length} ${activeBrand} series available.`;
+
+      noResult.classList.toggle("is-visible", list.length === 0);
+      loadMoreBtn.style.display = list.length > shown ? "inline-flex" : "none";
+    }
+
+    render();
   </script>
 </body>
 

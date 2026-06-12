@@ -5,22 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Cashygo – Sell your old mobile, laptop, tablet, camera, or smartwatch instantly. Best resale price, free doorstep pickup, instant payment in Bangalore, Delhi, Mumbai, Pune & Hyderabad.">
-  <meta name="theme-color" content="#0d8c60">
-  <meta property="og:title" content="Cashygo – Sell Old Devices. Get Instant Price & Free Pickup">
-  <meta property="og:type" content="website">
-  <link rel="canonical" href="https://cashygo.com/">
-  <title>Cashygo – Bangalore's Most Loved Device Buyback Platform</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Barlow:wght@400;500;600&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    content="Cashygo – Sell your old smartwatch for instant cash. Apple Watch, Samsung Galaxy Watch, Noise, boAt, Fire-Boltt, Amazfit & more. Free doorstep pickup and instant payment.">
+  <title>Cashygo - Sell Smartwatch</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/watch.css">
+  <link rel="stylesheet" href="assets/css/tab_pages.css">
 </head>
 
-<body>
-
+<body class="tab-page">
   <nav class="nav" role="navigation" aria-label="Main navigation">
     <div class="nav-top">
       <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -103,133 +96,164 @@
       </div>
     </div>
   </nav>
-  <main class="watch-page">
 
-  <!-- HERO -->
-  <section class="watch-hero">
-    <div class="watch-hero-content">
-      <span class="watch-badge">
-        <i class="bi bi-smartwatch"></i>
-        Smart Watch Collection
-      </span>
+  <main>
 
-      <h1>Sell Your Smartwatch at Best Price</h1>
-
-      <p>
-        Select your smartwatch series and get an instant resale value.
-        Fast pickup, instant payment and zero hassle.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="watch_brand.html" class="hero-btn secondary">
-          <i class="bi bi-arrow-left"></i>
-          Change Brand
-        </a>
-      </div>
-    </div>
-
-    <div class="watch-hero-image">
-      <img src="assets/images/home-page-img/brand-img/whatch.webp" alt="">
-    </div>
-  </section>
-
-  <!-- FILTER -->
-  <section class="watch-filter-section">
-
-    <div class="section-head">
+    <!-- HERO -->
+    <section class="tab-hero" aria-label="Sell smartwatch hero">
       <div>
-        <h2>Select Watch Series</h2>
-        <p>Choose your smartwatch model</p>
+        <div class="tab-hero__badge"><i class="bi bi-smartwatch"></i> Smartwatch buyback</div>
+        <h1>Sell Your Old Smartwatch for Instant Cash</h1>
+        <p>Select your watch brand, pick the series, share strap and condition details, and get a fast resale
+          estimate with free doorstep pickup and on-the-spot payment.</p>
+        <div class="tab-hero__actions">
+          <a href="watch_model.html" class="tab-btn"><i class="bi bi-lightning-charge"></i> Start price check</a>
+          <a href="calculator.html" class="tab-btn is-soft"><i class="bi bi-calculator"></i> Price calculator</a>
+        </div>
+
+        <div class="gaming-divider">
+          <span>Or choose a brand</span>
+        </div>
+        <div class="gaming-brands">
+          <a href="watch_model.html?brand=Apple" aria-label="Sell Apple Watch">
+            <i class="bi bi-apple" style="font-size:34px;color:#111827"></i>
+          </a>
+          <a href="watch_model.html?brand=Samsung" aria-label="Sell Samsung Galaxy Watch">
+            <img src="assets/images/Brand ALL/image copy.png" alt="Samsung Galaxy Watch">
+          </a>
+          <a href="watch_model.html?brand=Noise" aria-label="Sell Noise watch">
+            <i class="bi bi-soundwave" style="font-size:32px;color:#078f61"></i>
+          </a>
+          <a href="watch_brands" aria-label="View all watch brands" onclick="document.getElementById('watchBrandGrid').scrollIntoView({behavior:'smooth'});return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
+              fill="#0d8c60">
+              <path d="M647-440H160v-80h487L423-744l57-56 320 320-320 320-57-56 224-224Z" />
+            </svg>
+          </a>
+        </div>
       </div>
+
+      <div class="tab-hero__media" aria-hidden="true">
+        <img class="tab-hero-img" src="assets/images/home-page-img/brand-img/whatch.webp" alt="">
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="tab-stats" aria-label="Smartwatch buyback stats">
+      <div class="tab-stat"><strong>60 sec</strong><span>Instant quote</span></div>
+      <div class="tab-stat"><strong>₹35k+</strong><span>Top watch value</span></div>
+      <div class="tab-stat"><strong>Free</strong><span>Doorstep pickup</span></div>
+      <div class="tab-stat"><strong>Safe</strong><span>Unpair & reset support</span></div>
+    </section>
+
+    <!-- BRAND GRID -->
+    <section class="tab-section" aria-label="Smartwatch brands">
+      <div class="tab-section__head">
+        <div>
+          <h2>Select Watch Brand</h2>
+          <p>Pick your watch brand to view supported series.</p>
+        </div>
+        <div class="tab-search">
+          <input type="search" id="watchBrandSearch" placeholder="Search brand...">
+          <i class="bi bi-search"></i>
+        </div>
+      </div>
+
+      <div class="tab-filter-row" id="watchFilterRow" role="group" aria-label="Filter by price segment">
+        <button class="tab-filter is-active" data-filter="all">All</button>
+        <button class="tab-filter" data-filter="premium">Premium</button>
+        <button class="tab-filter" data-filter="budget">Budget</button>
+      </div>
+
+      <div class="tab-grid" id="watchBrandGrid">
+
+        <a href="watch_model.html?brand=Apple" class="tab-card" data-segment="premium">
+          <div class="tab-card__image"><img src="assets/images/watch_img/apple-watch.avif" alt="Apple Watch"></div>
+          <h3>Apple Watch</h3>
+          <div class="tab-card__price">Up to ₹35,000</div>
+        </a>
+
+        <a href="watch_model.html?brand=Samsung" class="tab-card" data-segment="premium">
+          <div class="tab-card__image"><img src="assets/images/watch_img/galaxy-watch.avif" alt="Samsung Galaxy Watch"></div>
+          <h3>Samsung Galaxy Watch</h3>
+          <div class="tab-card__price">Up to ₹28,000</div>
+        </a>
+
+        <a href="watch_model.html?brand=Garmin" class="tab-card" data-segment="premium">
+          <div class="tab-card__image"><img src="assets/images/watch_img/garmin.avif" alt="Garmin"></div>
+          <h3>Garmin</h3>
+          <div class="tab-card__price">Up to ₹25,000</div>
+        </a>
+
+        <a href="watch_model.html?brand=Fitbit" class="tab-card" data-segment="premium">
+          <div class="tab-card__image"><img src="assets/images/watch_img/fitbit.avif" alt="Fitbit"></div>
+          <h3>Fitbit</h3>
+          <div class="tab-card__price">Up to ₹12,000</div>
+        </a>
+
+        <a href="watch_model.html?brand=Amazfit" class="tab-card" data-segment="budget">
+          <div class="tab-card__image"><img src="assets/images/watch_img/amazfit.avif" alt="Amazfit"></div>
+          <h3>Amazfit</h3>
+          <div class="tab-card__price">Up to ₹9,000</div>
+        </a>
+
+        <a href="watch_model.html?brand=Noise" class="tab-card" data-segment="budget">
+          <div class="tab-card__image"><img src="assets/images/watch_img/noise.avif" alt="Noise"></div>
+          <h3>Noise</h3>
+          <div class="tab-card__price">Up to ₹8,000</div>
+        </a>
+
+        <a href="watch_model.html?brand=boAt" class="tab-card" data-segment="budget">
+          <div class="tab-card__image"><img src="assets/images/watch_img/boat.avif" alt="boAt"></div>
+          <h3>boAt</h3>
+          <div class="tab-card__price">Up to ₹6,500</div>
+        </a>
+
+        <a href="watch_model.html?brand=Fire-Boltt" class="tab-card" data-segment="budget">
+          <div class="tab-card__image"><img src="assets/images/watch_img/fire-boltt.avif" alt="Fire-Boltt"></div>
+          <h3>Fire-Boltt</h3>
+          <div class="tab-card__price">Up to ₹5,500</div>
+        </a>
+
+        <a href="watch_model.html?brand=Other" class="tab-card" data-segment="budget">
+          <div class="tab-card__image"><img src="assets/images/watch_img/other-watch.avif" alt="Other smartwatches"></div>
+          <h3>Other Smartwatches</h3>
+          <div class="tab-card__price">Get a quote</div>
+        </a>
+
+      </div>
+
+      <p id="watchNoResult" style="display:none;margin-top:14px;color:#667085;font-size:14px;">
+        No brand matches your search. Try “Apple”, “Noise” or “boAt”.
+      </p>
+    </section>
+  </main>
+
+  <!-- FAQ -->
+  <section class="section" style="max-width:800px" aria-label="Frequently asked questions">
+    <div class="faq-header">
+      <h2>Frequently <span>Asked</span> Questions</h2>
+      <p>Everything you need to know before selling your smartwatch</p>
     </div>
-
-    <div class="brand-filters">
-
-      <button class="brand-pill active">All</button>
-      <button class="brand-pill">Apple</button>
-      <button class="brand-pill">Samsung</button>
-      <button class="brand-pill">Noise</button>
-      <button class="brand-pill">boAt</button>
-      <button class="brand-pill">Fire-Boltt</button>
-      <button class="brand-pill">Amazfit</button>
-
-    </div>
-
+    <details class="faq-item">
+      <summary>How do I sell my smartwatch? <span class="faq-icon">+</span></summary>
+      <div class="faq-answer">Select your watch brand and series, check the price, schedule pickup, and get paid
+        instantly after verification.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Do I need the charger and box? <span class="faq-icon">+</span></summary>
+      <div class="faq-answer">No, but watches with the original charger, strap, and box get a better resale price.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Should I unpair my watch before pickup? <span class="faq-icon">+</span></summary>
+      <div class="faq-answer">Yes, please unpair it from your phone and remove any activation lock. Our pickup
+        executive can guide you through it at your doorstep.</div>
+    </details>
+    <details class="faq-item">
+      <summary>When will I get payment? <span class="faq-icon">+</span></summary>
+      <div class="faq-answer">Payment is processed instantly after device verification during pickup.</div>
+    </details>
   </section>
-
-  <!-- GRID -->
-  <section class="watch-grid">
-
-    <a href="watch_model.html" class="watch-card">
-
-      <div class="watch-card-image">
-        <img src="assets/images/home-page-img/brand-img/whatch.webp">
-      </div>
-
-      <div class="watch-card-content">
-
-        <h3>Apple Watch Series</h3>
-
-        <p>
-          Series, Ultra, SE, GPS & Cellular Models
-        </p>
-
-        <div class="watch-price">
-          Up to ₹35,000
-        </div>
-
-      </div>
-
-    </a>
-
-    <a href="#" class="watch-card">
-
-      <div class="watch-card-image">
-        <img src="assets/images/home-page-img/brand-img/whatch.webp">
-      </div>
-
-      <div class="watch-card-content">
-
-        <h3>Samsung Galaxy Watch</h3>
-
-        <p>
-          Galaxy Watch, Classic & LTE Models
-        </p>
-
-        <div class="watch-price">
-          Up to ₹28,000
-        </div>
-
-      </div>
-
-    </a>
-
-    <a href="#" class="watch-card">
-
-      <div class="watch-card-image">
-        <img src="assets/images/home-page-img/brand-img/whatch.webp">
-      </div>
-
-      <div class="watch-card-content">
-
-        <h3>Noise Watch Series</h3>
-
-        <p>
-          ColorFit, Halo & Calling Watches
-        </p>
-
-        <div class="watch-price">
-          Up to ₹8,000
-        </div>
-
-      </div>
-
-    </a>
-
-  </section>
-
-</main>
-
 
   <footer class="footer" role="contentinfo">
     <div class="footer-inner">
@@ -305,38 +329,41 @@
     </div>
   </footer>
 
-  <div id="loginModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-card">
-      <button class="modal-close" id="closeModalBtn" aria-label="Close">×</button>
-      <h2 class="modal-title" id="modalTitle">🔐 Welcome Back</h2>
-      <div id="mobileStep">
-        <label for="mobileInput">Mobile number</label>
-        <input type="tel" id="mobileInput" name="mobile" placeholder="10-digit mobile number" autocomplete="tel"
-          maxlength="10" aria-required="true">
-        <div class="modal-terms">
-          <label><input type="checkbox" id="termsCheck" name="termsCheck"> I agree to <a href="#">Terms</a></label>
-        </div>
-        <div class="modal-err" id="mobileErr"></div>
-        <button class="modal-submit" type="button" id="sendOtpBtn">Send OTP →</button>
-      </div>
-      <div id="otpStep" style="display:none">
-        <label for="otpInput">6-digit OTP</label>
-        <input type="text" id="otpInput" name="otp" placeholder="Enter OTP" maxlength="6" autocomplete="one-time-code"
-          inputmode="numeric" aria-required="true">
-        <div class="modal-terms">
-          <label><input type="checkbox" id="otpTerms" name="otpTerms"> Accept T&C</label>
-        </div>
-        <div class="modal-err" id="otpErr"></div>
-        <button class="modal-submit" type="button" id="verifyOtpBtn">Verify & Login</button>
-        <button class="modal-back" type="button" id="backBtn">← Back</button>
-        <p class="modal-otp-hint">Demo OTP: 123456</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="toast" id="toast"></div>
-
   <script src="assets/js/script.js"></script>
+  <script>
+    const watchBrandSearch = document.getElementById("watchBrandSearch");
+    const watchBrandCards = document.querySelectorAll("#watchBrandGrid .tab-card");
+    const watchFilters = document.querySelectorAll("#watchFilterRow .tab-filter");
+    const watchNoResult = document.getElementById("watchNoResult");
+
+    let activeSegment = "all";
+
+    function applyWatchFilters() {
+      const value = watchBrandSearch.value.trim().toLowerCase();
+      let visible = 0;
+
+      watchBrandCards.forEach(card => {
+        const matchesSearch = card.textContent.toLowerCase().includes(value);
+        const matchesSegment = activeSegment === "all" || card.dataset.segment === activeSegment;
+        const show = matchesSearch && matchesSegment;
+        card.style.display = show ? "grid" : "none";
+        if (show) visible++;
+      });
+
+      watchNoResult.style.display = visible ? "none" : "block";
+    }
+
+    watchBrandSearch.addEventListener("input", applyWatchFilters);
+
+    watchFilters.forEach(btn => {
+      btn.addEventListener("click", () => {
+        watchFilters.forEach(b => b.classList.remove("is-active"));
+        btn.classList.add("is-active");
+        activeSegment = btn.dataset.filter;
+        applyWatchFilters();
+      });
+    });
+  </script>
 </body>
 
 </html>

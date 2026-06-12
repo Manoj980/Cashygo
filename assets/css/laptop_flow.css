@@ -217,7 +217,7 @@ input {
   align-items: center;
   gap: 12px;
   margin: 0 0 5px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 800;
 }
 
@@ -270,7 +270,7 @@ input {
   place-items: center;
   padding: 10px;
   border-radius: 14px;
-  margin-bottom: 25px;
+  margin-bottom: 
 }
 
 .laptop-select-card__media img {
@@ -302,7 +302,7 @@ input {
   display: grid;
   /* gap: 8px; */
   min-height: 70px;
-  padding: 16px;
+  padding: 5px;
   border: 1.5px solid var(--cg-line);
   border-radius: 14px;
   background: #fff;
@@ -320,18 +320,22 @@ input {
 }
 
 .laptop-option strong {
-  font-size: 15px;
+  font-size: 12px;
+  text-align:center;
+  font-weight: 800;
 }
 
 .laptop-option span {
   color: var(--cg-muted);
   font-size: 12px;
   line-height: 1.45;
+  text-align: center;
 }
 
 .laptop-option i {
   color: var(--cg-green);
   font-size: 22px;
+  text-align: center;
 }
 
 .laptop-summary {
