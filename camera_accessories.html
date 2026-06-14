@@ -4,15 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Cashygo camera functional issue check. Select camera hardware problems to update your final resale quote.">
+  <meta name="description" content="Select camera accessories available with your DSLR or mirrorless camera on Cashygo. Lens, battery, charger, and original bill improve resale value.">
   <meta name="theme-color" content="#0d8c60">
-  <title>Cashygo - Camera Functional Issues</title>
+  <meta property="og:title" content="Cashygo - Camera Accessories Check">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://cashygo.com/camera_accessories.html">
+  <title>Cashygo - Camera Accessories Check</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Barlow:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/camera-issue.css">
+  <link rel="stylesheet" href="assets/css/camera-question.css">
 </head>
 
 <body>
@@ -21,11 +25,9 @@
       <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <i class="bi bi-list"></i>
       </button>
-
       <a href="/" class="nav-logo" aria-label="Cashygo - Go to homepage">
         <img src="assets/images/project-logo/logo-new.svg" alt="Cashygo logo" width="120" height="40">
       </a>
-
       <div class="nav-search" role="search">
         <div class="nav-city" id="cityPicker" tabindex="0" aria-haspopup="listbox" aria-label="Select city">
           <i class="bi bi-geo-alt-fill"></i>
@@ -43,7 +45,6 @@
         <input type="search" id="mainSearch" name="search" placeholder="Search cameras, brands..." autocomplete="off">
         <div class="search-icon" aria-hidden="true"><i class="bi bi-search"></i></div>
       </div>
-
       <button class="nav-login" id="openLoginBtn" aria-label="Sign in to your account">
         <i class="bi bi-person-circle"></i>
         <span>Sign in</span>
@@ -63,7 +64,6 @@
             <li><a href="vivo.html">Vivo</a></li>
           </ul>
         </div>
-
         <div class="dropdown" id="dropTablet">
           <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">Sell Tablet &#8964;</button>
           <ul class="dropdown-menu">
@@ -74,7 +74,6 @@
             <li><a href="realme-tab.html">Realme Tab</a></li>
           </ul>
         </div>
-
         <div class="dropdown" id="dropLaptop">
           <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">Sell Laptop &#8964;</button>
           <ul class="dropdown-menu">
@@ -85,7 +84,6 @@
             <li><a href="acer.html">Acer</a></li>
           </ul>
         </div>
-
         <div class="dropdown" id="dropMac">
           <button class="dropdown-btn" aria-haspopup="true" aria-expanded="false">Sell Mac &#8964;</button>
           <ul class="dropdown-menu">
@@ -95,8 +93,7 @@
             <li><a href="macbook-pro.html">MacBook Pro</a></li>
           </ul>
         </div>
-
-         <a href="#" class="menu-link">Corporate Deals</a>
+        <a href="#" class="menu-link">Corporate Deals</a>
         <a href="calculator.html" class="menu-link">Price Calculator</a>
         <a href="camera_brand.html" class="menu-link">Sell Camera</a>
         <a href="blogs.html" class="menu-link">Blog & Tips</a>
@@ -106,68 +103,89 @@
     </div>
   </nav>
 
-  <main class="page">
-    <div class="crumbs" aria-label="Breadcrumb">
-      <a href="camera_brand.html">Sell camera</a><i class="bi bi-chevron-right"></i>
-      <a href="camera_conation.html">Condition</a><i class="bi bi-chevron-right"></i>
-      <a href="camera_question.html">Issue Check</a><i class="bi bi-chevron-right"></i>
-      <span class="active">Functional Issues</span>
-    </div>
+  <main class="camera-question-page">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="camera_brand.html">Sell camera</a>
+      <i class="bi bi-chevron-right"></i>
+      <a href="camera_model.html">Model</a>
+      <i class="bi bi-chevron-right"></i>
+      <span id="crumbModel">Camera</span>
+      <i class="bi bi-chevron-right"></i>
+      <span class="active">Accessories</span>
+    </nav>
 
-    <section class="page-head" aria-label="Functional issue workflow">
+    <section class="page-head" aria-label="Accessories check workflow">
       <div>
-        <div class="eyebrow"><i class="bi bi-tools"></i> Final Camera Check</div>
-        <h1>Select any <span>functional issues</span></h1>
-        <p class="subtitle">Choose all camera hardware problems that apply. Your quote updates instantly with every selection.</p>
+        <div class="eyebrow"><i class="bi bi-bag-check"></i> Step 3 of 4</div>
+        <h1>What <span>accessories</span> do you have?</h1>
+        <p class="subtitle">Select all accessories available with your camera. Lens, battery, charger, and original bill can improve your resale value.</p>
       </div>
 
       <div class="flow-steps" aria-label="Steps">
-        <div class="flow-step">
-          <strong>1. Model</strong>
-          <span>Brand and series</span>
-        </div>
-        <div class="flow-step">
-          <strong>2. Condition</strong>
-          <span>Shutter and body</span>
-        </div>
-        <div class="flow-step">
-          <strong>3. Issues</strong>
-          <span>Lens and checks</span>
-        </div>
-        <div class="flow-step active">
-          <strong>4. Function</strong>
-          <span>Hardware problems</span>
-        </div>
+        <div class="flow-step done"><strong>1. Brand</strong><span>Choose brand</span></div>
+        <div class="flow-step done"><strong>2. Model</strong><span>Select model</span></div>
+        <div class="flow-step active"><strong>3. Accessories</strong><span>Select accessories</span></div>
+        <div class="flow-step"><strong>4. Condition</strong><span>Body & shutter</span></div>
       </div>
     </section>
 
     <div class="layout">
-      <section>
-        <div class="issue-grid" id="issueGrid"></div>
-        <div class="bottom-bar">
-          <div class="selected-text"><strong id="selectedCount">0</strong> issues selected</div>
-          <button class="continue" id="continueBtn" type="button">Continue</button>
+      <section class="question-section" aria-label="Accessories selection">
+        <div class="question-header">
+          <div class="question-badge">3</div>
+          <h2 class="question-title">Select available accessories</h2>
+        </div>
+        <p class="question-hint">Choose all accessories you have with your camera. Each accessory can add value to your final quote.</p>
+
+        <div class="accessory-grid" id="accessoryGrid"></div>
+
+        <button class="continue-btn" id="continueBtn" type="button" disabled>
+          Continue <i class="bi bi-arrow-right"></i>
+        </button>
+
+        <div class="safe-line">
+          <i class="bi bi-shield-lock"></i>
+          <strong>100% Safe & Secure</strong>
+          <span>Your camera details are used only for quote verification.</span>
         </div>
       </section>
 
       <aside>
         <div class="quote">
           <div class="device">
-            <div class="camera-thumb" aria-hidden="true"><i class="bi bi-camera-fill"></i></div>
+            <div class="camera-icon" aria-hidden="true">
+              <i class="bi bi-camera-fill"></i>
+            </div>
             <div>
-              <h2 id="deviceName">Sony Alpha A7 III</h2>
-              <p id="deviceMeta">Sony - Mirrorless Camera</p>
+              <h2 id="deviceName">Camera Model</h2>
+              <p id="deviceMeta">Brand - Type</p>
             </div>
           </div>
+
           <div class="quote-price">
             <div class="quote-label">Estimated Quote</div>
             <div class="price" id="quotePrice">&#8377;0</div>
-            <div class="deduction" id="deductionText">No functional issue deduction</div>
+            <p class="quote-hint">Price may increase with accessories.</p>
           </div>
-          <div class="summary-list">
-            <div class="summary-row"><span>Base after issue check</span><strong id="basePrice">&#8377;0</strong></div>
-            <div class="summary-row"><span>Functional deduction</span><strong id="functionalDeduction">&#8377;0</strong></div>
-            <div class="summary-row"><span>Selected issues</span><strong id="issueSummary">None</strong></div>
+
+          <div class="selected-list" id="summaryList"></div>
+
+          <div class="trust-row">
+            <div class="trust-item">
+              <i class="bi bi-camera"></i>
+              <span>Expert</span>
+              <p>Camera checks</p>
+            </div>
+            <div class="trust-item">
+              <i class="bi bi-rocket-takeoff"></i>
+              <span>Quick</span>
+              <p>Instant quote</p>
+            </div>
+            <div class="trust-item">
+              <i class="bi bi-award"></i>
+              <span>Trusted</span>
+              <p>50k+ users</p>
+            </div>
           </div>
         </div>
       </aside>
@@ -189,7 +207,6 @@
             <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
-
         <div class="footer-col">
           <h4>SELL</h4>
           <ul>
@@ -200,7 +217,6 @@
             <li><a href="camera_brand.html">Sell Camera</a></li>
           </ul>
         </div>
-
         <div class="footer-col">
           <h4>COMPANY</h4>
           <ul>
@@ -211,7 +227,6 @@
             <li><a href="blogs.html">Blog & Tips</a></li>
           </ul>
         </div>
-
         <div class="footer-col">
           <h4>SUPPORT</h4>
           <ul>
@@ -222,7 +237,6 @@
             <li><a href="#">Terms of Service</a></li>
           </ul>
         </div>
-
         <div class="footer-col footer-contact">
           <h4>CONTACT</h4>
           <address>
@@ -232,7 +246,6 @@
           </address>
         </div>
       </div>
-
       <div class="footer-bottom">
         <div class="footer-links-row">
           <a href="#">Privacy Policy</a>
@@ -251,7 +264,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/camera-issue.js"></script>
+  <script src="assets/js/camera-question.js"></script>
 </body>
 
 </html>

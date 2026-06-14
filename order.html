@@ -11,639 +11,8 @@
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
   <link rel="stylesheet" href="assets/css/style.css">
-  <style>
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    :root {
-      --green: #078f61;
-      --green-dark: #056d4b;
-      --green-soft: #eaf8f2;
-      --ink: #121722;
-      --muted: #667085;
-      --line: #e3ebe7;
-      --bg: #f8faf9;
-      --white: #fff;
-      --danger: #d94343;
-      --warning: #b45309;
-      --warning-bg: #fffbeb;
-      --warning-border: #fde68a;
-      --shadow: 0 18px 42px rgba(13, 72, 54, .12);
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: linear-gradient(180deg, #ffffff 0, var(--bg) 260px, var(--bg) 100%);
-      color: var(--ink);
-      font-family: "DM Sans", Arial, sans-serif;
-    }
-
-    button,
-    input,
-    textarea,
-    select {
-      font-family: inherit;
-    }
-
-    .nav,
-    .footer {
-      --text: #0f172a;
-      --border: #e2e8f0;
-      --white: #fff;
-    }
-
-    .page {
-      width: min(1240px, calc(100% - 48px));
-      margin: 0 auto;
-      padding: 24px 0 48px;
-    }
-
-    .crumbs {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--muted);
-      font-size: 10px;
-      font-weight: 600;
-      margin-bottom: 18px;
-    }
-
-    .crumbs a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .crumbs .active {
-      color: var(--ink);
-      font-weight: 800;
-    }
-
-    .page-head {
-      display: flex;
-      justify-content: space-between;
-      gap: 24px;
-      align-items: end;
-      margin-bottom: 22px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--green);
-      background: #e8f7ef;
-      border: 1px solid #c7ead8;
-      border-radius: 999px;
-      padding: 7px 12px;
-      font-size: 12px;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-
-    h1 {
-      /* margin: 0 0 10px; */
-      font-size: 20px;
-      line-height: 1.08;
-      font-weight: 700;
-    }
-
-    h1 span {
-      color: var(--green);
-    }
-
-    .subtitle {
-      margin: 0;
-      color: #4d5562;
-      max-width: 640px;
-      font-size: 15px;
-      line-height: 1.65;
-      font-weight: 500;
-    }
-
-    .flow-steps {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(96px, 1fr));
-      gap: 10px;
-      min-width: 560px;
-    }
-
-    .flow-step {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      padding: 12px;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, .06);
-    }
-
-    .flow-step strong {
-      display: block;
-      font-size: 13px;
-      margin-bottom: 4px;
-    }
-
-    .flow-step span {
-      display: block;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 360px;
-      gap: 24px;
-      align-items: start;
-    }
-
-    .quote {
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: #fff;
-      box-shadow: 0 8px 26px rgba(17, 24, 39, .07);
-    }
-
-    .panel {
-      /* padding: 24px; */
-    }
-
-    .panel+.panel {
-      margin-top: 18px;
-    }
-
-    .panel-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      /* gap: 16px; */
-      margin-bottom: 18px;
-    }
-
-    .panel-head h2 {
-      margin: 0;
-      font-size: 22px;
-      font-weight: 800;
-    }
-
-    .status-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border-radius: 999px;
-      background: var(--green-soft);
-      color: var(--green);
-      padding: 8px 12px;
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    /* ── Warning alert ── */
-    .alert-price-warning {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      margin-top: 16px;
-      padding: 11px 14px;
-      background: var(--warning-bg);
-      border: 1px solid var(--warning-border);
-      border-radius: 10px;
-      color: var(--warning);
-      font-size: 12.5px;
-      font-weight: 600;
-      line-height: 1.5;
-    }
-
-    .alert-price-warning i {
-      flex-shrink: 0;
-      font-size: 15px;
-      margin-top: 1px;
-    }
-
-    /* ── Pickup type selector ── */
-    .pickup-type-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-
-    .delivery-card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 6px;
-      padding: 16px;
-      border: 1.5px solid var(--line);
-      border-radius: 14px;
-      background: #fff;
-      cursor: pointer;
-      transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
-      overflow: hidden;
-    }
-
-    .delivery-card:hover {
-      border-color: var(--green);
-      box-shadow: 0 8px 20px rgba(7, 143, 97, .08);
-    }
-
-    .delivery-card.active {
-      border-color: var(--green);
-      background: var(--green-soft);
-      box-shadow: 0 10px 22px rgba(7, 143, 97, .12);
-    }
-
-    .delivery-card input[type="radio"] {
-      position: absolute;
-      opacity: 0;
-      pointer-events: none;
-      width: 0;
-      height: 0;
-    }
-
-    .delivery-card .check-mark {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      width: 20px;
-      height: 20px;
-      opacity: 0;
-      transition: opacity .18s ease;
-    }
-
-    .delivery-card.active .check-mark {
-      opacity: 1;
-    }
-
-    /* Fallback check icon when image isn't available */
-    .delivery-card .check-icon {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: var(--green);
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      opacity: 0;
-      transition: opacity .18s ease;
-    }
-
-    .delivery-card.active .check-icon {
-      opacity: 1;
-    }
-
-    .delivery-card .pickup-icon {
-      width: 38px;
-      height: 38px;
-      object-fit: contain;
-      margin-bottom: 2px;
-    }
-
-    /* Fallback icon when image isn't available */
-    .delivery-card .pickup-icon-fallback {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      background: #e8f7ef;
-      color: var(--green);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      margin-bottom: 2px;
-      flex-shrink: 0;
-    }
-
-    .delivery-card h6 {
-      margin: 0;
-      font-size: 14px;
-      font-weight: 800;
-      color: var(--ink);
-      padding-right: 28px;
-    }
-
-    .delivery-card p {
-      margin: 0;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--muted);
-      line-height: 1.4;
-    }
-
-    .delivery-card .badge-fast {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      background: #fef3c7;
-      color: #92400e;
-      border-radius: 999px;
-      padding: 3px 8px;
-      font-size: 11px;
-      font-weight: 800;
-      margin-top: 2px;
-    }
-
-    /* ── Form ── */
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .field {
-      display: grid;
-      gap: 7px;
-    }
-
-    .field.full {
-      grid-column: 1 / -1;
-    }
-
-    .field label {
-      color: #344054;
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .field input,
-    .field textarea,
-    .field select {
-      width: 100%;
-      border: 1.5px solid #dfe5e3;
-      border-radius: 12px;
-      background: #fff;
-      color: var(--ink);
-      font-size: 15px;
-      font-weight: 600;
-      padding: 13px 14px;
-      outline: none;
-    }
-
-    .field textarea {
-      min-height: 94px;
-      resize: vertical;
-    }
-
-    .field input:focus,
-    .field textarea:focus,
-    .field select:focus {
-      border-color: var(--green);
-      box-shadow: 0 0 0 4px rgba(7, 143, 97, .09);
-    }
-
-    .payment-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .option-card {
-      display: grid;
-      gap: 8px;
-      min-height: 104px;
-      border: 1.5px solid var(--line);
-      border-radius: 14px;
-      background: #fff;
-      color: var(--ink);
-      padding: 16px;
-      text-align: left;
-      cursor: pointer;
-      transition: border-color .18s ease, box-shadow .18s ease;
-    }
-
-    .option-card.selected,
-    .option-card:hover {
-      border-color: var(--green);
-      box-shadow: 0 10px 22px rgba(7, 143, 97, .1);
-    }
-
-    .option-card i {
-      color: var(--green);
-      font-size: 24px;
-    }
-
-    .option-card strong {
-      display: block;
-      font-size: 15px;
-      font-weight: 800;
-    }
-
-    .option-card span {
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 600;
-      line-height: 1.35;
-    }
-
-    /* ── Quote sidebar ── */
-    .quote {
-      position: sticky;
-      top: 118px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .device {
-      display: grid;
-      grid-template-columns: 82px 1fr;
-      gap: 16px;
-      align-items: center;
-      padding-bottom: 24px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .device img {
-      width: 72px;
-      height: 100px;
-      object-fit: contain;
-      filter: drop-shadow(0 12px 14px rgba(0, 0, 0, .12));
-    }
-
-    .device h2 {
-      margin: 0 0 8px;
-      font-size: 21px;
-      line-height: 1.2;
-      font-weight: 800;
-    }
-
-    .device p {
-      margin: 0;
-      color: #535c68;
-      font-size: 14px;
-      line-height: 1.4;
-      font-weight: 600;
-    }
-
-    .price-box {
-      padding: 26px 0;
-      text-align: center;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .quote-label {
-      color: #5f6873;
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    .price {
-      margin: 14px 0 0;
-      color: var(--green);
-      font-size: 42px;
-      font-weight: 800;
-      line-height: 1;
-    }
-
-    /* Warning below quote price */
-    .quote-price-warning {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      margin-top: 14px;
-      padding: 10px 12px;
-      background: var(--warning-bg);
-      border: 1px solid var(--warning-border);
-      border-radius: 10px;
-      color: var(--warning);
-      font-size: 11.5px;
-      font-weight: 600;
-      line-height: 1.5;
-    }
-
-    .quote-price-warning i {
-      flex-shrink: 0;
-      font-size: 13px;
-      margin-top: 1px;
-    }
-
-    .summary-list {
-      display: grid;
-      gap: 12px;
-      padding: 22px 0;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .summary-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      color: #4d5562;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .summary-row strong {
-      color: var(--ink);
-      text-align: right;
-    }
-
-    .issue-list {
-      display: grid;
-      gap: 8px;
-      padding-top: 22px;
-      color: #4d5562;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .issue-list strong {
-      color: var(--ink);
-    }
-
-    .confirm {
-      width: 100%;
-      min-height: 54px;
-      margin-top: 22px;
-      border: 0;
-      border-radius: 12px;
-      background: var(--green);
-      color: #fff;
-      font-size: 18px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    .confirm:hover {
-      background: var(--green-dark);
-    }
-
-    .message {
-      display: none;
-      margin-top: 14px;
-      border-radius: 12px;
-      background: var(--green-soft);
-      color: var(--green);
-      padding: 12px;
-      font-size: 14px;
-      font-weight: 800;
-      text-align: center;
-    }
-
-    .message.show {
-      display: block;
-    }
-
-    /* ── Divider label ── */
-    .section-label {
-      font-size: 12px;
-      font-weight: 800;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      margin: 0 0 10px;
-    }
-
-    @media (max-width: 1100px) {
-      .page-head {
-        display: block;
-      }
-
-      .flow-steps {
-        min-width: 0;
-        margin-top: 18px;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .layout {
-        grid-template-columns: 1fr;
-      }
-
-      .quote {
-        position: static;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .page {
-        width: 100%;
-        padding: 5px 10px;
-      }
-
-      .form-grid,
-      .payment-grid,
-      .flow-steps,
-      .pickup-type-grid {
-        grid-template-columns: 1fr;
-        /* display: none; */
-      }
-      .flow-steps{
-        display: none;
-      }
-      .panel-head {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/shared-components.css">
+  <link rel="stylesheet" href="assets/css/order.css">
 </head>
 
 <body>
@@ -755,8 +124,9 @@
       </div>
     </section>
 
-    <div class="layout">
-      <section>
+    <div class="layout" id="orderLayout">
+      <!-- PICKUP SECTION: Hidden initially, shown after clicking "Confirm Pickup" in quote -->
+      <section class="pickup-section section-hidden" id="pickupSection">
 
         <div class="panel">
           <div class="panel-head">
@@ -859,9 +229,14 @@
             </button>
           </div>
         </div>
+
+        <!-- Submit order button in pickup section -->
+        <button class="confirm" id="submitOrderBtn" type="button" style="margin-top: 24px;">Submit Order</button>
+        <div class="message" id="orderSuccessMessage">Order confirmed and saved.</div>
       </section>
 
-      <aside>
+      <!-- QUOTE SECTION: Shown initially -->
+      <aside class="quote-section" id="quoteSection">
         <div class="quote">
           <div class="device">
             <img id="deviceImage" src="assets/images/brand-img/iphone-air.jpeg" alt="iPhone">
@@ -895,7 +270,6 @@
           </div>
 
           <button class="confirm" id="confirmBtn" type="button">Confirm Pickup</button>
-          <div class="message" id="successMessage">Order confirmed and saved.</div>
         </div>
       </aside>
     </div>
@@ -1113,8 +487,32 @@
       };
     }
 
-    /* ── Confirm order ── */
+    /* ── Flow: Confirm Pickup button - show pickup section ── */
     document.getElementById("confirmBtn").addEventListener("click", () => {
+      const quoteSection = document.getElementById("quoteSection");
+      const pickupSection = document.getElementById("pickupSection");
+
+      // Collapse quote section with smooth animation
+      quoteSection.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+      quoteSection.style.opacity = "0";
+      quoteSection.style.transform = "translateY(-20px)";
+
+      setTimeout(() => {
+        quoteSection.classList.add("section-hidden");
+
+        // Show pickup section with animation
+        pickupSection.classList.remove("section-hidden");
+        pickupSection.classList.add("entering");
+
+        // Scroll to pickup section smoothly
+        setTimeout(() => {
+          pickupSection.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 100);
+      }, 300);
+    });
+
+    /* ── Submit order ── */
+    document.getElementById("submitOrderBtn").addEventListener("click", () => {
       const form = document.getElementById("orderForm");
       if (!form.reportValidity()) return;
 
@@ -1137,8 +535,9 @@
       };
 
       sessionStorage.setItem("cashygoOrder", JSON.stringify(order));
-      document.getElementById("successMessage").classList.add("show");
-      document.getElementById("confirmBtn").textContent = "Pickup Confirmed ✓";
+      document.getElementById("orderSuccessMessage").classList.add("show");
+      document.getElementById("submitOrderBtn").textContent = "Order Confirmed ✓";
+      document.getElementById("submitOrderBtn").disabled = true;
     });
 
     setMinPickupDate();
