@@ -244,7 +244,7 @@ input {
 }
 
 .laptop-option-grid.is-four {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  /* grid-template-columns: repeat(4, minmax(0, 1fr)); */
 }
 
 .laptop-option-grid.is-one {
@@ -599,7 +599,7 @@ input {
   .laptop-option-grid,
   .laptop-option-grid.is-three,
   .laptop-issue-grid {
-    grid-template-columns: 1fr;
+    /* grid-template-columns: 1fr; */
   }
 
   .laptop-flow__head h1 {
