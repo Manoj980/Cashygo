@@ -460,8 +460,8 @@ h1 span {
   }
 
   .layout {
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     gap: 14px;
   }
 

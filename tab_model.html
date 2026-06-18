@@ -80,8 +80,8 @@
 
       .tab-hero h1 {
         margin: 14px 0 10px;
-        font-size: 30px;
-        line-height: 1.08;
+        font-size: clamp(22px, 5vw, 30px);
+        line-height: 1.12;
         font-weight: 800;
       }
 
@@ -151,7 +151,7 @@
 
       .tab-section__head h2 {
         margin: 0 0 6px;
-        font-size: 24px;
+        font-size: clamp(19px, 4vw, 24px);
         font-weight: 800;
       }
 
@@ -353,6 +353,7 @@
 
         .tab-hero__media img {
           max-height: 220px;
+          display: none;
         }
 
         .tab-grid {
@@ -366,8 +367,14 @@
           padding: 0 16px;
         }
 
-        .tab-hero h1 {
-          font-size: 24px;
+        .tab-hero {
+          grid-template-columns: 1fr;
+          gap: 14px;
+          padding: 18px 0;
+        }
+
+        .tab-hero__actions {
+          width: 100%;
         }
 
         .tab-section__head {
@@ -377,6 +384,27 @@
         .tab-search {
           margin-top: 12px;
           width: 100%;
+        }
+
+        /* Keep the brand/series pills on one scrollable line instead of
+           stacking into several rows on narrow screens. */
+        .tab-filter-row,
+        .tab-series-row {
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+          padding-bottom: 4px;
+        }
+
+        .tab-filter-row::-webkit-scrollbar,
+        .tab-series-row::-webkit-scrollbar {
+          display: none;
+        }
+
+        .tab-filter,
+        .tab-series {
+          flex: 0 0 auto;
         }
 
         .tab-grid {
@@ -397,24 +425,55 @@
         .tab-card__image img {
           max-height: 120px;
         }
+
+        .section {
+          padding: 0 16px 48px;
+        }
       }
 
-      @media (max-width: 400px) {
+      @media (max-width: 480px) {
+        .tab-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .tab-card {
+          flex-direction: row;
+          align-items: center;
+          height: auto;
+          gap: 14px;
+          text-align: left;
+        }
+
+        .tab-card__image {
+          flex: 0 0 96px;
+          height: 96px;
+        }
+
+        .tab-card__image img {
+          max-height: 96px;
+        }
+
+        .tab-card__body {
+          align-items: flex-start;
+          padding-top: 0;
+        }
+
+        .tab-card h3 {
+          min-height: 0;
+          text-align: left;
+          font-size: 15px;
+          -webkit-line-clamp: 3;
+          line-clamp: 3;
+        }
+      }
+
+      @media (max-width: 360px) {
         .tab-main-section {
           padding: 0 12px;
         }
 
-        .tab-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 10px;
-        }
-
-        .tab-card {
-          height: 180px;
-        }
-
-        .tab-card h3 {
-          font-size: 13px;
+        .tab-hero__actions .tab-btn {
+          width: 100%;
         }
       }
     </style>

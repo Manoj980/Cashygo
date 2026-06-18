@@ -110,8 +110,8 @@
 
       .tab-head h1 {
         margin: 14px 0 10px;
-        font-size: 30px;
-        line-height: 1.08;
+        font-size: clamp(22px, 5vw, 30px);
+        line-height: 1.12;
         font-weight: 800;
       }
 
@@ -408,16 +408,71 @@
           padding: 0 16px;
         }
 
-        .tab-head h1 {
-          font-size: 24px;
+        /* Two compact step chips per row instead of one tall column. */
+        .tab-steps {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 8px;
+        }
+
+        .tab-panel {
+          padding: 16px;
+        }
+
+        .tab-opt-grid {
+          grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+          gap: 10px;
+        }
+
+        .section {
+          padding: 0 16px 48px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .tab-crumbs {
+          padding-top: 16px;
+        }
+
+        /* .tab-steps {
+          grid-template-columns: 1fr 1fr;
+        } */
+
+        .tab-opt-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .tab-opt {
+          padding: 12px;
+        }
+
+        .tab-summary__media {
+          padding: 16px;
+        }
+
+        .tab-summary__media img {
+          max-height: 130px;
+        }
+
+        .tab-summary__body {
+          padding: 16px;
+        }
+
+        .tab-total strong {
+          font-size: 20px;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .tab-main-section {
+          padding: 0 12px;
         }
 
         .tab-steps {
           grid-template-columns: 1fr;
         }
 
-        .tab-panel {
-          padding: 16px;
+        .tab-opt-grid {
+          grid-template-columns: 1fr;
         }
       }
     </style>
