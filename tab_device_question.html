@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap"
       rel="stylesheet"
     />
     <link
@@ -22,6 +22,12 @@
     <link rel="stylesheet" href="assets/css/style.css" />
 
     <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
       :root {
         --green: #078f61;
         --green-dark: #056d4b;
@@ -43,6 +49,7 @@
           var(--bg) 100%
         );
         color: var(--ink);
+        font-family: "DM Sans", Arial, sans-serif;
       }
 
       button,
@@ -152,7 +159,7 @@
       }
 
       h1 {
-        font-size: 30px;
+        font-size: 20px;
         line-height: 1.08;
         font-weight: 800;
       }
@@ -402,26 +409,21 @@
         border-bottom: 1px solid var(--line);
       }
 
-      .device-icon {
-        display: grid;
-        place-items: center;
+      .device img {
         width: min(170px, 70%);
         height: 210px;
-        border-radius: 24px;
-        color: var(--green);
-        font-size: 82px;
-        overflow: hidden;
+        object-fit: contain;
+        filter: drop-shadow(0 18px 22px rgba(0, 0, 0, 0.14));
+        transition: transform 0.2s ease;
       }
 
-      .device-icon img {
-        max-width: 100%;
-        max-height: 210px;
-        object-fit: contain;
+      .device img:hover {
+        transform: scale(1.03);
       }
 
       .device h2 {
         margin: 0 0 8px;
-        font-size: 26px;
+        font-size: 30px;
         line-height: 1.15;
         font-weight: 800;
       }
@@ -527,6 +529,209 @@
         padding: 0 24px 60px;
       }
 
+      /* ── Issue / defect popups (ported from device_question.html) ── */
+      .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        background: rgba(15, 23, 42, 0.46);
+        z-index: 50;
+      }
+
+      .modal-backdrop.show {
+        display: flex;
+      }
+
+      .modal {
+        position: static;
+        inset: auto;
+        display: block;
+        width: min(720px, 100%);
+        max-height: calc(100vh - 48px);
+        border-radius: 18px;
+        background: #fff;
+        box-shadow: 0 30px 70px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        z-index: auto;
+      }
+
+      .modal-head {
+        gap: 20px;
+        padding: 5px 10px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .modal-head h2 {
+        margin: 0;
+        font-size: 22px;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .close {
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--line);
+        border-radius: 50%;
+        background: #fff;
+        cursor: pointer;
+        font-size: 22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal-body {
+        display: grid;
+        gap: 18px;
+        padding: 22px;
+        grid-template-columns: 1fr;
+        max-height: calc(100vh - 140px);
+        overflow-y: auto;
+        background: #f8faf9;
+      }
+
+      .modal-subtitle {
+        margin: -8px 0 2px;
+        color: var(--muted);
+        font-size: 16px;
+        line-height: 1.45;
+        text-align: center;
+      }
+
+      .modal-submit {
+        min-height: 52px;
+        border: 0;
+        border-radius: 12px;
+        background: var(--green);
+        color: #fff;
+        font-size: 18px;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .modal-submit:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+      }
+
+      .screen-modal {
+        width: min(860px, 100%);
+      }
+
+      .screen-grid {
+        display: flex;
+        gap: 14px;
+      }
+
+      .screen-card {
+        display: grid;
+        width: 120px;
+        border: 1px solid #dcebe5;
+        border-radius: 14px;
+        background: #fff;
+        color: var(--ink);
+        text-align: center;
+        cursor: pointer;
+        transition:
+          border-color 0.18s ease,
+          box-shadow 0.18s ease,
+          transform 0.18s ease;
+      }
+
+      .screen-card:hover,
+      .screen-card.selected {
+        border-color: var(--green);
+        box-shadow: 0 12px 26px rgba(7, 143, 97, 0.14);
+        transform: translateY(-1px);
+      }
+
+      .screen-card-img {
+        position: relative;
+        display: grid;
+        place-items: center;
+        min-height: 134px;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .screen-card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .screen-card-img i {
+        position: absolute;
+        right: 12px;
+        bottom: 12px;
+        display: grid;
+        place-items: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        color: #fff;
+        font-size: 18px;
+      }
+
+      .screen-card-title {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 800;
+        line-height: 1.2;
+      }
+
+      .screen-card-price {
+        display: none;
+      }
+
+      .screen-card-price.free {
+        color: var(--green);
+      }
+
+      .card-check {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        display: grid;
+        place-items: center;
+        width: 24px;
+        height: 24px;
+        border: 2px solid #cfd8d5;
+        border-radius: 8px;
+        background: #fff;
+        color: transparent;
+        font-size: 14px;
+        transition: 0.18s ease;
+      }
+
+      .screen-card.selected .card-check {
+        border-color: var(--green);
+        background: var(--green);
+        color: #fff;
+      }
+
+      .touch-card-desc {
+        display: none;
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 500;
+        line-height: 1.35;
+      }
+
+      .screen-selected-text {
+        min-height: 22px;
+        margin: 2px 0 0;
+        color: var(--muted);
+        font-size: 15px;
+        font-weight: 700;
+      }
+
       @media (max-width: 1100px) {
         .cashygo-main-section {
           width: calc(100% - 40px);
@@ -549,6 +754,23 @@
 
         .quote {
           position: static;
+        }
+
+        .screen-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .screen-card {
+          width: auto;
+        }
+
+        .modal {
+          max-height: calc(100vh - 32px);
+        }
+
+        .modal-body {
+          max-height: calc(100vh - 120px);
         }
       }
 
@@ -605,9 +827,8 @@
           font-size: 16px;
         }
 
-        .device-icon {
+        .device img {
           height: 160px;
-          font-size: 62px;
         }
 
         .device h2 {
@@ -650,6 +871,65 @@
         .safe-line i {
           font-size: 20px;
         }
+
+        .screen-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 10px;
+        }
+
+        .screen-card {
+          min-height: 120px;
+          padding: 10px;
+          border-radius: 12px;
+        }
+
+        .screen-card-img {
+          min-height: 96px;
+        }
+
+        .screen-card-img img {
+          width: 58px;
+          height: 82px;
+        }
+
+        .screen-card-title {
+          font-size: 12px;
+        }
+
+        .modal-backdrop {
+          align-items: flex-end;
+          padding: 10px;
+        }
+
+        .modal {
+          width: 100%;
+          max-height: calc(100vh - 20px);
+          border-radius: 18px 18px 12px 12px;
+        }
+
+        .modal-head {
+          padding: 14px 16px;
+        }
+
+        .modal-head h2 {
+          font-size: 17px;
+        }
+
+        .close {
+          width: 36px;
+          height: 36px;
+        }
+
+        .modal-body {
+          gap: 14px;
+          padding: 14px;
+          max-height: calc(70vh - 80px);
+        }
+
+        .modal-submit {
+          min-height: 48px;
+          font-size: 15px;
+        }
       }
 
       @media (max-width: 400px) {
@@ -684,6 +964,11 @@
         .finish {
           font-size: 16px;
           min-height: 48px;
+        }
+
+        .screen-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
         }
       }
     </style>
@@ -847,10 +1132,11 @@
           <div class="eyebrow">
             <i class="bi bi-shield-check"></i> Ownership &amp; Readiness
           </div>
-          <h1>Answer quick checks for your <span>tablet</span></h1>
+          <h1>How's your <span>tablet</span> doing?</h1>
           <p class="subtitle">
-            Answer 5 quick ownership checks. These keep pickup smooth and make
-            sure your accounts and data are handled safely before handover.
+            Answer a few quick functional checks for your tablet/iPad. We'll
+            update your quote instantly as you flag any screen, display, body, or
+            battery defects.
           </p>
         </div>
 
@@ -876,7 +1162,7 @@
             <div class="pips" id="pips" aria-label="Question progress"></div>
             <div class="counter">
               <strong id="doneCount">0</strong> of
-              <span id="totalCount">5</span> done
+              <span id="totalCount">7</span> done
             </div>
           </div>
 
@@ -897,13 +1183,12 @@
         <aside>
           <div class="quote">
             <div class="device">
-              <div class="device-icon" aria-hidden="true">
-                <img
-                  id="deviceImage"
-                  src="assets/images/home-page-img/brand-img/iPad.webp"
-                  alt="Tablet"
-                />
-              </div>
+              <img
+                id="deviceImage"
+                src="assets/images/home-page-img/brand-img/iPad.webp"
+                alt="Tablet"
+                class="cashygo-phone"
+              />
               <div>
                 <h2 id="deviceName">Tablet</h2>
                 <p id="deviceMeta">Brand - Type</p>
@@ -922,7 +1207,7 @@
                 <strong id="answeredStat">0</strong><span>Answered</span>
               </div>
               <div class="stat">
-                <strong id="remainingStat">5</strong><span>Remaining</span>
+                <strong id="remainingStat">7</strong><span>Remaining</span>
               </div>
             </div>
           </div>
@@ -939,6 +1224,220 @@
         </aside>
       </div>
     </main>
+
+    <div
+      class="modal-backdrop"
+      id="screenPopup"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="screenPopupTitle"
+    >
+      <div class="modal screen-modal">
+        <div class="modal-head">
+          <h2 id="screenPopupTitle">Select tablet screen issue</h2>
+          <button
+            class="close"
+            id="closeScreenPopup"
+            type="button"
+            aria-label="Close screen issue popup"
+          >
+            <i class="bi bi-x"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="screen-grid" id="screenIssueGrid"></div>
+          <button
+            class="modal-submit"
+            id="screenIssueSubmit"
+            type="button"
+            disabled
+          >
+            Save screen issue
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal-backdrop"
+      id="displayPopup"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="displayPopupTitle"
+    >
+      <div class="modal screen-modal">
+        <div class="modal-head">
+          <h2 id="displayPopupTitle">Select tablet display issue</h2>
+          <button
+            class="close"
+            id="closeDisplayPopup"
+            type="button"
+            aria-label="Close display issue popup"
+          >
+            <i class="bi bi-x"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="screen-grid" id="displayIssueGrid"></div>
+          <p class="screen-selected-text" id="displayIssueText">
+            Select all display issues that apply.
+          </p>
+          <button
+            class="modal-submit"
+            id="displayIssueSubmit"
+            type="button"
+            disabled
+          >
+            Save display issues
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal-backdrop"
+      id="bodyPopup"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="bodyPopupTitle"
+    >
+      <div class="modal screen-modal">
+        <div class="modal-head">
+          <h2 id="bodyPopupTitle">Select tablet body issue</h2>
+          <button
+            class="close"
+            id="closeBodyPopup"
+            type="button"
+            aria-label="Close body issue popup"
+          >
+            <i class="bi bi-x"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="screen-grid" id="bodyIssueGrid"></div>
+          <p class="screen-selected-text" id="bodyIssueText">
+            Select all body issues that apply.
+          </p>
+          <button
+            class="modal-submit"
+            id="bodyIssueSubmit"
+            type="button"
+            disabled
+          >
+            Save body issues
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal-backdrop"
+      id="touchPopup"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="touchPopupTitle"
+    >
+      <div class="modal screen-modal">
+        <div class="modal-head">
+          <h2 id="touchPopupTitle">Tablet screen replacement</h2>
+          <p class="modal-subtitle">
+            Pick the closest match. Each card uses your selected tablet image.
+          </p>
+          <button
+            class="close"
+            id="closeTouchPopup"
+            type="button"
+            aria-label="Close touch issue popup"
+          >
+            <i class="bi bi-x"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="screen-grid" id="touchIssueGrid"></div>
+          <p class="screen-selected-text" id="touchIssueText">
+            Pick the closest match.
+          </p>
+          <button
+            class="modal-submit"
+            id="touchIssueSubmit"
+            type="button"
+            disabled
+          >
+            Save touch condition
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal-backdrop"
+      id="warrantyPopup"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="warrantyPopupTitle"
+    >
+      <div class="modal screen-modal">
+        <div class="modal-head">
+          <h2 id="warrantyPopupTitle">Select warranty detail</h2>
+          <button
+            class="close"
+            id="closeWarrantyPopup"
+            type="button"
+            aria-label="Close warranty popup"
+          >
+            <i class="bi bi-x"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="modal-subtitle">
+            Choose the warranty proof available for your tablet.
+          </p>
+          <div class="screen-grid" id="warrantyGrid"></div>
+          <p class="screen-selected-text" id="warrantyText">
+            Pick the closest match.
+          </p>
+          <button class="modal-submit" id="warrantySubmit" type="button" disabled>
+            Save warranty detail
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="modal-backdrop"
+      id="batteryPopup"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="batteryPopupTitle"
+    >
+      <div class="modal screen-modal">
+        <div class="modal-head">
+          <h2 id="batteryPopupTitle">Select tablet battery issue</h2>
+          <button
+            class="close"
+            id="closeBatteryPopup"
+            type="button"
+            aria-label="Close battery issue popup"
+          >
+            <i class="bi bi-x"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="screen-grid" id="batteryIssueGrid"></div>
+          <p class="screen-selected-text" id="batteryIssueText">
+            Pick the closest match.
+          </p>
+          <button
+            class="modal-submit"
+            id="batteryIssueSubmit"
+            type="button"
+            disabled
+          >
+            Save battery issue
+          </button>
+        </div>
+      </div>
+    </div>
 
     <section class="section" aria-label="Frequently asked questions">
       <div class="faq-header">
@@ -1133,51 +1632,118 @@
         });
       });
 
-      /* ── Tablet ownership / readiness questions ──
-         These are readiness checks (price-neutral). The displayed quote
-         mirrors assets/js/tab_flow.js so it stays consistent with the rest
-         of the flow. Each answer is merged into cashygoTabSelection. */
+      /* ── Tablet functional / defect questions ──
+         Mirrors the structure of device_question.html (phone), worded for
+         tablets. Defect answers open image-card popups whose selections
+         deduct from the tablet quote.
+
+         Popup-triggering answers (same wiring as the phone page):
+           power   "No"  -> -10000 (dead tablet, score only, no popup)
+           touch   "No"  -> opens touch popup (screen replacement quality)
+           screen  "No"  -> opens screen popup (scratches/cracks)
+           display "Yes" -> opens display popup (spots/lines/discoloration)
+           warranty "Yes" -> opens body popup (dents/scratches/panel)
+           battery "Yes" -> opens battery popup (battery health)
+      */
       const questions = [
         {
-          id: "bill",
-          title: "Do you have the original purchase invoice?",
-          hint: "A bill helps us verify the purchase and speeds up pickup.",
+          id: "power",
+          title: "Does the tablet switch on?",
+          hint: "Please check whether your tablet/iPad powers on and boots normally.",
           opts: ["Yes", "No"],
-          value: { Yes: "Bill available", No: "Bill not available" },
-          icon: "bi-receipt-cutoff",
+          score: { Yes: 0, No: -10000 },
+          value: { Yes: "Switches on", No: "Does not switch on" },
+          label: "Power",
+          icon: "bi-power",
         },
         {
-          id: "lock",
-          title: "Is the account / activation lock removed?",
-          hint: "iCloud, Google, or Samsung lock must be removed before pickup.",
+          id: "touch",
+          title: "Is your tablet's screen original?",
+          hint: "Select Yes if the screen has never been replaced or was replaced by an authorized service center. Select No if it was replaced at a local repair shop.",
           opts: ["Yes", "No"],
-          value: { Yes: "Account lock removed", No: "Account lock active" },
-          icon: "bi-unlock-fill",
+          score: { Yes: 0, No: 0 },
+          value: { Yes: "Original screen", No: "Screen replaced locally" },
+          label: "Original screen",
+          icon: "bi-tablet",
         },
         {
-          id: "data",
-          title: "Is your data backed up for a factory reset?",
-          hint: "Back up photos and files so the tablet can be safely reset.",
+          id: "screen",
+          title: "Is your tablet's touch screen working properly?",
+          hint: "Please check whether your tablet's touchscreen is functioning correctly.",
           opts: ["Yes", "No"],
-          value: { Yes: "Data backed up", No: "Data not backed up" },
-          icon: "bi-cloud-check",
+          score: { Yes: 0, No: 0 },
+          value: { Yes: "Touch works", No: "Touch has issues" },
+          label: "Touch screen",
+          icon: "bi-hand-index-thumb",
+        },
+        {
+          id: "display",
+          title: "Is there any display issue on your tablet?",
+          hint: "Check for spots, lines, discoloration, or background marks on the tablet display.",
+          opts: ["Yes", "No"],
+          score: { Yes: 0, No: 0 },
+          value: { Yes: "Has display issue", No: "Display is clear" },
+          label: "Display issue",
+          icon: "bi-display",
         },
         {
           id: "warranty",
-          title: "Is the tablet still under warranty?",
-          hint: "Select Yes if the manufacturer warranty is still valid.",
+          title: "Is there any damage to your tablet's body?",
+          hint: "Check for dents, cracks, scratches, or a bent panel on the tablet body.",
           opts: ["Yes", "No"],
-          value: { Yes: "Under warranty", No: "Out of warranty" },
-          icon: "bi-patch-check",
+          score: { Yes: 0, No: 0 },
+          value: { Yes: "Has body damage", No: "Body is clean" },
+          label: "Body damage",
+          icon: "bi-tablet-landscape",
         },
-        {
-          id: "charger",
-          title: "Do you have the original charger and box?",
-          hint: "Original charger and packaging can improve your final quote.",
-          opts: ["Yes", "No"],
-          value: { Yes: "Charger and box available", No: "Charger or box missing" },
-          icon: "bi-box-seam",
-        },
+      ];
+
+      /* Defect data arrays — reuse the phone popup images, worded for tablets. */
+      const screenIssues = [
+        { id: "crack", title: "1-2 scratches on screen", icon: "bi-bandaid", image: "assets/images/screen_popup/1-2 scratches on screen.png", price: 4500 },
+        { id: "lines", title: "Chipped corners around screen", icon: "bi-distribute-vertical", image: "assets/images/screen_popup/Chipped Corners Around Screen.png", price: 6500 },
+        { id: "spots", title: "Screen has multiple visible scratches", icon: "bi-circle-half", image: "assets/images/screen_popup/Screen Has Multiple Visible Scratches.png", price: 5800 },
+        { id: "duplicate", title: "Screen glass broken or cracked", icon: "bi-tablet", image: "assets/images/screen_popup/Screen Glass Broken or Cracked.jpeg", price: 7200 },
+      ];
+
+      const displayIssues = [
+        { id: "display-lines", title: "Lines on display", icon: "bi-distribute-vertical", image: "assets/images/display_popup/lines on display.png", price: 6500 },
+        { id: "small-spots", title: "Screen has one or two small spots", icon: "bi-circle-half", image: "assets/images/display_popup/Screen Has One or Two Small Spots.png", price: 4200 },
+        { id: "multiple-spots", title: "Multiple small spots present", icon: "bi-record-circle", image: "assets/images/display_popup/Multiple Small Spots Present on Display.png", price: 5800 },
+        { id: "large-patch", title: "Large patchy spots on display", icon: "bi-bounding-box", image: "assets/images/display_popup/Large Patchy Spots on Display.png", price: 7200 },
+        { id: "light-discoloration", title: "Light discoloration visible", icon: "bi-palette", image: "assets/images/display_popup/Light Discoloration Visible on Screen.png", price: 4800 },
+        { id: "heavy-discoloration", title: "Heavy discoloration visible", icon: "bi-palette-fill", image: "assets/images/display_popup/Heavy Discoloration Visible on Screen.png", price: 6200 },
+        { id: "background-issue", title: "Visible background issue", icon: "bi-layers", image: "assets/images/display_popup/Visible Background Issue on Screen.png", price: 7000 },
+      ];
+
+      const bodyIssues = [
+        { id: "major-dents", title: "Major dents or more than 2", icon: "bi-tablet", image: "assets/images/Body_popup/Major Dents or more than 2.png", price: 1500 },
+        { id: "minor-dents", title: "1-2 minor dents", icon: "bi-tablet", image: "assets/images/Body_popup/1-2 minor dents.png", price: 1800 },
+        { id: "scratches", title: "1-2 scratches", icon: "bi-toggle2-off", image: "assets/images/Body_popup/1-2 scratches.png", price: 1400 },
+        { id: "dents-2-3", title: "2 to 3 dents", icon: "bi-tablet", image: "assets/images/Body_popup/2 tO 3 Dents.png", price: 1600 },
+        { id: "scratches-2-3", title: "2 to 3 scratches", icon: "bi-toggle2-off", image: "assets/images/Body_popup/2 to 3 scratches.png", price: 1900 },
+        { id: "bent-panel", title: "Bent / curved panel", icon: "bi-tablet-landscape", image: "assets/images/Body_popup/Bent_ curved panel.png", price: 1500 },
+        { id: "broken-panel", title: "Broken / cracked side or back panel", icon: "bi-tablet", image: "assets/images/Body_popup/Broken _Cracked Side or Back Panel.png", price: 1500 },
+        { id: "loose-screen", title: "Loose screen (gap in screen and body)", icon: "bi-tablet", image: "assets/images/Body_popup/Loose screen (Gap in screen and body).png", price: 1500 },
+      ];
+
+      const touchIssues = [
+        { id: "genuine", title: "100% genuine original screen", desc: "Screen was never replaced or replaced by authorized service", icon: "bi-tablet", image: "assets/images/popup_img/secreen.jpeg", price: 10000, label: "-₹10,000" },
+        { id: "compatible", title: "High-quality compatible screen", desc: "Touch responds slowly or misses taps", icon: "bi-hand-index-thumb", image: "assets/images/popup_img/secreen.jpeg", price: 6000, label: "-₹6,000" },
+        { id: "budget-copy", title: "Budget copy screen", desc: "Screen taps automatically without touch", icon: "bi-hand-index", image: "assets/images/popup_img/secreen.jpeg", price: 8000, label: "-₹8,000" },
+        { id: "standard-lcd", title: "Standard LCD screen", desc: "Some part of screen is not responding", icon: "bi-bounding-box", image: "assets/images/popup_img/secreen.jpeg", price: 12000, label: "-₹12,000" },
+      ];
+
+      const warrantyDetails = [
+        { id: "gst-bill", title: "GST bill available", desc: "Manufacturer warranty with valid GST invoice", icon: "bi-receipt-cutoff", price: 0, label: "Best proof" },
+        { id: "digital-invoice", title: "Digital invoice", desc: "Invoice is available as email or PDF", icon: "bi-file-earmark-check", price: 0, label: "Accepted" },
+        { id: "no-bill", title: "No bill", desc: "Warranty may not be verified during pickup", icon: "bi-file-earmark-x", price: 1800, label: "-₹1,800" },
+        { id: "expired", title: "Warranty expired", desc: "Manufacturer warranty is no longer active", icon: "bi-shield-x", price: 5000, label: "-₹5,000" },
+      ];
+
+      const batteryIssues = [
+        { id: "battery-health", title: "Battery health 75% to 83%", desc: "Battery backup is weak or a service warning is visible", icon: "bi-battery-half", image: "assets/images/battery_popup/Battery Health 75%25 To 83%25.jpeg", price: 3000, label: "-₹3,000" },
+        { id: "fast-drain", title: "Battery health below 70%", desc: "Charge drops quickly during normal use", icon: "bi-lightning-charge", image: "assets/images/battery_popup/Battery Health Below 70%25.jpeg", price: 2500, label: "-₹2,500" },
       ];
 
       const FALLBACK_SELECTION = {
@@ -1228,10 +1794,48 @@
         if (s.condition === "Damaged") price -= 6500;
         if (s.accessories === "Original charger missing") price -= 1200;
         if (s.accessories === "No charger or box") price -= 2200;
+
+        // Question-level score adjustments (e.g. tablet does not switch on).
+        questions.forEach((question) => {
+          const answer = state.answers[question.id];
+          if (answer && question.score) price += question.score[answer] || 0;
+        });
+
+        // Defect deductions selected from the image-card popups.
+        state.screenIssue.forEach((issue) => {
+          price -= issue.price;
+        });
+        state.displayIssues.forEach((issue) => {
+          price -= issue.price;
+        });
+        state.bodyIssues.forEach((issue) => {
+          price -= issue.price;
+        });
+        state.touchIssue.forEach((issue) => {
+          price -= issue.price;
+        });
+        if (state.warrantyDetail) price -= state.warrantyDetail.price;
+        state.batteryIssue.forEach((issue) => {
+          price -= issue.price;
+        });
+
         return Math.max(Math.round(price / 100) * 100, 0);
       }
 
-      const state = { active: 0, answers: {} };
+      const state = {
+        active: 0,
+        answers: {},
+        screenIssue: [],
+        displayIssues: [],
+        bodyIssues: [],
+        touchIssue: [],
+        warrantyDetail: null,
+        batteryIssue: [],
+      };
+
+      // Image used inside cards that have no dedicated image; set to the
+      // selected tablet image during init (falls back to the iPad asset).
+      let screenDeviceImage = "assets/images/home-page-img/brand-img/iPad.webp";
 
       const pips = document.getElementById("pips");
       const questionWrap = document.getElementById("questions");
@@ -1241,6 +1845,30 @@
       const remainingStat = document.getElementById("remainingStat");
       const quotePrice = document.getElementById("quotePrice");
       const finishBtn = document.getElementById("finishBtn");
+
+      const screenPopup = document.getElementById("screenPopup");
+      const screenIssueGrid = document.getElementById("screenIssueGrid");
+      const screenIssueSubmit = document.getElementById("screenIssueSubmit");
+      const displayPopup = document.getElementById("displayPopup");
+      const displayIssueGrid = document.getElementById("displayIssueGrid");
+      const displayIssueText = document.getElementById("displayIssueText");
+      const displayIssueSubmit = document.getElementById("displayIssueSubmit");
+      const bodyPopup = document.getElementById("bodyPopup");
+      const bodyIssueGrid = document.getElementById("bodyIssueGrid");
+      const bodyIssueText = document.getElementById("bodyIssueText");
+      const bodyIssueSubmit = document.getElementById("bodyIssueSubmit");
+      const touchPopup = document.getElementById("touchPopup");
+      const touchIssueGrid = document.getElementById("touchIssueGrid");
+      const touchIssueText = document.getElementById("touchIssueText");
+      const touchIssueSubmit = document.getElementById("touchIssueSubmit");
+      const warrantyPopup = document.getElementById("warrantyPopup");
+      const warrantyGrid = document.getElementById("warrantyGrid");
+      const warrantyText = document.getElementById("warrantyText");
+      const warrantySubmit = document.getElementById("warrantySubmit");
+      const batteryPopup = document.getElementById("batteryPopup");
+      const batteryIssueGrid = document.getElementById("batteryIssueGrid");
+      const batteryIssueText = document.getElementById("batteryIssueText");
+      const batteryIssueSubmit = document.getElementById("batteryIssueSubmit");
 
       function answeredCount() {
         return questions.filter((q) => state.answers[q.id]).length;
@@ -1261,6 +1889,368 @@
         remainingStat.textContent = Math.max(questions.length - done, 0);
         quotePrice.textContent = rupee.format(currentQuote());
         finishBtn.disabled = done !== questions.length;
+      }
+
+      /* ── Popup helpers (ported from device_question.html) ── */
+      function selectedSummary(items, label) {
+        return items.length
+          ? `${items.length} ${label}${items.length > 1 ? "s" : ""} selected.`
+          : `Select all ${label}s that apply.`;
+      }
+
+      // Which popup (if any) still needs a selection for the current answers.
+      function needsIssuePopup() {
+        if (state.answers.screen === "No" && !state.screenIssue.length)
+          return "screen";
+        if (state.answers.touch === "No" && !state.touchIssue.length)
+          return "touch";
+        if (state.answers.warranty === "Yes" && !state.bodyIssues.length)
+          return "body";
+        if (state.answers.battery === "Yes" && !state.batteryIssue.length)
+          return "battery";
+        if (state.answers.display === "Yes" && !state.displayIssues.length)
+          return "display";
+        return "";
+      }
+
+      function openNextRequiredPopup() {
+        const nextPopup = needsIssuePopup();
+        if (nextPopup === "screen") openScreenPopup();
+        if (nextPopup === "touch") openTouchPopup();
+        if (nextPopup === "body") openBodyPopup();
+        if (nextPopup === "battery") openBatteryPopup();
+        if (nextPopup === "display") openDisplayPopup();
+      }
+
+      // Clear stored defects when an answer no longer requires that popup.
+      function resetDependentPopup(answerId, answerValue) {
+        if (answerId === "screen" && answerValue !== "No")
+          state.screenIssue = [];
+        if (answerId === "touch" && answerValue !== "No")
+          state.touchIssue = [];
+        if (answerId === "warranty" && answerValue !== "Yes")
+          state.bodyIssues = [];
+        if (answerId === "battery" && answerValue !== "Yes")
+          state.batteryIssue = [];
+        if (answerId === "display" && answerValue !== "Yes")
+          state.displayIssues = [];
+      }
+
+      function renderScreenIssues() {
+        screenIssueGrid.innerHTML = screenIssues
+          .map((issue) => {
+            const selected = state.screenIssue.some(
+              (item) => item.id === issue.id,
+            );
+            return `
+          <button class="screen-card ${selected ? "selected" : ""}" type="button" data-screen-issue="${issue.id}">
+            <span class="screen-card-img">
+              <span class="card-check"><i class="bi bi-check-lg"></i></span>
+              <img src="${issue.image || screenDeviceImage}" alt="${issue.title}">
+              <i class="bi ${issue.icon}"></i>
+            </span>
+            <span class="screen-card-title">${issue.title}</span>
+            <span class="screen-card-price">-${rupee.format(issue.price)}</span>
+          </button>`;
+          })
+          .join("");
+
+        screenIssueGrid
+          .querySelectorAll("[data-screen-issue]")
+          .forEach((card) => {
+            card.addEventListener("click", () => {
+              const issue = screenIssues.find(
+                (item) => item.id === card.dataset.screenIssue,
+              );
+              const selected = state.screenIssue.some(
+                (item) => item.id === issue.id,
+              );
+              state.screenIssue = selected
+                ? state.screenIssue.filter((item) => item.id !== issue.id)
+                : [...state.screenIssue, issue];
+              screenIssueSubmit.disabled = !state.screenIssue.length;
+              renderScreenIssues();
+              renderProgress();
+            });
+          });
+      }
+
+      function openScreenPopup() {
+        renderScreenIssues();
+        screenIssueSubmit.disabled = !state.screenIssue.length;
+        screenPopup.classList.add("show");
+      }
+      function closeScreenPopup() {
+        screenPopup.classList.remove("show");
+      }
+
+      function renderDisplayIssues() {
+        displayIssueGrid.innerHTML = displayIssues
+          .map((issue) => {
+            const selected = state.displayIssues.some(
+              (item) => item.id === issue.id,
+            );
+            return `
+          <button class="screen-card ${selected ? "selected" : ""}" type="button" data-display-issue="${issue.id}">
+            <span class="screen-card-img">
+              <span class="card-check"><i class="bi bi-check-lg"></i></span>
+              <img src="${issue.image || screenDeviceImage}" alt="${issue.title}">
+              <i class="bi ${issue.icon}"></i>
+            </span>
+            <span class="screen-card-title">${issue.title}</span>
+            <span class="screen-card-price">-${rupee.format(issue.price)}</span>
+          </button>`;
+          })
+          .join("");
+
+        displayIssueGrid
+          .querySelectorAll("[data-display-issue]")
+          .forEach((card) => {
+            card.addEventListener("click", () => {
+              const issue = displayIssues.find(
+                (item) => item.id === card.dataset.displayIssue,
+              );
+              const selected = state.displayIssues.some(
+                (item) => item.id === issue.id,
+              );
+              state.displayIssues = selected
+                ? state.displayIssues.filter((item) => item.id !== issue.id)
+                : [...state.displayIssues, issue];
+              displayIssueText.textContent = selectedSummary(
+                state.displayIssues,
+                "display issue",
+              );
+              displayIssueSubmit.disabled = !state.displayIssues.length;
+              renderDisplayIssues();
+              renderProgress();
+            });
+          });
+      }
+
+      function openDisplayPopup() {
+        renderDisplayIssues();
+        displayIssueText.textContent = selectedSummary(
+          state.displayIssues,
+          "display issue",
+        );
+        displayIssueSubmit.disabled = !state.displayIssues.length;
+        displayPopup.classList.add("show");
+      }
+      function closeDisplayPopup() {
+        displayPopup.classList.remove("show");
+      }
+
+      function renderBodyIssues() {
+        bodyIssueGrid.innerHTML = bodyIssues
+          .map((issue) => {
+            const selected = state.bodyIssues.some(
+              (item) => item.id === issue.id,
+            );
+            return `
+          <button class="screen-card ${selected ? "selected" : ""}" type="button" data-body-issue="${issue.id}">
+            <span class="screen-card-img">
+              <span class="card-check"><i class="bi bi-check-lg"></i></span>
+              <img src="${issue.image || screenDeviceImage}" alt="${issue.title}">
+              <i class="bi ${issue.icon}"></i>
+            </span>
+            <span class="screen-card-title">${issue.title}</span>
+            <span class="screen-card-price">-${rupee.format(issue.price)}</span>
+          </button>`;
+          })
+          .join("");
+
+        bodyIssueGrid.querySelectorAll("[data-body-issue]").forEach((card) => {
+          card.addEventListener("click", () => {
+            const issue = bodyIssues.find(
+              (item) => item.id === card.dataset.bodyIssue,
+            );
+            const selected = state.bodyIssues.some(
+              (item) => item.id === issue.id,
+            );
+            state.bodyIssues = selected
+              ? state.bodyIssues.filter((item) => item.id !== issue.id)
+              : [...state.bodyIssues, issue];
+            bodyIssueText.textContent = selectedSummary(
+              state.bodyIssues,
+              "body issue",
+            );
+            bodyIssueSubmit.disabled = !state.bodyIssues.length;
+            renderBodyIssues();
+            renderProgress();
+          });
+        });
+      }
+
+      function openBodyPopup() {
+        renderBodyIssues();
+        bodyIssueText.textContent = selectedSummary(
+          state.bodyIssues,
+          "body issue",
+        );
+        bodyIssueSubmit.disabled = !state.bodyIssues.length;
+        bodyPopup.classList.add("show");
+      }
+      function closeBodyPopup() {
+        bodyPopup.classList.remove("show");
+      }
+
+      function renderTouchIssues() {
+        touchIssueGrid.innerHTML = touchIssues
+          .map((issue) => {
+            const selected = state.touchIssue.some(
+              (item) => item.id === issue.id,
+            );
+            return `
+          <button class="screen-card ${selected ? "selected" : ""}" type="button" data-touch-issue="${issue.id}">
+            <span class="screen-card-img">
+              <span class="card-check"><i class="bi bi-check-lg"></i></span>
+              <img src="${issue.image || screenDeviceImage}" alt="${issue.title}">
+              <i class="bi ${issue.icon}"></i>
+            </span>
+            <span class="screen-card-title">${issue.title}</span>
+            <span class="touch-card-desc">${issue.desc}</span>
+            <span class="screen-card-price ${issue.price === 0 ? "free" : ""}">${issue.label}</span>
+          </button>`;
+          })
+          .join("");
+
+        touchIssueGrid.querySelectorAll("[data-touch-issue]").forEach((card) => {
+          card.addEventListener("click", () => {
+            const issue = touchIssues.find(
+              (item) => item.id === card.dataset.touchIssue,
+            );
+            const selected = state.touchIssue.some(
+              (item) => item.id === issue.id,
+            );
+            state.touchIssue = selected
+              ? state.touchIssue.filter((item) => item.id !== issue.id)
+              : [...state.touchIssue, issue];
+            touchIssueText.textContent = selectedSummary(
+              state.touchIssue,
+              "touch issue",
+            );
+            touchIssueSubmit.disabled = !state.touchIssue.length;
+            renderTouchIssues();
+            renderProgress();
+          });
+        });
+      }
+
+      function openTouchPopup() {
+        renderTouchIssues();
+        touchIssueText.textContent = selectedSummary(
+          state.touchIssue,
+          "touch issue",
+        );
+        touchIssueSubmit.disabled = !state.touchIssue.length;
+        touchPopup.classList.add("show");
+      }
+      function closeTouchPopup() {
+        touchPopup.classList.remove("show");
+      }
+
+      function renderWarrantyDetails() {
+        warrantyGrid.innerHTML = warrantyDetails
+          .map((detail) => {
+            const selected = state.warrantyDetail?.id === detail.id;
+            return `
+          <button class="screen-card ${selected ? "selected" : ""}" type="button" data-warranty-detail="${detail.id}">
+            <span class="screen-card-img">
+              <span class="card-check"><i class="bi bi-check-lg"></i></span>
+              <img src="${detail.image || screenDeviceImage}" alt="${detail.title}">
+              <i class="bi ${detail.icon}"></i>
+            </span>
+            <span class="screen-card-title">${detail.title}</span>
+            <span class="touch-card-desc">${detail.desc}</span>
+            <span class="screen-card-price ${detail.price === 0 ? "free" : ""}">${detail.label}</span>
+          </button>`;
+          })
+          .join("");
+
+        warrantyGrid
+          .querySelectorAll("[data-warranty-detail]")
+          .forEach((card) => {
+            card.addEventListener("click", () => {
+              state.warrantyDetail = warrantyDetails.find(
+                (item) => item.id === card.dataset.warrantyDetail,
+              );
+              warrantyText.textContent = state.warrantyDetail.price
+                ? `${state.warrantyDetail.title} selected. Quote reduced by ${rupee.format(state.warrantyDetail.price)}.`
+                : `${state.warrantyDetail.title} selected. No extra deduction.`;
+              warrantySubmit.disabled = false;
+              renderWarrantyDetails();
+              renderProgress();
+            });
+          });
+      }
+
+      function openWarrantyPopup() {
+        renderWarrantyDetails();
+        warrantyText.textContent = state.warrantyDetail
+          ? `${state.warrantyDetail.title} selected.`
+          : "Pick the closest match.";
+        warrantySubmit.disabled = !state.warrantyDetail;
+        warrantyPopup.classList.add("show");
+      }
+      function closeWarrantyPopup() {
+        warrantyPopup.classList.remove("show");
+      }
+
+      function renderBatteryIssues() {
+        batteryIssueGrid.innerHTML = batteryIssues
+          .map((issue) => {
+            const selected = state.batteryIssue.some(
+              (item) => item.id === issue.id,
+            );
+            return `
+          <button class="screen-card ${selected ? "selected" : ""}" type="button" data-battery-issue="${issue.id}">
+            <span class="screen-card-img">
+              <span class="card-check"><i class="bi bi-check-lg"></i></span>
+              <img src="${issue.image || screenDeviceImage}" alt="${issue.title}">
+              <i class="bi ${issue.icon}"></i>
+            </span>
+            <span class="screen-card-title">${issue.title}</span>
+            <span class="touch-card-desc">${issue.desc}</span>
+            <span class="screen-card-price">${issue.label}</span>
+          </button>`;
+          })
+          .join("");
+
+        batteryIssueGrid
+          .querySelectorAll("[data-battery-issue]")
+          .forEach((card) => {
+            card.addEventListener("click", () => {
+              const issue = batteryIssues.find(
+                (item) => item.id === card.dataset.batteryIssue,
+              );
+              const selected = state.batteryIssue.some(
+                (item) => item.id === issue.id,
+              );
+              state.batteryIssue = selected
+                ? state.batteryIssue.filter((item) => item.id !== issue.id)
+                : [...state.batteryIssue, issue];
+              batteryIssueText.textContent = selectedSummary(
+                state.batteryIssue,
+                "battery issue",
+              );
+              batteryIssueSubmit.disabled = !state.batteryIssue.length;
+              renderBatteryIssues();
+              renderProgress();
+            });
+          });
+      }
+
+      function openBatteryPopup() {
+        renderBatteryIssues();
+        batteryIssueText.textContent = selectedSummary(
+          state.batteryIssue,
+          "battery issue",
+        );
+        batteryIssueSubmit.disabled = !state.batteryIssue.length;
+        batteryPopup.classList.add("show");
+      }
+      function closeBatteryPopup() {
+        batteryPopup.classList.remove("show");
       }
 
       function renderQuestions() {
@@ -1307,20 +2297,154 @@
 
         questionWrap.querySelectorAll("[data-answer]").forEach((button) => {
           button.addEventListener("click", () => {
-            const id = button.dataset.id;
-            const option = button.dataset.answer;
-            const question = questions.find((q) => q.id === id);
-            state.answers[id] = option;
-            saveAnswer(id, question.value[option]);
+            const answerId = button.dataset.id;
+            const answerValue = button.dataset.answer;
+            const question = questions.find((q) => q.id === answerId);
+            state.answers[answerId] = answerValue;
+            saveAnswer(answerId, question.value[answerValue]);
+            resetDependentPopup(answerId, answerValue);
             state.active = Math.min(answeredCount(), questions.length - 1);
             renderQuestions();
             renderProgress();
+            const shouldOpenPopup =
+              (answerId === "screen" && answerValue === "No") ||
+              (answerId === "touch" && answerValue === "No") ||
+              (answerId === "display" && answerValue === "Yes") ||
+              (["warranty", "battery"].includes(answerId) &&
+                answerValue === "Yes");
+            if (shouldOpenPopup) {
+              window.setTimeout(openNextRequiredPopup, 120);
+            } else if (answerId !== "esim" && answeredCount() === questions.length) {
+              window.setTimeout(openNextRequiredPopup, 220);
+            }
           });
         });
       }
 
+      /* ── Order summary save (mirrors phone buildOrderSummary) ── */
+      function buildOrderSummary() {
+        const deductions = [];
+        questions.forEach((question) => {
+          const answer = state.answers[question.id];
+          const amount =
+            answer && question.score ? question.score[answer] || 0 : 0;
+          if (amount < 0)
+            deductions.push({ label: question.label, amount: Math.abs(amount) });
+        });
+        state.screenIssue.forEach((issue) =>
+          deductions.push({ label: issue.title, amount: issue.price }),
+        );
+        state.displayIssues.forEach((issue) =>
+          deductions.push({ label: issue.title, amount: issue.price }),
+        );
+        state.bodyIssues.forEach((issue) =>
+          deductions.push({ label: issue.title, amount: issue.price }),
+        );
+        state.touchIssue.forEach((issue) =>
+          deductions.push({ label: issue.title, amount: issue.price }),
+        );
+        if (state.warrantyDetail?.price)
+          deductions.push({
+            label: state.warrantyDetail.title,
+            amount: state.warrantyDetail.price,
+          });
+        state.batteryIssue.forEach((issue) =>
+          deductions.push({ label: issue.title, amount: issue.price }),
+        );
+        return {
+          selection: getSelection(),
+          finalQuote: currentQuote(),
+          answers: { ...state.answers },
+          deductions,
+          completedAt: new Date().toISOString(),
+        };
+      }
+
+      function saveOrderSummary() {
+        sessionStorage.setItem(
+          "cashygoTabIssueSummary",
+          JSON.stringify(buildOrderSummary()),
+        );
+      }
+
+      /* ── Popup close + submit wiring ── */
+      document
+        .getElementById("closeScreenPopup")
+        .addEventListener("click", closeScreenPopup);
+      document
+        .getElementById("closeDisplayPopup")
+        .addEventListener("click", closeDisplayPopup);
+      document
+        .getElementById("closeBodyPopup")
+        .addEventListener("click", closeBodyPopup);
+      document
+        .getElementById("closeTouchPopup")
+        .addEventListener("click", closeTouchPopup);
+      document
+        .getElementById("closeWarrantyPopup")
+        .addEventListener("click", closeWarrantyPopup);
+      document
+        .getElementById("closeBatteryPopup")
+        .addEventListener("click", closeBatteryPopup);
+
+      screenIssueSubmit.addEventListener("click", () => {
+        if (!state.screenIssue.length) return;
+        closeScreenPopup();
+        renderProgress();
+        window.setTimeout(openNextRequiredPopup, 120);
+      });
+      displayIssueSubmit.addEventListener("click", () => {
+        if (!state.displayIssues.length) return;
+        closeDisplayPopup();
+        renderProgress();
+        window.setTimeout(openNextRequiredPopup, 120);
+      });
+      bodyIssueSubmit.addEventListener("click", () => {
+        if (!state.bodyIssues.length) return;
+        closeBodyPopup();
+        renderProgress();
+        window.setTimeout(openNextRequiredPopup, 120);
+      });
+      touchIssueSubmit.addEventListener("click", () => {
+        if (!state.touchIssue.length) return;
+        closeTouchPopup();
+        renderProgress();
+        window.setTimeout(openNextRequiredPopup, 120);
+      });
+      warrantySubmit.addEventListener("click", () => {
+        if (!state.warrantyDetail) return;
+        closeWarrantyPopup();
+        renderProgress();
+        window.setTimeout(openNextRequiredPopup, 120);
+      });
+      batteryIssueSubmit.addEventListener("click", () => {
+        if (!state.batteryIssue.length) return;
+        closeBatteryPopup();
+        renderProgress();
+        window.setTimeout(openNextRequiredPopup, 120);
+      });
+
+      // Close popups when clicking the dark backdrop.
+      [
+        screenPopup,
+        displayPopup,
+        bodyPopup,
+        touchPopup,
+        warrantyPopup,
+        batteryPopup,
+      ].forEach((backdrop) => {
+        backdrop.addEventListener("click", (event) => {
+          if (event.target === backdrop) backdrop.classList.remove("show");
+        });
+      });
+
       finishBtn.addEventListener("click", () => {
         if (finishBtn.disabled) return;
+        if (needsIssuePopup()) {
+          openNextRequiredPopup();
+          return;
+        }
+        saveOrderSummary();
         window.location.href = "tab_device_issu.html";
       });
 
@@ -1339,7 +2463,13 @@
         if (selection.image) {
           img.src = selection.image;
           img.alt = selection.model || "Tablet";
+          screenDeviceImage = selection.image;
         }
+        img.onerror = (event) => {
+          event.currentTarget.src =
+            "assets/images/home-page-img/brand-img/iPad.webp";
+          screenDeviceImage = "assets/images/home-page-img/brand-img/iPad.webp";
+        };
 
         // Restore answers if the user comes back to this step.
         questions.forEach((q) => {

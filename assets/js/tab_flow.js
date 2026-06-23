@@ -141,9 +141,9 @@ if (tabPage === "tab-variant") {
 }
 
 if (tabPage === "tab-condition") {
-  ["condition", "accessories"].forEach(setupTabOptions);
+  setupTabOptions("accessories");
   const next = document.getElementById("continueBtn");
-  enableTabButtonWhen(["condition", "accessories"], next);
+  enableTabButtonWhen(["accessories"], next);
   next.addEventListener("click", () => {
     window.location.href = "tab_device_question.html";
   });
